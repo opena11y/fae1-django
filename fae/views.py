@@ -18,8 +18,6 @@ def index(request, multi=False):
     # Get appropriate title
     if multi:
         title = labels['multi']
-    elif evaluate:
-        title = 'Processing...'
     else:
         title = labels['index']
 

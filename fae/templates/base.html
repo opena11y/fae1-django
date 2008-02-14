@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>{{ site }}: {{ title }}</title>
+<meta name="author" content="Nicholas Hoyt"/>
+<meta name="description" content="{{ site }}: {{ title }}"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="/media/css/fae_screen.css" type="text/css"/>
+<link rel="stylesheet" href="/media/css/fae_django.css" type="text/css"/>
+<link rel="stylesheet" href="/media/css/fae_print.css" type="text/css" media="print"/>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+<!-- FAE v.0.9.4 -->
+<!--[if IE]>
+<style type="text/css">
+#header div.subheader { padding: 0.25em 0 0.5em 0; }
+#header div.subheader ul.top-menu { padding-right: 1em; }
+</style>
+<![endif]-->
+{% block javascript %}
+<script type="text/javascript">
+function getObj(name) {
+  if (document.getElementById) {
+    return document.getElementById(name);
+  }
+  if (document.all) {
+    return document.all[name];
+  }
+  if (document.layers) {
+    return document.layers[name];
+  }
+  return null;
+}
+function newWindow (URL) {
+  var props = "menubar=yes,toolbar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+  var win = window.open (URL, "nw", props);
+  win.focus();
+}
+</script>
+{% endblock %}
+</head>
+<body onload="initDoc()">
+<!-- header -->
+<div id="header">
+<div class="left"><a href="/"><img src="/media/images/fae_logo.gif" alt="fae"/></a></div>
+<div class="subtitle"><span class="large">Functional Accessibility Evaluator</span><br />University of Illinois at Urbana-Champaign</div>
+<div id="uiuc"><img alt="University of Illinois logo" src="/media/images/uiuc_logo.jpg"/></div>
+<div class="subheader">
+<h2 class="hidden">Navigation: Utilities</h2>
+<ul class="top-menu">
+<li><a href="/about/">About FAE</a></li>
+{% if is_logged_in %}
+<li><span class="separator">|</span><a href="/multi/">Multiple URLs</a></li>
+<li><span class="separator">|</span><a href="/myaccount/">My Account</a></li>
+<li><span class="separator">|</span><a href="/logout/">Log Out</a></li>
+{% else %}
+<li><span class="separator">|</span><a href="/register/">Register</a></li>
+<li><span class="separator">|</span><a href="/accounts/login/?next=/">Log In</a></li>
+{% endif %}
+</ul>
+</div>
+</div>
+<!-- sidebar -->
+{% block sidebar %}{% endblock %}
+<!-- main content -->
+<div id="main">
+{% block content %}{% endblock %}
+</div>
+<!-- footer -->
+<div id="footer">
+<hr />
+Copyright &copy; 2005&ndash;{% now "Y" %}, University of Illinois.  All rights reserved.
+<span class="separator">|</span><a href="mailto:fae@cita.uiuc.edu">Contact Us</a>
+<span class="separator">|</span><a href="http://www.vpaa.uillinois.edu/policies/web_privacy.asp?bch=1">Privacy Policy</a>
+<span class="separator">|</span><a href="/about/disclaimer/">Disclaimer</a>
+</div>
+<!--
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1064834-1";
+urchinTracker();
+</script>
+-->
+</body>
+</html>

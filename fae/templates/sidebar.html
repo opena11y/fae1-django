@@ -1,0 +1,44 @@
+{% load menu_item %}
+
+<div id="sidebar">
+<div>
+<h2 class="hidden">Navigation: Site</h2>
+<ul>
+{% menu_item index %}
+{% if is_logged_in %}
+{% menu_item archive %}
+{% endif %}
+</ul>
+</div>
+
+{% if report %}
+<div>
+<h2 class="hidden">Navigation: Report Types</h2>
+<ul>
+{% report_item summary %}
+{% ifequal report.pgcount '1' %}
+{% report_item page %}
+{% else %}
+{% report_item sitewide %}
+{% report_item page %}
+{% prev_next_item %}
+{% report_item menu %}
+{% endifequal %}
+</ul>
+</div>
+
+{% if display_sections %}
+<div>
+<h2 class="hidden">Navigation: Report Sections</h2>
+<ul>
+{% section_item nav %}
+{% section_item text %}
+{% section_item auto %}
+{% section_item style %}
+{% section_item std %}
+</ul>
+</div>
+{% endif %} {# display_sections #}
+
+{% endif %} {# report #}
+</div>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript">
+function initDoc() {
+  var url = getObj('id_url');
+  if (url) { url.focus(); }
+}
+</script>
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+ul.errorlist { margin: 0 0; padding: 0.5em 1.1em; font-weight: bold }
+div.urls label { color: #039; font-weight: bold; font-size: 96% }
+</style>
+
+<h1>{{ title }}</h1>
+<div>
+<p>Use this form to evaluate the functional accessibility of a single web page.</p>
+<p><a href="/register/">Register for a free user account</a>
+to gain access to these additional features:</p>
+<ul>
+<li>Evaluate multiple pages via web crawling</li>
+<li>Generate a Sitewide Report that identifies problem pages</li>
+<li>Save reports in an account-specific Archived Reports list</li>
+</ul>
+</div>
+
+<form action="." method="post">
+
+<div class="urls">
+{% if form.url.errors %}{{ form.url.errors }}{% endif %}
+{{ form.url.label_tag }}<br/>{{ form.url }}
+</div>
+
+<div class="submit">
+<label title="Evaluate"><input type="submit" value="Evaluate"/></label>
+</div>
+
+<div>
+<input type="hidden" name="mode" value="form"/>
+<input type="hidden" name="formid" value="{{ formid }}"/>
+</div>
+
+</form>
+{% endblock %}

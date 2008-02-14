@@ -1,0 +1,1318 @@
+/************************************************************************
+*                                                                       *
+*                  Sinorcaish Screen-based Style Sheet                  *
+*                   Copyright (C) 2004, John Zaitseff                   *
+*                                                                       *
+************************************************************************/
+
+/*
+	Author:  John Zaitseff <J.Zaitseff@zap.org.au>
+	Version: 1.0
+
+   	$ZAPGroupID: sinorcaish/sinorcaish-screen.css,v 1.33 2004/11/18 00:44:33 john Exp $
+
+	This file provides the Sinorcaish style sheet for screen-based user
+	agents (ie, for ordinary Web browsers).  This file conforms to the
+	Cascading Style Sheets 2.1 specification.
+
+	The design of Sinorcaish is influenced by Sinorca (available from the
+	Open Source Web Design site, http://www.oswd.org/), which in turn is
+	based on the Acronis company web site (http://www.acronis.com).  You
+	can find more information about this design from its home page on the
+	ZAP Group web site, http://www.zap.org.au/documents/styles/sinorcaish/.
+
+	This file may be redistributed and/or modified on the condition that
+	the original copyright notice is retained.
+*/
+
+
+/********** Global Styles **********/
+
+				/* The global font size is set to 90% as   */
+				/* most browsers' normal font is too large */
+body {
+	font-family:		Verdana, Arial, Helvetica, sans-serif;
+	font-size:			90%;	/* Allow IE/Win to resize the document */
+	color:				black;
+	background:			#f0f0f0;
+	margin:				0;
+	padding:			0;
+	border:				none;
+}
+
+.hidden {			/* Used for content that should be displayed */
+	/* by non-stylesheet-aware browsers          */
+	display:		none !important;
+}
+
+.notprinted {			/* Used for content that should not be */
+}						/* printed to paper                    */
+
+/* Headings */
+
+h1, h2, h3 {
+	font-weight:		bold;
+	text-align:			left;
+	margin:				0.5em 0 0 0;
+	padding:			0;
+}
+
+h4, h5, h6 {
+	font-weight:		bold;
+	text-align:			left;
+	margin:				0.25em 0 0 0;
+	padding:			0;
+}
+
+h1 { font-size:			175% }
+h2 { font-size:			145% }
+h3 { font-size:			120% }
+h4 { font-size:			105% }
+h5 { font-size:			80%  }
+h6 { font-size:			65%  }
+
+/* Anchors */
+
+a:link {
+	text-decoration: 	none;
+	color:				#0066CC;
+	background:			transparent;
+}
+
+a:visited {
+	text-decoration:	none;
+	color:				#003399;
+	background:			transparent;
+}
+
+a:hover,
+a:active {
+	text-decoration:	underline;
+}
+
+a[name] {
+	text-decoration:	none;
+}
+
+/* Inline elements and classes */
+
+/* This style sheet assumes B, BIG, EM, I, */
+/* SMALL, STRONG, SUB and SUP are defined  */
+/* by the browser as per the HTML4 sample  */
+/* style sheet.                            */
+code,
+kbd,
+pre,
+samp,
+tt {
+	font-family:		"Courier New", Courier, monospace;
+	font-size:			110%;	/* Courier tends to be a little too small */
+}
+
+kbd,
+code.markup,			/* HTML/CSS markup */
+span.markup,			/* Alternative form for HTML/CSS markup */
+.title {				/* Title in floating boxes / left sidebar */
+	font-weight:		bolder;
+}
+
+abbr,
+acronym {
+	font:				inherit;	/* Don't use small-caps, etc. */
+}
+
+.tooltip {
+	cursor:				help;
+	border-bottom:		1px dotted #CCCCCC;
+}
+
+abbr[title],
+acronym[title] {
+	cursor:				help;
+	border-bottom:		1px dotted #CCCCCC;
+}
+
+cite,
+dfn,
+var,
+.fn,					/* Filename */
+.url,					/* Uniform Resource Locator */
+.email {				/* E-mail address */
+	font-style:			italic;
+}
+
+.clearboxes {			/* Clear navboxes and floatboxes */
+	clear:				right;
+}
+
+.unicode {
+	font-family:		"Arial Unicode MS", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+/* Block-inline elements */
+
+img {
+	vertical-align:		baseline;
+	margin:				0;
+	padding:			0;
+	border:				none;
+}
+
+img.left {				/* Left-floating images */
+	margin:				0.75em 1.5em 0.75em 0;
+	float:				left;
+}
+
+img.right {				/* Right-floating images */
+	margin:				0.75em 0 0.75em 1.5em;
+	float:				right;
+}
+
+img.icon16[src] {		/* For 16x16 file-type icons */
+	vertical-align:		-10%;	/* IE/Win cannot handle negative percentages */
+}
+
+del,
+del * {					/* Required for Mozilla */
+	text-decoration:	line-through;
+}
+
+ins,
+ins * {					/* Required for Mozilla */
+	text-decoration:	underline;
+}
+
+
+/* Block elements */
+
+p {
+	margin:				1em 0;
+	padding:			0;
+}
+
+blockquote {			/* Should only be used in main content area, */
+						/* floating boxes or left sidebar.           */
+	margin:				1em 2.5em;
+	padding:			0;
+}
+
+pre {					/* Should only be used in main content area  */
+						/* and floating boxes.                       */
+	line-height:		1.1;
+	margin:				1em 2.5em;
+	padding:			0;
+}
+
+hr {
+	color:				#999999;
+	background:			transparent;
+	height:				1px;	/* Required for IE/Win */
+	margin:				1em 0;
+	padding:			0;
+	border-color:		#999999;
+	border-width:		1px;
+	border-style:		none none solid none;
+}
+
+hr.lighter {			/* Warning: not printed out on paper */
+	color:				#F0F0F0;
+	background:			transparent;
+	border-color:		#F0F0F0;
+}
+
+
+/* Lists */
+
+ol {
+	list-style:			decimal outside;
+	margin:				1em 0;
+	padding:			0 0 0 2.5em;
+}
+
+ol.alpha {
+	list-style-type:	lower-alpha;
+}
+
+ol.number {
+	list-style-type:	decimal;
+}
+
+ul {
+	list-style:			square outside;
+	margin:				1em 0;
+	padding:			0 0 0 2.5em;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+	margin-top:			0;
+	margin-bottom:		0;
+}
+
+ol ul,					/* Override possible browser styles */
+ol ol ul,
+ol ul ul,
+ul ul,
+ul ol ul,
+ul ul ul {
+	list-style:			square outside;
+}
+
+li {
+	margin:				0;
+	padding:			0;
+}
+
+dl {
+	margin:				1em 0;
+	padding:			0;
+}
+
+dt {
+	font:				inherit;	/* Don't make the text bold by default */
+	margin:				1em 0 0.25em 0;
+	padding:			0;
+}
+
+dd {
+	margin:				0 0 1em 2.5em;
+	padding:			0;
+}
+
+
+/* Tables */
+/* Tables should never be used for visual */
+/* formatting: that is the role of CSS!	  */
+
+table.simple {
+	color:				inherit;
+	background:			inherit;	/* Don't make tables transparent */
+	border-collapse:	collapse;
+	border-spacing:		0;
+	empty-cells:		show;
+	margin:				0.5em 2.5em;
+	padding:			0;
+	border:				1px solid #999999;
+}
+
+table.simple caption {
+	text-align:			center;
+	caption-side:		top;
+	margin:				0 2.5em 0.75em;
+	padding:			0;
+	border:				none;
+}
+
+table.simple td,
+table.simple th {
+	text-align:			center;
+	vertical-align:		middle;
+	margin:				0;
+	padding:			0.25em 0.5em;
+	border:				1px solid #999999;
+}
+
+table.simple th,
+table.simple td.highlight,
+table.simple th.highlight {
+	font-weight:		bold;
+	color:				inherit;
+	background:			#F0F0F0;
+}
+
+table.simple td.lighter,
+table.simple th.lighter {
+	color:				inherit;
+	background:			#F8F8F8;
+}
+
+table.simple td.left,
+table.simple th.left {
+	text-align:			left;
+}
+
+table.simple td.center,
+table.simple th.center {
+	text-align:			center;
+}
+
+table.simple td.right,
+table.simple th.right {
+	text-align:			right;
+}
+
+
+/* The following HTML elements should NOT be used in documents using this
+style sheet:
+
+address - use the #footer style instead
+q		- use &ldquo; and &rdquo; instead
+*/
+
+
+/********** Styles for Main Content **********/
+
+#main {
+	text-align:			justify;
+	line-height:		1.5;
+	color:				black;
+	background:			white;
+	margin:				0 0 0 12.5em;
+	padding:			0.5em 1.5em 1em 1em;
+	border-left:		1px solid #999999;
+}
+
+#main h1 {				/* Should be used once, following navhead */
+	color:				#999999;
+	background:			transparent;
+	margin:				0 0 0.5em 0;
+}
+
+#main .highlight {		/* Highlight box (for warnings, etc) */
+	color:				inherit;
+	background:			#F0F0F0;
+	margin:				1em 0;
+	padding:			1em 2.5em;
+	border:				1px solid #999999;
+}
+
+#main .totop {			/* For "Top ^" lines in FAQs, etc */
+	font-size:			90%;
+	text-align:			right;
+	margin:				-0.75em 0 1em 0;
+	padding:			0 0 0.25em 0;
+	border-bottom:		1px solid #F0F0F0;
+}
+
+#main table.simple td.highlight,  /* Else "#main .highlight" will override */
+#main table.simple th.highlight {
+	margin:				0;
+	padding:			0.25em 0.5em;
+}
+
+
+/* Other styles related to the main content */
+
+#mainlink {				/* "Skip to main content" link */
+	display:			none !important;
+}
+
+#navhead {				/* "Path to this page" information */
+						/* Warning: not printed out on paper */
+	font-size:			90%;
+}
+
+#navhead hr {
+	display:			none;
+}
+
+#endmain {
+	visibility:			hidden;
+	clear:				both;	/* Doesn't always work under IE/Win */
+}
+
+
+/********** Styles for Floating Boxes **********/
+
+/* "navbox" is used to provide intra/inter- */
+/* page links; it is NOT printed out on		*/
+/* paper.  "floatbox" is used to provide	*/
+/* floating boxes that may appear anywhere	*/
+/* in the main content; they ARE printed.	*/
+.floatbox,
+.navbox {
+	overflow:			visible;
+	font-size:			95%;
+	line-height:		1.25;
+	margin:				0 0 0.75em 1.5em;
+	padding:			0.5em 1em;
+	border:				1px solid #999999;
+	float:				right;
+	clear:				right;
+}
+
+.floatbox {
+	color:				black;
+	background:			#F0F0F0;
+	width:				35%;
+}
+
+.navbox {
+	text-align:			left;
+	color:				black;
+	background:			white;
+	width:				12.5em;
+}
+
+.floatbox hr,			/* Used for non-stylesheet-aware browsers */
+.navbox hr {
+	display:			none !important;
+}
+
+.floatbox p,
+.navbox p {
+	margin:				0.75em 0;
+	padding:			0;
+}
+
+.floatbox ol,
+.floatbox ul {
+	margin:				0.75em 0;
+	padding:			0 0 0 1.5em;
+}
+
+.navbox ol,
+.navbox ul {
+	margin:				0.5em 0;
+	padding:			0 0 0 1.5em;
+}
+
+.floatbox blockquote {
+	margin:				0.75em 1.5em;
+	padding:			0;
+}
+
+.floatbox pre {
+	font-size:			95%;
+	margin:				0.75em 1.5em;
+	padding:			0;
+}
+
+.floatbox dt {
+	margin:				0.75em 0;
+	padding:			0;
+}
+
+.floatbox dt {
+	margin:				0.75em 0 0.25em 0;
+	padding:			0;
+}
+
+.floatbox dd {
+	margin:				0 0 0.75em 1.5em;
+	padding:			0;
+}
+
+#main .floatbox .highlight {
+	color:				inherit;
+	background:			white;
+	margin:				0.75em 0;
+	padding:			0.75em 1.5em;
+}
+
+#main .floatbox table.simple {
+margin:					0.75em 0;
+}
+
+#main .floatbox table.simple th,
+#main .floatbox table.simple td.highlight,
+#main .floatbox table.simple th.highlight {
+	color:				inherit;
+	background:			white;
+	margin:				0;
+	padding:			0.25em 0.5em;
+}
+
+
+/********** Styles for Header **********/
+
+/* In this style sheet, headers are composed */
+/* of three parts: left, right and subheader */
+/* Left part is ideally an image.			 */
+
+#header {				/* Warning: not printed out on paper */
+	color:				#003399;
+	background:			#8CA8E6;
+}
+
+#header a:link,
+#header a:visited {
+	color:				#003399;
+	background:			transparent;
+}
+
+#header .highlight,
+#header a.highlight:link,
+#header a.highlight:visited {
+	color:				white;
+	background:			transparent;
+}
+
+/* Left part of header (ideally an image but may be a link) */
+
+#header div.left {
+	float:				left;
+	clear:				left;
+}
+
+#header div.left img {
+	display:			block;	/* Otherwise IMG is an inline, causing gaps */
+}
+
+#header div.left,
+#header div.left a:link,
+#header div.left a:visited {
+	font-size:			200%;
+	font-weight:		bold;
+	text-decoration:	none;
+	color:				white;
+	background:			transparent;
+}
+
+#header div.left p {
+	margin:				0 0 0 0.25em;
+	padding:			0;
+}
+
+#header div.left .alt {
+	color:				#FF9800;
+	background:			transparent;
+}
+
+/* Right part of header is for external/global links, search, etc */
+
+#header div.right {
+	font-size:			90%;
+	text-align:			right;
+	margin:				0;
+	padding:			0.5em 1.67em 0 1em;
+	float:				right;
+	clear:				right;
+}
+
+#header div.right a:link,
+#header div.right a:visited {
+	margin:				0;
+	padding:			0 0.5em;
+}
+
+#header div.right form {
+	margin:				0;
+	padding:			0.25em 0 0 0;
+}
+
+#header div.right form input {
+	font-size:			95%;
+	vertical-align:		middle;
+}
+
+/* Subheader for global links */
+
+#header div.subheader {
+	color:				white;
+	background:			#003399;
+	margin:				0;
+	padding:			0.375em 0;
+	clear:				both;
+}
+
+#header div.subheader a:link,
+#header div.subheader a:visited {
+	color:				white;
+	background:			transparent;
+	margin:				0;
+	padding:			0 0.5em;
+}
+
+#header div.subheader .highlight,
+#header div.subheader a.highlight:link,
+#header div.subheader a.highlight:visited {
+	color:				#FDA05E;
+	background:			transparent;
+}
+
+
+/********** Styles for Left Sidebar **********/
+
+#sidebar {				/* Warning: not printed out on paper */
+	width:				12.5em;
+	border-right:		1px solid #999999;
+	float:				left;
+	clear:				both;
+}
+
+#sidebar div {
+	font-size:			95%;
+	text-align:			left;
+	margin:				0;
+	padding:			0.5em 1em;
+	border-bottom:		1px solid #999999;
+}
+
+#sidebar div.lighter {
+	color:				inherit;
+	background:			white;
+}
+
+#sidebar p {
+	margin:				0.5em 0;
+}
+
+#sidebar .title a:link,
+#sidebar .title a:visited {
+	color:				black;
+	background:			transparent;
+}
+
+#sidebar ul {
+	list-style:			none outside;
+	margin:				0.5em 0;
+	padding:			0;
+}
+
+#sidebar ul li {
+	margin:				0;
+	padding:			0.25em 0;
+}
+
+#sidebar ul li.highlight {
+	color:				inherit;
+	background:			white;
+	margin-left:		-1em;
+	margin-right:		-1em;
+	padding-left:		1em;
+	border-top:			1px solid #999999;
+	border-bottom:		1px solid #999999;
+}
+
+#sidebar ul li.highlight-top {
+	color:				inherit;
+	background:			white;
+	margin-left:		-1em;
+	margin-right:		-1em;
+	padding-left:		1em;
+	border-top:			1px solid #999999;
+}
+
+#sidebar ul li.highlight-bottom {
+	color:				inherit;
+	background:			white;
+	margin-left:		-1em;
+	margin-right:		-1em;
+	padding-left:		1em;
+	border-bottom:		1px solid #999999;
+}
+
+#sidebar ul li.highlight a:link,
+#sidebar ul li.highlight a:visited {
+	color:				black;
+	background:			transparent;
+}
+
+
+/********** Styles for Footer **********/
+
+#footer {
+	font-size:			90%;
+	text-align:			left;
+	color:				white;
+	background:			#6381DC;
+	margin:				0;
+	padding:			0.5em 1.67em 0.5em 15.25em;
+	clear:				both;
+}
+
+#footer a:link,
+#footer a:visited {
+	text-decoration:	none;
+	color:				white;
+	background:			transparent;
+}
+
+#footer a:hover,
+#footer a:active {
+	text-decoration:	underline;
+}
+
+
+#footer hr {
+	display:			none !important;
+}
+
+/* End of the Sinorcaish style sheet */
+
+/* Added by Matt Kramer */
+
+/*
+h1 a, h2 a, h3 a, h4 a 
+{
+	font-size: .6em;
+}
+*/
+
+/* Added by N. Hoyt */
+
+.notFound {
+	background-color: yellow;
+	color: red;
+	font-weight: bold;
+}
+
+li.pass {
+	list-style-image:	url(images/pass.jpg);
+}
+
+li.warn {
+	list-style-image:	url(images/warn.jpg);
+}
+
+li.fail {
+	list-style-image:	url(images/fail.jpg);
+}
+
+li.null {
+	list-style-image:	url(images/fail.jpg);
+}
+
+li.disc {
+	list-style-image:	url(images/disc.jpg);
+}
+
+li.pass, li.warn, li.fail, li.null, li.disc {
+	margin-bottom: 0.75em;
+	margin-left: 1.5em;
+}
+
+/* Context Table */
+
+div#context {
+	background-color:	#f0f0f0;
+	border:				1px solid #999;
+	color:				#444;
+	font-size:			100%;
+	margin:				0.5em 0;
+}
+
+div#context table {
+	width:				99%;
+}
+
+div#context table td {
+	padding:			0 0 0 0.2em;
+	vertical-align:		top;
+}
+
+div#context table td.context-1 { width: 65%; }
+div#context table td.context-2 { width: 34%; text-align: right; }
+div#context span.context { padding-left: 2em; }
+
+/* Begin overrides */
+
+#main {
+	text-align:      	left;
+}
+
+#main h1 {
+	color:				#039;
+}
+
+#main h3 {
+	color:				#666;
+}
+
+#header {
+	margin:				0;
+	padding:			3px 0 0 0;
+}
+
+#header div.left {
+	float:				left;
+	width:				6.25em;
+}
+
+#header div.left img {
+	margin:				0;
+	padding:			0.18em 0 0 0.15em;
+}
+
+#header div.left a:link,
+#header div.left a:visited {
+	font-family:		"bitstream vera serif",georgia,serif;
+	font-size:       	180%;
+	font-style:			italic;
+}
+
+#header div.subtitle {
+	float:				left;
+	color:				white;
+	font-size:			100%;
+	font-style:			normal;
+	font-weight:		bold;
+	padding:			0.5em 0 0.75em 1.1em;
+}
+
+#header div.subtitle span.large {
+	font-size:			150%;
+}
+
+#header div.subheader {
+	padding-right:		12px;
+	text-align:			right;
+}
+
+#header div.subheader .highlight,
+#header div.subheader a.highlight:link,
+#header div.subheader a.highlight:visited {
+   color:           	#ddd;
+}
+
+#uiuc {
+	float:				right;
+	padding:			5px 12px 0 0;
+}
+
+#footer {
+	font-size:			80%;
+	padding-left:		17.1em;
+}
+
+.notprinted {
+	display:			none;
+}
+
+dl {
+	margin-left:		2em;
+}
+
+dt {
+	font-style:			italic;
+	margin-bottom:		0;
+	padding-bottom:		0;
+}
+
+.floatbox {
+   width:           	25%;
+}
+
+/* End overrides */
+
+@media screen {
+	span.eval {	
+		display:		inline;
+	}
+}
+
+@media print {
+	span.eval {	
+		display:		inline;
+	}
+}
+
+a.ext {
+	color:				#777;
+	font-size:			75%;
+	font-weight:		normal;
+}
+
+code.elem,
+code.attr,
+code.scr {
+	color:				#039;
+	font-weight:		bold;
+}
+
+fieldset {
+	margin-bottom:		1em;
+}
+
+ul.top-menu {
+	list-style-type:	none;
+	margin:				0;
+	padding:			0;
+}
+
+ul.top-menu li {
+	display:			inline;
+	font-size:			95%;
+}
+
+ul.top-menu li span.separator {
+	color: #ccc;
+}
+
+/* Run FAE */
+
+form {
+	margin:				0;
+	padding:			0;
+}
+
+form div.urls {
+	margin:				0;
+	padding:			0;
+}
+
+form div.notes {
+	margin:				0.3em 0 0.6em 2.5em;
+	padding:			0;
+}
+
+form div.notes ul {
+	margin:				0;
+	padding:			0;
+}
+
+form textarea.textfield,
+form input.textfield {
+	font-family:		inherit;
+	font-size:			inherit;
+}
+
+form div.report-title {
+	margin:				0;
+	padding:			1em 0 0 0;
+}
+
+form div.radio-btns {
+	margin:				0;
+	padding:			1em 0 0 0;
+}
+
+form fieldset.radio-btns {
+	width:				35em;
+	margin:				1em 0 0 0;
+}
+
+form div.submit {
+	margin:				0;
+	padding:			1.5em 0 0 0;
+}
+
+/* Summary Report */
+
+table.summary {
+	border-collapse: collapse;
+}
+
+table.summary td,
+table.summary th {
+	border:				1px solid #999;
+	padding:			2px;
+	vertical-align:		top;
+}
+
+table.summary th {
+	text-align:			left;
+}
+
+table.summary caption {
+	font-size:			120%;
+	font-weight:		bold;
+	margin-top:			0;
+	margin-bottom:		0.5em;
+	padding:			0.25em 2px;
+	text-align:			left;
+}
+
+table.summary td.status,
+table.summary th.status {
+	width:				30%;
+}
+
+table.summary th.pass,
+table.summary th.warn,
+table.summary th.fail,
+table.summary th.disc {
+	text-align:			right;
+	width:				14%;
+}
+
+table.summary td.pct,
+table.summary th.pct {
+	text-align:			right;
+	width:				14%;
+}
+
+table.summary td.section {
+	background-color:	#f0f0f0;
+	font-weight:		bold;
+}
+
+table.summary th.row-header {
+	font-weight:		normal;
+	padding-left:		1.5em;
+	width:				30%;
+}
+
+table.summary th.pass {
+	background-color:	#a6da80;
+}
+
+table.summary th.warn {
+	background-color:	#f3d18f;
+}
+
+table.summary th.fail {
+	background-color:	#e888a9;
+}
+
+table.summary th.disc {
+	background-color:	#ccc;
+}
+
+table.summary .empty {
+	border:				none;
+}
+
+.stat-0 {
+	color:				#333;
+}
+
+.stat-1 {
+	color:				#45a500;
+}
+
+.stat-2 {
+	color:				#e19600;
+}
+
+.stat-3 {
+	color:				#c60044;
+}
+
+.stat-4 {
+	color:				#c60044;
+}
+
+.stat-0,
+.stat-1,
+.stat-2,
+.stat-3,
+.stat-4
+{
+	font-size:			smaller;
+	font-weight:		bold;
+}
+
+span.pct {
+	font-size:			smaller;
+}
+
+th sup, p sup {
+	font-size:			smaller;
+	font-weight:		normal;
+	line-height:		0%;
+}
+
+table.legend {
+	border-collapse:	collapse;
+}
+
+table.legend td,
+table.legend th {
+	border:				1px solid #999;
+	padding:			2px;
+	padding-right:		0.5em;
+}
+
+table.legend th {
+	border-bottom:		1px solid black;
+	text-align:			left;
+}
+
+table.legend td.pct,
+table.legend th.pct {
+	padding-left:		0.5em;
+}
+
+table.legend td.eval,
+table.legend th.eval {
+	padding-left:		0.5em;
+}
+
+div#print-legend {
+	display:			none;
+}
+
+/* Report Archive */
+
+table.archive {
+	margin-top:			0.5em;
+	padding:			0;
+	width:				99%;
+}
+
+table tr.row-highlight {
+	background-color:	#f0f0f0;
+}
+
+table td.selected {
+	border-top:			1px solid #999;
+	border-bottom:		1px solid #999;
+}
+
+table.archive td, table.archive th{
+	padding-top:		2px;
+	padding-bottom:		2px;
+	vertical-align:		top;
+}
+
+table.archive th {
+	border-top:			1px solid #ccc;
+	border-bottom:		1px solid #ccc;
+	font-size:			95%;
+}
+
+table.archive th.archive-1, table.archive td.archive-1 {
+	padding-left:		2px;
+	text-align:			left;
+	white-space:		nowrap;
+	width:				5%;
+}
+
+table.archive th.archive-2, table.archive td.archive-2 {
+	padding-left:		1.5em;
+	text-align:			right;
+	width:				5%;
+}
+
+table.archive th.archive-3, table.archive td.archive-3 {
+	padding-left:		1.5em;
+	width:				85%;
+}
+
+table.archive th.archive-4, table.archive td.archive-4 {
+	padding-right:		2px;
+	padding-left:		1.5em;
+	text-align:			right;
+	width:				5%;
+}
+
+/* List of Pages */
+
+li.menu-highlight {
+	background-color:	#f0f0f0;
+	border-top:			1px solid #999;
+	border-bottom:		1px solid #999;
+}
+
+/* External Link */
+
+a.external span {
+	position:			absolute;
+	left:				-5000px;
+	width:				4000px;
+}
+
+a.external {
+	background:			url(images/external.gif) no-repeat 100% 0;
+	padding:			0 20px 0 0;
+}
+
+ul.urls {
+	margin-top:			0;
+	padding-top:		0;
+}
+
+/* My Account form */
+
+table.userinfo {
+  border-collapse:		collapse;
+  margin-bottom:		0.5em;
+}
+
+table.userinfo caption {
+  font-size:			120%;
+  font-weight:			bold;
+  text-align:			left;
+  padding-bottom:		0.5em;
+}
+
+table.userinfo td,
+table.userinfo th {
+  padding:				0.25em 0.5em;
+}
+
+table.userinfo th {
+  padding-top:			1em;
+  text-align:			left;
+}
+
+table.userinfo td.name {
+  text-align:			right;
+}
+
+table.userinfo h2 {
+  font-size:			120%;
+  margin-top:			0.25em;
+}
+
+input.update {
+  font:					inherit;
+  width:				16em;
+}
+
+input.chgpass {
+  font:					inherit;
+  width:				12em;
+}
+
+input.checkbox {
+  margin:				0 0.25em 2px 0;
+}
+
+.separator {
+	padding-right:		0.375em;
+}
+
+/* Sitewide Report dynamic div display */
+
+ul.results { margin: 0; padding: 0; margin-bottom: 1em;}
+ul.results li {
+  display: inline;
+  margin: 0;
+  padding: 1.5em;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+ul.results li.fail { background-image: url(images/fail.jpg); }
+ul.results li.warn { background-image: url(images/warn.jpg); }
+ul.results li.pass { background-image: url(images/pass.jpg); }
+ul.results li.disc { background-image: url(images/disc.jpg); }
+
+ul.results li a {
+  border: 1px solid white;
+  padding: 1px 2px;
+}
+
+ul.results li a:hover {
+  background-color: #f0f0f0;
+  border-top: 1px solid #f3f3f3;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #f3f3f3;
+  text-decoration: none;
+}
+
+ul.reports-fail, ul.reports-warn, ul.reports-pass, ul.reports-disc
+{ margin-left: 1.5em; padding: 0; }
+
+ul.reports-fail li a, ul.reports-warn li a, ul.reports-pass li a, ul.reports-disc li a
+{ white-space: nowrap; }
+
+ul.reports-fail li a span, ul.reports-warn li a span, ul.reports-pass li a span, ul.reports-disc li a span
+{ font-size: 86%; }
+
+ul.reports-fail li { list-style-image: url(images/fail.jpg); }
+ul.reports-warn li { list-style-image: url(images/warn.jpg); }
+ul.reports-pass li { list-style-image: url(images/pass.jpg); }
+ul.reports-disc li { list-style-image: url(images/disc.jpg); }
+
+.listContainer {
+  display: none;
+  overflow: auto;
+  width: 40em;
+  height: 8em;
+  margin-bottom: 1em;
+  padding: 0 1em 1em;
+  border: 1px solid #ccc;
+}
+.listContainer h4 { margin: 0; }
+.hideList { display: none; }
+
+/* Overrides 5 Feb 2008 */
+div.subtitle, h1, h2 { font-family: georgia, times new roman, serif }
+body { font-family: tahoma, arial, helvetica, sans-serif; font-size: 90%; }

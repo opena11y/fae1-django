@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript">
+function disableRadioButtons(radioGrp, value) {
+  for (var i = 0; i < radioGrp.length; i++) {
+    radioGrp[i].disabled = value;
+  }
+}
+
+function getDepth() {
+  var radioGrp = document.forms[0].depth;
+  for (var i = 0; i < radioGrp.length; i++) {
+    if (radioGrp[i].checked) {
+      return radioGrp[i].value;
+    }
+  }
+}
+
+function updateSpanButtons() {
+  var depth = getDepth();
+  var radioGrp = document.forms[0].span;
+  if (depth == 0) {
+    radioGrp[0].checked = true;
+    disableRadioButtons(radioGrp, true);
+  }
+  else {
+    disableRadioButtons(radioGrp, false);
+  }
+}
+
+function initDoc() {
+  var url = getObj('id_url');
+  if (url) { url.focus(); }
+
+  var radioGrp = document.forms[0].depth;
+  for (var i = 0; i < radioGrp.length; i++) {
+    if (document.addEventListener) {
+      radioGrp[i].addEventListener("change", updateSpanButtons, false);
+    }
+    else if (document.attachEvent) {
+      radioGrp[i].attachEvent("onclick", updateSpanButtons);
+    }
+  }
+  updateSpanButtons();
+}
+</script>
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+div.radio-btns ul { list-style-type: none; margin: 0 0; padding: 0.5em 0 }
+ul.errorlist { margin: 0 0; padding: 0.5em 1.1em; font-weight: bold }
+div.urls label, div.report-title label, form legend label { color: #039 ; font-weight: bold; font-size: 96% }
+div.urls label, div.report-title label { padding-left: 1.1em }
+div.urls input, div.report-title input { padding-left: 0.9em }
+</style>
+
+<h1>{{ title }}</h1>
+<div>
+<p>Use this form to evaluate the functional accessibility of one or more web pages starting at the specified URL. The generated report will be saved in the <a href="/archive/">Archived Reports</a> list. See <a href="/about/">About FAE</a> for more information.</p>
+</div>
+
+<form action="." method="post">
+
+<div class="urls">
+{% if form.url.errors %}{{ form.url.errors }}{% endif %}
+{{ form.url.label_tag }}<br/>{{ form.url }}
+</div>
+
+<div class="report-title" style="padding-top: 1.5em">
+{% if form.title.errors %}{{ form.title.errors }}{% endif %}
+{{ form.title.label_tag }}<br/>{{ form.title }}
+</div>
+
+<div class="radio-btns">
+{% if form.depth.errors %}{{ form.depth.errors }}{% endif %}
+<fieldset class="radio-btns">
+<legend>{{ form.depth.label_tag }}</legend>
+{{ form.depth }}
+</fieldset>
+</div>
+
+<div class="radio-btns">
+{% if form.span.errors %}{{ form.span.errors }}{% endif %}
+<fieldset class="radio-btns">
+<legend>{{ form.span.label_tag }}</legend>
+{{ form.span }}
+</fieldset>
+</div>
+
+<div class="submit">
+<label title="Evaluate"><input type="submit" value="Evaluate"/></label>
+</div>
+
+<div>
+<input type="hidden" name="mode" value="form"/>
+<input type="hidden" name="formid" value="{{ formid }}"/>
+</div>
+
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript">
+function initDoc() {}
+</script>
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<div class="floatbox">
+<h2 class="hidden">Navigation: About FAE</h2>
+<ul>
+<li><a href="/about/overview/">{{ subtitle.overview }}</a></li>
+<li><a href="/about/rules/">{{ subtitle.rules }}</a></li>
+<li><a href="/about/users/">{{ subtitle.users }}</a></li>
+<li><a href="/about/future/">{{ subtitle.future }}</a></li>
+<li><a href="/about/versions/">{{ subtitle.versions }}</a></li>
+<li><a href="/about/disclaimer/">{{ subtitle.disclaimer }}</a></li>
+</ul>
+</div>
+
+{% include content %}
+{% endblock %}

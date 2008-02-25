@@ -1,7 +1,6 @@
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
 import datetime
@@ -47,10 +46,10 @@ def index_user(request, ctx):
     if request.method == 'POST':
         form = DepthEvalForm(request.POST)
         if form.is_valid():
-            response.set_cookie('url', form.clean_data['url'])
-            response.set_cookie('title', form.clean_data['title'])
-            response.set_cookie('depth', form.clean_data['depth'])
-            response.set_cookie('span', form.clean_data['span'])
+            response.set_cookie('url', form.cleaned_data['url'])
+            response.set_cookie('title', form.cleaned_data['title'])
+            response.set_cookie('depth', form.cleaned_data['depth'])
+            response.set_cookie('span', form.cleaned_data['span'])
     else:
         init_values = {}
         if 'url' in request.COOKIES:
@@ -252,6 +251,5 @@ def get_report_info(request, rptid):
 
 #----------------------------------------------------------------
 def logout(request):
-    auth.logout(request)
-    # Redirect to a success page.
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+    from django.contrib.auth.views import logout
+    return logout(request, next_page='/')

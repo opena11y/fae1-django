@@ -1,18 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Log In</h1>
 
 {% if form.has_errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 <form method="post" action=".">
-<table>
-<tr><td><label for="id_username">Username:</label></td><td>{{ form.username }}</td></tr>
-<tr><td><label for="id_password">Password:</label></td><td>{{ form.password }}</td></tr>
-</table>
 
-<input type="submit" value="login" />
+<div style="margin-top: 0.375em">
+<label for="id_username">Username:</label><br/>
+{{ form.username }}
+</div>
+
+<div style="margin-top: 0.75em">
+<label for="id_password">Password:</label><br/>
+{{ form.password }}
+</div>
+
+<div style="margin-top: 0.75em; margin-bottom: 0.375em">
+<input type="submit" value="Log In"/>
+</div>
+
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 

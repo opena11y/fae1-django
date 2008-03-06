@@ -51,8 +51,6 @@ class UserProfile(models.Model):
     user          = models.ForeignKey(User, unique=True)
     acct_type     = models.IntegerField(choices=ACCT_TYPE_CHOICES)
     org           = models.ForeignKey(Organization)
-    reg_date      = models.DateTimeField()
-    reg_key       = models.CharField(max_length=30)
 
     def __str__(self):
         return self.user.username

@@ -20,11 +20,11 @@ urlpatterns = patterns('',
     (r'^about/$', views.about),
     (r'^about/(\w+)/$', views.about),
 
-    # Authentication
-    (r'^logout/$', views.logout),
+    # Authentication (following URL overrides mapping in registration.urls)
+    (r'^accounts/logout/$', views.logout),
 
-    # Next mapping expects login.html in templates/registration
-    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    # Registration app (includes account management)
+    (r'^accounts/', include('registration.urls')),
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),

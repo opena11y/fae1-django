@@ -50,6 +50,10 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 # Associate FAE's UserProfile model with the User model in the auth middleware
 AUTH_PROFILE_MODULE = 'fae.userprofile'
 
+# Registration application settings:
+ACCOUNT_ACTIVATION_DAYS = 14
+DEFAULT_FROM_EMAIL = 'do-not-reply@cita.uiuc.edu'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '+&x+wo@t$y24bu5k+d+7z1vzkt33wal#-$)onqjp$_5pss4%3v'
 
@@ -73,7 +77,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    # "/home/nhoyt/src/wamt/project/templates",
+    "/home/nhoyt/src/wamt/project/templates",
 )
 
 INSTALLED_APPS = (
@@ -83,4 +87,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'project.fae',
+    'registration',
 )

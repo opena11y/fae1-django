@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 import datetime
-from labels import labels
+from labels import labels, site_name
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 
 def index(request, multi=False):
@@ -24,7 +24,7 @@ def index(request, multi=False):
     context = {
         'page_type': 'index',
         'is_logged_in': request.user.is_authenticated(),
-        'site': labels['site'],
+        'site_name': site_name,
         'title': title,
         }
     if report_info: context['report'] = report_info
@@ -129,7 +129,7 @@ def archived_reports(request):
     c = {
         'page_type': 'archive',
         'is_logged_in': request.user.is_authenticated(),
-        'site': labels['site'],
+        'site_name': site_name,
         'title': labels['archive'],
         }
     if report_info: c['report'] = report_info
@@ -193,7 +193,7 @@ def report(request, rptid, type=None, section=None, pageid=None):
     c = {
         'page_type': 'report',
         'is_logged_in': request.user.is_authenticated(),
-        'site': labels['site'],
+        'site_name': site_name,
         'title': title,
         'report': report_info
         }
@@ -217,7 +217,7 @@ def about(request, content_id='overview'):
     ctx = {
         'page_type': 'about',
         'is_logged_in': request.user.is_authenticated(),
-        'site': labels['site'],
+        'site_name': site_name,
         'title': title,
         'subtitle': labels['subtitle'],
         'content': content,

@@ -1,3 +1,7 @@
+from django.contrib.sites.models import Site
+
+site_name = Site.objects.get_current().name
+
 reports = {
     'summary': 'Summary Report',
     'sitewide': 'Sitewide Report',
@@ -32,5 +36,4 @@ labels = {
     'report': reports,    
     'section': sections,
     'subtitle': subtitles,
-    'site': 'Functional Accessibility Evaluator',
     }

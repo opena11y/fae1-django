@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Functional Accessibility Evaluator: Account Registration</title>{% endblock %}
+
+{% block content %}
+<h1>Account Registration</h1>
+
+<h2>Step 1 of 2</h2>
+
+<form method="post" action=".">
+
+<div style="margin-top: 0.375em">
+{% if form.username.errors %}{{ form.username.errors }}{% endif %}
+<label for="id_username">Username:</label><br/>
+{{ form.username }}
+</div>
+
+<div style="margin-top: 0.75em">
+{% if form.email.errors %}{{ form.email.errors }}{% endif %}
+<label for="id_email">E-mail:</label><br/>
+{{ form.email }}
+</div>
+
+<div style="margin-top: 0.75em">
+{% if form.password1.errors %}{{ form.password1.errors }}{% endif %}
+<label for="id_password1">Password:</label><br/>
+{{ form.password1 }}
+</div>
+
+<div style="margin-top: 0.75em">
+{% if form.password2.errors %}{{ form.password2.errors }}{% endif %}
+<label for="id_password2">Reenter password:</label><br/>
+{{ form.password2 }}
+</div>
+
+<div style="margin-top: 0.75em; margin-bottom: 0.375em">
+<input type="submit" value="Submit - Step 1"/>
+</div>
+
+</form>
+
+<p>Please note:</p>
+<ul>
+<li>All fields are required.</li>
+<li>A message will be sent to the e-mail address you provide.</li>
+<li>Please select the link in the message you receive to complete your registration.</li>
+</ul>
+
+{% endblock %}

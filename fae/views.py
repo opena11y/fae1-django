@@ -1,5 +1,5 @@
 from django.template.loader import get_template
-from django.template import Context
+from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
@@ -7,38 +7,18 @@ import datetime
 from labels import labels, site_name
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 
-def index(request, multi=False):
+#----------------------------------------------------------------
+def index(request):
     """
     Serve the appropriate Run FAE page based on the user's login status.
     """
-    # Get latest report parameters if they exist
-    report_info = request.session.get('report', {})
-
-    # Get appropriate title
-    if multi:
-        title = labels['multi']
-    else:
-        title = labels['index']
-
-    # Set up initial context values
-    context = {
-        'page_type': 'index',
-        'is_logged_in': request.user.is_authenticated(),
-        'site_name': site_name,
-        'title': title,
-        }
-    if report_info: context['report'] = report_info
-
     if request.user.is_authenticated():
-        if multi:
-            return index_multi(request, context)
-        else:
-            return index_user(request, context)
+        return index_user(request)
     else:
-        return index_guest(request, context)
+        return index_guest(request)
 
 #----------------------------------------------------------------
-def index_user(request, ctx):
+def index_user(request):
 
     # Create response object for saving cookie values
     response = HttpResponse()
@@ -50,6 +30,7 @@ def index_user(request, ctx):
             response.set_cookie('title', form.cleaned_data['title'])
             response.set_cookie('depth', form.cleaned_data['depth'])
             response.set_cookie('span', form.cleaned_data['span'])
+            # TODO: save fields to database...
     else:
         init_values = {}
         if 'url' in request.COOKIES:
@@ -62,17 +43,41 @@ def index_user(request, ctx):
             init_values['span'] = request.COOKIES['span']
         form = DepthEvalForm(initial=init_values)
 
-    # Add the appropriate form to the context
-    ctx['form'] = form
+    context = {
+        'page_type': 'index',
+        'title': labels['index'],
+        'form': form,
+        }
 
     # Return response
     t = get_template('index_user.html')
-    html = t.render(Context(ctx))
+    html = t.render(RequestContext(request, context))
     response.write(html)
     return response
 
 #----------------------------------------------------------------
-def index_multi(request, ctx):
+def index_guest(request):
+
+    if request.method == 'POST':
+        form = BasicEvalForm(request.POST)
+        if form.is_valid(): pass
+    else:
+        form = BasicEvalForm()
+
+    context = {
+        'page_type': 'index',
+        'title': labels['index'],
+        'form': form,
+        }
+
+    # Return response
+    t = get_template('index_guest.html')
+    html = t.render(RequestContext(request, context))
+    return HttpResponse(html)
+
+#----------------------------------------------------------------
+@login_required
+def index_multi(request):
 
     # Create response object for saving cookie values
     response = HttpResponse()
@@ -90,31 +95,17 @@ def index_multi(request, ctx):
             init_values['titles'] = request.COOKIES['titles']
         form = MultiEvalForm(initial=init_values)
 
-    # Add the appropriate form to the context
-    ctx['form'] = form
+    context = {
+        'page_type': 'index',
+        'title': labels['index'],
+        'form': form,
+        }
 
     # Return response
     t = get_template('index_multi.html')
-    html = t.render(Context(ctx))
+    html = t.render(RequestContext(request, context))
     response.write(html)
     return response
-
-#----------------------------------------------------------------
-def index_guest(request, ctx):
-
-    if request.method == 'POST':
-        form = BasicEvalForm(request.POST)
-        if form.is_valid(): pass
-    else:
-        form = BasicEvalForm()
-
-    # Add the appropriate form to the context
-    ctx['form'] = form
-
-    # Return response
-    t = get_template('index_guest.html')
-    html = t.render(Context(ctx))
-    return HttpResponse(html)
 
 #----------------------------------------------------------------
 @login_required
@@ -122,21 +113,14 @@ def archived_reports(request):
     """
     Display a list of the user's currently archived reports.
     """
-    # Get latest report parameters if they exist
-    report_info = request.session.get('report', {})
-
-    # Set up context
-    c = {
+    context = {
         'page_type': 'archive',
-        'is_logged_in': request.user.is_authenticated(),
-        'site_name': site_name,
         'title': labels['archive'],
         }
-    if report_info: c['report'] = report_info
 
     # Return response
     t = get_template('archive.html')
-    html = t.render(Context(c))
+    html = t.render(RequestContext(request, context))
     return HttpResponse(html)
 
 #----------------------------------------------------------------
@@ -190,43 +174,33 @@ def report(request, rptid, type=None, section=None, pageid=None):
         title += ': ' + labels['section'][report_info['section']]
 
     # Set up context
-    c = {
+    context = {
         'page_type': 'report',
-        'is_logged_in': request.user.is_authenticated(),
-        'site_name': site_name,
         'title': title,
-        'report': report_info
         }
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
-        c['display_sections'] = True
+        context['display_sections'] = True
 
     # Return response
     t = get_template('report.html')
-    html = t.render(Context(c))
+    html = t.render(RequestContext(request, context))
     return HttpResponse(html)
 
 #----------------------------------------------------------------
 def about(request, content_id='overview'):
-    # Get latest report parameters if they exist
-    report_info = request.session.get('report', {})
-
-    content = 'about/' + content_id + '.html'
     title = labels['about'] + ': ' + labels['subtitle'][content_id]
+    content = 'about/' + content_id + '.html'
 
-    # Set up  context values
-    ctx = {
+    context = {
         'page_type': 'about',
-        'is_logged_in': request.user.is_authenticated(),
-        'site_name': site_name,
         'title': title,
         'subtitle': labels['subtitle'],
         'content': content,
         }
-    if report_info: ctx['report'] = report_info
 
     # Return response
     t = get_template('about/about.html')
-    html = t.render(Context(ctx))
+    html = t.render(RequestContext(request, context))
     return HttpResponse(html)
 
 #----------------------------------------------------------------

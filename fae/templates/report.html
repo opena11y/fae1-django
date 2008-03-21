@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
-{% block sidebar %}
-{% include "sidebar.html" %}
-{% endblock %}
-
 {% block content %}
+<h1>{{ title|safe }}</h1>
 {{ content }}
 {% endblock %}

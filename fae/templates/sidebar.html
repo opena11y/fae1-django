@@ -5,7 +5,7 @@
 <h2 class="hidden">Navigation: Site</h2>
 <ul>
 {% menu_item index %}
-{% if is_logged_in %}
+{% if user.is_authenticated %}
 {% menu_item archive %}
 {% endif %}
 </ul>

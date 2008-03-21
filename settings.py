@@ -54,6 +54,9 @@ AUTH_PROFILE_MODULE = 'fae.userprofile'
 ACCOUNT_ACTIVATION_DAYS = 14
 DEFAULT_FROM_EMAIL = 'do-not-reply@cita.uiuc.edu'
 
+# Overrides
+LOGIN_REDIRECT_URL = '/'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '+&x+wo@t$y24bu5k+d+7z1vzkt33wal#-$)onqjp$_5pss4%3v'
 
@@ -88,4 +91,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'project.fae',
     'registration',
+    'profile',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'project.fae.context_processors.app',
 )

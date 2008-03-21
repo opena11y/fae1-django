@@ -37,7 +37,10 @@ class MenuItemNode(template.Node):
 
     def render(self, context):
         # Determine whether menu item is currently selected
-        selected = context['page_type'] == self.page_type
+        if 'page_type' in context:
+            selected = context['page_type'] == self.page_type
+        else:
+            selected = False
 
         # Construct the URL
         if self.page_type == 'index':
@@ -73,7 +76,10 @@ class SectionItemNode(template.Node):
         report = context['report']
 
         # Determine whether menu item is currently selected
-        selected = (context['page_type'] == 'report') and (report['section'] == self.section)
+        if 'page_type' in context:
+            selected = (context['page_type'] == 'report') and (report['section'] == self.section)
+        else:
+            selected = False
 
         # Construct the URL
         url = r'/report/' + report['rptid'] + r'/' + report['type'] + r'/'
@@ -111,7 +117,10 @@ class ReportItemNode(template.Node):
         report = context['report']
 
         # Determine whether item is currently selected
-        selected = (context['page_type'] == 'report') and (report['type'] == self.type)
+        if 'page_type' in context:
+            selected = (context['page_type'] == 'report') and (report['type'] == self.type)
+        else:
+            selected = False
 
         # Construct the URL
         url = r'/report/' + report['rptid'] + r'/' + self.type + r'/'

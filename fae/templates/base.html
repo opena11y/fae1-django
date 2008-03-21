@@ -42,13 +42,13 @@ function newWindow (URL) {
 <!-- header -->
 <div id="header">
 <div class="left"><a href="/"><img src="/media/images/fae_logo.gif" alt="fae"/></a></div>
-<div class="subtitle"><span class="large">Functional Accessibility Evaluator</span><br />University of Illinois at Urbana-Champaign</div>
+<div class="subtitle"><span class="large">{{ site_name }}</span><br />University of Illinois at Urbana-Champaign</div>
 <div id="uiuc"><img alt="University of Illinois logo" src="/media/images/uiuc_logo.jpg"/></div>
 <div class="subheader">
 <h2 class="hidden">Navigation: Utilities</h2>
 <ul class="top-menu">
 <li><a href="/about/">About FAE</a></li>
-{% if is_logged_in %}
+{% if user.is_authenticated %}
 <li><span class="separator">|</span><a href="/multi/">Multiple URLs</a></li>
 <li><span class="separator">|</span><a href="/myaccount/">My Account</a></li>
 <li><span class="separator">|</span><a href="/accounts/logout/">Log Out</a></li>
@@ -60,7 +60,7 @@ function newWindow (URL) {
 </div>
 </div>
 <!-- sidebar -->
-{% block sidebar %}{% endblock %}
+{% block sidebar %}{% include "sidebar.html" %}{% endblock %}
 <!-- main content -->
 <div id="main">
 {% block content %}{% endblock %}

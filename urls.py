@@ -8,7 +8,7 @@ urlpatterns = patterns('',
 
     # Report pages
     (r'^report/([0-9a-f]{16})/$', views.report),
-    (r'^report/([0-9a-f]{16})/(summary|sitewide|page)/$', views.report),
+    (r'^report/([0-9a-f]{16})/(summary|sitewide|page|menu)/$', views.report),
     (r'^report/([0-9a-f]{16})/(sitewide)/([a-z]+)/$', views.report),
     (r'^report/([0-9a-f]{16})/(page)/(\d+)/$', views.page_report),
     (r'^report/([0-9a-f]{16})/(page)/(\d+)/([a-z]+)/$', views.page_report),

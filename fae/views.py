@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 import datetime
-from labels import labels, site_name
+from labels import labels
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 
 #----------------------------------------------------------------

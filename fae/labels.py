@@ -33,6 +33,7 @@ labels = {
     'multi': 'Evaluate Multiple URLs',
     'next': 'Next',
     'prev': 'Previous',
+    'profile': 'My Account',
     'report': reports,    
     'section': sections,
     'subtitle': subtitles,

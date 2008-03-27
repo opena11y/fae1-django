@@ -2,10 +2,13 @@ from django.template.loader import get_template
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 
 import datetime
 from labels import labels
+from models import UserProfile
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
+from forms import UserForm, ProfileForm
 
 #----------------------------------------------------------------
 def index(request):
@@ -227,3 +230,52 @@ def get_report_info(request, rptid):
 def logout(request):
     from django.contrib.auth.views import logout
     return logout(request, next_page='/')
+
+#----------------------------------------------------------------
+def get_profile_data(profile_obj):
+    """
+    Given a user profile object, returns a dictionary representing its
+    fields, suitable for passing as the initial data of a form.
+    This fn. courtesy of James Bennett's broken profiles package.
+    """
+    opts = profile_obj._meta
+    data_dict = {}
+    for f in opts.fields + opts.many_to_many:
+        data_dict[f.name] = f.value_from_object(profile_obj)
+    return data_dict
+
+#----------------------------------------------------------------
+@login_required
+def my_account(request):
+    user_data = {
+        'first_name': request.user.first_name,
+        'last_name': request.user.last_name,
+        'email': request.user.email
+        }
+
+    try:
+        profile_obj = request.user.get_profile()
+    except ObjectDoesNotExist:
+        profile_obj = UserProfile(user=request.user, acct_type=1)
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=profile_obj)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return HttpResponseRedirect('/')
+    else:
+        user_form = UserForm(initial=user_data)
+        profile_form = ProfileForm(initial=get_profile_data(profile_obj))
+
+    context = {
+        'title': labels['profile'],
+        'user_form': user_form,
+        'profile_form': profile_form,
+        }
+
+    # Return response
+    t = get_template('my_account.html')
+    html = t.render(RequestContext(request, context))
+    return HttpResponse(html)

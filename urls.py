@@ -20,15 +20,15 @@ urlpatterns = patterns('',
     (r'^about/$', views.about),
     (r'^about/(\w+)/$', views.about),
 
+    # User profile
+    (r'^accounts/profile/$', views.my_account),
+
     # Authentication (The following overrides a mapping in registration.urls)
     (r'^accounts/logout/$', views.logout),
 
     # Registration app (includes account management)
     (r'^accounts/', include('registration.urls')),
 
-    # Profiles app
-    (r'^profiles/', include('profiles.urls')),
-
-    # Uncomment this for admin:
+    # Admin
     (r'^admin/', include('django.contrib.admin.urls')),
 )

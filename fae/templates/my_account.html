@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ site_name }}: My Account</title>{% endblock %}
+
+{% block content %}
+<h1>My Account</h1>
+
+<form method="post" action=".">
+
+<div style="margin-top: 0.375em">
+{% if user_form.first_name.errors %}{{ user_form.first_name.errors }}{% endif %}
+<label for="id_first_name">First Name:</label><br/>
+{{ user_form.first_name }}
+</div>
+
+<div style="margin-top: 0.75em">
+{% if user_form.last_name.errors %}{{ user_form.last_name.errors }}{% endif %}
+<label for="id_last_name">Last Name:</label><br/>
+{{ user_form.last_name }}
+</div>
+
+<div style="margin-top: 0.75em">
+{% if user_form.email.errors %}{{ user_form.email.errors }}{% endif %}
+<label for="id_email">E-mail:</label><br/>
+{{ user_form.email }}
+</div>
+
+<div style="margin-top: 0.75em">
+{% if profile_form.org.errors %}{{ profile_form.org.errors }}{% endif %}
+<label for="id_org">Organization:</label><br/>
+{{ profile_form.org }}
+</div>
+
+<div style="margin-top: 0.75em; margin-bottom: 0.375em">
+<input type="submit" value="Update"/>
+</div>
+
+</form>
+
+<p>[<a href="/accounts/password/change/">Change Password</a>]</p>
+
+{% endblock %}

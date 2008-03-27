@@ -49,7 +49,7 @@ class UserProfile(models.Model):
     )
 
     user          = models.ForeignKey(User, unique=True)
-    acct_type     = models.IntegerField(choices=ACCT_TYPE_CHOICES)
+    acct_type     = models.IntegerField(choices=ACCT_TYPE_CHOICES, default=1)
     org           = models.ForeignKey(Organization)
 
     def __str__(self):

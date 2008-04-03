@@ -4,11 +4,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 
-import datetime
 from labels import labels
 from models import UserProfile
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm
+from evaluate import evaluate
 
 #----------------------------------------------------------------
 def index(request):
@@ -29,11 +29,28 @@ def index_user(request):
     if request.method == 'POST':
         form = DepthEvalForm(request.POST)
         if form.is_valid():
-            response.set_cookie('url', form.cleaned_data['url'])
-            response.set_cookie('title', form.cleaned_data['title'])
-            response.set_cookie('depth', form.cleaned_data['depth'])
-            response.set_cookie('span', form.cleaned_data['span'])
-            # TODO: save fields to database...
+            params = {
+                'url': form.cleaned_data['url'],
+                'title': form.cleaned_data['title'],
+                'depth': form.cleaned_data['depth'],
+                'span': form.cleaned_data['span']
+                }
+            (status, id) = evaluate(params)
+            if status:
+                # Display report using response redirect object
+                response = HttpResponseRedirect('/report/%s/' % id)
+
+            # Set cookie values on whichever response object we have
+            response.set_cookie('url', value=form.cleaned_data['url'])
+            response.set_cookie('title', value=form.cleaned_data['title'])
+            response.set_cookie('depth', value=form.cleaned_data['depth'])
+            response.set_cookie('span', value=form.cleaned_data['span'])
+
+            if status:
+                return response
+            else:
+                return message(request, response, 'Unable to create report!')
+
     else:
         init_values = {}
         if 'url' in request.COOKIES:
@@ -61,11 +78,30 @@ def index_user(request):
 #----------------------------------------------------------------
 def index_guest(request):
 
+    # Create response object for saving cookie values
+    response = HttpResponse()
+
     if request.method == 'POST':
         form = BasicEvalForm(request.POST)
-        if form.is_valid(): pass
+        if form.is_valid():
+            params = {
+                'url': form.cleaned_data['url']
+                }
+            (status, id) = evaluate(params)
+            if status:
+                response = HttpResponseRedirect('/report/%s/' % id)
+
+            response.set_cookie('url', value=form.cleaned_data['url'])
+
+            if status:
+                return response
+            else:
+                return message(request, response, 'Unable to create report!')
     else:
-        form = BasicEvalForm()
+        init_values = {}
+        if 'url' in request.COOKIES:
+            init_values['url'] = request.COOKIES['url']
+        form = BasicEvalForm(initial=init_values)
 
     context = {
         'page_type': 'index',
@@ -76,7 +112,8 @@ def index_guest(request):
     # Return response
     t = get_template('index_guest.html')
     html = t.render(RequestContext(request, context))
-    return HttpResponse(html)
+    response.write(html)
+    return response
 
 #----------------------------------------------------------------
 @login_required
@@ -88,8 +125,21 @@ def index_multi(request):
     if request.method == 'POST':
         form = MultiEvalForm(request.POST)
         if form.is_valid():
-            response.set_cookie('urls', form.clean_data['urls'])
-            response.set_cookie('titles', form.clean_data['titles'])
+            params = {
+                'urls': form.cleaned_data['urls'],
+                'titles': form.cleaned_data['titles']
+                }
+            (status, id) = evaluate(params)
+            if status:
+                response = HttpResponseRedirect('/report/%s/' % id)
+
+            response.set_cookie('urls', value=form.cleaned_data['urls'])
+            response.set_cookie('titles', value=form.cleaned_data['titles'])
+
+            if status:
+                return response
+            else:
+                return message(request, response, 'Unable to create report!')
     else:
         init_values = {}
         if 'urls' in request.COOKIES:
@@ -100,12 +150,24 @@ def index_multi(request):
 
     context = {
         'page_type': 'index',
-        'title': labels['index'],
+        'title': labels['multi'],
         'form': form,
         }
 
     # Return response
     t = get_template('index_multi.html')
+    html = t.render(RequestContext(request, context))
+    response.write(html)
+    return response
+
+#----------------------------------------------------------------
+def message(request, response, text):
+    """
+    Return the response, which may have cookie data associated
+    with it, using the message template.
+    """
+    t = get_template('message.html')
+    context = {'page_type': 'message', 'title': text}
     html = t.render(RequestContext(request, context))
     response.write(html)
     return response

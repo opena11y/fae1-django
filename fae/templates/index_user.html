@@ -8,7 +8,6 @@ function disableRadioButtons(radioGrp, value) {
     radioGrp[i].disabled = value;
   }
 }
-
 function getDepth() {
   var radioGrp = document.forms[0].depth;
   for (var i = 0; i < radioGrp.length; i++) {
@@ -17,7 +16,6 @@ function getDepth() {
     }
   }
 }
-
 function updateSpanButtons() {
   var depth = getDepth();
   var radioGrp = document.forms[0].span;
@@ -29,7 +27,6 @@ function updateSpanButtons() {
     disableRadioButtons(radioGrp, false);
   }
 }
-
 function initDoc() {
   var url = getObj('id_url');
   if (url) { url.focus(); }
@@ -48,6 +45,8 @@ function initDoc() {
 </script>
 {% endblock %}
 
+{% block bodytag %}<body onload="initDoc()" onunload="enable('submit')">{% endblock %}
+
 {% block content %}
 <style type="text/css">
 div.radio-btns ul { list-style-type: none; margin: 0 0; padding: 0.5em 0 }
@@ -62,7 +61,7 @@ div.urls input, div.report-title input { padding-left: 0.9em }
 <p>Use this form to evaluate the functional accessibility of one or more web pages starting at the specified URL. The generated report will be saved in the <a href="/archive/">Archived Reports</a> list. See <a href="/about/">About FAE</a> for more information.</p>
 </div>
 
-<form action="." method="post">
+<form action="." method="post" onsubmit="disable('submit')">
 
 <div class="urls">
 {% if form.url.errors %}{{ form.url.errors }}{% endif %}
@@ -91,7 +90,7 @@ div.urls input, div.report-title input { padding-left: 0.9em }
 </div>
 
 <div class="submit">
-<label title="Evaluate"><input type="submit" value="Evaluate"/></label>
+<label title="Evaluate"><input type="submit" id="submit" value="Evaluate"/></label>
 </div>
 
 <div>

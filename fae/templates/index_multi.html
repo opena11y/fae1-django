@@ -4,11 +4,13 @@
 {{ block.super }}
 <script type="text/javascript">
 function initDoc() {
-  var url = getObj('id_url');
+  var url = getObj('id_urls');
   if (url) { url.focus(); }
 }
 </script>
 {% endblock %}
+
+{% block bodytag %}<body onload="initDoc()" onunload="enable('submit')">{% endblock %}
 
 {% block content %}
 <style type="text/css">
@@ -28,7 +30,7 @@ div.urls label, div.report-title label { color: #039 ; font-weight: bold; font-s
 </div>
 </div>
 
-<form action="." method="post">
+<form action="." method="post" onsubmit="disable('submit')">
 
 <div class="urls">
 {% if form.urls.errors %}{{ form.urls.errors }}{% endif %}
@@ -41,7 +43,7 @@ div.urls label, div.report-title label { color: #039 ; font-weight: bold; font-s
 </div>
 
 <div class="submit">
-<label title="Evaluate"><input type="submit" value="Evaluate"/></label>
+<label title="Evaluate"><input type="submit" id="submit" value="Evaluate"/></label>
 </div>
 
 <div>

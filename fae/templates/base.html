@@ -35,10 +35,18 @@ function newWindow (URL) {
   var win = window.open (URL, "nw", props);
   win.focus();
 }
+function enable(id) {
+  var widget = getObj(id);
+  widget.disabled = false;
+}
+function disable(id) {
+  var widget = getObj(id);
+  widget.disabled = true;
+}
 </script>
 {% endblock %}
 </head>
-<body onload="initDoc()">
+{% block bodytag %}<body>{% endblock %}
 <!-- header -->
 <div id="header">
 <div class="left"><a href="/"><img src="/media/images/fae_logo.gif" alt="fae"/></a></div>

@@ -7,6 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 PROJECT_ROOT = '/home/nhoyt/src/wamt/project/'
 XML_PATH = PROJECT_ROOT + 'fae/xml/'
 XSLT_PATH = PROJECT_ROOT + 'fae/xslt/'
+MAX_AGE = 24*60*60*14 # 14 days for cookies
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

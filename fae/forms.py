@@ -9,7 +9,6 @@ class TextFieldWidget(forms.TextInput):
 
 class BasicEvalForm(forms.Form):
     url = forms.URLField(label='URL:', initial='http://', verify_exists=True, widget=TextFieldWidget)
-    title = forms.CharField(label='Report Title:', max_length=128, required=False, widget=TextFieldWidget)
 
 class DepthEvalForm(forms.Form):
     DEPTH_CHOICES = (
@@ -31,7 +30,7 @@ class DepthEvalForm(forms.Form):
 class MultiEvalForm(forms.Form):
     TEXTAREA_ATTRS = { 'rows': '10', 'cols': '60', 'class': 'textfield', 'onfocus': 'this.select()' }
     urls = forms.CharField(label='URLs:', widget=forms.Textarea(attrs=TEXTAREA_ATTRS))
-    titles = forms.CharField(label='Report Title:', max_length=128, required=False, widget=TextFieldWidget)
+    title = forms.CharField(label='Report Title:', max_length=128, required=False, widget=TextFieldWidget)
 
 class UserForm(forms.ModelForm):
     class Meta:

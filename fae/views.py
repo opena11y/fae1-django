@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 
 from labels import labels
 from models import UserProfile
@@ -41,10 +42,10 @@ def index_user(request):
                 response = HttpResponseRedirect('/report/%s/' % id)
 
             # Set cookie values on whichever response object we have
-            response.set_cookie('url', value=form.cleaned_data['url'])
-            response.set_cookie('title', value=form.cleaned_data['title'])
-            response.set_cookie('depth', value=form.cleaned_data['depth'])
-            response.set_cookie('span', value=form.cleaned_data['span'])
+            response.set_cookie('d_url', value=form.cleaned_data['url'], max_age=settings.MAX_AGE)
+            response.set_cookie('d_title', value=form.cleaned_data['title'], max_age=settings.MAX_AGE)
+            response.set_cookie('d_depth', value=form.cleaned_data['depth'], max_age=settings.MAX_AGE)
+            response.set_cookie('d_span', value=form.cleaned_data['span'], max_age=settings.MAX_AGE)
 
             if status:
                 return response
@@ -53,14 +54,14 @@ def index_user(request):
 
     else:
         init_values = {}
-        if 'url' in request.COOKIES:
-            init_values['url'] = request.COOKIES['url']
-        if 'title' in request.COOKIES:
-            init_values['title'] = request.COOKIES['title']
-        if 'depth' in request.COOKIES:
-            init_values['depth'] = request.COOKIES['depth']
-        if 'span' in request.COOKIES:
-            init_values['span'] = request.COOKIES['span']
+        if 'd_url' in request.COOKIES:
+            init_values['url'] = request.COOKIES['d_url']
+        if 'd_title' in request.COOKIES:
+            init_values['title'] = request.COOKIES['d_title']
+        if 'd_depth' in request.COOKIES:
+            init_values['depth'] = request.COOKIES['d_depth']
+        if 'd_span' in request.COOKIES:
+            init_values['span'] = request.COOKIES['d_span']
         form = DepthEvalForm(initial=init_values)
 
     context = {
@@ -91,7 +92,7 @@ def index_guest(request):
             if status:
                 response = HttpResponseRedirect('/report/%s/' % id)
 
-            response.set_cookie('url', value=form.cleaned_data['url'])
+            response.set_cookie('b_url', value=form.cleaned_data['url'], max_age=settings.MAX_AGE)
 
             if status:
                 return response
@@ -99,8 +100,8 @@ def index_guest(request):
                 return message(request, response, 'Unable to create report!')
     else:
         init_values = {}
-        if 'url' in request.COOKIES:
-            init_values['url'] = request.COOKIES['url']
+        if 'b_url' in request.COOKIES:
+            init_values['url'] = request.COOKIES['b_url']
         form = BasicEvalForm(initial=init_values)
 
     context = {
@@ -127,14 +128,14 @@ def index_multi(request):
         if form.is_valid():
             params = {
                 'urls': form.cleaned_data['urls'],
-                'titles': form.cleaned_data['titles']
+                'title': form.cleaned_data['title']
                 }
             (status, id) = evaluate(params)
             if status:
                 response = HttpResponseRedirect('/report/%s/' % id)
 
-            response.set_cookie('urls', value=form.cleaned_data['urls'])
-            response.set_cookie('titles', value=form.cleaned_data['titles'])
+            response.set_cookie('m_urls', value=form.cleaned_data['urls'], max_age=settings.MAX_AGE)
+            response.set_cookie('m_title', value=form.cleaned_data['title'], max_age=settings.MAX_AGE)
 
             if status:
                 return response
@@ -142,10 +143,10 @@ def index_multi(request):
                 return message(request, response, 'Unable to create report!')
     else:
         init_values = {}
-        if 'urls' in request.COOKIES:
-            init_values['urls'] = request.COOKIES['urls']
-        if 'titles' in request.COOKIES:
-            init_values['titles'] = request.COOKIES['titles']
+        if 'm_urls' in request.COOKIES:
+            init_values['urls'] = request.COOKIES['m_urls']
+        if 'm_title' in request.COOKIES:
+            init_values['title'] = request.COOKIES['m_title']
         form = MultiEvalForm(initial=init_values)
 
     context = {

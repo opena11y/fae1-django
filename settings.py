@@ -3,6 +3,11 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# Custom settings
+PROJECT_ROOT = '/home/nhoyt/src/wamt/project/'
+XML_PATH = PROJECT_ROOT + 'fae/xml/'
+XSLT_PATH = PROJECT_ROOT + 'fae/xslt/'
+
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
@@ -36,7 +41,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/nhoyt/src/wamt/project/media'
+MEDIA_ROOT = PROJECT_ROOT + 'media'
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
@@ -80,7 +85,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/nhoyt/src/wamt/project/templates",
+    PROJECT_ROOT + 'templates',
 )
 
 INSTALLED_APPS = (
@@ -91,7 +96,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'project.fae',
     'registration',
-    'profile',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

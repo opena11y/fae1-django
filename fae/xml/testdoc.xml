@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE testdoc SYSTEM "testdoc.dtd">
+
+<testdoc>
+
+  <!-- ************************************************ -->
+  <section id="nav">
+    <name>Navigation &amp; Orientation</name>
+
+    <category id="nav01">
+      <name>Document Title</name>
+
+      <best-practice ref="nav001">
+        <name>unique titles</name>
+        <rule>Each page <elem>title</elem> should be unique across the site.</rule>
+        <site id="nav001s"/>
+      </best-practice>
+
+      <best-practice ref="nav015">
+        <name>one and only one title</name>
+        <rule>The page should contain exactly one <elem>title</elem> element.</rule>
+        <page id="nav015p"/>
+        <site id="nav015s"/>
+      </best-practice>
+
+      <best-practice ref="nav009">
+        <name>h1 substring of title</name>
+        <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
+        <page id="nav009p"/>
+        <site id="nav009s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/title/"/>
+    </category>
+
+    <category id="nav02">
+      <name>Navigation Bars</name>
+
+      <best-practice ref="nav003">
+        <name>navigation bars and menus</name>
+        <rule>Each <elem>ol</elem> or <elem>ul</elem> element that appears to be a navigation bar or menu should be immediately preceded by a header element (<elem>h2..h6</elem>).</rule>
+        <!--info>Lists that are comprised of text links (one <elem>li</elem> element that does not contain a link is allowed) are interpreted by FAE to be navigation bars or menus.</info-->
+        <!--info>An <elem>ol</elem> or <elem>ul</elem> list is considered by FAE to be a navigation bar or menu if each <elem>li</elem> element (with one exception allowed) has as its sole content either a text link (<elem>a</elem> element) or a nested list of links.</info-->
+        <info>FAE considers a list of links to be a navigation bar or menu. A list of links is defined as an <elem>ol</elem> or <elem>ul</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
+        <page id="nav003p"/>
+        <site id="nav003s"/>
+      </best-practice>
+
+      <best-practice ref="nav010">
+        <name>redundant text links for area elements</name>
+        <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
+        <page id="nav010p"/>
+        <site id="nav010s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/menu/"/>
+    </category>
+
+    <category id="nav03">
+      <name>Section Headings</name>
+
+      <best-practice ref="nav013">
+        <name>use of heading elements</name>
+        <rule>Heading elements (<elem>h1..h6</elem>) should be used for structuring information on the page.</rule>
+        <page id="nav013p"/>
+        <site id="nav013s"/>
+      </best-practice>
+
+      <best-practice ref="nav002">
+        <name>one or two h1 elements</name>
+        <rule>The page should contain at least one and no more than two <elem>h1</elem> elements.</rule>
+        <page id="nav002p"/>
+        <site id="nav002s"/>
+      </best-practice>
+
+      <best-practice ref="nav014">
+        <name>proper nesting of heading elements</name>
+        <rule>Heading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
+        <info>Heading elements should be used without skipping levels when descending the hierarchy that starts with <elem>h1</elem> and continues through <elem>h6</elem>. For example, an <elem>h3</elem> element should follow an <elem>h2</elem> element, whereas an <elem>h4</elem> (or <elem>h5</elem> or <elem>h6</elem>) should not. Note that this rule does not apply when ascending the hierarchy (for example, an <elem>h2</elem> element may follow an <elem>h4</elem> element).</info>
+        <page id="nav014p"/>
+        <site id="nav014s"/>
+      </best-practice>
+
+      <best-practice ref="nav004">
+        <name>header content density</name>
+        <rule>The text content contained in header elements (<elem>h1..h6</elem>) should range between 1 and 20 percent, inclusive, and not exceed 50 percent of the total text content of the page.</rule>
+        <page id="nav004p"/>
+        <site id="nav004s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/heading/"/>
+    </category>
+
+    <category id="nav04">
+      <name>Form Controls</name>
+
+      <best-practice ref="nav011">
+        <name>form control labels</name>
+        <rule>Each <elem>form</elem> control should be associated with a <elem>label</elem> element, either through encapsulation or <attr>id</attr> reference.</rule>
+        <info>Encapsulation simply means nesting the <elem>form</elem> control element within a <elem>label</elem> element. Reference is implemented by setting the <elem>label</elem> element's <attr>for</attr> attribute value equal to that of the <elem>form</elem> control's <attr>id</attr> attribute. Form controls tested include <elem>textarea</elem> and <elem>select</elem> elements, and <elem>input</elem> elements with <attr>type</attr> attribute values of <attr>text</attr>, <attr>password</attr>, <attr>checkbox</attr>, <attr>radio</attr>, <attr>file</attr> and <attr>image</attr>.</info>
+        <page id="nav011p"/>
+        <site id="nav011s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/form/"/>
+    </category>
+
+    <category id="nav05">
+      <name>Document Linearization</name>
+
+      <!-- Same test also referenced in Styling: Content Positioning -->
+      <best-practice ref="style002">
+        <name>nested tables</name>
+        <rule>Deeply nested tables can cause problems when a document is rendered in a linear mode, e.g., by screen readers.</rule>
+        <page id="style002p"/>
+        <site id="style002s"/>
+      </best-practice>
+
+    </category>
+
+    <category id="nav06">
+      <name>Data Tables</name>
+
+      <best-practice ref="nav012">
+        <name>data tables</name>
+        <rule>Data tables should utilize <elem>thead</elem> and/or <elem>th</elem> elements.</rule>
+        <info>A <elem>table</elem> is considered to be a data table if it has two or more rows or columns and includes one or more <elem>thead</elem> or <elem>th</elem> elements.</info>
+        <page id="nav012p"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/stable/"/>
+    </category>
+
+    <category id="nav07">
+      <name>Frames</name>
+
+      <!-- currently checking only for existence of title attribute, and not whether it's empty -->
+      <best-practice ref="nav008">
+        <name>frame titles</name>
+        <rule>Each <elem>frame</elem> element should have a <attr>title</attr> attribute.</rule>
+        <page id="nav008p"/>
+        <site id="nav008s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/frame/"/>
+    </category>
+
+    <!-- accesskey rules are problematic -->
+    <category id="nav08">
+      <name>Access Keys</name>
+
+      <best-practice ref="nav005">
+        <name>accesskey 1</name>
+        <rule>When <attr>accesskey</attr> 1 is defined, it should provide access to the main content on the page.</rule>
+        <page id="nav005p"/>
+        <site id="nav005s"/>
+      </best-practice>
+
+      <best-practice ref="nav006">
+        <name>accesskey 2</name>
+        <rule>When <attr>accesskey</attr> 2 is defined, it should provide access to the search function on the page.</rule>
+        <page id="nav006p"/>
+        <site id="nav006s"/>
+      </best-practice>
+
+      <best-practice ref="nav007">
+        <name>accesskey 3</name>
+        <rule>When <attr>accesskey</attr> 3 is defined, it should provide access to the main menu on the page.</rule>
+        <page id="nav007p"/>
+        <site id="nav007s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/accesskey/"/>
+    </category>
+
+    <link tgt="bp" href="nav/"/>
+  </section>
+
+  <!-- ************************************************ -->
+  <section id="text">
+    <name>Text Equivalents</name>
+
+    <category id="text01">
+      <name>Images</name>
+
+      <!--
+      <best-practice ref="text001">
+        <name>images with alt text</name>
+        <rule>Each <elem>img</elem> element should have <attr>alt</attr> text.</rule>
+        <info><elem>img</elem> elements with <attr>alt=&quot;&quot;</attr> should be moved to CSS.</info>
+        <page id="text001p"/>
+        <site id="text001s"/>
+      </best-practice>
+      -->
+
+      <best-practice ref="text005">
+        <name>images with alt attribute</name>
+        <rule>Each <elem>img</elem> element should have an <attr>alt</attr> attribute.</rule>
+        <page id="text005p"/>
+        <site id="text005s"/>
+      </best-practice>
+
+      <best-practice ref="text006">
+        <name>images with alt text</name>
+        <rule>Each <elem>img</elem> element with an <attr>alt</attr> attribute should have alt text.</rule>
+        <page id="text006p"/>
+        <site id="text006s"/>
+      </best-practice>
+
+      <link tgt="bp" href="text/info/"/>
+    </category>
+
+    <category id="text02">
+      <name>Embedded Objects</name>
+
+      <best-practice ref="text002">
+        <name>embed elements</name>
+        <rule>Each <elem>embed</elem> element should have <attr>alt</attr> text.</rule>
+        <page id="text002p"/>
+        <site id="text002s"/>
+      </best-practice>
+
+      <best-practice ref="text003">
+        <name>applet elements</name>
+        <rule>Each <elem>applet</elem> element should have <attr>alt</attr> text.</rule>
+        <page id="text003p"/>
+        <site id="text003s"/>
+      </best-practice>
+
+      <best-practice ref="text004">
+        <name>object elements</name>
+        <rule>Each <elem>object</elem> element should contain alternate text content.</rule>
+        <page id="text004p"/>
+        <site id="text004s"/>
+      </best-practice>
+
+    </category>
+
+    <link tgt="bp" href="text/"/>
+  </section>
+
+  <!-- ************************************************ -->
+  <section id="auto">
+    <name>Scripting</name>
+
+    <category id="auto01">
+      <name>Device Independence</name>
+
+      <best-practice ref="auto001">
+        <name>onmouseover and onfocus actions</name>
+        <rule>Each element with an <attr>onmouseover</attr> attribute should also have an <attr>onfocus</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <page id="auto001p"/>
+        <site id="auto001s"/>
+      </best-practice>
+
+      <best-practice ref="auto002">
+        <name>onmouseout and onblur actions</name>
+        <rule>Each element with an <attr>onmouseout</attr> attribute should also have an <attr>onblur</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <page id="auto002p"/>
+        <site id="auto002s"/>
+      </best-practice>
+
+      <!-- no content
+      <link tgt="bp" href="auto/keyboard.php"/>
+      -->
+    </category>
+
+    <!--
+    <category id="auto02">
+      <name>Dynamic Content</name>
+
+      <best-practice ref="auto003">
+        <name>calls to write &amp; writeln</name>
+        <rule>TBD</rule>
+        <page id="auto003p"/>
+        <site id="auto003s"/>
+      </best-practice>
+
+      <link tgt="bp" href="auto/dcontent.php"/>
+    </category>
+    -->
+
+    <link tgt="bp" href="script/"/>
+  </section>
+
+  <!-- ************************************************ -->
+
+  <!-- tags to avoid, in the following groupings:
+  font, basefont: deprecated elements for specifying font attributes such as color and size; use HTML structural elements and/or CSS
+
+  big, small, tt, strike, s, u: deprecated inline elements for styling text; use CSS
+
+  center, blockquote: deprecated elements for aligning or indenting blocks of text; use CSS
+
+  b, i: although not deprecated in XHTML, these presentational elements should be replaced
+  either by strong and em, respectively, which are [much more] device-independent [warn only?] or with CSS
+
+  blink, marquee: deprecated presentational elements for motion effects which at best can be very
+  distracting, and at worst can induce seizures [more]; [don't use the elements or the effects]
+  -->
+
+  <!-- attributes to avoid, in the following groupings:
+  color, bgcolor, background: creates presentational markup relating to colors and background images;
+  use CSS
+
+  align, width, height, border, hspace, vspace: creates presentational markup relating to size,
+  alignment and borders; use CSS
+  -->
+
+  <section id="style">
+    <name>Styling</name>
+
+    <category id="style01">
+      <name>Text Styling</name>
+
+      <!-- HTML Tech. for WCAG 2.0 also includes tt, big, small, s -->
+      <best-practice ref="style004">
+        <name>inline style elements</name>
+        <rule>Avoid the use of inline style elements; use CSS instead.</rule>
+        <info>FAE currently tests for the following inline style elements: <elem>b</elem>, <elem>basefont</elem>, <elem>blink</elem>, <elem>center</elem>, <elem>font</elem>, <elem>i</elem>, <elem>marquee</elem>, <elem>strike</elem> and <elem>u</elem>.</info>
+        <page id="style004p"/>
+        <site id="style004s"/>
+      </best-practice>
+
+      <!-- HTML Tech. for WCAG 2.0 also includes bgcolor -->
+      <best-practice ref="style005">
+        <name>inline style attributes</name>
+        <rule>Avoid using the deprecated <attr>color</attr> attribute on HTML elements for specifying color; use CSS instead.</rule>
+        <page id="style005p"/>
+        <site id="style005s"/>
+      </best-practice>
+
+    </category>
+
+    <category id="style02">
+      <name>Content Positioning</name>
+
+      <best-practice ref="style002">
+        <name>tables for positioning &amp; layout</name>
+        <rule>Avoid using tables for page layout; use CSS instead.</rule>
+        <info>The existence of deeply nested tables suggests that tables are being used for page layout. Nested tables can cause readability problems when a page is linearized.</info>
+        <page id="style002p"/>
+        <site id="style002s"/>
+      </best-practice>
+
+      <!-- no content
+      <link tgt="bp" href="styling/css_layout.php"/>
+      -->
+    </category>
+
+    <category id="style03">
+      <name>Images</name>
+
+      <best-practice ref="text001">
+        <name>images with alt text</name>
+        <rule>Each <elem>img</elem> element should have <attr>alt</attr> text.</rule>
+        <info><elem>img</elem> elements with <attr>alt=&quot;&quot;</attr> should be moved to CSS.</info>
+        <page id="text001p"/>
+        <site id="text001s"/>
+      </best-practice>
+
+      <best-practice ref="style003">
+        <name>decorative images</name>
+        <rule>Avoid using <elem>img</elem> elements for stylistic purposes such as separator bars or list bullets; use CSS instead.</rule>
+        <page id="style003p"/>
+        <site id="style003s"/>
+      </best-practice>
+
+      <link tgt="bp" href="text/dec"/>
+    </category>
+
+    <!--
+    <link tgt="bp" href="styling/"/>
+    -->
+ </section>
+
+  <!-- ************************************************ -->
+  <section id="std">
+    <name>HTML Standards</name>
+
+    <category id="std01">
+      <name>W3C Specifications</name>
+
+      <best-practice ref="std001">
+        <name>DOCTYPE declaration</name>
+        <rule>Each page should include a DOCTYPE declaration to facilitate validation.</rule>
+        <page id="std001p"/>
+        <site id="std001s"/>
+      </best-practice>
+
+      <best-practice ref="std002">
+        <name>default language decl.</name>
+        <rule>Each page should specify the default language using the <attr>lang</attr> and/or <attr>xml:lang</attr> attribute on the <elem>html</elem> element.</rule>
+        <info>For example, to specify English as the default language in HTML 4.0, use: <elem>&lt;html lang=&quot;en&quot;&gt;</elem> and in XHTML, use: <elem>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot;&gt;</elem></info>
+        <page id="std002p"/>
+        <site id="std002s"/>
+      </best-practice>
+
+      <best-practice ref="std003">
+        <name>character encoding decl.</name>
+        <rule>Each page should specify the character encoding with an <elem>html/head/meta</elem> element using the <attr>content</attr> attribute in conjunction with the <attr>http-equiv=&quot;content-type&quot;</attr> attribute.</rule>
+        <info>For example, if the character encoding is UTF-8, it could be specified in XHTML with: <attr>&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;</attr></info>
+        <page id="std003p"/>
+        <site id="std003s"/>
+      </best-practice>
+
+      <link tgt="bp" href="standards/html/"/>
+    </category>
+
+    <link tgt="bp" href="standards/"/>
+  </section>
+
+  <link-base tgt="bp" href="http://bestpractices.cita.uiuc.edu/html/"/>
+</testdoc>

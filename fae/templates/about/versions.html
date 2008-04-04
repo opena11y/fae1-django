@@ -1,5 +1,2 @@
-<h1><?= $title ?></h1>
-
-<?php include('infobox.inc'); ?>
-
-<?= $list ?>
+{% load transform %}
+{% transform versions.xml versions.xsl %}

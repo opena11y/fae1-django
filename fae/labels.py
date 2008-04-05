@@ -34,6 +34,7 @@ labels = {
     'next': 'Next',
     'prev': 'Previous',
     'profile': 'My Account',
+    'untitled': 'Untitled Report',
     'report': reports,    
     'section': sections,
     'subtitle': subtitles,

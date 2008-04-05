@@ -8,6 +8,10 @@ PROJECT_ROOT = '/home/nhoyt/src/wamt/project/'
 XML_PATH = PROJECT_ROOT + 'fae/xml/'
 XSLT_PATH = PROJECT_ROOT + 'fae/xslt/'
 MAX_AGE = 24*60*60*14 # 14 days for cookies
+USER_REPORTS_DIR = '/var/www/fae/reports/user/'
+GUEST_REPORTS_DIR = '/var/www/fae/reports/guest/'
+SITES_DIR = '/var/www/fae/sites/'
+WGET = '/var/www/html/dev/wget'
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

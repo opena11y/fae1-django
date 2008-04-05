@@ -9,7 +9,7 @@ from labels import labels
 from models import UserProfile
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm
-from evaluate import evaluate
+from evaluate import evaluate, multi_evaluate
 
 #----------------------------------------------------------------
 def index(request):
@@ -36,8 +36,10 @@ def index_user(request):
                 'depth': form.cleaned_data['depth'],
                 'span': form.cleaned_data['span']
                 }
-            (status, id) = evaluate(params)
+            (status, id) = evaluate(params, request.user.is_authenticated())
             if status:
+                # TODO: Save fields to database
+
                 # Display report using response redirect object
                 response = HttpResponseRedirect('/report/%s/' % id)
 
@@ -87,8 +89,9 @@ def index_guest(request):
         if form.is_valid():
             params = {
                 'url': form.cleaned_data['url']
+                'title': labels['untitled']
                 }
-            (status, id) = evaluate(params)
+            (status, id) = evaluate(params, False)
             if status:
                 response = HttpResponseRedirect('/report/%s/' % id)
 
@@ -130,8 +133,11 @@ def index_multi(request):
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title']
                 }
-            (status, id) = evaluate(params)
+            (status, id) = multi_evaluate(params, request.user.is_authenticated())
+
             if status:
+                # TODO: Save fields to database
+
                 response = HttpResponseRedirect('/report/%s/' % id)
 
             response.set_cookie('m_urls', value=form.cleaned_data['urls'], max_age=settings.MAX_AGE)

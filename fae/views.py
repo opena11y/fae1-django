@@ -32,11 +32,11 @@ def index_user(request):
         form = DepthEvalForm(request.POST)
         if form.is_valid():
             params = {
-                'user': request.user.username,
                 'url': form.cleaned_data['url'],
                 'title': form.cleaned_data['title'] or labels['untitled'],
                 'depth': form.cleaned_data['depth'],
-                'span': form.cleaned_data['span']
+                'span': form.cleaned_data['span'],
+                'username': request.user.username
                 }
             now = datetime.now()
             status, uid = evaluate(params, request.user.is_authenticated(), now)
@@ -99,9 +99,9 @@ def index_guest(request):
         form = BasicEvalForm(request.POST)
         if form.is_valid():
             params = {
-                'user': 'guest',
                 'url': form.cleaned_data['url'],
-                'title': labels['untitled']
+                'title': labels['untitled'],
+                'username': 'guest'
                 }
             now = datetime.now()
             status, uid = evaluate(params, False, now)
@@ -150,9 +150,9 @@ def index_multi(request):
         form = MultiEvalForm(request.POST)
         if form.is_valid():
             params = {
-                'user': request.user.username,
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title'] or labels['untitled'],
+                'username': request.user.username
                 }
             now = datetime.now()
             status, uid = multi_evaluate(params, request.user.is_authenticated(), now)
@@ -221,6 +221,7 @@ def archived_reports(request):
     context = {
         'page_type': 'archive',
         'title': labels['archive'],
+        'username': request.user.username,
         'report_list': report_list
         }
 
@@ -374,6 +375,7 @@ def my_account(request):
 
     context = {
         'title': labels['profile'],
+        'username': request.user.username,
         'user_form': user_form,
         'profile_form': profile_form,
         }

@@ -91,18 +91,18 @@ def analyze_resources(params, is_logged_in, uid, timestamp):
     (identified by uid) and output results file (also named
     according to uid) in the appropriate reports directory.
 
-    Keys of interest in params dict: user, url, title, depth (optional), span (optional)
+    Keys of interest in params dict: url, title, depth, span, username
     """
 
     results_file = get_results_filename(is_logged_in, uid)
     site_dir = settings.SITES_DIR + uid
 
-    user = params['user']
     url = params['url']
     title = params['title']
     depth = params.get('depth', '0')
     span = params.get('span', '')
     if not span: span = '0'
+    user = params['username']
 
     # construct command and call it
     wamt = []

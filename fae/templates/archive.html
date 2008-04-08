@@ -17,11 +17,13 @@
 <td class="archive-1" headers="c1">{{ report.timestamp|date:"Y-m-d H:i"}}</td>
 <td class="archive-2" headers="c2">{{ report.pgcount }}</td>
 <td class="archive-3" headers="c3"><a href="{{ report.get_absolute_url }}">{{ report.title }}</a></td>
-<td class="archive-4" headers="c4">{{ report.url }}</td>
+<td class="archive-4" headers="c4">{{ report.url }}{% ifnotequal report.urlcount 1 %} ...{% endifnotequal %}</td>
 <td class="archive-5" headers="c5">{{ report.depth }}</td>
 </tr>
 {% endfor %}
 </table>
+{% else %}
+<p>No reports are currently archived for <strong>{{ username }}</strong>.</p>
 {% endif %}
 
 {% endblock %}

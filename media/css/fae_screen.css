@@ -1171,10 +1171,15 @@ table.archive th.archive-2, table.archive td.archive-2 {
 
 table.archive th.archive-3, table.archive td.archive-3 {
 	padding-left:		1.5em;
-	width:				85%;
+	width:				45%;
 }
 
 table.archive th.archive-4, table.archive td.archive-4 {
+	padding-left:		1.5em;
+	width:				40%;
+}
+
+table.archive th.archive-5, table.archive td.archive-5 {
 	padding-right:		2px;
 	padding-left:		1.5em;
 	text-align:			right;

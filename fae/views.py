@@ -34,7 +34,7 @@ def index_user(request):
             params = {
                 'user': request.user.username,
                 'url': form.cleaned_data['url'],
-                'title': form.cleaned_data['title'],
+                'title': form.cleaned_data['title'] or labels['untitled'],
                 'depth': form.cleaned_data['depth'],
                 'span': form.cleaned_data['span']
                 }
@@ -152,7 +152,7 @@ def index_multi(request):
             params = {
                 'user': request.user.username,
                 'urls': form.cleaned_data['urls'],
-                'title': form.cleaned_data['title']
+                'title': form.cleaned_data['title'] or labels['untitled'],
                 }
             now = datetime.now()
             status, uid = multi_evaluate(params, request.user.is_authenticated(), now)
@@ -217,9 +217,11 @@ def archived_reports(request):
     """
     Display a list of the user's currently archived reports.
     """
+    report_list = UserReport.objects.filter(user=request.user)
     context = {
         'page_type': 'archive',
         'title': labels['archive'],
+        'report_list': report_list
         }
 
     # Return response

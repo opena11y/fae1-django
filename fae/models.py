@@ -81,10 +81,15 @@ class UserReport(models.Model):
     depth         = models.IntegerField()
     title         = models.CharField(max_length=128, blank=True)
     delete        = models.BooleanField(default=False)
+    # TODO: rename delete to removable
+    # removable     = models.BooleanField(default=False) 
     stats         = models.BooleanField(default=False)
 
     def __str__(self):
         return self.id
+
+    def get_absolute_url(self):
+        return '/report/%s/summary/' % self.id
 
     class Meta:
         ordering = ["-timestamp"]

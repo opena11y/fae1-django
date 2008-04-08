@@ -11,15 +11,15 @@ else:
     call = subprocess.call
 
 #----------------------------------------------------------------
-def evaluate(params, is_logged_in):
+def evaluate(params, is_logged_in, timestamp):
     uid = generate()
     download_resources(params, is_logged_in, uid)
-    pgcount, timestamp = analyze_resources(params, is_logged_in, uid)
+    pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
-    return (pgcount, timestamp, uid)
+    return (pgcount, uid)
 
 #----------------------------------------------------------------
-def multi_evaluate(params, is_logged_in):
+def multi_evaluate(params, is_logged_in, timestamp):
     uid = generate()
     urls = params['urls'].split()
 
@@ -32,9 +32,9 @@ def multi_evaluate(params, is_logged_in):
 
     # reset url for results metadata
     params['url'] = first_url
-    pgcount, timestamp = analyze_resources(params, is_logged_in, uid)
+    pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
-    return (pgcount, timestamp, uid)
+    return (pgcount, uid)
 
 #----------------------------------------------------------------
 def download_resources(params, is_logged_in, uid):
@@ -85,7 +85,7 @@ def download_resources(params, is_logged_in, uid):
     return call(wget)
 
 #----------------------------------------------------------------
-def analyze_resources(params, is_logged_in, uid):
+def analyze_resources(params, is_logged_in, uid, timestamp):
     """
     Process the downloaded files in the sites directory
     (identified by uid) and output results file (also named
@@ -96,7 +96,6 @@ def analyze_resources(params, is_logged_in, uid):
 
     results_file = get_results_filename(is_logged_in, uid)
     site_dir = settings.SITES_DIR + uid
-    timestamp = datetime.now().strftime('%Y/%m/%d %H:%M')
 
     user = params['user']
     url = params['url']
@@ -112,7 +111,7 @@ def analyze_resources(params, is_logged_in, uid):
     wamt.extend(['-dir', site_dir])
     wamt.extend(['-out', results_file])
     wamt.extend(['-rpt', title])
-    wamt.extend(['-date', timestamp])
+    wamt.extend(['-date', timestamp.strftime('%Y-%m-%d %H:%M')])
     wamt.extend(['-user', user])
     wamt.extend(['-url',  url])
     wamt.extend(['-depth', depth])
@@ -124,7 +123,7 @@ def analyze_resources(params, is_logged_in, uid):
     run_summarize_proc(results_file)
 
     pgcount = get_results_pgcount(results_file)
-    return pgcount, timestamp
+    return pgcount
 
 #----------------------------------------------------------------
 def remove_resources(uid):

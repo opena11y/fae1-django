@@ -84,7 +84,7 @@ class UserReport(models.Model):
     stats         = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.reportid
+        return self.id
 
     class Meta:
         ordering = ["-timestamp"]
@@ -100,7 +100,7 @@ class GuestReport(models.Model):
     stats         = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.reportid
+        return self.id
 
     class Meta:
         ordering = ["-timestamp"]

@@ -4,9 +4,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
+from datetime import datetime
 
 from labels import labels
-from models import UserProfile
+from models import UserProfile, UserReport, GuestReport
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm
 from evaluate import evaluate, multi_evaluate
@@ -37,12 +38,21 @@ def index_user(request):
                 'depth': form.cleaned_data['depth'],
                 'span': form.cleaned_data['span']
                 }
-            (pgcount, timestamp, id) = evaluate(params, request.user.is_authenticated())
-            if pgcount:
-                # TODO: Save fields to database
-
-                # Display report using response redirect object
-                response = HttpResponseRedirect('/report/%s/' % id)
+            now = datetime.now()
+            status, uid = evaluate(params, request.user.is_authenticated(), now)
+            if status:
+                report = UserReport(
+                    id = uid,
+                    user = request.user,
+                    timestamp = now,
+                    pgcount = status,
+                    url = params['url'],
+                    urlcount = 1,
+                    depth = params['depth'],
+                    title = params['title']
+                    )
+                report.save()
+                response = HttpResponseRedirect('/report/%s/' % uid)
 
             # Set cookie values on whichever response object we have
             response.set_cookie('d_url', value=form.cleaned_data['url'], max_age=settings.MAX_AGE)
@@ -50,7 +60,7 @@ def index_user(request):
             response.set_cookie('d_depth', value=form.cleaned_data['depth'], max_age=settings.MAX_AGE)
             response.set_cookie('d_span', value=form.cleaned_data['span'], max_age=settings.MAX_AGE)
 
-            if pgcount:
+            if status:
                 return response
             else:
                 return message(request, response, 'Unable to create report!')
@@ -93,13 +103,21 @@ def index_guest(request):
                 'url': form.cleaned_data['url'],
                 'title': labels['untitled']
                 }
-            (pgcount, timestamp, id) = evaluate(params, False)
-            if pgcount:
-                response = HttpResponseRedirect('/report/%s/' % id)
+            now = datetime.now()
+            status, uid = evaluate(params, False, now)
+            if status:
+                report = GuestReport(
+                    id = uid,
+                    timestamp = now,
+                    pgcount = status,
+                    url = params['url']
+                    )
+                report.save()
+                response = HttpResponseRedirect('/report/%s/' % uid)
 
             response.set_cookie('b_url', value=form.cleaned_data['url'], max_age=settings.MAX_AGE)
 
-            if pgcount:
+            if status:
                 return response
             else:
                 return message(request, response, 'Unable to create report!')
@@ -136,17 +154,28 @@ def index_multi(request):
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title']
                 }
-            (pgcount, timestamp, id) = multi_evaluate(params, request.user.is_authenticated())
+            now = datetime.now()
+            status, uid = multi_evaluate(params, request.user.is_authenticated(), now)
 
-            if pgcount:
-                # TODO: Save fields to database
-
-                response = HttpResponseRedirect('/report/%s/' % id)
+            if status:
+                urls = form.cleaned_data['urls'].split()
+                report = UserReport(
+                    id = uid,
+                    user = request.user,
+                    timestamp = now,
+                    pgcount = status,
+                    url = urls[0],
+                    urlcount = len(urls),
+                    depth = 0,
+                    title = params['title']
+                    )
+                report.save()
+                response = HttpResponseRedirect('/report/%s/' % uid)
 
             response.set_cookie('m_urls', value=form.cleaned_data['urls'], max_age=settings.MAX_AGE)
             response.set_cookie('m_title', value=form.cleaned_data['title'], max_age=settings.MAX_AGE)
 
-            if pgcount:
+            if status:
                 return response
             else:
                 return message(request, response, 'Unable to create report!')

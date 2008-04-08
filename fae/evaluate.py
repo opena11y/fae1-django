@@ -1,51 +1,41 @@
+import subprocess
 from django.conf import settings
-from subprocess import call
 from urlparse import urlparse
+from datetime import datetime
+from lxml import etree
 from uid import generate
 
-# run_wget(params, uid)
-# search for .HTML file
-# if .HTML file exists
-#     run_ocaml(uid)
-# else
-#     return (0, uid)
-# num_pages = get_pgcount(uid)
-
-# report = UserReport(id=uid, user=request.user, pgcount=num_pages...)
-# return (pgcount, uid)
+# use subprocess.check_call for debugging
+call = subprocess.call
 
 #----------------------------------------------------------------
 def evaluate(params, is_logged_in):
     uid = generate()
-    download_url(params, is_logged_in, uid)
-    # if True: remove_download(uid)
-    return (True, uid)
+    download_resources(params, is_logged_in, uid)
+    pgcount, timestamp = analyze_resources(params, is_logged_in, uid)
+    if not settings.RESOURCES_DEBUG: remove_resources(uid)
+    return (pgcount, timestamp, uid)
 
 #----------------------------------------------------------------
 def multi_evaluate(params, is_logged_in):
     uid = generate()
-    urls = params['urls']
-    for url in urls.split():
-        download_url({'url': url}, is_logged_in, uid)
-    # if True: remove_download(uid)
-    return (True, uid)
+    urls = params['urls'].split()
+
+    # save first url for results metadata
+    first_url = urls[0]
+
+    for url in urls:
+        params['url'] = url
+        download_resources(params, is_logged_in, uid)
+
+    # reset url for results metadata
+    params['url'] = first_url
+    pgcount, timestamp = analyze_resources(params, is_logged_in, uid)
+    if not settings.RESOURCES_DEBUG: remove_resources(uid)
+    return (pgcount, timestamp, uid)
 
 #----------------------------------------------------------------
-def remove_download(uid):
-    cmd = ['rm']
-    cmd.append('-rf')
-    cmd.append(settings.SITES_DIR + uid)
-    return call(cmd)
-
-#----------------------------------------------------------------
-def get_next_level_domain(url):
-    obj = urlparse(url)
-    domain = obj.netloc.split(':')[0]
-    components = domain.split('.')
-    return '.'.join(components[1:])
-
-#----------------------------------------------------------------
-def download_url(params, is_logged_in, uid):
+def download_resources(params, is_logged_in, uid):
     """
     Call wget to download resources from specified url.
 
@@ -71,26 +61,111 @@ def download_url(params, is_logged_in, uid):
     -P = --directory-prefix
 
     """
-    directory = settings.SITES_DIR + uid;
+    site_dir = settings.SITES_DIR + uid
     url = params['url']
     depth = params.get('depth', '')
     span = params.get('span', '')
 
-    reject_list = '.aac,.ac3,.avi,.doc,.mov,.mp2,.mp3,.mpeg,.mpg,.pdf,.ppt,.qt,.wav,.wma'
-
+    # construct command
     wget = []
     if not is_logged_in: wget.append('nice')
     wget.append(settings.WGET)
     wget.extend(['--no-check-certificate', '--type-postfixes', '--tries=3', '--timeout=30', '--waitretry=3'])
-    wget.append('-Q 6m')
-    wget.append('-R %s' % reject_list)
+    wget.extend(['-Q', '6m'])
+    wget.extend(['-R', settings.REJECT_LIST])
     wget.extend(['-k', '-p', '-x'])
     if depth == '1' or depth == '2':
-        wget.append('-r')
-        wget.append('-l %s' % depth)
+        wget.extend(['-r', '-l', depth])
         if span == '1':
             wget.append('-HD{%s}' % get_next_level_domain(url))
-    wget.append('-P')
-    wget.append(directory)
+    wget.extend(['-P', site_dir])
     wget.append(url)
     return call(wget)
+
+#----------------------------------------------------------------
+def analyze_resources(params, is_logged_in, uid):
+    """
+    Process the downloaded files in the sites directory
+    (identified by uid) and output results file (also named
+    according to uid) in the appropriate reports directory.
+
+    Keys of interest in params dict: user, url, title, depth (optional), span (optional)
+    """
+
+    results_file = get_results_filename(is_logged_in, uid)
+    site_dir = settings.SITES_DIR + uid
+    timestamp = datetime.now().strftime('%Y/%m/%d %H:%M')
+
+    user = params['user']
+    url = params['url']
+    title = params['title']
+    depth = params.get('depth', '0')
+    span = params.get('span', '')
+    if not span: span = '0'
+
+    # construct command and call it
+    wamt = []
+    if not is_logged_in: wamt.append('nice')
+    wamt.append(settings.WAMT)
+    wamt.extend(['-dir', site_dir])
+    wamt.extend(['-out', results_file])
+    wamt.extend(['-rpt', title])
+    wamt.extend(['-date', timestamp])
+    wamt.extend(['-user', user])
+    wamt.extend(['-url',  url])
+    wamt.extend(['-depth', depth])
+    wamt.extend(['-span', span])
+    retval = call(wamt)
+
+    # run preprocessor transformations
+    run_evaluate_proc(results_file)
+    run_summarize_proc(results_file)
+
+    pgcount = get_results_pgcount(results_file)
+    return pgcount, timestamp
+
+#----------------------------------------------------------------
+def remove_resources(uid):
+    cmd = ['rm']
+    cmd.append('-rf')
+    cmd.append(settings.SITES_DIR + uid)
+    return call(cmd)
+
+#----------------------------------------------------------------
+def run_evaluate_proc(filename):
+    stylesheet = settings.XSLT_PATH + 'evaluate.xsl'
+    run_xsltproc(filename, stylesheet)
+    
+#----------------------------------------------------------------
+def run_summarize_proc(filename):
+    stylesheet = settings.XSLT_PATH + 'summarize.xsl'
+    run_xsltproc(filename, stylesheet)
+
+#----------------------------------------------------------------
+def run_xsltproc(filename, stylesheet):
+    xsltproc = [settings.XSLTPROC]
+    xsltproc.extend(['-o', filename])
+    xsltproc.append(stylesheet)
+    xsltproc.append(filename)
+    call(xsltproc)
+
+#----------------------------------------------------------------
+def get_next_level_domain(url):
+    obj = urlparse(url)
+    domain = obj.netloc.split(':')[0]
+    components = domain.split('.')
+    return '.'.join(components[1:])
+
+#----------------------------------------------------------------
+def get_results_filename(is_logged_in, uid):
+    if is_logged_in:
+        results_dir = settings.USER_REPORTS_DIR
+    else:
+        results_dir = settings.GUEST_REPORTS_DIR
+    return results_dir + uid + '.xml'
+
+#----------------------------------------------------------------
+def get_results_pgcount(filename):
+    doc = etree.parse(filename)
+    rlist = doc.xpath('/results/meta/pg-count')
+    return int(rlist[0].text)

@@ -12,6 +12,10 @@ USER_REPORTS_DIR = '/var/www/fae/reports/user/'
 GUEST_REPORTS_DIR = '/var/www/fae/reports/guest/'
 SITES_DIR = '/var/www/fae/sites/'
 WGET = '/var/www/html/dev/wget'
+WAMT = '/var/www/html/dev/wamt'
+XSLTPROC = '/usr/local/bin/xsltproc'
+REJECT_LIST = u'.aac,.ac3,.avi,.doc,.ico,.mov,.mp2,.mp3,.mpeg,.mpg,.pdf,.ppt,.qt,.txt,.wav,.wma'
+RESOURCES_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

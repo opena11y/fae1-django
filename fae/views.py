@@ -31,13 +31,14 @@ def index_user(request):
         form = DepthEvalForm(request.POST)
         if form.is_valid():
             params = {
+                'user': request.user.username,
                 'url': form.cleaned_data['url'],
                 'title': form.cleaned_data['title'],
                 'depth': form.cleaned_data['depth'],
                 'span': form.cleaned_data['span']
                 }
-            (status, id) = evaluate(params, request.user.is_authenticated())
-            if status:
+            (pgcount, timestamp, id) = evaluate(params, request.user.is_authenticated())
+            if pgcount:
                 # TODO: Save fields to database
 
                 # Display report using response redirect object
@@ -49,7 +50,7 @@ def index_user(request):
             response.set_cookie('d_depth', value=form.cleaned_data['depth'], max_age=settings.MAX_AGE)
             response.set_cookie('d_span', value=form.cleaned_data['span'], max_age=settings.MAX_AGE)
 
-            if status:
+            if pgcount:
                 return response
             else:
                 return message(request, response, 'Unable to create report!')
@@ -88,16 +89,17 @@ def index_guest(request):
         form = BasicEvalForm(request.POST)
         if form.is_valid():
             params = {
-                'url': form.cleaned_data['url']
+                'user': 'guest',
+                'url': form.cleaned_data['url'],
                 'title': labels['untitled']
                 }
-            (status, id) = evaluate(params, False)
-            if status:
+            (pgcount, timestamp, id) = evaluate(params, False)
+            if pgcount:
                 response = HttpResponseRedirect('/report/%s/' % id)
 
             response.set_cookie('b_url', value=form.cleaned_data['url'], max_age=settings.MAX_AGE)
 
-            if status:
+            if pgcount:
                 return response
             else:
                 return message(request, response, 'Unable to create report!')
@@ -130,12 +132,13 @@ def index_multi(request):
         form = MultiEvalForm(request.POST)
         if form.is_valid():
             params = {
+                'user': request.user.username,
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title']
                 }
-            (status, id) = multi_evaluate(params, request.user.is_authenticated())
+            (pgcount, timestamp, id) = multi_evaluate(params, request.user.is_authenticated())
 
-            if status:
+            if pgcount:
                 # TODO: Save fields to database
 
                 response = HttpResponseRedirect('/report/%s/' % id)
@@ -143,7 +146,7 @@ def index_multi(request):
             response.set_cookie('m_urls', value=form.cleaned_data['urls'], max_age=settings.MAX_AGE)
             response.set_cookie('m_title', value=form.cleaned_data['title'], max_age=settings.MAX_AGE)
 
-            if status:
+            if pgcount:
                 return response
             else:
                 return message(request, response, 'Unable to create report!')

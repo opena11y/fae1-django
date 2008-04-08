@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE criteria SYSTEM "criteria.dtd">
+
+<criteria>
+
+<!-- NAVIGATION &amp; ORIENTATION -->
+
+<!-- unique titles -->
+<eval id="nav001s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn>
+    <and>
+      <cmp op="ge" ref="pct1" val="90"/>
+      <cmp op="lt" ref="pct1" val="100"/>
+    </and>
+  </warn>
+  <!-- no title elements found -->
+  <null><cmp op="eq" ref="tot1" val="0"/></null>
+</eval>
+
+<!-- one or two h1 elements -->
+<eval id="nav002p">
+  <pass>
+    <or>
+      <cmp op="eq" ref="cnt1" val="1"/>
+      <cmp op="eq" ref="cnt1" val="2"/>
+    </or>
+  </pass>
+  <warn><cmp op="eq" ref="cnt1" val="3"/></warn>
+  <fail><cmp op="ge" ref="cnt1" val="4"/></fail>
+  <null><cmp op="eq" ref="cnt1" val="0"/></null>
+</eval>
+
+<eval id="nav002s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+</eval>
+
+<!-- ol/ul navigation menus preceded by header element -->
+<eval id="nav003p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav003s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- pct. content in headers -->
+<eval id="nav004p">
+  <pass>
+    <and>
+      <cmp op="ge" ref="pct1" val="1"/>
+      <cmp op="le" ref="pct1" val="20"/>
+    </and>
+  </pass>
+  <warn>
+    <and>
+      <cmp op="gt" ref="pct1" val="20"/>
+      <cmp op="le" ref="pct1" val="50"/>
+    </and>
+  </warn>
+  <null><cmp op="eq" ref="tot2" val="0"/></null>
+</eval>
+
+<eval id="nav004s">
+  <pass>
+    <and>
+      <cmp op="ge" ref="pct1" val="1"/>
+      <cmp op="le" ref="pct1" val="20"/>
+    </and>
+  </pass>
+  <warn>
+    <and>
+      <cmp op="gt" ref="pct1" val="20"/>
+      <cmp op="le" ref="pct1" val="50"/>
+    </and>
+  </warn>
+</eval>
+
+<!-- accesskey 1 defined -->
+<eval id="nav005p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+  <disc><cmp op="eq" ref="b1" val="0"/></disc>
+</eval>
+
+<eval id="nav005s">
+  <pass><cmp op="gt" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
+</eval>
+
+<!-- accesskey 2 defined -->
+<eval id="nav006p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+  <disc><cmp op="eq" ref="b1" val="0"/></disc>
+</eval>
+
+<eval id="nav006s">
+  <pass><cmp op="gt" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
+</eval>
+
+<!-- accesskey 3 defined -->
+<eval id="nav007p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+  <disc><cmp op="eq" ref="b1" val="0"/></disc>
+</eval>
+
+<eval id="nav007s">
+  <pass><cmp op="gt" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
+</eval>
+
+<!-- frames with title attribute -->
+<eval id="nav008p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav008s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- h1s match title -->
+<eval id="nav009p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <null>
+    <or>
+      <cmp op="eq" ref="tot1" val="0"/>
+      <cmp op="eq" ref="tot2" val="0"/>
+    </or>
+  </null>
+</eval>
+
+<eval id="nav009s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+</eval>
+
+<!-- area elements with redundant text link -->
+<eval id="nav010p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav010s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- form controls with labels -->
+<eval id="nav011p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <null>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="cnt2" val="0"/>
+    </and>
+  </null>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav011s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- num data tables out of total tables -->
+<!-- NOTE: This test always evaluates to either pass or disc! -->
+<eval id="nav012p">
+  <pass><cmp op="ge" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
+</eval>
+
+<!-- counts/total of header elements -->
+<eval id="nav013p">
+  <pass><cmp op="gt" ref="tot1" val="0"/></pass>
+  <null><cmp op="eq" ref="tot1" val="0"/></null>
+</eval>
+
+<eval id="nav013s">
+  <pass><cmp op="gt" ref="tot1" val="0"/></pass>
+  <null><cmp op="eq" ref="tot1" val="0"/></null>
+</eval>
+
+<!-- subheaders properly nested -->
+<eval id="nav014p">
+  <pass>
+    <and><!-- no offenders out of non-empty successors -->
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="gt" ref="tot1" val="0"/>
+    </and>
+  </pass>
+  <null><!-- no h1 elements -->
+    <cmp op="eq" ref="cnt2" val="0"/>
+  </null>
+  <disc><!-- h1 elements exist but no successors -->
+    <and>
+      <cmp op="gt" ref="cnt2" val="0"/>
+      <cmp op="eq" ref="tot1" val="0"/>
+    </and>
+  </disc>
+</eval>
+
+<eval id="nav014s">
+  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- one and only one title element -->
+<eval id="nav015p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+  <null><cmp op="eq" ref="cnt1" val="0"/></null>
+</eval>
+
+<eval id="nav015s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <null><cmp op="eq" ref="tot1" val="0"/></null>
+</eval>
+
+<!-- TEXT EQUIVALENTS -->
+
+<!-- img elements with alt text -->
+<eval id="text001p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text001s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- embed elements with alt text -->
+<eval id="text002p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text002s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- applet elements with alt text -->
+<eval id="text003p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text003s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- object elements with alternative content -->
+<eval id="text004p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text004s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- img elements with alt attribute -->
+<eval id="text005p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text005s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- img elements with alt attribute with non-null value -->
+<eval id="text006p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text006s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- SCRIPTING &amp; AUTOMATION -->
+
+<!-- elements with onmouseover and onfocus -->
+<eval id="auto001p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="auto001s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- elements with onmouseout and onblur -->
+<eval id="auto002p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="auto002s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- calls to document.write/writeln -->
+<eval id="auto003p">
+  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+</eval>
+
+<eval id="auto003s">
+  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+</eval>
+
+<!-- STYLING -->
+
+<!-- elements styled with inline style elements -->
+<eval id="style001p">
+  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
+</eval>
+
+<eval id="style001s">
+  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
+</eval>
+
+<!-- nested tables -->
+<eval id="style002p">
+  <pass><cmp op="eq" ref="r1" val="0"/></pass>
+  <warn><cmp op="eq" ref="r1" val="1"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="style002s">
+  <pass><cmp op="eq" ref="r1" val="0"/></pass>
+  <warn><cmp op="eq" ref="r1" val="1"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- decorative images -->
+<eval id="style003p">
+  <pass>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="pct1" val="100"/>
+    </and>
+  </pass>
+  <warn>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="lt" ref="pct1" val="100"/>
+    </and>
+  </warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="style003s">
+  <pass>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="pct1" val="100"/>
+    </and>
+  </pass>
+  <warn>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="lt" ref="pct1" val="100"/>
+    </and>
+  </warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- inline style elements -->
+<eval id="style004p">
+  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+</eval>
+
+<eval id="style004s">
+  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+</eval>
+
+<!-- elements with color attribute -->
+<eval id="style005p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+</eval>
+
+<eval id="style005s">
+  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+</eval>
+
+<!-- STANDARDS -->
+
+<!-- DOCTYPE declaration -->
+<eval id="std001p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+</eval>
+
+<eval id="std001s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+</eval>
+
+<!-- default language declaration -->
+<eval id="std002p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+</eval>
+
+<eval id="std002s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+</eval>
+
+<!-- character encoding declaration -->
+<eval id="std003p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+  <warn><cmp op="eq" ref="b1" val="0"/></warn>
+</eval>
+
+<eval id="std003s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+</eval>
+
+</criteria>

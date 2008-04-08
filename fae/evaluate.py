@@ -5,8 +5,10 @@ from datetime import datetime
 from lxml import etree
 from uid import generate
 
-# use subprocess.check_call for debugging
-call = subprocess.call
+if settings.RESOURCES_DEBUG:
+    call = subprocess.check_call
+else:
+    call = subprocess.call
 
 #----------------------------------------------------------------
 def evaluate(params, is_logged_in):

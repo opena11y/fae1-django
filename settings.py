@@ -2,6 +2,7 @@
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+RESOURCES_DEBUG = False
 
 # Custom settings
 PROJECT_ROOT = '/home/nhoyt/src/wamt/project/'
@@ -14,8 +15,8 @@ SITES_DIR = '/var/www/fae/sites/'
 WGET = '/var/www/html/dev/wget'
 WAMT = '/var/www/html/dev/wamt'
 XSLTPROC = '/usr/local/bin/xsltproc'
-REJECT_LIST = u'.aac,.ac3,.avi,.doc,.ico,.mov,.mp2,.mp3,.mpeg,.mpg,.pdf,.ppt,.qt,.txt,.wav,.wma'
-RESOURCES_DEBUG = DEBUG
+AUDIO_VIDEO_TYPES = u'.aac,.ac3,.avi,.mov,.mp2,.mp3,.mpeg,.mpg,.qt,.wav,.wma'
+REJECT_LIST = u'.css,.doc,.ico,.js,.odf,.pdf,.ppt,.xls,' + AUDIO_VIDEO_TYPES
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

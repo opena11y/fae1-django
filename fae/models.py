@@ -30,7 +30,7 @@ class Organization(models.Model):
     org_type      = models.IntegerField(choices=ORG_TYPE_CHOICES)
     url           = models.URLField()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     class Meta:
@@ -52,7 +52,7 @@ class UserProfile(models.Model):
     acct_type     = models.IntegerField(choices=ACCT_TYPE_CHOICES, default=1)
     org           = models.ForeignKey(Organization)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.user.username
 
     class Admin:
@@ -62,7 +62,7 @@ class EmailSuffix(models.Model):
     suffix        = models.CharField(max_length=128, primary_key=True)
     org           = models.ForeignKey(Organization)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.suffix
 
     class Meta:
@@ -80,12 +80,11 @@ class UserReport(models.Model):
     urlcount      = models.IntegerField()
     depth         = models.IntegerField()
     title         = models.CharField(max_length=128, blank=True)
-    delete        = models.BooleanField(default=False)
-    # TODO: rename delete to removable
-    # removable     = models.BooleanField(default=False) 
+    # TODO: rename delete column in database to removable
+    removable     = models.BooleanField(db_column='delete', default=False)
     stats         = models.BooleanField(default=False)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.id
 
     def get_absolute_url(self):
@@ -104,7 +103,7 @@ class GuestReport(models.Model):
     url           = models.URLField()
     stats         = models.BooleanField(default=False)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.id
 
     class Meta:

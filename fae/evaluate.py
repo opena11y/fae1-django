@@ -1,8 +1,9 @@
 import subprocess
 from django.conf import settings
-from urlparse import urlparse
 from datetime import datetime
 from lxml import etree
+
+from utils import get_next_level_domain, get_results_filename
 from uid import generate
 
 if settings.RESOURCES_DEBUG:
@@ -149,21 +150,6 @@ def run_xsltproc(filename, stylesheet):
     xsltproc.append(stylesheet)
     xsltproc.append(filename)
     call(xsltproc)
-
-#----------------------------------------------------------------
-def get_next_level_domain(url):
-    obj = urlparse(url)
-    domain = obj.netloc.split(':')[0]
-    components = domain.split('.')
-    return '.'.join(components[1:])
-
-#----------------------------------------------------------------
-def get_results_filename(is_logged_in, uid):
-    if is_logged_in:
-        results_dir = settings.USER_REPORTS_DIR
-    else:
-        results_dir = settings.GUEST_REPORTS_DIR
-    return results_dir + uid + '.xml'
 
 #----------------------------------------------------------------
 def get_results_pgcount(filename):

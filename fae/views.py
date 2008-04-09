@@ -11,6 +11,7 @@ from models import UserProfile, UserReport, GuestReport
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm
 from evaluate import evaluate, multi_evaluate
+from processors import get_report_content
 
 #----------------------------------------------------------------
 def index(request):
@@ -251,6 +252,10 @@ def report(request, rptid, type=None, section=None, pageid=None):
     # Get latest report parameters if they exist
     report_info = get_report_info(request, rptid)
 
+    # If report_info doesn't exist, return error message
+    if not report_info:
+        return message(request, HttpResponse(), 'Report does not exist!')
+
     if type:
         report_info['type'] = type
     else:
@@ -276,7 +281,6 @@ def report(request, rptid, type=None, section=None, pageid=None):
     title = labels['report'][report_info['type']]
     if report_info['type'] == 'page' and report_info['pgcount'] != '1':
         title += ' ' + report_info['pageid']
-
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         title += ': ' + labels['section'][report_info['section']]
 
@@ -284,6 +288,7 @@ def report(request, rptid, type=None, section=None, pageid=None):
     context = {
         'page_type': 'report',
         'title': title,
+        'content': get_report_content(report_info, title, request.user.is_authenticated())
         }
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         context['display_sections'] = True
@@ -328,7 +333,13 @@ def get_report_info(request, rptid):
     if report_info.has_key('rptid') and report_info['rptid'] == rptid:
         return report_info
     else:
-        return { 'rptid': rptid, 'pgcount': '12' }
+        model = UserReport if request.user.is_authenticated() else GuestReport
+        try:
+            report = model.objects.get(id=rptid)
+        except ObjectDoesNotExist:
+            return {}
+
+        return { 'rptid': rptid, 'pgcount': str(report.pgcount) }
 
 #----------------------------------------------------------------
 def logout(request):

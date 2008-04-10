@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -90,6 +91,9 @@ class UserReport(models.Model):
     def get_absolute_url(self):
         return '/report/%s/summary/' % self.id
 
+    def get_filename(self):
+        return settings.USER_REPORTS_DIR + self.id + '.xml'
+
     class Meta:
         ordering = ["-timestamp"]
 
@@ -105,6 +109,9 @@ class GuestReport(models.Model):
 
     def __unicode__(self):
         return self.id
+
+    def get_filename(self):
+        return settings.GUEST_REPORTS_DIR + self.id + '.xml'
 
     class Meta:
         ordering = ["-timestamp"]

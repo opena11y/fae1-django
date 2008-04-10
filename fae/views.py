@@ -288,7 +288,7 @@ def report(request, rptid, type=None, section=None, pageid=None):
     context = {
         'page_type': 'report',
         'title': title,
-        'content': get_report_content(report_info, title, request.user.is_authenticated())
+        'content': get_report_content(report_info, title)
         }
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         context['display_sections'] = True
@@ -322,24 +322,35 @@ def get_report_info(request, rptid):
         IF rptid matches existing report_info
             return existing report_info
         ELSE
-            return a new dictionary with new rptid
-
-    Later, when a new report is requested, this function
-    will need to get the report metadata from the database.
+            lookup report by rptid in database
+            IF found
+                return a new dictionary with rptid
+                and pgcount keys/values
+            ELSE
+                return an empty dictionary to flag
+                that report does not exist
     """
     # Get latest report parameters if they exist
     report_info = request.session.get('report', {})
 
+    primary = UserReport if request.user.is_authenticated() else GuestReport
+    secondary = GuestReport if request.user.is_authenticated() else UserReport
+
     if report_info.has_key('rptid') and report_info['rptid'] == rptid:
         return report_info
     else:
-        model = UserReport if request.user.is_authenticated() else GuestReport
         try:
-            report = model.objects.get(id=rptid)
+            report = primary.objects.get(id=rptid)
         except ObjectDoesNotExist:
-            return {}
+            try:
+                report = secondary.objects.get(id=rptid)
+            except ObjectDoesNotExist:
+                return {}
 
-        return { 'rptid': rptid, 'pgcount': str(report.pgcount) }
+        return { 'rptid': rptid,
+                 'pgcount': str(report.pgcount),
+                 'filename': report.get_filename()
+                 }
 
 #----------------------------------------------------------------
 def logout(request):
@@ -349,8 +360,8 @@ def logout(request):
 #----------------------------------------------------------------
 def get_profile_data(profile_obj):
     """
-    Given a user profile object, returns a dictionary representing its
-    fields, suitable for passing as the initial data of a form.
+    Given a user profile object, returns a dictionary representing
+    its fields, suitable for passing as the initial data of a form.
     This fn. courtesy of James Bennett's broken profiles package.
     """
     opts = profile_obj._meta

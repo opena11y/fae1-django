@@ -1,7 +1,6 @@
 from django.conf import settings
 from lxml import etree
 
-from utils import get_results_filename
 from labels import labels
 
 # initialization functions called from __init__.py
@@ -31,14 +30,13 @@ def init_report_procs():
     # report_menu = etree.XSLT(report_menu_xslt)
 
 #----------------------------------------------------------------
-def get_report_content(report_info, title, is_logged_in):
+def get_report_content(report_info, title):
     global summary_report_xslt
 
     rptid = report_info['rptid']
     pgcount = report_info['pgcount']
-
-    results_file = get_results_filename(is_logged_in, rptid)
-    results_data = etree.parse(results_file)
+    filename = report_info['filename']
+    results_data = etree.parse(filename)
 
     params = {
         'id': u"'%s'" % rptid,

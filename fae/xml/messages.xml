@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE messages SYSTEM "messages.dtd">
+
+<messages>
+
+  <!-- NAVIGATION &amp; ORIENTATION -->
+
+  <message id="nav001s">
+    <msg id="default"><ins ref="pct1"/>% of all <elem>title</elem> elements are unique (<ins ref="cnt1"/> out of <ins ref="tot1"/>).</msg>
+    <msg id="null">No <elem>title</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav002p">
+    <msg id="default"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="null">No <elem>h1</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav003p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>ol</elem> or <elem>ul</elem> elements that appear to be navigation menus were found.</msg>
+  </message>
+
+  <message id="nav004p">
+    <msg id="default"><ins ref="pct1"/>%</msg>
+    <msg id="null">No text content is contained in header elements.</msg>
+  </message>
+
+  <message id="nav005p">
+    <msg id="pass"><attr>accesskey</attr> 1 was defined.</msg>
+    <msg id="disc"><attr>accesskey</attr> 1 was not defined.</msg>
+  </message>
+
+  <message id="nav006p">
+    <msg id="pass"><attr>accesskey</attr> 2 was defined.</msg>
+    <msg id="disc"><attr>accesskey</attr> 2 was not defined.</msg>
+  </message>
+
+  <message id="nav007p">
+    <msg id="pass"><attr>accesskey</attr> 3 was defined.</msg>
+    <msg id="disc"><attr>accesskey</attr> 3 was not defined.</msg>
+  </message>
+
+  <message id="nav008p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>).</msg>
+    <msg id="disc">No <elem>frame</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav009p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
+  </message>
+
+  <message id="nav010p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>).</msg>
+    <msg id="disc">No <elem>area</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav011p">
+    <msg id="default"><ins ref="pct1"/>% (out of <ins ref="tot1"><s>control</s><p>controls</p></ins>, <ins ref="cnt1"><s>is associated with a <elem>label</elem> via its <attr>id</attr> attribute</s><p>are associated with <elem>label</elem> elements via their <attr>id</attr> attributes</p></ins>, and <ins ref="cnt2"><s>is nested within a <elem>label</elem> element</s><p>are nested within <elem>label</elem> elements</p></ins>).</msg>
+    <msg id="null"><ins ref="pct1"/>% (0 out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>form</elem> controls were found.</msg>
+  </message>
+
+  <message id="nav012p">
+    <msg id="default">Out of <ins ref="tot1"><s><elem>table</elem> element</s><p><elem>table</elem> elements</p></ins>, <ins ref="cnt1"><s>appears to be a data table</s><p>appear to be data tables</p></ins>. Of those data tables, <ins ref="cnt2"><s>utilizes</s><p>utilize</p></ins> the <elem>thead</elem> element, and <ins ref="cnt3"><s>utilizes</s><p>utilize</p></ins> the <elem>th</elem> element.</msg>
+    <msg id="disc">No data tables were found.</msg>
+  </message>
+
+  <message id="nav013p">
+    <msg id="default"><ins ref="tot1"><s>header element was</s><p>header elements were</p></ins> found (<ins ref="r1"/> <elem>h1</elem>, <ins ref="r2"/> <elem>h2</elem>, <ins ref="r3"/> <elem>h3</elem>, <ins ref="r4"/> <elem>h4</elem>, <ins ref="r5"/> <elem>h5</elem>, <ins ref="r6"/> <elem>h6</elem>).</msg>
+    <msg id="null">No header elements were found.</msg>
+  </message>
+
+  <message id="nav014p">
+    <msg id="pass">Of the <ins ref="tot1"><s>header element that follows</s><p>header elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.</msg>
+    <msg id="fail">Of the <ins ref="tot1"><s>header element that follows</s><p>header elements that follow</p></ins> the last <elem>h1</elem> element, <ins ref="cnt1"><s>is</s><p>are</p></ins> improperly nested.</msg>
+    <msg id="null">Improper nesting of headers due to lack of an <elem>h1</elem> element.</msg>
+    <msg id="disc">No nested header elements were found.</msg>
+  </message>
+
+  <message id="nav015p">
+    <msg id="default"><ins ref="cnt1"><s><elem>title</elem> element was</s><p><elem>title</elem> elements were</p></ins> found.</msg>
+  </message>
+
+  <!-- TEXT EQUIVALENTS -->
+
+  <message id="text001p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>img</elem> elements were found.</msg>
+  </message>
+
+  <message id="text002p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>embed</elem> elements were found.</msg>
+  </message>
+
+  <message id="text003p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>applet</elem> elements were found.</msg>
+  </message>
+
+  <message id="text004p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>object</elem> elements were found.</msg>
+  </message>
+
+  <message id="text005p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>img</elem> elements were found.</msg>
+  </message>
+
+  <message id="text006p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No <elem>img</elem> elements with an <attr>alt</attr> attribute were found.</msg>
+  </message>
+
+  <!-- SCRIPTING &amp; AUTOMATION -->
+
+  <message id="auto001p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No elements with an <attr>onmouseover</attr> attribute were found.</msg>
+  </message>
+
+  <message id="auto002p">
+    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="disc">No elements with an <attr>onmouseout</attr> attribute were found.</msg>
+  </message>
+
+  <!-- STYLING -->
+
+  <message id="style001p">
+    <msg id="default"><ins ref="pct1"/>% of the content on the page is styled using deprecated HTML elements.</msg>
+    <msg id="null">No deprecated style elements were found.</msg>
+  </message>
+
+  <message id="style002p">
+    <msg id="default"><ins ref="cnt1"><s>nested table was</s><p>nested tables were</p></ins> found out of <ins ref="tot1"><s><elem>table</elem> element</s><p><elem>table</elem> elements</p></ins>, with a maximum depth of <ins ref="r1"/>.</msg>
+    <msg id="disc">No <elem>table</elem> elements were found.</msg>
+  </message>
+
+  <message id="style003p">
+    <msg id="pass">No images appear to be stylistic based on their dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
+    <msg id="warn">No images appear to be decorative based on their dimensions (having a width or height of less than 4 pixels). However, not all images (<ins ref="cnt2"/> out of <ins ref="tot1"/>) were retrieved and analyzed.</msg>
+    <msg id="fail"><ins ref="cnt1"><s>image appears to be stylistic based on its</s><p>images appear to be stylistic based on their</p></ins> dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
+    <msg id="disc">No <elem>img</elem> elements were found.</msg>
+  </message>
+
+  <!-- needs to be combined with style001p -->
+  <message id="style004p">
+    <msg id="default"><ins ref="tot1"><s>inline style element was</s><p>inline style elements were</p></ins> found (<ins ref="r1"/> <elem>b</elem>, <ins ref="r2"/> <elem>basefont</elem>, <ins ref="r3"/> <elem>blink</elem>, <ins ref="r4"/> <elem>center</elem>, <ins ref="r5"/> <elem>font</elem>, <ins ref="r6"/> <elem>i</elem>, <ins ref="r7"/> <elem>marquee</elem>, <ins ref="r8"/> <elem>strike</elem>, <ins ref="r9"/> <elem>u</elem>).</msg>
+  </message>
+
+  <message id="style005p">
+    <msg id="default"><ins ref="cnt1"><s>element with a <attr>color</attr> attribute was</s><p>elements with a <attr>color</attr> attribute were</p></ins> found.</msg>
+  </message>
+
+  <!-- STANDARDS -->
+
+  <message id="std001p">
+    <msg id="pass">A DOCTYPE declaration was found.</msg>
+    <msg id="fail">A DOCTYPE declaration was not found.</msg>
+  </message>
+
+  <message id="std002p">
+    <msg id="pass">The default language was specified.</msg>
+    <msg id="fail">The default language was not specified.</msg>
+  </message>
+
+  <message id="std003p">
+    <msg id="pass">The character encoding was specified.</msg>
+    <msg id="warn">The character encoding was not specified.</msg>
+  </message>
+
+</messages>

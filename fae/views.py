@@ -11,7 +11,7 @@ from models import UserProfile, UserReport, GuestReport
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm
 from evaluate import evaluate, multi_evaluate
-from processors import get_report_content
+from processors import get_report_content, get_pgrpteval_content
 
 #----------------------------------------------------------------
 def index(request):
@@ -284,6 +284,12 @@ def report(request, rptid, type=None, section=None, pageid=None):
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         title += ': ' + labels['section'][report_info['section']]
 
+    # Get the report template
+    if report_info['type'] == 'sitewide':
+        template_name = 'site_report.html'
+    else:
+        template_name = 'report.html'
+
     # Set up context
     context = {
         'page_type': 'report',
@@ -294,9 +300,20 @@ def report(request, rptid, type=None, section=None, pageid=None):
         context['display_sections'] = True
 
     # Return response
-    t = get_template('report.html')
+    t = get_template(template_name)
     html = t.render(RequestContext(request, context))
     return HttpResponse(html)
+
+#----------------------------------------------------------------
+def pgrpteval(request):
+    if request.is_ajax():
+        report_info = request.session.get('report', {})
+        testid = request['testid'] if request.has_key('testid') else ''
+        eval = request['eval'] if request.has_key('eval') else ''
+        content = get_pgrpteval_content(report_info, testid, eval)
+    else:
+        content = 'None'
+    return HttpResponse(content)    
 
 #----------------------------------------------------------------
 def about(request, content_id='overview'):

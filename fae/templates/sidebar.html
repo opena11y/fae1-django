@@ -40,5 +40,13 @@
 </div>
 {% endif %} {# display_sections #}
 
+{% ifequal report.type 'sitewide' %}
+<div style="display:none" id="hideAll">
+<ul>
+<li><a href="javascript:hideAll()">Hide All Lists</a></li>
+</ul>
+</div>
+{% endifequal %}
+
 {% endif %} {# report #}
 </div>

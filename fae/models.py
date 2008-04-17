@@ -81,8 +81,7 @@ class UserReport(models.Model):
     urlcount      = models.IntegerField()
     depth         = models.IntegerField()
     title         = models.CharField(max_length=128, blank=True)
-    # TODO: rename delete column in database to removable
-    removable     = models.BooleanField(db_column='delete', default=False)
+    archive       = models.BooleanField(default=False)
     stats         = models.BooleanField(default=False)
 
     def __unicode__(self):

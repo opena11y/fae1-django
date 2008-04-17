@@ -752,23 +752,23 @@ h1 a, h2 a, h3 a, h4 a
 }
 
 li.pass {
-	list-style-image:	url(images/pass.jpg);
+	list-style-image:	url(/media/images/pass.jpg);
 }
 
 li.warn {
-	list-style-image:	url(images/warn.jpg);
+	list-style-image:	url(/media/images/warn.jpg);
 }
 
 li.fail {
-	list-style-image:	url(images/fail.jpg);
+	list-style-image:	url(/media/images/fail.jpg);
 }
 
 li.null {
-	list-style-image:	url(images/fail.jpg);
+	list-style-image:	url(/media/images/fail.jpg);
 }
 
 li.disc {
-	list-style-image:	url(images/disc.jpg);
+	list-style-image:	url(/media/images/disc.jpg);
 }
 
 li.pass, li.warn, li.fail, li.null, li.disc {
@@ -1204,7 +1204,7 @@ a.external span {
 }
 
 a.external {
-	background:			url(images/external.gif) no-repeat 100% 0;
+	background:			url(/media/images/external.gif) no-repeat 100% 0;
 	padding:			0 20px 0 0;
 }
 
@@ -1274,10 +1274,10 @@ ul.results li {
   background-repeat: no-repeat;
   background-position: left center;
 }
-ul.results li.fail { background-image: url(images/fail.jpg); }
-ul.results li.warn { background-image: url(images/warn.jpg); }
-ul.results li.pass { background-image: url(images/pass.jpg); }
-ul.results li.disc { background-image: url(images/disc.jpg); }
+ul.results li.fail { background-image: url(/media/images/fail.jpg); }
+ul.results li.warn { background-image: url(/media/images/warn.jpg); }
+ul.results li.pass { background-image: url(/media/images/pass.jpg); }
+ul.results li.disc { background-image: url(/media/images/disc.jpg); }
 
 ul.results li a {
   border: 1px solid white;
@@ -1302,10 +1302,10 @@ ul.reports-fail li a, ul.reports-warn li a, ul.reports-pass li a, ul.reports-dis
 ul.reports-fail li a span, ul.reports-warn li a span, ul.reports-pass li a span, ul.reports-disc li a span
 { font-size: 86%; }
 
-ul.reports-fail li { list-style-image: url(images/fail.jpg); }
-ul.reports-warn li { list-style-image: url(images/warn.jpg); }
-ul.reports-pass li { list-style-image: url(images/pass.jpg); }
-ul.reports-disc li { list-style-image: url(images/disc.jpg); }
+ul.reports-fail li { list-style-image: url(/media/images/fail.jpg); }
+ul.reports-warn li { list-style-image: url(/media/images/warn.jpg); }
+ul.reports-pass li { list-style-image: url(/media/images/pass.jpg); }
+ul.reports-disc li { list-style-image: url(/media/images/disc.jpg); }
 
 .listContainer {
   display: none;

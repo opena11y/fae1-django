@@ -118,15 +118,6 @@
 
   <!-- ======================================================== -->
 
-  <xsl:template match="link">
-    <xsl:param name="name"/>
-    <xsl:variable name="prefix" select="//link-base[@tgt='bp']/@href"/>
-
-    <xsl:text disable-output-escaping='yes'>&amp;nbsp;</xsl:text><xsl:text disable-output-escaping='yes'>&amp;nbsp;</xsl:text><a class="ext" href="javascript:newWindow('{concat($prefix, @href)}')" title="Best Practices: {$name}">Best Practices</a>
-  </xsl:template>
-
-  <!-- ======================================================== -->
-
   <xsl:template name="get-testids">
     <xsl:text>[</xsl:text><xsl:for-each select="$testdoc/section[@id=$section]//best-practice[child::page]"><xsl:if test="position() &gt; 1"><xsl:text>,</xsl:text></xsl:if><xsl:text>'</xsl:text><xsl:value-of select="@ref"/><xsl:text>'</xsl:text></xsl:for-each><xsl:text>]</xsl:text>
   </xsl:template>

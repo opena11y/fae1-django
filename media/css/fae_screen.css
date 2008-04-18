@@ -901,12 +901,6 @@ dt {
 	}
 }
 
-a.ext {
-	color:				#777;
-	font-size:			75%;
-	font-weight:		normal;
-}
-
 code.elem,
 code.attr,
 code.scr {
@@ -1197,15 +1191,23 @@ li.menu-highlight {
 
 /* External Link */
 
-a.external span {
-	position:			absolute;
-	left:				-5000px;
-	width:				4000px;
+a.best-practices {
+	color:						#777;
+	font-size:				75%;
+	font-weight:			normal;
+	margin-left:			0.75em;
 }
 
 a.external {
-	background:			url(/media/images/external.gif) no-repeat 100% 0;
-	padding:			0 20px 0 0;
+	background:				url(/media/images/external.gif) no-repeat 100% 0;
+	padding:					2px 20px 0 0;
+	text-decoration:	underline;
+}
+
+a.external span {
+	position:					absolute;
+	left:							-5000px;
+	width:						4000px;
 }
 
 ul.urls {

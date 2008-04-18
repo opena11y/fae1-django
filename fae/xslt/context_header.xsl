@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
+  <!-- ======================================================== -->
+
   <xsl:template name="context-header">
     <xsl:param name="url"/>
     <xsl:param name="link" select="false()"/>
@@ -75,6 +77,8 @@
     </div>
   </xsl:template>
 
+  <!-- ======================================================== -->
+
   <!-- get-urls -->
   <xsl:template name="get-urls">
     <xsl:variable name="max-urls" select="5"/>
@@ -103,6 +107,8 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- ======================================================== -->
+
   <!-- all-urls -->
   <xsl:template name="all-urls">
     <xsl:for-each select="/results/meta/urls/url">
@@ -113,6 +119,8 @@
       </li>
     </xsl:for-each>
   </xsl:template>
+
+  <!-- ======================================================== -->
 
   <!-- format-url -->
   <xsl:template name="format-url">
@@ -146,6 +154,8 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- ======================================================== -->
+
   <!-- add-line-breaks -->
   <xsl:template name="add-line-breaks">
     <xsl:param name="str"/>
@@ -160,6 +170,14 @@
       </xsl:when>
       <xsl:otherwise><xsl:value-of select="$str"/></xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+  <!-- ======================================================== -->
+
+  <xsl:template match="link">
+    <xsl:param name="name"/>
+    <xsl:variable name="prefix" select="//link-base[@tgt='bp']/@href"/>
+    <a class="external best-practices" href="{concat($prefix, @href)}" title="Best Practices: {$name}">Best Practices<span> (opens in a new window)</span></a>
   </xsl:template>
 
 </xsl:transform>

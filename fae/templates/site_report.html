@@ -2,11 +2,10 @@
 
 {% block javascript %}
 {{ block.super }}
-<script type="text/javascript" src="/media/js/prototype.js"></script>
 <script type="text/javascript" src="/media/js/divmap.js"></script>
 {% endblock %}
 
-{% block bodytag %}<body onload="initDoc()">{% endblock %}
+{% block bodytag %}<body onload="initDoc(); addHandlers()">{% endblock %}
 
 {% block content %}
 {{ content|safe }}

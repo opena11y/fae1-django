@@ -105,13 +105,4 @@
     <code class="attr"><xsl:apply-templates/></code>
   </xsl:template>
 
-  <!-- ======================================================== -->
-
-  <xsl:template match="link[@tgt='bp']">
-    <xsl:param name="name"/>
-    <xsl:variable name="prefix" select="//link-base[@tgt='bp']/@href"/>
-
-    <xsl:text disable-output-escaping='yes'>&amp;nbsp;</xsl:text><xsl:text disable-output-escaping='yes'>&amp;nbsp;</xsl:text><a class="ext" href="javascript:newWindow('{concat($prefix, @href)}')" title="Best Practices: {$name}">Best Practices</a>
-  </xsl:template>
-
 </xsl:transform>

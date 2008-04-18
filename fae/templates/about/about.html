@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 
-{% block javascript %}
-{{ block.super }}
-<script type="text/javascript">
-function initDoc() {}
-</script>
-{% endblock %}
+{% block bodytag %}<body onload="addHandlers()">{% endblock %}
 
 {% block content %}
 <h1>{{ title }}</h1>

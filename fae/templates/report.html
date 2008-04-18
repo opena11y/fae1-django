@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block bodytag %}<body onload="addHandlers()">{% endblock %}
+
 {% block content %}
 {{ content|safe }}
 {% endblock %}

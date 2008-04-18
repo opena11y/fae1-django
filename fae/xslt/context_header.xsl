@@ -79,7 +79,7 @@
   <xsl:template name="get-urls">
     <xsl:variable name="max-urls" select="5"/>
     <xsl:variable name="count" select="count(/results/meta/urls/url)"/>
-    <xsl:variable name="href">report.php?id=<xsl:value-of select="$id"/>&amp;pc=<xsl:value-of select="$pc"/>&amp;type=urls<xsl:if test="string-length($section)">&amp;section=<xsl:value-of select="$section"/></xsl:if><xsl:if test="string-length($pid)">&amp;pageid=<xsl:value-of select="$pid"/></xsl:if></xsl:variable>
+    <xsl:variable name="href">/report/<xsl:value-of select="$id"/>/urls/</xsl:variable>
 
     URLs:
     <xsl:choose>

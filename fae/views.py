@@ -226,6 +226,10 @@ def archived_reports(request):
         'report_list': report_list
         }
 
+    # For highlighting currently selected report in list
+    report_info = request.session.get('report', {})
+    if report_info: context['current_id'] = report_info['rptid']
+
     # Return response
     t = get_template('archive.html')
     html = t.render(RequestContext(request, context))
@@ -280,11 +284,14 @@ def report(request, rptid, type=None, section=None, pageid=None):
     # Construct the document title
     title = labels['report'][report_info['type']]
     if report_info['type'] == 'page' and report_info['pgcount'] != '1':
-        title += ' ' + report_info['pageid']
+        title += ': ' + report_info['pageid']
+
+    # Save report_header at this point for get_report_content
+    report_header = title
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         title += ': ' + labels['section'][report_info['section']]
 
-    # Get the report template
+    # Select the report template
     if report_info['type'] == 'sitewide':
         template_name = 'site_report.html'
     else:
@@ -294,7 +301,7 @@ def report(request, rptid, type=None, section=None, pageid=None):
     context = {
         'page_type': 'report',
         'title': title,
-        'content': get_report_content(report_info, title)
+        'content': get_report_content(report_info, report_header)
         }
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         context['display_sections'] = True

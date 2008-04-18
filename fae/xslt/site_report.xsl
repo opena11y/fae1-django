@@ -17,6 +17,7 @@
   <xsl:param name="pc"/>
   <xsl:param name="section"/>
   <xsl:param name="pid"/><!-- not used -->
+  <xsl:param name="title"/>
 
   <xsl:variable name="results" select="/results"/>
   <xsl:variable name="testdoc" select="document('../xml/testdoc.xml')/testdoc"/>
@@ -33,7 +34,7 @@
       var idArray = <xsl:call-template name="get-testids"/>;
     </script>
 
-    <h1>Sitewide Report</h1>
+    <h1><xsl:value-of select="$title"/></h1>
 
     <xsl:apply-templates select="$testdoc//section[@id=$section]">
       <xsl:with-param name="site" select="$site"/>

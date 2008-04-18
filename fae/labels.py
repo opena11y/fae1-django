@@ -7,10 +7,11 @@ reports = {
     'sitewide': 'Sitewide Report',
     'page': 'Page Report',
     'menu': 'List of Pages',
+    'urls': 'List of URLs',
     }
 
 sections = {
-    'nav': 'Navigation &amp; Orientation',
+    'nav': 'Navigation & Orientation',
     'text': 'Text Equivalents',
     'auto': 'Scripting',
     'style': 'Styling',

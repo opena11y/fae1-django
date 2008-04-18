@@ -15,29 +15,23 @@ from labels import labels
 
 #----------------------------------------------------------------
 def init_report_procs():
-    global summary_report_xslt, site_report_xslt, pgrpteval_xslt
+    global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt, pgrpteval_xslt
 
     summary_report_xslt = etree.parse(settings.XSLT_PATH + 'summary_report.xsl')
-    # summary_report_proc = etree.XSLT(summary_report_xslt)
-
     site_report_xslt = etree.parse(settings.XSLT_PATH + 'site_report.xsl')
-    # site_report_proc = etree.XSLT(site_report_xslt)
-
+    page_report_xslt = etree.parse(settings.XSLT_PATH + 'page_report.xsl')
+    report_menu_xslt = etree.parse(settings.XSLT_PATH + 'report_menu.xsl')
+    report_urls_xslt = etree.parse(settings.XSLT_PATH + 'report_urls.xsl')
     pgrpteval_xslt = etree.parse(settings.XSLT_PATH + 'pgrpteval.xsl')
-
-    # page_report_xslt = etree.parse(settings.XSLT_PATH + 'page_report.xsl')
-    # page_report_proc = etree.XSLT(page_report_xslt)
-
-    # report_menu_xslt = etree.parse(settings.XSLT_PATH + 'menu_report.xsl')
-    # report_menu_proc = etree.XSLT(report_menu_xslt)
 
 #----------------------------------------------------------------
 def get_report_content(report_info, title):
-    global summary_report_xslt, site_report_xslt
+    global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt
 
     rptid = report_info['rptid']
     pgcount = report_info['pgcount']
     section = report_info['section']
+    pageid = report_info['pageid']
     filename = report_info['filename']
     results_data = etree.parse(filename)
 
@@ -45,14 +39,26 @@ def get_report_content(report_info, title):
         'id': u"'%s'" % rptid,
         'pc': u"'%s'" % pgcount,
         'section': u"'%s'" % section,
+        'pid': u"'%s'" % pageid,
         'title': u"'%s'" % title,
         }
     if report_info['type'] == 'summary':
-        summary_report_proc = etree.XSLT(summary_report_xslt)
-        return unicode(summary_report_proc(results_data, **params))
+        proc = etree.XSLT(summary_report_xslt)
     elif report_info['type'] == 'sitewide':
-        site_report_proc = etree.XSLT(site_report_xslt)
-        return unicode(site_report_proc(results_data, **params))
+        proc = etree.XSLT(site_report_xslt)
+    elif report_info['type'] == 'page':
+        proc = etree.XSLT(page_report_xslt)
+    elif report_info['type'] == 'menu':
+        proc = etree.XSLT(report_menu_xslt)
+    elif report_info['type'] == 'urls':
+        proc = etree.XSLT(report_urls_xslt)
+    else:
+        proc = None
+
+    if proc:
+        return unicode(proc(results_data, **params))
+    else:
+        return None
 
 #----------------------------------------------------------------
 def get_pgrpteval_content(report_info, testid, eval):
@@ -70,5 +76,5 @@ def get_pgrpteval_content(report_info, testid, eval):
         'eval': u"'%s'" % eval,
         }
 
-    pgrpteval_proc = etree.XSLT(pgrpteval_xslt)
-    return unicode(pgrpteval_proc(results_data, **params))
+    transform = etree.XSLT(pgrpteval_xslt)
+    return unicode(transform(results_data, **params))

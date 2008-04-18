@@ -24,15 +24,13 @@ def multi_evaluate(params, is_logged_in, timestamp):
     uid = generate()
     urls = params['urls'].split()
 
-    # save first url for results metadata
-    first_url = urls[0]
-
     for url in urls:
         params['url'] = url
         download_resources(params, is_logged_in, uid)
 
-    # reset url for results metadata
-    params['url'] = first_url
+    # Cleanup the params dictionary
+    del params['url']
+
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
@@ -98,7 +96,16 @@ def analyze_resources(params, is_logged_in, uid, timestamp):
     results_file = get_results_filename(is_logged_in, uid)
     site_dir = settings.SITES_DIR + uid
 
-    url = params['url']
+    # Only if this function was called by multi_evaluate should
+    # we have a 'urls' key. The value of 'urls' will be a space-
+    # separated string of one or more URLs and we need to pass a
+    # comma-separated string to wamt
+    if 'urls' in params:
+        urls = params['urls'].split()
+        url = ', '.join(urls)
+    else:
+        url = params['url']
+
     title = params['title']
     depth = params.get('depth', '0')
     span = params.get('span', '')

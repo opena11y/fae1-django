@@ -213,8 +213,6 @@
       <xsl:call-template name="display-legend"/>
     </div>
 
-    <p style="font-size: smaller; margin-top: 2.5em;"><em>Note: The current version of this report is a summary across all page-level tests only. The results displayed above do not include the 'Unique Titles' site-level test, since that test is not based on corresponding page-level tests. Consequently, the Summary Report and the Sitewide Report are 'out of sync' in reporting evaluation results for the 'Navigation &amp; Orientation/Document Title' subcategory.</em></p>
-
   </xsl:template>
 
   <!-- ======================================================== -->

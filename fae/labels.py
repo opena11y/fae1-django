@@ -31,6 +31,7 @@ labels = {
     'about': 'About FAE',
     'archive': 'Archived Reports',
     'index': 'Run FAE',
+    'invalid_formid': 'Invalid Form ID',
     'multi': 'Evaluate Multiple URLs',
     'next': 'Next',
     'prev': 'Previous',

@@ -1,6 +1,6 @@
 from django.template.loader import get_template
 from django.template import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
@@ -12,11 +12,12 @@ from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm
 from evaluate import evaluate, multi_evaluate
 from processors import get_report_content, get_pgrpteval_content
+from uid import generate
 
 #----------------------------------------------------------------
 def index(request):
     """
-    Serve the appropriate Run FAE page based on the user's login status.
+    Serve the appropriate Run FAE form based on the user's login status.
     """
     if request.user.is_authenticated():
         return index_user(request)
@@ -32,6 +33,9 @@ def index_user(request):
     if request.method == 'POST':
         form = DepthEvalForm(request.POST)
         if form.is_valid():
+            # Check that formid matches session variable
+            if not check_formid(request):
+                raise Http404(labels['invalid_formid'])
             params = {
                 'url': form.cleaned_data['url'],
                 'title': form.cleaned_data['title'] or labels['untitled'],
@@ -81,6 +85,7 @@ def index_user(request):
     context = {
         'page_type': 'index',
         'title': labels['index'],
+        'formid': store_formid(request),
         'form': form,
         }
 
@@ -99,6 +104,9 @@ def index_guest(request):
     if request.method == 'POST':
         form = BasicEvalForm(request.POST)
         if form.is_valid():
+            # Check that formid matches session variable
+            if not check_formid(request):
+                raise Http404(labels['invalid_formid'])
             params = {
                 'url': form.cleaned_data['url'],
                 'title': labels['untitled'],
@@ -131,6 +139,7 @@ def index_guest(request):
     context = {
         'page_type': 'index',
         'title': labels['index'],
+        'formid': store_formid(request),
         'form': form,
         }
 
@@ -150,6 +159,9 @@ def index_multi(request):
     if request.method == 'POST':
         form = MultiEvalForm(request.POST)
         if form.is_valid():
+            # Check that formid matches session variable
+            if not check_formid(request):
+                raise Http404(labels['invalid_formid'])
             params = {
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title'] or labels['untitled'],
@@ -191,6 +203,7 @@ def index_multi(request):
     context = {
         'page_type': 'index',
         'title': labels['multi'],
+        'formid': store_formid(request),
         'form': form,
         }
 
@@ -199,6 +212,16 @@ def index_multi(request):
     html = t.render(RequestContext(request, context))
     response.write(html)
     return response
+
+#----------------------------------------------------------------
+def check_formid(request):
+    return request.POST['formid'] == request.session.get('formid')
+
+#----------------------------------------------------------------
+def store_formid(request):
+    formid = generate()
+    request.session['formid'] = formid
+    return formid
 
 #----------------------------------------------------------------
 def message(request, response, text):

@@ -18,14 +18,14 @@
 <![endif]-->
 {% block javascript %}
 <script type="text/javascript">
-/* Define function getElement() for browsers new and old. */
-if(document.getElementById){
-    getElement = function(id){ return document.getElementById(id); }
-}else if(document.all){
-    getElement = function(id){ return document.all[id]; };
-}else if(document.layers){
-    getElement = function(id){ return document.layers[id]; };
-}else{
+/* Define getElement() for browsers new and old. */
+if (document.getElementById) {
+    getElement = function(id) { return document.getElementById(id); }
+} else if (document.all) {
+    getElement = function(id) { return document.all[id]; };
+} else if (document.layers) {
+    getElement = function(id) { return document.layers[id]; };
+} else {
     getElement = function() { return null; }
 }
 function enable(id) {

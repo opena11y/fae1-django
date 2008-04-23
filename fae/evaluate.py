@@ -126,6 +126,14 @@ def analyze_resources(params, is_logged_in, uid, timestamp):
     wamt.extend(['-span', span])
     retval = call(wamt)
 
+    # validate results file
+    parser = etree.XMLParser(dtd_validation=True)
+    try:
+        tree = etree.parse(results_file, parser)
+    except ParseError:
+        # TODO: provide more info if invalid
+        return 0
+
     # run preprocessor transformations
     run_evaluate_proc(results_file)
     run_summarize_proc(results_file)

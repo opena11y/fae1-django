@@ -36,7 +36,7 @@ def multi_evaluate(params, is_logged_in, timestamp):
     return (pgcount, uid)
 
 #----------------------------------------------------------------
-def download_resources(params, is_logged_in, uid):
+def download_resources(params, is_logged_in, uid, test=False):
     """
     Call wget to download resources from specified url.
 
@@ -81,10 +81,12 @@ def download_resources(params, is_logged_in, uid):
             wget.append('-HD{%s}' % get_next_level_domain(url))
     wget.extend(['-P', site_dir])
     wget.append(url)
+
+    if test: return ' '.join(wget)
     return call(wget)
 
 #----------------------------------------------------------------
-def analyze_resources(params, is_logged_in, uid, timestamp):
+def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     """
     Process the downloaded files in the sites directory
     (identified by uid) and output results file (also named
@@ -124,6 +126,8 @@ def analyze_resources(params, is_logged_in, uid, timestamp):
     wamt.extend(['-url',  url])
     wamt.extend(['-depth', depth])
     wamt.extend(['-span', span])
+
+    if test: return ' '.join(wamt)
     retval = call(wamt)
 
     # validate results file

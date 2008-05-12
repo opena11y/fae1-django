@@ -1,17 +1,19 @@
 # Django settings for webapp project.
 
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 
 # Custom settings
-PROJECT_ROOT = '/home/nhoyt/src/wamt/project/'
-XML_PATH = PROJECT_ROOT + 'fae/xml/'
-XSLT_PATH = PROJECT_ROOT + 'fae/xslt/'
+PROJECT_DIR = '/home/nhoyt/src/wamt/project'
+XML_PATH = os.path.join(PROJECT_DIR, 'fae/xml')
+XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
 MAX_AGE = 24*60*60*14 # 14 days for cookies
-USER_REPORTS_DIR = '/var/www/fae/reports/user/'
-GUEST_REPORTS_DIR = '/var/www/fae/reports/guest/'
-SITES_DIR = '/var/www/fae/sites/'
+USER_REPORTS_DIR = '/var/www/fae/reports/user'
+GUEST_REPORTS_DIR = '/var/www/fae/reports/guest'
+SITES_DIR = '/var/www/fae/sites'
 WGET = '/var/www/html/dev/wget'
 WAMT = '/var/www/html/dev/wamt'
 XSLTPROC = '/usr/local/bin/xsltproc'
@@ -51,7 +53,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = PROJECT_ROOT + 'media'
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
@@ -95,7 +97,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_ROOT + 'templates',
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (

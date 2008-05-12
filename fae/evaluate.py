@@ -1,3 +1,4 @@
+import os
 import subprocess
 from django.conf import settings
 from datetime import datetime
@@ -62,7 +63,7 @@ def download_resources(params, is_logged_in, uid, test=False):
     -P = --directory-prefix
 
     """
-    site_dir = settings.SITES_DIR + uid
+    site_dir = os.path.join(settings.SITES_DIR, uid)
     url = params['url']
     depth = params.get('depth', '')
     span = params.get('span', '')
@@ -96,7 +97,7 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
 
     """
     results_file = get_results_filename(is_logged_in, uid)
-    site_dir = settings.SITES_DIR + uid
+    site_dir = os.path.join(settings.SITES_DIR, uid)
 
     # Only if this function was called by multi_evaluate should
     # we have a 'urls' key. The value of 'urls' will be a space-
@@ -149,17 +150,17 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
 def remove_resources(uid):
     cmd = ['rm']
     cmd.append('-rf')
-    cmd.append(settings.SITES_DIR + uid)
+    cmd.append(os.path.join(settings.SITES_DIR, uid))
     return call(cmd)
 
 #----------------------------------------------------------------
 def run_evaluate_proc(filename):
-    stylesheet = settings.XSLT_PATH + 'evaluate.xsl'
+    stylesheet = os.path.join(settings.XSLT_PATH, 'evaluate.xsl')
     run_xsltproc(filename, stylesheet)
     
 #----------------------------------------------------------------
 def run_summarize_proc(filename):
-    stylesheet = settings.XSLT_PATH + 'summarize.xsl'
+    stylesheet = os.path.join(settings.XSLT_PATH, 'summarize.xsl')
     run_xsltproc(filename, stylesheet)
 
 #----------------------------------------------------------------
@@ -183,7 +184,7 @@ def get_results_filename(is_logged_in, uid):
         results_dir = settings.USER_REPORTS_DIR
     else:
         results_dir = settings.GUEST_REPORTS_DIR
-    return results_dir + uid + '.xml'
+    return os.path.join(results_dir, uid + '.xml')
 
 #----------------------------------------------------------------
 def get_results_pgcount(filename):

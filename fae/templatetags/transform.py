@@ -1,6 +1,7 @@
 from django import template
 from django.conf import settings
 from lxml import etree
+import os
 
 register = template.Library()
 
@@ -19,8 +20,8 @@ def transform(parser, token):
 
 class TransformNode(template.Node):
     def __init__(self, xml_doc, xslt_doc):
-        self.xml_doc = settings.XML_PATH + xml_doc
-        self.xslt_doc = settings.XSLT_PATH + xslt_doc
+        self.xml_doc = os.path.join(settings.XML_PATH, xml_doc)
+        self.xslt_doc = os.path.join(settings.XSLT_PATH, xslt_doc)
 
     def render(self, context):
         xml_doc = etree.parse(self.xml_doc)

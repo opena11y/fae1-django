@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
+import os
 
 # The built-in Django User relation:
 
@@ -91,7 +92,7 @@ class UserReport(models.Model):
         return '/report/%s/summary/' % self.id
 
     def get_filename(self):
-        return settings.USER_REPORTS_DIR + self.id + '.xml'
+        return os.path.join(settings.USER_REPORTS_DIR, self.id + '.xml')
 
     class Meta:
         ordering = ["-timestamp"]
@@ -110,7 +111,7 @@ class GuestReport(models.Model):
         return self.id
 
     def get_filename(self):
-        return settings.GUEST_REPORTS_DIR + self.id + '.xml'
+        return os.path.join(settings.GUEST_REPORTS_DIR, self.id + '.xml')
 
     class Meta:
         ordering = ["-timestamp"]

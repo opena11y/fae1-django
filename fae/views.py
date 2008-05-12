@@ -286,19 +286,19 @@ def report(request, rptid, type=None, section=None, pageid=None):
     if type:
         report_info['type'] = type
     else:
-        if not report_info.has_key('type'):
+        if not 'type' in report_info:
             report_info['type'] = default_type
 
     if section:
         report_info['section'] = section
     else:
-        if not report_info.has_key('section'):
+        if not 'section' in report_info:
             report_info['section'] = default_section
 
     if pageid:
         report_info['pageid'] = pageid
     else:
-        if not report_info.has_key('pageid'):
+        if not 'pageid' in report_info:
             report_info['pageid'] = default_pageid
 
     # Store report parameters in session variable
@@ -383,7 +383,7 @@ def get_report_info(request, rptid):
     primary = UserReport if request.user.is_authenticated() else GuestReport
     secondary = GuestReport if request.user.is_authenticated() else UserReport
 
-    if report_info.has_key('rptid') and report_info['rptid'] == rptid:
+    if 'rptid' in report_info and report_info['rptid'] == rptid:
         return report_info
     else:
         try:

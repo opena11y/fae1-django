@@ -1,28 +1,21 @@
 from django.conf import settings
 from lxml import etree
+import os
 
 from labels import labels
 
-# initialization functions called from __init__.py
-
-#----------------------------------------------------------------
-#def init_results_preprocessors():
-#   global evaluate_proc, summarize_proc
-#   evaluate_xslt = etree.parse(settings.XSLT_PATH + 'evaluate.xsl')
-#   evaluate_proc = etree.XSLT(evaluate_xslt)
-#   summarize_xslt = etree.parse(settings.XSLT_PATH + 'summarize.xsl')
-#   summarize_proc = etree.XSLT(summarize_xslt)
-
 #----------------------------------------------------------------
 def init_report_procs():
+    """Initialize XSLT transform processors."""
+
     global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt, pgrpteval_xslt
 
-    summary_report_xslt = etree.parse(settings.XSLT_PATH + 'summary_report.xsl')
-    site_report_xslt = etree.parse(settings.XSLT_PATH + 'site_report.xsl')
-    page_report_xslt = etree.parse(settings.XSLT_PATH + 'page_report.xsl')
-    report_menu_xslt = etree.parse(settings.XSLT_PATH + 'report_menu.xsl')
-    report_urls_xslt = etree.parse(settings.XSLT_PATH + 'report_urls.xsl')
-    pgrpteval_xslt = etree.parse(settings.XSLT_PATH + 'pgrpteval.xsl')
+    summary_report_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'summary_report.xsl'))
+    site_report_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'site_report.xsl'))
+    page_report_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'page_report.xsl'))
+    report_menu_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'report_menu.xsl'))
+    report_urls_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'report_urls.xsl'))
+    pgrpteval_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'pgrpteval.xsl'))
 
 #----------------------------------------------------------------
 def get_report_content(report_info, title):

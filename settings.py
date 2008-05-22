@@ -4,21 +4,31 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-RESOURCES_DEBUG = False
 
-# Custom settings
+# Begin custom settings
+RESOURCES_DEBUG = False
+RESULTS_FILE_DEBUG = False
+
 PROJECT_DIR = '/home/nhoyt/src/wamt/project'
 XML_PATH = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
-MAX_AGE = 24*60*60*14 # 14 days for cookies
+
 USER_REPORTS_DIR = '/var/www/fae/reports/user'
 GUEST_REPORTS_DIR = '/var/www/fae/reports/guest'
 SITES_DIR = '/var/www/fae/sites'
-WGET = '/var/www/html/dev/wget'
-WAMT = '/var/www/html/dev/wamt'
+LOGS_DIR = '/var/www/fae/logs'
+
+WGET = '/var/www/fae/bin/wget'
+WAMT = '/var/www/fae/bin/wamt'
 XSLTPROC = '/usr/local/bin/xsltproc'
+
+MAX_AGE = 24*60*60*14 # 14 days for cookies
+STATS_DAYS_OFFSET = 1
+PURGE_DAYS_OFFSET = 30
+
 AUDIO_VIDEO_TYPES = u'.aac,.ac3,.avi,.mov,.mp2,.mp3,.mpeg,.mpg,.qt,.wav,.wma'
 REJECT_LIST = u'.css,.doc,.ico,.js,.odf,.pdf,.ppt,.xls,' + AUDIO_VIDEO_TYPES
+# End custom settings
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

@@ -144,13 +144,22 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     run_summarize_proc(results_file)
 
     pgcount = get_results_pgcount(results_file)
+    # Remove the results file if no pages were analyzed,
+    # but keep it if in debugging mode.
+    if not (pgcount or settings.RESULTS_FILE_DEBUG):
+        remove_results_file(is_logged_in, uid)
     return pgcount
 
 #----------------------------------------------------------------
 def remove_resources(uid):
-    cmd = ['rm']
-    cmd.append('-rf')
+    cmd = ['rm', '-rf']
     cmd.append(os.path.join(settings.SITES_DIR, uid))
+    return call(cmd)
+
+#----------------------------------------------------------------
+def remove_results_file(is_logged_in, uid):
+    cmd = ['rm', '-f']
+    cmd.append(get_results_filename(is_logged_in, uid))
     return call(cmd)
 
 #----------------------------------------------------------------

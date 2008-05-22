@@ -2,6 +2,22 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 import os
+import subprocess
+
+# rm commands in two flavors
+user_rm = ['rm', '-f']
+sudo_rm = ['sudo', '-u', 'apache'] + user_rm
+
+def remove_file(filename):
+    # If running under apache, user_rm works okay.
+    cmd = user_rm
+    cmd.append(filename)
+    retval = subprocess.call(cmd)
+    if retval == 0: return
+    # Need sudo_rm command with standalone script.
+    cmd = sudo_rm
+    cmd.append(filename)
+    subprocess.call(cmd)
 
 # The built-in Django User relation:
 
@@ -94,6 +110,9 @@ class UserReport(models.Model):
     def get_filename(self):
         return os.path.join(settings.USER_REPORTS_DIR, self.id + '.xml')
 
+    def remove_results_file(self):
+        remove_file(self.get_filename())
+
     class Meta:
         ordering = ["-timestamp"]
 
@@ -113,6 +132,9 @@ class GuestReport(models.Model):
     def get_filename(self):
         return os.path.join(settings.GUEST_REPORTS_DIR, self.id + '.xml')
 
+    def remove_results_file(self):
+        remove_file(self.get_filename())
+
     class Meta:
         ordering = ["-timestamp"]
 
@@ -125,8 +147,22 @@ class UsageStats(models.Model):
     user_pgcount  = models.IntegerField()
     guest_reports = models.IntegerField()
     guest_pgcount = models.IntegerField()
+    depth_1       = models.IntegerField()
     depth_2       = models.IntegerField()
-    depth_3       = models.IntegerField()
+
+    class Meta:
+        get_latest_by = "date"
+
+    class Admin:
+        pass
+
+class PurgeStats(models.Model):
+    date          = models.DateField(primary_key=True)
+    user_reports  = models.IntegerField()
+    guest_reports = models.IntegerField()
+
+    class Meta:
+        get_latest_by = "date"
 
     class Admin:
         pass

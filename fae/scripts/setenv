@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export PYTHONPATH=/home/nhoyt/src/wamt
+export DJANGO_SETTINGS_MODULE=project.settings
+
+if [ -n $1 ]; then
+	eval python $1
+fi

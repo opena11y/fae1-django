@@ -17,10 +17,11 @@ USER_REPORTS_DIR = '/var/www/fae/reports/user'
 GUEST_REPORTS_DIR = '/var/www/fae/reports/guest'
 SITES_DIR = '/var/www/fae/sites'
 LOGS_DIR = '/var/www/fae/logs'
+DOC_ROOT = '/var/www/html'
 
 WGET = '/var/www/fae/bin/wget'
 WAMT = '/var/www/fae/bin/wamt'
-XSLTPROC = '/usr/local/bin/xsltproc'
+XSLTPROC = '/usr/bin/xsltproc'
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies
 STATS_DAYS_OFFSET = 1
@@ -63,7 +64,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+MEDIA_ROOT = os.path.join(DOC_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"

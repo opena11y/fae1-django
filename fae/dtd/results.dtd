@@ -1,0 +1,102 @@
+<!-- results.dtd -->
+<!ENTITY % xhtml-lat1 SYSTEM "xhtml-lat1.ent">
+<!ENTITY % xhtml-special SYSTEM "xhtml-special.ent">
+<!ENTITY % xhtml-symbol SYSTEM "xhtml-symbol.ent">
+%xhtml-lat1;
+%xhtml-special;
+%xhtml-symbol;
+
+<!ENTITY % entities SYSTEM "entities.dtd">
+%entities;
+
+<!ENTITY % eval-result "pass | warn | fail | null | disc">
+
+<!--
+  when no pages are downloaded, no page elements will be present;
+  the pages and tests elements are created by summarization pass
+-->
+<!ELEMENT results (meta, page*, site, pages?, tests?)>
+
+<!ELEMENT meta (title, date, user, urls, depth, span, pg-count?)>
+
+<!--
+  after evaluation and summarization, page content model should be
+  <!ELEMENT page (test+, timestamp)>
+-->
+
+<!ELEMENT page (url?, title?, test+, timestamp)>
+<!ATTLIST page
+    id      CDATA          #IMPLIED
+>
+
+<!ELEMENT site (test+)>
+
+<!ELEMENT test (r+)>
+<!ATTLIST test
+    id      CDATA          #REQUIRED
+    eval    (%eval-result;)  #IMPLIED
+
+>
+
+<!ELEMENT r (#PCDATA)>
+<!ATTLIST r
+    id      (%result-id;)  #REQUIRED
+>
+
+<!--
+  when no pages are downloaded, no page-info elements will be present
+-->
+<!ELEMENT pages (page-info*)>
+
+<!ELEMENT page-info (name+, title+)>
+<!ATTLIST page-info
+    id      CDATA          #REQUIRED
+>
+
+<!ELEMENT tests (section+)>
+
+<!ELEMENT section (category+)>
+<!ATTLIST section
+    id      CDATA          #REQUIRED
+>
+
+<!ELEMENT category (test-pages+)>
+<!ATTLIST category
+    id      CDATA          #REQUIRED
+>
+
+<!--
+  when no pages are downloaded, no page-test elements will be present
+-->
+<!ELEMENT test-pages (page-test*)>
+<!ATTLIST test-pages
+    id      CDATA          #REQUIRED
+>
+
+<!ELEMENT page-test EMPTY>
+<!ATTLIST page-test
+    id      CDATA          #REQUIRED
+    eval    (%eval-result;)  #REQUIRED
+>
+
+<!-- general-purpose elements -->
+
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT title (#PCDATA)>
+
+<!ELEMENT date (#PCDATA)>
+
+<!ELEMENT user (#PCDATA)>
+
+<!ELEMENT urls (url*)>
+
+<!ELEMENT depth (#PCDATA)>
+
+<!ELEMENT span (#PCDATA)>
+
+<!ELEMENT pg-count (#PCDATA)>
+
+<!ELEMENT url (#PCDATA)>
+
+<!ELEMENT timestamp (#PCDATA)>

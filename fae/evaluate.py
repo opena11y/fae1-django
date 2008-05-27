@@ -72,7 +72,7 @@ def download_resources(params, is_logged_in, uid, test=False):
     wget = []
     if not is_logged_in: wget.append('nice')
     wget.append(settings.WGET)
-    wget.extend(['--no-check-certificate', '--type-postfixes', '--tries=3', '--timeout=30', '--waitretry=3'])
+    wget.extend(['--type-postfixes', '--tries=3', '--timeout=30', '--waitretry=3'])
     wget.extend(['-Q', '6m'])
     wget.extend(['-R', settings.REJECT_LIST])
     wget.extend(['-k', '-p', '-x'])
@@ -135,7 +135,7 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     parser = etree.XMLParser(dtd_validation=True)
     try:
         tree = etree.parse(results_file, parser)
-    except ParseError:
+    except etree.ParseError:
         # TODO: provide more info if invalid
         return 0
 

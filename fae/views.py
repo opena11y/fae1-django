@@ -259,6 +259,29 @@ def archived_reports(request):
     return HttpResponse(html)
 
 #----------------------------------------------------------------
+@login_required
+def manage_reports(request):
+    """
+    Allow user to select which reports should be archived.
+    """
+    report_list = UserReport.objects.filter(user=request.user)
+    context = {
+        'page_type': 'archive',
+        'title': labels['manage'],
+        'username': request.user.username,
+        'report_list': report_list
+        }
+
+    # For highlighting currently selected report in list
+    report_info = request.session.get('report', {})
+    if report_info: context['current_id'] = report_info['rptid']
+
+    # Return response
+    t = get_template('manage.html')
+    html = t.render(RequestContext(request, context))
+    return HttpResponse(html)
+
+#----------------------------------------------------------------
 def page_report(request, rptid, type, pageid=None, section=None):
     """
     Call the report function, but allow a different ordering of arguments.
@@ -281,7 +304,7 @@ def report(request, rptid, type=None, section=None, pageid=None):
 
     # If report_info doesn't exist, return error message
     if not report_info:
-        return message(request, HttpResponse(), 'Report does not exist!')
+        return message(request, HttpResponse(), 'Report ID does not exist!')
 
     if type:
         report_info['type'] = type
@@ -328,6 +351,10 @@ def report(request, rptid, type=None, section=None, pageid=None):
         }
     if report_info['type'] == 'sitewide' or report_info['type'] == 'page':
         context['display_sections'] = True
+
+    # If results data was not found, return error message
+    if not context['content']:
+        return message(request, HttpResponse(), 'Report data does not exist!')
 
     # Return response
     t = get_template(template_name)

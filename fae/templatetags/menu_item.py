@@ -45,6 +45,8 @@ class MenuItemNode(template.Node):
         # Construct the URL
         if self.page_type == 'index':
             url = r'/'
+        elif self.page_type == 'archive':
+            url = r'/reports/' + self.page_type + r'/'
         else:
             url = r'/' + self.page_type + r'/'
 

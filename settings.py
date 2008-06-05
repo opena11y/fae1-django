@@ -9,6 +9,7 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
+# PROJECT_DIR = '/usr/local/src/project'
 PROJECT_DIR = '/home/nhoyt/src/wamt/project'
 XML_PATH = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
@@ -25,10 +26,19 @@ XSLTPROC = '/usr/bin/xsltproc'
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies
 STATS_DAYS_OFFSET = 1
-PURGE_DAYS_OFFSET = 30
+PURGE_DAYS_OFFSET = 1
 
 AUDIO_VIDEO_TYPES = u'.aac,.ac3,.avi,.mov,.mp2,.mp3,.mpeg,.mpg,.qt,.wav,.wma'
 REJECT_LIST = u'.css,.doc,.ico,.js,.odf,.pdf,.ppt,.xls,' + AUDIO_VIDEO_TYPES
+
+DEFAULT_QUOTA = 5
+ACCT_TYPE_QUOTA = {
+    1 : DEFAULT_QUOTA,
+    2 : 10,
+    3 : 20,
+    4 : 50,
+    5 : 100
+    }
 # End custom settings
 
 ADMINS = (
@@ -38,10 +48,10 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'postgresql_psycopg2'
-DATABASE_NAME = 'faetest'
-DATABASE_USER = 'faetest'
-DATABASE_PASSWORD = 'sP3Qr74z'
-DATABASE_HOST = 'fileserv'
+DATABASE_NAME = 'faedev'
+DATABASE_USER = 'faedev'
+DATABASE_PASSWORD = 'faeDev2oo8'
+DATABASE_HOST = 'fileserv.dres.uiuc.edu'
 DATABASE_PORT = ''             # Set to empty string for default.
 
 # Local time zone for this installation. Choices can be found here:
@@ -112,11 +122,11 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.admin',
     'project.fae',
     'registration',
 )

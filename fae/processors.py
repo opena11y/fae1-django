@@ -21,33 +21,38 @@ def init_report_procs():
 def get_report_content(report_info, title):
     global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt
 
-    rptid = report_info['rptid']
-    pgcount = report_info['pgcount']
-    section = report_info['section']
-    pageid = report_info['pageid']
+    # Try parsing the XML results file
     filename = report_info['filename']
-    results_data = etree.parse(filename)
+    try:
+        results_data = etree.parse(filename)
+    except IOError:
+        return None
 
+    # Set up dictionary with top-level parameters
     params = {
-        'id': u"'%s'" % rptid,
-        'pc': u"'%s'" % pgcount,
-        'section': u"'%s'" % section,
-        'pid': u"'%s'" % pageid,
-        'title': u"'%s'" % title,
+        'id':      u"'%s'" % report_info['rptid'],
+        'pc':      u"'%s'" % report_info['pgcount'],
+        'section': u"'%s'" % report_info['section'],
+        'pid':     u"'%s'" % report_info['pageid'],
+        'title':   u"'%s'" % title,
         }
-    if report_info['type'] == 'summary':
+
+    # Select the appropriate XSLT stylesheet
+    t = report_info['type']
+    if   t == 'summary':
         proc = etree.XSLT(summary_report_xslt)
-    elif report_info['type'] == 'sitewide':
+    elif t == 'sitewide':
         proc = etree.XSLT(site_report_xslt)
-    elif report_info['type'] == 'page':
+    elif t == 'page':
         proc = etree.XSLT(page_report_xslt)
-    elif report_info['type'] == 'menu':
+    elif t == 'menu':
         proc = etree.XSLT(report_menu_xslt)
-    elif report_info['type'] == 'urls':
+    elif t == 'urls':
         proc = etree.XSLT(report_urls_xslt)
     else:
         proc = None
 
+    # Transform the results data
     if proc:
         return unicode(proc(results_data, **params))
     else:
@@ -57,17 +62,21 @@ def get_report_content(report_info, title):
 def get_pgrpteval_content(report_info, testid, eval):
     global pgrpteval_xslt
 
-    rptid = report_info['rptid']
-    section = report_info['section']
+    # Try parsing the XML results file
     filename = report_info['filename']
-    results_data = etree.parse(filename)
+    try:
+        results_data = etree.parse(filename)
+    except IOError:
+        return None
 
+    # Set up dictionary with top-level parameters
     params = {
-        'id': u"'%s'" % rptid,
-        'section': u"'%s'" % section,
-        'testid': u"'%s'" % testid,
-        'eval': u"'%s'" % eval,
+        'id':      u"'%s'" % report_info['rptid'],
+        'section': u"'%s'" % report_info['section'],
+        'testid':  u"'%s'" % testid,
+        'eval':    u"'%s'" % eval,
         }
 
+    # Transform the results data
     transform = etree.XSLT(pgrpteval_xslt)
     return unicode(transform(results_data, **params))

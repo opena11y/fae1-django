@@ -158,7 +158,6 @@ class UsageStats(models.Model):
 
 class PurgeStats(models.Model):
     date          = models.DateField(primary_key=True)
-    user_reports  = models.IntegerField()
     guest_reports = models.IntegerField()
 
     class Meta:

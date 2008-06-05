@@ -1,3 +1,15 @@
+"""
+Collect usage statistics on a day-by-day basis from UserReport and
+GuestReport tables and store data for each day in UsageStats table.
+
+This script is intended to be run as a cron job. Each time it runs, it
+finds the date of the latest record in the UsageStats table and sets the
+start_date as the following day. The end_date is set based on the
+STATS_DAYS_OFFSET in the settings module. Note that the script will not
+run if the start_date and/or end_date is greater than yesterday's date.
+
+"""
+
 import datetime
 import logging
 import os
@@ -64,18 +76,18 @@ def collect_stats(date):
         stats.guest_reports = count
         stats.guest_pgcount = pgcount
 
-    count = stats.user_reports + stats.guest_reports
-    if count:
-        logging.debug(
-            "%s: user_reports: %d %d guest_reports: %d %d depth_1: %d depth_2 %d",
-            stats.date,
-            stats.user_reports,
-            stats.user_pgcount,
-            stats.guest_reports,
-            stats.guest_pgcount,
-            stats.depth_1,
-            stats.depth_2)
-        stats.save()
+    logging.debug(
+        "%s: user_reports: %d %d guest_reports: %d %d depth_1: %d depth_2 %d",
+        stats.date,
+        stats.user_reports,
+        stats.user_pgcount,
+        stats.guest_reports,
+        stats.guest_pgcount,
+        stats.depth_1,
+        stats.depth_2)
+
+    # Save statistics for each date, regardless of totals.
+    stats.save()
 
 #------------------------------------------------
 def main():

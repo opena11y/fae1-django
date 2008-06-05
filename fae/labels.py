@@ -3,41 +3,42 @@ from django.contrib.sites.models import Site
 site_name = Site.objects.get_current().name
 
 reports = {
-    'summary': 'Summary Report',
+    'summary':  'Summary Report',
     'sitewide': 'Sitewide Report',
-    'page': 'Page Report',
-    'menu': 'List of Pages',
-    'urls': 'List of URLs',
+    'page':     'Page Report',
+    'menu':     'List of Pages',
+    'urls':     'List of URLs',
     }
 
 sections = {
-    'nav': 'Navigation & Orientation',
-    'text': 'Text Equivalents',
-    'auto': 'Scripting',
+    'nav':   'Navigation & Orientation',
+    'text':  'Text Equivalents',
+    'auto':  'Scripting',
     'style': 'Styling',
-    'std': 'HTML Standards',
+    'std':   'HTML Standards',
     }
 
 subtitles = {
-    'overview': 'Overview',
-    'rules': 'Rules Summary',
-    'users': 'Intended Users',
-    'future': 'Future Plans',
-    'versions': 'Version History',
+    'overview':   'Overview',
+    'rules':      'Rules Summary',
+    'users':      'Intended Users',
+    'future':     'Future Plans',
+    'versions':   'Version History',
     'disclaimer': 'Disclaimer',
     }
 
 labels = {
-    'about': 'About FAE',
-    'archive': 'Archived Reports',
-    'index': 'Run FAE',
+    'about':          'About FAE',
+    'archive':        'Archived Reports',
+    'index':          'Run FAE',
     'invalid_formid': 'Invalid Form ID',
-    'multi': 'Evaluate Multiple URLs',
-    'next': 'Next',
-    'prev': 'Previous',
-    'profile': 'My Account',
-    'untitled': 'Untitled Report',
-    'report': reports,    
-    'section': sections,
-    'subtitle': subtitles,
+    'manage':         'Manage Reports',
+    'multi':          'Evaluate Multiple URLs',
+    'next':           'Next',
+    'prev':           'Previous',
+    'profile':        'My Account',
+    'untitled':       'Untitled Report',
+    'report':         reports,    
+    'section':        sections,
+    'subtitle':       subtitles,
     }

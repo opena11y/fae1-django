@@ -1,7 +1,8 @@
 from django.conf.urls.defaults import *
 from fae import views
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     # Default page
     (r'^$', views.index),
     (r'^multi/$', views.index_multi),
@@ -17,7 +18,8 @@ urlpatterns = patterns('',
     (r'^pgrpteval/$', views.pgrpteval),
 
     # Report archive
-    (r'^archive/$', views.archived_reports),
+    (r'^reports/archive/$', views.archived_reports),
+    (r'^reports/manage/$', views.manage_reports),
 
     # About FAE
     (r'^about/$', views.about),

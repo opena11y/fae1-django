@@ -268,6 +268,10 @@ def manage_reports(request):
     """
     report_list = UserReport.objects.filter(user=request.user)
     status = ''
+    num_archive = 0
+    for report in report_list:
+        if report.archive:
+            num_archive += 1
 
     try:
         profile = request.user.get_profile()
@@ -288,6 +292,7 @@ def manage_reports(request):
             for (report, form) in archive_info:
                 form.save()
             status = 'Selection of permanently archived reports has been updated!'
+            num_archive = count
         else:
             return message(request, HttpResponse(), 'Number of selected reports exceeds quota!')
             
@@ -306,6 +311,7 @@ def manage_reports(request):
         'quota': quota,
         'buffer': buffer,
         'days_offset' : DAYS_OFFSET,
+        'num_archive' : num_archive,
         'status': status,
         }
 

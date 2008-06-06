@@ -6,6 +6,7 @@
 {% if report_list %}
 <table cellpadding="0" cellspacing="0" class="archive" summary="Archived Reports Table">
 <tr class="row-highlight">
+    <th class="archive-0" id="c0">Perm.</th>
     <th class="archive-1" id="c1">Date/Time</th>
     <th class="archive-2" id="c2">Pages</th>
     <th class="archive-3" id="c3">Report Title</th>
@@ -14,6 +15,7 @@
 </tr>
 {% for report in report_list %}
 <tr{% if forloop.counter|divisibleby:"2" %} class="row-highlight"{% endif %}>
+<td class="archive-0{% ifequal report.id current_id %} selected{% endifequal %}" headers="c0" style="text-align: center">{% if report.archive %}Y{% endif %}</td>
 <td class="archive-1{% ifequal report.id current_id %} selected{% endifequal %}" headers="c1">{{ report.timestamp|date:"Y-m-d H:i"}}</td>
 <td class="archive-2{% ifequal report.id current_id %} selected{% endifequal %}" headers="c2">{{ report.pgcount }}</td>
 <td class="archive-3{% ifequal report.id current_id %} selected{% endifequal %}" headers="c3"><a href="{{ report.get_absolute_url }}">{{ report.title }}</a></td>

@@ -16,15 +16,15 @@ table to use as its end_date.
 UserReport:
 Each time it runs, the script purges reports for each user that meet the
 following conditions: (1) timestamp is lte cutoff_date (2) the archive
-field is not set (3) the report is not one of the latest N reports based
-on the user account type quota.
+field is not set (3) the report is not one of the latest N reports, where
+N is the setting for user account type buffer.
 """
 import datetime
 import logging
 import os
 from django.core.exceptions import ObjectDoesNotExist
 
-from project.settings import PURGE_DAYS_OFFSET as DAYS_OFFSET, ACCT_TYPE_QUOTA, DEFAULT_QUOTA
+from project.settings import ACCT_TYPE_BUFFER, DEFAULT_BUFFER
 from project.fae.models import User, UserReport, GuestReport, PurgeStats, UsageStats
 from project.fae.scripts import utils
 
@@ -35,11 +35,11 @@ def purge_user_reports(cutoff_date):
     for user in users:
         try:
             profile = user.get_profile()
-            quota = ACCT_TYPE_QUOTA[profile.acct_type]
+            buffer = ACCT_TYPE_BUFFER[profile.acct_type]
         except ObjectDoesNotExist:
-            quota = DEFAULT_QUOTA
+            buffer = DEFAULT_BUFFER
         reports = UserReport.objects.filter(user=user).exclude(timestamp__gt=cutoff_date)
-        reports = reports.exclude(archive=True).order_by('-timestamp')[quota:]
+        reports = reports.exclude(archive=True).order_by('-timestamp')[buffer:]
         user_count = 0
         for report in reports:
             if report.stats:

@@ -1,6 +1,6 @@
 from django import newforms as forms
 from django.contrib.auth.models import User
-from models import UserProfile
+from models import UserProfile, UserReport
 
 class TextFieldWidget(forms.TextInput):
     def __init__(self, *args, **kwargs):
@@ -41,3 +41,8 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('org',)
+
+class ManageReportForm(forms.ModelForm):
+    class Meta:
+        model = UserReport
+        fields = ('archive',)

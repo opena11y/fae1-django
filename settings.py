@@ -25,11 +25,7 @@ WAMT = '/var/www/fae/bin/wamt'
 XSLTPROC = '/usr/bin/xsltproc'
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies
-STATS_DAYS_OFFSET = 1
-PURGE_DAYS_OFFSET = 1
-
-AUDIO_VIDEO_TYPES = u'.aac,.ac3,.avi,.mov,.mp2,.mp3,.mpeg,.mpg,.qt,.wav,.wma'
-REJECT_LIST = u'.css,.doc,.ico,.js,.odf,.pdf,.ppt,.xls,' + AUDIO_VIDEO_TYPES
+STATS_DAYS_OFFSET = 2 # minimum of 2 days
 
 DEFAULT_QUOTA = 5
 ACCT_TYPE_QUOTA = {
@@ -39,6 +35,18 @@ ACCT_TYPE_QUOTA = {
     4 : 50,
     5 : 100
     }
+
+DEFAULT_BUFFER = 5
+ACCT_TYPE_BUFFER = {
+    1 : DEFAULT_BUFFER,
+    2 : 10,
+    3 : 10,
+    4 : 20,
+    5 : 20
+    }
+
+AUDIO_VIDEO_TYPES = u'.aac,.ac3,.avi,.mov,.mp2,.mp3,.mpeg,.mpg,.qt,.wav,.wma'
+REJECT_LIST = u'.css,.doc,.ico,.js,.odf,.pdf,.ppt,.xls,' + AUDIO_VIDEO_TYPES
 # End custom settings
 
 ADMINS = (

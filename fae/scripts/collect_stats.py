@@ -14,7 +14,7 @@ import datetime
 import logging
 import os
 
-from project.settings import STATS_DAYS_OFFSET as DAYS_OFFSET
+from project.settings import STATS_DAYS_OFFSET
 from project.fae.models import UserReport, GuestReport, UsageStats
 from project.fae.scripts import utils
 
@@ -94,10 +94,10 @@ def main():
     utils.init_logging('collect_stats.log')
     yesterday = datetime.date.today() - datetime.timedelta(days=1)
     start_date = utils.get_latest_date(UsageStats, 'date') + datetime.timedelta(days=1)
-    end_date = datetime.date.today() - datetime.timedelta(days=DAYS_OFFSET)
+    end_date = datetime.date.today() - datetime.timedelta(days=STATS_DAYS_OFFSET)
 
-    # DO NOT process records created today
-    assert start_date <= yesterday and end_date <= yesterday
+    # DO NOT process records created yesterday or today
+    assert start_date < yesterday and end_date < yesterday
 
     logging.info('---------------------------------------------------------------------')
     logging.info("Collecting usage statistics starting %s and ending %s", start_date, end_date)

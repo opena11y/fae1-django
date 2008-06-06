@@ -6,10 +6,12 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
 from datetime import datetime
 
+from project.settings import ACCT_TYPE_QUOTA, DEFAULT_QUOTA, ACCT_TYPE_BUFFER, DEFAULT_BUFFER
+from project.settings import STATS_DAYS_OFFSET as DAYS_OFFSET
 from labels import labels
 from models import UserProfile, UserReport, GuestReport
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
-from forms import UserForm, ProfileForm
+from forms import UserForm, ProfileForm, ManageReportForm
 from evaluate import evaluate, multi_evaluate
 from processors import get_report_content, get_pgrpteval_content
 from uid import generate
@@ -265,11 +267,46 @@ def manage_reports(request):
     Allow user to select which reports should be archived.
     """
     report_list = UserReport.objects.filter(user=request.user)
+    status = ''
+
+    try:
+        profile = request.user.get_profile()
+        quota = ACCT_TYPE_QUOTA[profile.acct_type]
+        buffer = ACCT_TYPE_BUFFER[profile.acct_type]
+    except ObjectDoesNotExist:
+        quota = DEFAULT_QUOTA
+        buffer = DEFAULT_BUFFER
+
+    if request.method == 'POST':
+        archive_info = []; i = 0
+        for report in report_list:
+            archive_info.append((report, ManageReportForm(request.POST, prefix=str(i), instance=report)))
+            i += 1
+        # validate based on number of selected reports
+        count = len(request.POST)
+        if count <= quota:
+            for (report, form) in archive_info:
+                form.save()
+            status = 'Selection of permanently archived reports has been updated!'
+        else:
+            return message(request, HttpResponse(), 'Number of selected reports exceeds quota!')
+            
+    else:
+        archive_info = []; i = 0
+        for report in report_list:
+            archive_info.append((report, ManageReportForm(prefix=str(i), instance=report)))
+            i += 1
+
     context = {
-        'page_type': 'archive',
+        'page_type': 'manage',
         'title': labels['manage'],
         'username': request.user.username,
-        'report_list': report_list
+        'archive_info': archive_info,
+        'report_list': report_list,
+        'quota': quota,
+        'buffer': buffer,
+        'days_offset' : DAYS_OFFSET,
+        'status': status,
         }
 
     # For highlighting currently selected report in list

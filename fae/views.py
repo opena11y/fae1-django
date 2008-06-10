@@ -9,7 +9,7 @@ from datetime import datetime
 from project.settings import ACCT_TYPE_QUOTA, DEFAULT_QUOTA, ACCT_TYPE_BUFFER, DEFAULT_BUFFER
 from project.settings import STATS_DAYS_OFFSET as DAYS_OFFSET
 from labels import labels
-from models import UserProfile, UserReport, GuestReport
+from models import UserProfile, UserReport, GuestReport, UsageStats
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm, ManageReportForm
 from evaluate import evaluate, multi_evaluate
@@ -426,6 +426,10 @@ def about(request, content_id='overview'):
         'subtitle': labels['subtitle'],
         'content': content,
         }
+
+    if content_id == 'usage':
+        stats = UsageStats.objects.all()
+        context['stats'] = stats
 
     # Return response
     t = get_template('about/about.html')

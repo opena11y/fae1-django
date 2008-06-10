@@ -1,0 +1,62 @@
+<django-objects>
+    <object pk="1" model="fae.organization">
+        <field type="CharField" name="name">University of Illinois at Urbana-Champaign</field>
+        <field type="IntegerField" name="org_type">5</field>
+        <field type="CharField" name="url">http://www.uiuc.edu/</field>
+    </object>
+    <object pk="2" model="fae.organization">
+        <field type="CharField" name="name">University of Illinois at Chicago</field>
+        <field type="IntegerField" name="org_type">5</field>
+        <field type="CharField" name="url">http://www.uic.edu/</field>
+    </object>
+    <object pk="3" model="fae.organization">
+        <field type="CharField" name="name">University of Illinois at Springfield</field>
+        <field type="IntegerField" name="org_type">5</field>
+        <field type="CharField" name="url">http://www.uis.edu/</field>
+    </object>
+    <object pk="4" model="fae.organization">
+        <field type="CharField" name="name">Chicago State University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.csu.edu/</field>
+    </object>
+    <object pk="5" model="fae.organization">
+        <field type="CharField" name="name">Eastern Illinois University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.eiu.edu/</field>
+    </object>
+    <object pk="6" model="fae.organization">
+        <field type="CharField" name="name">Governors State University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.govst.edu/</field>
+    </object>
+    <object pk="7" model="fae.organization">
+        <field type="CharField" name="name">Illinois State University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.ilstu.edu/</field>
+    </object>
+    <object pk="8" model="fae.organization">
+        <field type="CharField" name="name">Northeastern Illinois University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.neiu.edu/</field>
+    </object>
+    <object pk="9" model="fae.organization">
+        <field type="CharField" name="name">Northern Illinois University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.niu.edu/</field>
+    </object>
+    <object pk="10" model="fae.organization">
+        <field type="CharField" name="name">Southern Illinois University Carbondale</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.siu.edu/siuc/</field>
+    </object>
+    <object pk="11" model="fae.organization">
+        <field type="CharField" name="name">Southern Illinois University Edwardsville</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.siue.edu/</field>
+    </object>
+    <object pk="12" model="fae.organization">
+        <field type="CharField" name="name">Western Illinois University</field>
+        <field type="IntegerField" name="org_type">4</field>
+        <field type="CharField" name="url">http://www.wiu.edu/</field>
+    </object>
+</django-objects>

@@ -23,6 +23,7 @@ subtitles = {
     'rules':      'Rules Summary',
     'users':      'Intended Users',
     'future':     'Future Plans',
+    'usage':      'Usage Statistics',
     'versions':   'Version History',
     'disclaimer': 'Disclaimer',
     }

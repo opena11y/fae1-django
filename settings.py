@@ -9,10 +9,16 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
-# PROJECT_DIR = '/usr/local/src/project'
-PROJECT_DIR = '/home/nhoyt/src/wamt/project'
-XML_PATH = os.path.join(PROJECT_DIR, 'fae/xml')
-XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
+faedev, faetest = range(2)
+PLATFORM = faedev
+
+PROJECT_DIR = ('/home/nhoyt/src/wamt/project', '/usr/local/src/project')
+DB_NAME =     ('faedev',     'faetest')
+DB_USER =     ('faedev',     'faetest')
+DB_PASSWORD = ('faeDev2oo8', 'faeTest2oo8')
+
+XML_PATH = os.path.join(PROJECT_DIR[PLATFORM], 'fae/xml')
+XSLT_PATH = os.path.join(PROJECT_DIR[PLATFORM], 'fae/xslt')
 
 USER_REPORTS_DIR = '/var/www/fae/reports/user'
 GUEST_REPORTS_DIR = '/var/www/fae/reports/guest'
@@ -56,11 +62,11 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'postgresql_psycopg2'
-DATABASE_NAME = 'faedev'
-DATABASE_USER = 'faedev'
-DATABASE_PASSWORD = 'faeDev2oo8'
+DATABASE_NAME = DB_NAME[PLATFORM]
+DATABASE_USER = DB_USER[PLATFORM]
+DATABASE_PASSWORD = DB_PASSWORD[PLATFORM]
 DATABASE_HOST = 'fileserv.dres.uiuc.edu'
-DATABASE_PORT = ''             # Set to empty string for default.
+DATABASE_PORT = ''
 
 # Local time zone for this installation. Choices can be found here:
 # http://www.postgresql.org/docs/8.1/static/datetime-keywords.html#DATETIME-TIMEZONE-SET-TABLE
@@ -126,7 +132,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR, 'templates'),
+    os.path.join(PROJECT_DIR[PLATFORM], 'templates'),
 )
 
 INSTALLED_APPS = (

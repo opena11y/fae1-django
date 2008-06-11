@@ -1,8 +1,13 @@
 #!/bin/bash
 
-export PYTHONPATH=/home/nhoyt/src/wamt
 export DJANGO_SETTINGS_MODULE=project.settings
 
+if [ `pwd | grep ^/home/nhoyt/src/wamt` ]; then
+    export PYTHONPATH=/home/nhoyt/src/wamt
+elif [ `pwd | grep ^/usr/local/src` ]; then
+    export PYTHONPATH=/usr/local/src
+fi
+
 if [ -n $1 ]; then
-	eval python $1
+    eval /usr/local/bin/python2.5 $1
 fi

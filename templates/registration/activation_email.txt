@@ -2,7 +2,7 @@ Welcome! You've just completed Step 1 of account registration for the {{ site.na
 
 To complete Step 2, the last step of your registration, please select the following link within the next {{ expiration_days }} days:
 
-    http://faedev.cita.uiuc.edu/accounts/activate/{{ activation_key }}/
+    http://{{ site.domain }}/accounts/activate/{{ activation_key }}/
 
 Note: If your browser does not respond after selecting the above link, you can copy and paste the link text into your browser's location bar.
 

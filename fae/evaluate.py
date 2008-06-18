@@ -1,9 +1,13 @@
 import os
 import subprocess
-from django.conf import settings
+
 from datetime import datetime
+from urllib import unquote
 from urlparse import urlparse
 from lxml import etree
+
+from django.conf import settings
+from django.utils.encoding import smart_str
 
 from uid import generate
 
@@ -32,6 +36,15 @@ def multi_evaluate(params, is_logged_in, timestamp):
     # Cleanup the params dictionary
     del params['url']
 
+    pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
+    if not settings.RESOURCES_DEBUG: remove_resources(uid)
+    return (pgcount, uid)
+
+#----------------------------------------------------------------
+def evaluate_dhtml(params, is_logged_in, timestamp):
+    uid = generate()
+    request = params['request']
+    save_resources(request, uid)
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
@@ -72,7 +85,7 @@ def download_resources(params, is_logged_in, uid, test=False):
     wget = []
     if not is_logged_in: wget.append('nice')
     wget.append(settings.WGET)
-    wget.extend(['--type-postfixes', '--tries=3', '--timeout=30', '--waitretry=3'])
+    wget.extend(['--type-postfixes', '--tries=3', '--timeout=30', '--waitretry=3', '-erobots=off'])
     wget.extend(['-Q', '6m'])
     wget.extend(['-R', settings.REJECT_LIST])
     wget.extend(['-k', '-p', '-x'])
@@ -85,6 +98,35 @@ def download_resources(params, is_logged_in, uid, test=False):
 
     if test: return ' '.join(wget)
     return call(wget)
+
+#----------------------------------------------------------------
+def save_resources(request, uid):
+    """
+    Save each string sent as POST data in a separate file.
+
+    The strings are sent as POST['docN'], where N ranges
+    from 1 through POST['num_docs'] inclusive. Assertion:
+    Caller has tested that len(POST['doc1']) > 0.
+    """
+    # Current convention for saving HTML files
+    file_prefix = 'FILE.'
+    html_suffix = '.HTML'
+
+    # Create the directory
+    site_dir = os.path.join(settings.SITES_DIR, uid)
+    mkdir = ['mkdir', site_dir]
+    call(mkdir)
+
+    num_docs = int(request.POST['num_docs'])
+    for i in range(1, num_docs + 1):
+        doc_id = 'doc' + str(i)
+        doc_name = file_prefix + doc_id + '.html' + html_suffix
+        filename = os.path.join(site_dir, doc_name)
+        file = open(filename, 'wb')
+
+        # To avoid getting escaped/urlencoded soup...
+        file.write(unquote(smart_str(request.POST[doc_id])))
+        file.close()
 
 #----------------------------------------------------------------
 def analyze_resources(params, is_logged_in, uid, timestamp, test=False):

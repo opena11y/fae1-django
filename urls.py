@@ -14,6 +14,9 @@ urlpatterns = patterns(
     (r'^report/([0-9a-f]{16})/(page)/(\d+)/$', views.page_report),
     (r'^report/([0-9a-f]{16})/(page)/(\d+)/([a-z]+)/$', views.page_report),
 
+    # Accessibility Extension
+    (r'^evaluate/dhtml/$', views.process_dhtml),
+
     # List of page evals for Sitewide Report
     (r'^pgrpteval/$', views.pgrpteval),
 

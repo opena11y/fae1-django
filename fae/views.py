@@ -12,7 +12,7 @@ from labels import labels
 from models import UserProfile, UserReport, GuestReport, UsageStats
 from forms import BasicEvalForm, DepthEvalForm, MultiEvalForm
 from forms import UserForm, ProfileForm, ManageReportForm
-from evaluate import evaluate, multi_evaluate
+from evaluate import evaluate, multi_evaluate, evaluate_dhtml
 from processors import get_report_content, get_pgrpteval_content
 from uid import generate
 
@@ -215,6 +215,51 @@ def index_multi(request):
     response.write(html)
     return response
 
+#----------------------------------------------------------------
+def process_dhtml(request):
+    """
+    Evaluate one or more DHTML DOM snapshots sent as POST data.
+    """
+    if not request.method == 'POST':
+        raise Http404('Unable to process DHTML data!')
+
+    if 'doc1' in request.POST and len(request.POST['doc1']):
+        params = {
+            'request': request,
+            'url': 'Unspecified',
+            'depth': '0',
+            'title': 'DHTML Report',
+            'username': request.user.username
+            }
+        now = datetime.now()
+        status, uid = evaluate_dhtml(params, request.user.is_authenticated(), now)
+        if status:
+            if request.user.is_authenticated():
+                report = UserReport(
+                    id = uid,
+                    user = request.user,
+                    timestamp = now,
+                    pgcount = status,
+                    url = params['url'],
+                    urlcount = 1,
+                    depth = params['depth'],
+                    title = params['title']
+                    )
+            else:
+                report = GuestReport(
+                    id = uid,
+                    timestamp = now,
+                    pgcount = status,
+                    url = params['url']
+                    )
+            report.save()
+            return HttpResponseRedirect('/report/%s/' % uid)
+        else:
+            return message(request, response, 'Unable to create report!')
+
+    else:
+        return message(request, HttpResponse(), 'No DHTML data detected!')
+            
 #----------------------------------------------------------------
 def check_formid(request):
     return request.POST['formid'] == request.session.get('formid')

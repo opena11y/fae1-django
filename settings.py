@@ -9,13 +9,13 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
-faedev, faetest = range(2)
+faedev, faetest, faedata = range(3)
 PLATFORM = faedev
 
-PROJECT_DIR = ('/home/nhoyt/src/wamt/project', '/usr/local/src/project')
-DB_NAME =     ('faedev',     'faetest')
-DB_USER =     ('faedev',     'faetest')
-DB_PASSWORD = ('faeDev2oo8', 'faeTest2oo8')
+PROJECT_DIR = ('/home/nhoyt/src/project', '/usr/local/src/project', '/usr/local/src/faedata')
+DB_NAME =     ('faedev',     'faetest',     'faedata')
+DB_USER =     ('faedev',     'faetest',     'faedata')
+DB_PASSWORD = ('faeDev2oo8', 'faeTest2oo8', 'faeData2oo8')
 
 XML_PATH = os.path.join(PROJECT_DIR[PLATFORM], 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR[PLATFORM], 'fae/xslt')

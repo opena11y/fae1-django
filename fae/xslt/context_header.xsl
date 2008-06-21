@@ -5,6 +5,7 @@
 
   <xsl:template name="context-header">
     <xsl:param name="url"/>
+    <xsl:param name="page-title"/>
     <xsl:param name="link" select="false()"/>
     <xsl:param name="display-urls" select="true()"/>
 
@@ -27,10 +28,10 @@
         <tr>
           <xsl:choose>
             <xsl:when test="$title='Unspecified' or $title='No Title' or string-length($title)=0">
-              <td class="context-1">Title: <xsl:value-of select="$default-report-title"/></td>
+              <td class="context-1">Report Title: <xsl:value-of select="$default-report-title"/></td>
             </xsl:when>
             <xsl:otherwise>
-              <td class="context-1">Title: <strong><xsl:value-of select="$title"/></strong></td>
+              <td class="context-1">Report Title: <strong><xsl:value-of select="$title"/></strong></td>
             </xsl:otherwise>
           </xsl:choose>
           <td class="context-2">Date: <xsl:value-of select="/results/meta/date"/></td>
@@ -71,6 +72,12 @@
                 </xsl:otherwise>
               </xsl:choose>
             </td>
+          </tr>
+        </xsl:if>
+
+        <xsl:if test="string-length($page-title)">
+          <tr>
+            <td colspan="2">Page Title: <xsl:value-of select="$page-title"/></td>
           </tr>
         </xsl:if>
       </table>

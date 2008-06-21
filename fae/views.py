@@ -261,6 +261,35 @@ def process_dhtml(request):
         return message(request, HttpResponse(), 'No DHTML data detected!')
             
 #----------------------------------------------------------------
+def process_link(request):
+    """
+    Evaluate referrer page with direct link to FAE.
+    """
+    if 'HTTP_REFERER' in request.META and len(request.META['HTTP_REFERER']):
+        params = {
+            'url': request.META['HTTP_REFERER'],
+            'depth': '0',
+            'title': 'Direct Link Report',
+            'username': 'guest'
+            }
+        now = datetime.now()
+        status, uid = evaluate(params, False, now)
+        if status:
+            report = GuestReport(
+                id = uid,
+                timestamp = now,
+                pgcount = status,
+                url = params['url']
+                )
+            report.save()
+            return HttpResponseRedirect('/report/%s/' % uid)
+        else:
+            return message(request, response, 'Unable to create report!')
+
+    else:
+        return message(request, HttpResponse(), 'No HTTP_REFERER detected!')
+
+#----------------------------------------------------------------
 def check_formid(request):
     return request.POST['formid'] == request.session.get('formid')
 

@@ -30,6 +30,7 @@
 
     <xsl:call-template name="context-header">
       <xsl:with-param name="url" select="/results/pages/page-info[@id=$pid]/name"/>
+      <xsl:with-param name="page-title" select="/results/pages/page-info[@id=$pid]/title"/>
     </xsl:call-template>
 
     <h1><xsl:value-of select="$title"/></h1>

@@ -17,6 +17,9 @@ urlpatterns = patterns(
     # Accessibility Extension
     (r'^evaluate/dhtml/$', views.process_dhtml),
 
+    # Direct link to FAE
+    (r'^evaluate/link/$', views.process_link),
+
     # List of page evals for Sitewide Report
     (r'^pgrpteval/$', views.pgrpteval),
 

@@ -1,6 +1,4 @@
-from django.contrib.sites.models import Site
-
-site_name = Site.objects.get_current().name
+# labels.py
 
 reports = {
     'summary':  'Summary Report',

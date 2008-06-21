@@ -5,7 +5,7 @@
 
 {% if status %}<h2>{{ status }}</h2>{% endif %}
 
-<p><strong>Currently, {{num_archive}} report{{ num_archive|pluralize:" is,s are" }} selected to be permanently archived.</strong></p>
+<p><strong>Currently, {{num_archive}} report{{ num_archive|pluralize:" is,s are" }} permanently archived.</strong></p>
 
 <p>Based on your account type, you may select {{quota}} reports to be permanently archived. <em>Unselected reports will be automatically purged after they are {{days_offset}} days old, with the exception of the last {{buffer}} reports you have created.</em></p>
 

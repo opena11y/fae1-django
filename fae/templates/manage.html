@@ -3,7 +3,7 @@
 {% block content %}
 <h1>{{ title }}</h1>
 
-{% if status %}<h2>{{ status }}</h2>{% endif %}
+{% if status %}<div id="message">{{ status }}</div>{% endif %}
 
 <p><strong>Currently, {{num_archive}} report{{ num_archive|pluralize:" is,s are" }} permanently archived.</strong></p>
 

@@ -8,13 +8,14 @@
     <name>Navigation &amp; Orientation</name>
 
     <category id="nav01">
-      <name>Document Title</name>
-
+      <name>Titles</name>
+      <!--
       <best-practice ref="nav001">
         <name>unique titles</name>
         <rule>Each page <elem>title</elem> should be unique across the site.</rule>
         <site id="nav001s"/>
       </best-practice>
+      -->
 
       <best-practice ref="nav015">
         <name>one and only one title</name>
@@ -23,9 +24,31 @@
         <site id="nav015s"/>
       </best-practice>
 
+      <best-practice ref="nav016">
+        <name>number of empty title elements</name>
+        <rule>The <elem>title</elem> element must contain text.</rule>
+        <page id="nav016p"/>
+        <site id="nav016s"/>
+      </best-practice>
+
+      <best-practice ref="nav002">
+        <name>one or two h1 elements</name>
+        <rule>The page should contain at least one and no more than two <elem>h1</elem> elements.</rule>
+        <page id="nav002p"/>
+        <site id="nav002s"/>
+      </best-practice>
+
+      <best-practice ref="nav101">
+        <name>number of empty h1 elements</name>
+        <rule>Each <elem>h1</elem> element must contain text.</rule>
+        <page id="nav101p"/>
+        <site id="nav101s"/>
+      </best-practice>
+
       <best-practice ref="nav009">
         <name>h1 substring of title</name>
-        <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
+        <rule>The words contained in each <elem>h1</elem> element should match a subset of the words contained in the <elem>title</elem> element.</rule>
+        <info>Words in each <elem>h1</elem> element are matched sequentially with those in the <elem>title</elem> element, ignoring case, punctuation and spacing differences.</info>
         <page id="nav009p"/>
         <site id="nav009s"/>
       </best-practice>
@@ -34,6 +57,34 @@
     </category>
 
     <category id="nav02">
+      <name>Headings</name>
+
+      <best-practice ref="nav013">
+        <name>use of heading elements</name>
+        <rule>Heading elements (<elem>h1..h6</elem>) should be used for structuring information on the page.</rule>
+        <page id="nav013p"/>
+        <site id="nav013s"/>
+      </best-practice>
+
+      <best-practice ref="nav100">
+        <name>number of empty heading elements</name>
+        <rule>Heading elements (<elem>h1..h6</elem>) must contain text.</rule>
+        <page id="nav100p"/>
+        <site id="nav100s"/>
+      </best-practice>
+
+      <best-practice ref="nav014">
+        <name>proper nesting of heading elements</name>
+        <rule>Heading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
+        <info>Heading elements should be used without skipping levels when descending the hierarchy that starts with <elem>h1</elem> and continues through <elem>h6</elem>. For example, an <elem>h3</elem> element should follow an <elem>h2</elem> element, whereas an <elem>h4</elem> (or <elem>h5</elem> or <elem>h6</elem>) should not. Note that this rule does not apply when ascending the hierarchy (for example, an <elem>h2</elem> element may follow an <elem>h4</elem> element).</info>
+        <page id="nav014p"/>
+        <site id="nav014s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/heading/"/>
+    </category>
+
+    <category id="nav03">
       <name>Navigation Bars</name>
 
       <best-practice ref="nav003">
@@ -54,41 +105,6 @@
       </best-practice>
 
       <link tgt="bp" href="nav/menu/"/>
-    </category>
-
-    <category id="nav03">
-      <name>Section Headings</name>
-
-      <best-practice ref="nav013">
-        <name>use of heading elements</name>
-        <rule>Heading elements (<elem>h1..h6</elem>) should be used for structuring information on the page.</rule>
-        <page id="nav013p"/>
-        <site id="nav013s"/>
-      </best-practice>
-
-      <best-practice ref="nav002">
-        <name>one or two h1 elements</name>
-        <rule>The page should contain at least one and no more than two <elem>h1</elem> elements.</rule>
-        <page id="nav002p"/>
-        <site id="nav002s"/>
-      </best-practice>
-
-      <best-practice ref="nav014">
-        <name>proper nesting of heading elements</name>
-        <rule>Heading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
-        <info>Heading elements should be used without skipping levels when descending the hierarchy that starts with <elem>h1</elem> and continues through <elem>h6</elem>. For example, an <elem>h3</elem> element should follow an <elem>h2</elem> element, whereas an <elem>h4</elem> (or <elem>h5</elem> or <elem>h6</elem>) should not. Note that this rule does not apply when ascending the hierarchy (for example, an <elem>h2</elem> element may follow an <elem>h4</elem> element).</info>
-        <page id="nav014p"/>
-        <site id="nav014s"/>
-      </best-practice>
-
-      <best-practice ref="nav004">
-        <name>header content density</name>
-        <rule>The text content contained in header elements (<elem>h1..h6</elem>) should range between 1 and 20 percent, inclusive, and not exceed 50 percent of the total text content of the page.</rule>
-        <page id="nav004p"/>
-        <site id="nav004s"/>
-      </best-practice>
-
-      <link tgt="bp" href="nav/heading/"/>
     </category>
 
     <category id="nav04">
@@ -143,34 +159,6 @@
       </best-practice>
 
       <link tgt="bp" href="nav/frame/"/>
-    </category>
-
-    <!-- accesskey rules are problematic -->
-    <category id="nav08">
-      <name>Access Keys</name>
-
-      <best-practice ref="nav005">
-        <name>accesskey 1</name>
-        <rule>When <attr>accesskey</attr> 1 is defined, it should provide access to the main content on the page.</rule>
-        <page id="nav005p"/>
-        <site id="nav005s"/>
-      </best-practice>
-
-      <best-practice ref="nav006">
-        <name>accesskey 2</name>
-        <rule>When <attr>accesskey</attr> 2 is defined, it should provide access to the search function on the page.</rule>
-        <page id="nav006p"/>
-        <site id="nav006s"/>
-      </best-practice>
-
-      <best-practice ref="nav007">
-        <name>accesskey 3</name>
-        <rule>When <attr>accesskey</attr> 3 is defined, it should provide access to the main menu on the page.</rule>
-        <page id="nav007p"/>
-        <site id="nav007s"/>
-      </best-practice>
-
-      <link tgt="bp" href="nav/accesskey/"/>
     </category>
 
     <link tgt="bp" href="nav/"/>

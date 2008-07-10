@@ -1,0 +1,35 @@
+<!-- testdoc.dtd -->
+
+<!ELEMENT testdoc (section+)>
+
+<!ELEMENT section (name, category+, link*)>
+<!ATTLIST section
+    id      (nav|text|auto|style|std)    #REQUIRED
+>
+
+<!ELEMENT category (name, best-practice+, link*)>
+<!ATTLIST category
+    id      CDATA          #REQUIRED
+>
+
+<!ELEMENT best-practice (name, rule, info?, (page | site)+, link*)>
+<!ATTLIST best-practice
+    ref     CDATA          #REQUIRED
+>
+
+<!ELEMENT page EMPTY>
+<!ATTLIST page
+    id      CDATA          #REQUIRED
+>
+
+<!ELEMENT site EMPTY>
+<!ATTLIST site
+    id      CDATA          #REQUIRED
+>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT rule (#PCDATA | elem | attr)*>
+<!ELEMENT info (#PCDATA | elem | attr)*>
+
+<!ELEMENT elem (#PCDATA)>
+<!ELEMENT attr (#PCDATA)>

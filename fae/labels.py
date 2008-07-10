@@ -34,6 +34,7 @@ labels = {
     'manage':         'Manage Reports',
     'multi':          'Evaluate Multiple URLs',
     'next':           'Next',
+    'nodata':         'Note: Data required for evaluation was not found.',
     'prev':           'Previous',
     'profile':        'My Account',
     'untitled':       'Untitled Report',

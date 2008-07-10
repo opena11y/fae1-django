@@ -1,0 +1,38 @@
+<!-- criteria.dtd -->
+
+<!ENTITY % entities SYSTEM "entities.dtd">
+%entities;
+
+<!ELEMENT criteria (eval+)>
+
+<!ELEMENT eval (pass, warn?, null?, disc?)>
+<!ATTLIST eval
+	id		ID			#REQUIRED
+	desc	CDATA		#IMPLIED
+>
+
+<!ELEMENT pass (cmp | and | or)>
+<!ELEMENT warn (cmp | and | or)>
+<!ELEMENT null (cmp | and | or)>
+<!ELEMENT disc (cmp | and | or)>
+
+<!--
+cmp/@op abbreviations:
+	eq:		equal to
+	ne:		not equal to
+	lt:		less than
+	le:		less than or equal to
+	gt:		greater than
+	ge:		greater than or equal to
+-->
+
+<!ELEMENT cmp EMPTY>
+<!ATTLIST cmp
+	op		(eq | ne | lt | le | gt | ge)	#REQUIRED
+	ref		(%result-id;)	#REQUIRED
+	val		CDATA			#REQUIRED
+>
+
+<!ELEMENT and ((cmp | and | or), (cmp | and | or))>
+
+<!ELEMENT or ((cmp | and | or), (cmp | and | or))>

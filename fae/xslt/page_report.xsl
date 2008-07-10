@@ -18,6 +18,7 @@
   <xsl:param name="section"/>
   <xsl:param name="pid"/>
   <xsl:param name="title"/>
+  <xsl:param name="nodata"/>
 
   <xsl:variable name="url" select="/results/pages/page-info[@id=$pid]/name"/>
   <xsl:variable name="testdoc" select="document('../xml/testdoc.xml')/testdoc"/>
@@ -87,9 +88,16 @@
       <xsl:for-each select="page">
         <xsl:variable name="id" select="@id"/>
 
-        <xsl:apply-templates select="$messages">
-          <xsl:with-param name="curr-test" select="$page/test[@id=$id]"/>
-        </xsl:apply-templates>
+        <xsl:choose>
+          <xsl:when test="$page/test[@id=$id]">
+            <xsl:apply-templates select="$messages">
+              <xsl:with-param name="curr-test" select="$page/test[@id=$id]"/>
+            </xsl:apply-templates>
+          </xsl:when>
+          <xsl:otherwise>
+            <div style="margin-bottom: 1em"><xsl:value-of select="$nodata"/></div>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:for-each>
     </xsl:if>
   </xsl:template>

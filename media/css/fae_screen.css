@@ -1330,3 +1330,5 @@ ul.reports-disc li { list-style-image: url(/media/images/disc.jpg); }
 /* Overrides 5 Feb 2008 */
 div.subtitle, h1, h2 { font-family: georgia, times new roman, serif }
 body { font-family: tahoma, arial, helvetica, sans-serif; font-size: 90%; }
+
+div#message { font-size: 120%; font-weight: bold; color: #039; background-color: #f0f0f0; }

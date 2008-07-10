@@ -9,7 +9,7 @@
       encoding="UTF-8"
       indent="yes"
       omit-xml-declaration="yes"
-      method="html"/>
+      method="xml"/>
 
   <xsl:strip-space elements="*"/>
 
@@ -18,6 +18,7 @@
   <xsl:param name="section"/>
   <xsl:param name="pid"/><!-- not used -->
   <xsl:param name="title"/>
+  <xsl:param name="nodata"/>
 
   <xsl:variable name="results" select="/results"/>
   <xsl:variable name="testdoc" select="document('../xml/testdoc.xml')/testdoc"/>
@@ -93,24 +94,31 @@
         <xsl:apply-templates select="rule"/>
         <!-- TO DO: display info element as well -->
 
-        <ul class="results">
-          <xsl:if test="$fail &gt; 0">
-            <li class="fail"><a href="javascript:divMap['{@ref}'].show('fail')">Fail: <xsl:value-of select="$fail"/> page<xsl:if test="$fail &gt; 1">s</xsl:if></a></li>
-          </xsl:if>
-          <xsl:if test="$warn &gt; 0">
-            <li class="warn"><a href="javascript:divMap['{@ref}'].show('warn')">Warn: <xsl:value-of select="$warn"/> page<xsl:if test="$warn &gt; 1">s</xsl:if></a></li>
-          </xsl:if>
-          <xsl:if test="$pass &gt; 0">
-            <li class="pass"><a href="javascript:divMap['{@ref}'].show('pass')">Pass: <xsl:value-of select="$pass"/> page<xsl:if test="$pass &gt; 1">s</xsl:if></a></li>
-          </xsl:if>
-          <xsl:if test="$disc &gt; 0">
-            <li class="disc"><a href="javascript:divMap['{@ref}'].show('disc')">N/A: <xsl:value-of select="$disc"/> page<xsl:if test="$disc &gt; 1">s</xsl:if></a></li>
-          </xsl:if>
-          <li><a id="{@ref}a" class="hideList" href="javascript:divMap['{@ref}'].hide()">Hide list</a></li>
-        </ul>
-        <div id="{@ref}" class="listContainer">
-          <xsl:comment><xsl:value-of select="@ref"/> results go here</xsl:comment>
-        </div>
+        <xsl:choose>
+          <xsl:when test="$test-pages">
+            <ul class="results">
+              <xsl:if test="$fail &gt; 0">
+                <li class="fail"><a href="javascript:divMap['{@ref}'].show('fail')">Fail: <xsl:value-of select="$fail"/> page<xsl:if test="$fail &gt; 1">s</xsl:if></a></li>
+              </xsl:if>
+              <xsl:if test="$warn &gt; 0">
+                <li class="warn"><a href="javascript:divMap['{@ref}'].show('warn')">Warn: <xsl:value-of select="$warn"/> page<xsl:if test="$warn &gt; 1">s</xsl:if></a></li>
+              </xsl:if>
+              <xsl:if test="$pass &gt; 0">
+                <li class="pass"><a href="javascript:divMap['{@ref}'].show('pass')">Pass: <xsl:value-of select="$pass"/> page<xsl:if test="$pass &gt; 1">s</xsl:if></a></li>
+              </xsl:if>
+              <xsl:if test="$disc &gt; 0">
+                <li class="disc"><a href="javascript:divMap['{@ref}'].show('disc')">N/A: <xsl:value-of select="$disc"/> page<xsl:if test="$disc &gt; 1">s</xsl:if></a></li>
+              </xsl:if>
+              <li><a id="{@ref}a" class="hideList" href="javascript:divMap['{@ref}'].hide()">Hide list</a></li>
+            </ul>
+            <div id="{@ref}" class="listContainer">
+              <xsl:comment><xsl:value-of select="@ref"/> results go here</xsl:comment>
+            </div>
+          </xsl:when>
+          <xsl:otherwise>
+            <div style="margin-bottom: 1em"><xsl:value-of select="$nodata"/></div>
+          </xsl:otherwise>
+        </xsl:choose>
       </li>
     </xsl:if>
 

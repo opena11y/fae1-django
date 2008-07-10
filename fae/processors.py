@@ -52,6 +52,9 @@ def get_report_content(report_info, title):
     else:
         proc = None
 
+    if t == 'page' or t == 'sitewide':
+        params['nodata'] = u"'%s'" % labels['nodata']
+
     # Transform the results data
     if proc:
         return unicode(proc(results_data, **params))

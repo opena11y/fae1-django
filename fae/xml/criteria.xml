@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE criteria SYSTEM "criteria.dtd">
+<!DOCTYPE criteria SYSTEM "../dtd/criteria.dtd">
 
 <criteria>
 
@@ -46,71 +46,6 @@
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <warn><cmp op="lt" ref="pct1" val="100"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- pct. content in headers -->
-<eval id="nav004p">
-  <pass>
-    <and>
-      <cmp op="ge" ref="pct1" val="1"/>
-      <cmp op="le" ref="pct1" val="20"/>
-    </and>
-  </pass>
-  <warn>
-    <and>
-      <cmp op="gt" ref="pct1" val="20"/>
-      <cmp op="le" ref="pct1" val="50"/>
-    </and>
-  </warn>
-  <null><cmp op="eq" ref="tot2" val="0"/></null>
-</eval>
-
-<eval id="nav004s">
-  <pass>
-    <and>
-      <cmp op="ge" ref="pct1" val="1"/>
-      <cmp op="le" ref="pct1" val="20"/>
-    </and>
-  </pass>
-  <warn>
-    <and>
-      <cmp op="gt" ref="pct1" val="20"/>
-      <cmp op="le" ref="pct1" val="50"/>
-    </and>
-  </warn>
-</eval>
-
-<!-- accesskey 1 defined -->
-<eval id="nav005p">
-  <pass><cmp op="eq" ref="b1" val="1"/></pass>
-  <disc><cmp op="eq" ref="b1" val="0"/></disc>
-</eval>
-
-<eval id="nav005s">
-  <pass><cmp op="gt" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
-</eval>
-
-<!-- accesskey 2 defined -->
-<eval id="nav006p">
-  <pass><cmp op="eq" ref="b1" val="1"/></pass>
-  <disc><cmp op="eq" ref="b1" val="0"/></disc>
-</eval>
-
-<eval id="nav006s">
-  <pass><cmp op="gt" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
-</eval>
-
-<!-- accesskey 3 defined -->
-<eval id="nav007p">
-  <pass><cmp op="eq" ref="b1" val="1"/></pass>
-  <disc><cmp op="eq" ref="b1" val="0"/></disc>
-</eval>
-
-<eval id="nav007s">
-  <pass><cmp op="gt" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
 </eval>
 
 <!-- frames with title attribute -->
@@ -218,6 +153,51 @@
 <eval id="nav015s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <null><cmp op="eq" ref="tot1" val="0"/></null>
+</eval>
+
+<!-- empty title elements -->
+<!--
+    cnt1: number of empty elements
+    tot1: total elements
+-->
+<eval id="nav016p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav016s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- empty heading elements -->
+<!--
+    cnt1: number of empty elements
+    tot1: total elements
+-->
+<eval id="nav100p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav100s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- empty h1 elements -->
+<!--
+    cnt1: number of empty h1 elements
+    tot1: total h1 elements
+-->
+<eval id="nav101p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav101s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <!-- TEXT EQUIVALENTS -->

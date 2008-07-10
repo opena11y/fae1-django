@@ -1,0 +1,13 @@
+<!-- versions.dtd -->
+
+<!ELEMENT versions (title, version+)>
+
+<!ELEMENT title (#PCDATA)>
+
+<!ELEMENT version (title, date?, (item | note)+)>
+
+<!ELEMENT date (#PCDATA)>
+
+<!ELEMENT item (#PCDATA | note)*>
+
+<!ELEMENT note (#PCDATA)>

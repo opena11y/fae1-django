@@ -1,0 +1,33 @@
+<!-- messages.dtd -->
+
+<!ENTITY % entities SYSTEM "entities.dtd">
+%entities;
+
+<!ELEMENT messages (message+)>
+
+<!ELEMENT message (msg+)>
+<!ATTLIST message
+	id		ID			#REQUIRED
+>
+
+<!ELEMENT msg (#PCDATA | ins | elem | attr)*>
+<!ATTLIST msg
+	id	(default | pass | warn | fail | null | disc)	#REQUIRED
+>
+
+<!--
+abbreviations:
+	s:	singular
+	p:	plural
+-->
+
+<!ELEMENT ins (s,p)?>
+<!ATTLIST ins
+	ref	(%result-id;)	#REQUIRED
+>
+
+<!ELEMENT s (#PCDATA | elem | attr)*>
+<!ELEMENT p (#PCDATA | elem | attr)*>
+
+<!ELEMENT elem (#PCDATA)>
+<!ELEMENT attr (#PCDATA)>

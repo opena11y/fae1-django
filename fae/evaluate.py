@@ -64,6 +64,7 @@ def download_resources(params, is_logged_in, uid, test=False):
     --tries
     --timeout
     --wait-retry
+    -erobots (evaluate robots.txt files)
     -Q = --quota
     -R = --reject LIST
     -k = --convert-links
@@ -177,7 +178,7 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     parser = etree.XMLParser(dtd_validation=True)
     try:
         tree = etree.parse(results_file, parser)
-    except etree.ParseError:
+    except etree.XMLSyntaxError:
         # TODO: provide more info if invalid
         return 0
 

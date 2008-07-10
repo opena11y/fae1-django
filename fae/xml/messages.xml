@@ -20,26 +20,6 @@
     <msg id="disc">No <elem>ol</elem> or <elem>ul</elem> elements that appear to be navigation menus were found.</msg>
   </message>
 
-  <message id="nav004p">
-    <msg id="default"><ins ref="pct1"/>%</msg>
-    <msg id="null">No text content is contained in header elements.</msg>
-  </message>
-
-  <message id="nav005p">
-    <msg id="pass"><attr>accesskey</attr> 1 was defined.</msg>
-    <msg id="disc"><attr>accesskey</attr> 1 was not defined.</msg>
-  </message>
-
-  <message id="nav006p">
-    <msg id="pass"><attr>accesskey</attr> 2 was defined.</msg>
-    <msg id="disc"><attr>accesskey</attr> 2 was not defined.</msg>
-  </message>
-
-  <message id="nav007p">
-    <msg id="pass"><attr>accesskey</attr> 3 was defined.</msg>
-    <msg id="disc"><attr>accesskey</attr> 3 was not defined.</msg>
-  </message>
-
   <message id="nav008p">
     <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>).</msg>
     <msg id="disc">No <elem>frame</elem> elements were found.</msg>
@@ -67,19 +47,37 @@
   </message>
 
   <message id="nav013p">
-    <msg id="default"><ins ref="tot1"><s>header element was</s><p>header elements were</p></ins> found (<ins ref="r1"/> <elem>h1</elem>, <ins ref="r2"/> <elem>h2</elem>, <ins ref="r3"/> <elem>h3</elem>, <ins ref="r4"/> <elem>h4</elem>, <ins ref="r5"/> <elem>h5</elem>, <ins ref="r6"/> <elem>h6</elem>).</msg>
-    <msg id="null">No header elements were found.</msg>
+    <msg id="default"><ins ref="tot1"><s>heading element was</s><p>heading elements were</p></ins> found (<ins ref="r1"/> <elem>h1</elem>, <ins ref="r2"/> <elem>h2</elem>, <ins ref="r3"/> <elem>h3</elem>, <ins ref="r4"/> <elem>h4</elem>, <ins ref="r5"/> <elem>h5</elem>, <ins ref="r6"/> <elem>h6</elem>).</msg>
+    <msg id="null">No heading elements were found.</msg>
   </message>
 
   <message id="nav014p">
-    <msg id="pass">Of the <ins ref="tot1"><s>header element that follows</s><p>header elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.</msg>
-    <msg id="fail">Of the <ins ref="tot1"><s>header element that follows</s><p>header elements that follow</p></ins> the last <elem>h1</elem> element, <ins ref="cnt1"><s>is</s><p>are</p></ins> improperly nested.</msg>
-    <msg id="null">Improper nesting of headers due to lack of an <elem>h1</elem> element.</msg>
-    <msg id="disc">No nested header elements were found.</msg>
+    <msg id="pass">Of the <ins ref="tot1"><s>heading element that follows</s><p>heading elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.</msg>
+    <msg id="fail">Of the <ins ref="tot1"><s>heading element that follows</s><p>heading elements that follow</p></ins> the last <elem>h1</elem> element, <ins ref="cnt1"><s>is</s><p>are</p></ins> improperly nested.</msg>
+    <msg id="null">Improper nesting of heading elements due to lack of an <elem>h1</elem> element.</msg>
+    <msg id="disc">No nested heading elements were found.</msg>
   </message>
 
   <message id="nav015p">
     <msg id="default"><ins ref="cnt1"><s><elem>title</elem> element was</s><p><elem>title</elem> elements were</p></ins> found.</msg>
+  </message>
+
+  <message id="nav016p">
+    <msg id="pass">No empty <elem>title</elem> elements were found.</msg>
+    <msg id="fail"><ins ref="cnt1"><s><elem>title</elem> element is</s><p><elem>title</elem> elements are</p></ins> empty.</msg>
+    <msg id="disc">No <elem>title</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav100p">
+    <msg id="pass">No empty heading elements were found.</msg>
+    <msg id="fail"><ins ref="cnt1"><s>heading element is</s><p>heading elements are</p></ins> empty.</msg>
+    <msg id="disc">No heading elements were found.</msg>
+  </message>
+
+  <message id="nav101p">
+    <msg id="pass">No empty <elem>h1</elem> elements were found.</msg>
+    <msg id="fail"><ins ref="cnt1"><s> <elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
+    <msg id="disc">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <!-- TEXT EQUIVALENTS -->

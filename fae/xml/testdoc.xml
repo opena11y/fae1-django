@@ -47,8 +47,8 @@
 
       <best-practice ref="nav009">
         <name>h1 substring of title</name>
-        <rule>The words contained in each <elem>h1</elem> element should match a subset of the words contained in the <elem>title</elem> element.</rule>
-        <info>Words in each <elem>h1</elem> element are matched sequentially with those in the <elem>title</elem> element, ignoring case, punctuation and spacing differences.</info>
+        <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
+        <info>The string matching algorithm used by FAE for this rule ignores case, punctuation and spacing.</info>
         <page id="nav009p"/>
         <site id="nav009s"/>
       </best-practice>

@@ -5,8 +5,76 @@
 
 <!-- NAVIGATION &amp; ORIENTATION -->
 
-<!-- unique titles -->
+<!-- ol/ul navigation menus preceded by header element -->
+<eval id="nav001p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
 <eval id="nav001s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- area elements with redundant text link -->
+<eval id="nav002p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav002s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- num data tables out of total tables -->
+<!-- NOTE: This test always evaluates to either pass or disc! -->
+<eval id="nav003p">
+  <pass><cmp op="ge" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
+</eval>
+
+<!-- frames with title attribute -->
+<eval id="nav004p">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav004s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- empty title elements -->
+<!--
+    cnt1: number of empty elements
+    tot1: total elements
+-->
+<eval id="nav010p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav010s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- one and only one title element -->
+<eval id="nav011p">
+  <pass><cmp op="eq" ref="b1" val="1"/></pass>
+  <null><cmp op="eq" ref="cnt1" val="0"/></null>
+</eval>
+
+<eval id="nav011s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <null><cmp op="eq" ref="tot1" val="0"/></null>
+</eval>
+
+<!-- unique titles -->
+<eval id="nav012s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <warn>
     <and>
@@ -18,50 +86,47 @@
   <null><cmp op="eq" ref="tot1" val="0"/></null>
 </eval>
 
-<!-- one or two h1 elements -->
-<eval id="nav002p">
-  <pass>
-    <or>
-      <cmp op="eq" ref="cnt1" val="1"/>
-      <cmp op="eq" ref="cnt1" val="2"/>
-    </or>
-  </pass>
-  <warn><cmp op="eq" ref="cnt1" val="3"/></warn>
-  <fail><cmp op="ge" ref="cnt1" val="4"/></fail>
+<!-- empty h1 elements -->
+<!--
+    cnt1: number of empty h1 elements
+    tot1: total h1 elements
+-->
+<eval id="nav020p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav020s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- at least one h1 element -->
+<eval id="nav021p">
+  <pass><cmp op="ge" ref="cnt1" val="1"/></pass>
   <null><cmp op="eq" ref="cnt1" val="0"/></null>
 </eval>
 
-<eval id="nav002s">
+<eval id="nav021s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
 </eval>
 
-<!-- ol/ul navigation menus preceded by header element -->
-<eval id="nav003p">
+<!-- no more than two h1 elements -->
+<eval id="nav022p">
+  <pass><cmp op="le" ref="cnt1" val="2"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="2"/></warn>
+</eval>
+
+<eval id="nav022s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <warn><cmp op="lt" ref="pct1" val="100"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav003s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- frames with title attribute -->
-<eval id="nav008p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav008s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <!-- h1s match title -->
-<eval id="nav009p">
+<eval id="nav023p">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+  <!-- Note: null no longer kicks in (but should it?) -->
   <null>
     <or>
       <cmp op="eq" ref="tot1" val="0"/>
@@ -70,58 +135,27 @@
   </null>
 </eval>
 
-<eval id="nav009s">
+<eval id="nav023s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
 </eval>
 
-<!-- area elements with redundant text link -->
-<eval id="nav010p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+<!-- empty subheading elements -->
+<!--
+    cnt1: number of empty elements
+    tot1: total elements
+-->
+<eval id="nav030p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="nav010s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+<eval id="nav030s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- form controls with labels -->
-<eval id="nav011p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <null>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="eq" ref="cnt2" val="0"/>
-    </and>
-  </null>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav011s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- num data tables out of total tables -->
-<!-- NOTE: This test always evaluates to either pass or disc! -->
-<eval id="nav012p">
-  <pass><cmp op="ge" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
-</eval>
-
-<!-- counts/total of header elements -->
-<eval id="nav013p">
-  <pass><cmp op="gt" ref="tot1" val="0"/></pass>
-  <null><cmp op="eq" ref="tot1" val="0"/></null>
-</eval>
-
-<eval id="nav013s">
-  <pass><cmp op="gt" ref="tot1" val="0"/></pass>
-  <null><cmp op="eq" ref="tot1" val="0"/></null>
 </eval>
 
 <!-- subheaders properly nested -->
-<eval id="nav014p">
+<eval id="nav031p">
   <pass>
     <and><!-- no offenders out of non-empty successors -->
       <cmp op="eq" ref="cnt1" val="0"/>
@@ -139,64 +173,25 @@
   </disc>
 </eval>
 
-<eval id="nav014s">
+<eval id="nav031s">
   <pass><cmp op="eq" ref="pct1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- one and only one title element -->
-<eval id="nav015p">
-  <pass><cmp op="eq" ref="b1" val="1"/></pass>
-  <null><cmp op="eq" ref="cnt1" val="0"/></null>
-</eval>
-
-<eval id="nav015s">
+<!-- form controls with labels -->
+<eval id="nav041p">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <null><cmp op="eq" ref="tot1" val="0"/></null>
-</eval>
-
-<!-- empty title elements -->
-<!--
-    cnt1: number of empty elements
-    tot1: total elements
--->
-<eval id="nav016p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <null>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="cnt2" val="0"/>
+    </and>
+  </null>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="nav016s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- empty heading elements -->
-<!--
-    cnt1: number of empty elements
-    tot1: total elements
--->
-<eval id="nav100p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav100s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- empty h1 elements -->
-<!--
-    cnt1: number of empty h1 elements
-    tot1: total h1 elements
--->
-<eval id="nav101p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav101s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+<eval id="nav041s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 

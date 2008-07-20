@@ -75,13 +75,13 @@ h6 { font-size:			65%  }
 
 a:link {
 	text-decoration: 	none;
-	color:				#0066CC;
+	color:				#06C;
 	background:			transparent;
 }
 
 a:visited {
 	text-decoration:	none;
-	color:				#003399;
+	color:				#039;
 	background:			transparent;
 }
 
@@ -651,14 +651,14 @@ margin:					0.75em 0;
 	margin:				0.5em 0;
 }
 
-#sidebar .title a:link,
-#sidebar .title a:visited {
-	color:				black;
-	background:			transparent;
+#sidebar a:link,
+#sidebar a:visited {
+	color:				#06C;
+	background:   transparent;
 }
 
 #sidebar ul {
-	list-style:			none outside;
+	list-style:		none outside;
 	margin:				0.5em 0;
 	padding:			0;
 }
@@ -992,6 +992,15 @@ table.summary th {
 	text-align:			left;
 }
 
+table.summary th a, table.summary td a {
+	text-decoration: underline;
+}
+
+table.summary th a:link,
+table.summary th a:visited {
+	color: #06C;
+}
+
 table.summary caption {
 	font-size:			120%;
 	font-weight:		bold;
@@ -1172,12 +1181,12 @@ table.archive th.archive-2, table.archive td.archive-2 {
 
 table.archive th.archive-3, table.archive td.archive-3 {
 	padding-left:		1.5em;
-	width:				45%;
+	width:				40%;
 }
 
 table.archive th.archive-4, table.archive td.archive-4 {
 	padding-left:		1.5em;
-	width:				35%;
+	width:				40%;
 }
 
 table.archive th.archive-5, table.archive td.archive-5 {

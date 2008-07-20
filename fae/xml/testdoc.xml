@@ -8,117 +8,118 @@
     <name>Navigation &amp; Orientation</name>
 
     <category id="nav01">
-      <name>Titles</name>
+      <name>Titles (<elem>title</elem> &amp; <elem>h1</elem> elements)</name>
+
+      <best-practice ref="nav011">
+        <name>one and only one title</name>
+        <rule>The page must contain exactly one <elem>title</elem> element.</rule>
+        <page id="nav011p"/>
+        <site id="nav011s"/>
+      </best-practice>
+
+      <best-practice ref="nav010">
+        <name>number of empty title elements</name>
+        <rule>The <elem>title</elem> element must contain text.</rule>
+        <page id="nav010p"/>
+        <site id="nav010s"/>
+      </best-practice>
+
       <!--
-      <best-practice ref="nav001">
+      <best-practice ref="nav012">
         <name>unique titles</name>
         <rule>Each page <elem>title</elem> should be unique across the site.</rule>
-        <site id="nav001s"/>
+        <site id="nav012s"/>
       </best-practice>
       -->
 
-      <best-practice ref="nav015">
-        <name>one and only one title</name>
-        <rule>The page should contain exactly one <elem>title</elem> element.</rule>
-        <page id="nav015p"/>
-        <site id="nav015s"/>
+      <best-practice ref="nav021">
+        <name>at least one h1 element</name>
+        <rule>The page must contain at least one <elem>h1</elem> element.</rule>
+        <page id="nav021p"/>
+        <site id="nav021s"/>
       </best-practice>
 
-      <best-practice ref="nav016">
-        <name>number of empty title elements</name>
-        <rule>The <elem>title</elem> element must contain text.</rule>
-        <page id="nav016p"/>
-        <site id="nav016s"/>
+      <best-practice ref="nav021">
+        <name>no more than two h1 elements</name>
+        <rule>The page should contain no more than two <elem>h1</elem> elements.</rule>
+        <page id="nav022p"/>
+        <site id="nav022s"/>
       </best-practice>
 
-      <best-practice ref="nav002">
-        <name>one or two h1 elements</name>
-        <rule>The page should contain at least one and no more than two <elem>h1</elem> elements.</rule>
-        <page id="nav002p"/>
-        <site id="nav002s"/>
-      </best-practice>
-
-      <best-practice ref="nav101">
+      <best-practice ref="nav020">
         <name>number of empty h1 elements</name>
         <rule>Each <elem>h1</elem> element must contain text.</rule>
-        <page id="nav101p"/>
-        <site id="nav101s"/>
+        <page id="nav020p"/>
+        <site id="nav020s"/>
       </best-practice>
 
-      <best-practice ref="nav009">
+      <best-practice ref="nav023">
         <name>h1 substring of title</name>
         <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
         <info>The string matching algorithm used by FAE for this rule ignores case, punctuation and spacing.</info>
-        <page id="nav009p"/>
-        <site id="nav009s"/>
+        <page id="nav023p"/>
+        <site id="nav023s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/title/"/>
     </category>
 
     <category id="nav02">
-      <name>Headings</name>
+      <name>Subheadings (<elem>h2..h6</elem> elements)</name>
 
-      <best-practice ref="nav013">
-        <name>use of heading elements</name>
-        <rule>Heading elements (<elem>h1..h6</elem>) should be used for structuring information on the page.</rule>
-        <page id="nav013p"/>
-        <site id="nav013s"/>
-      </best-practice>
-
-      <best-practice ref="nav100">
-        <name>number of empty heading elements</name>
-        <rule>Heading elements (<elem>h1..h6</elem>) must contain text.</rule>
-        <page id="nav100p"/>
-        <site id="nav100s"/>
-      </best-practice>
-
-      <best-practice ref="nav014">
+      <best-practice ref="nav031">
         <name>proper nesting of heading elements</name>
-        <rule>Heading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
-        <info>Heading elements should be used without skipping levels when descending the hierarchy that starts with <elem>h1</elem> and continues through <elem>h6</elem>. For example, an <elem>h3</elem> element should follow an <elem>h2</elem> element, whereas an <elem>h4</elem> (or <elem>h5</elem> or <elem>h6</elem>) should not. Note that this rule does not apply when ascending the hierarchy (for example, an <elem>h2</elem> element may follow an <elem>h4</elem> element).</info>
-        <page id="nav014p"/>
-        <site id="nav014s"/>
+        <rule>Subheading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
+        <info>Heading elements should be used without skipping levels when descending the hierarchy that starts with <elem>h1</elem> and continues through <elem>h6</elem>. For example, an <elem>h2</elem> element should follow an <elem>h1</elem> element, whereas an <elem>h3</elem>, <elem>h4</elem>, <elem>h5</elem> or <elem>h6</elem> should not. Note that this rule does not apply when ascending the hierarchy (for example, an <elem>h2</elem> may follow an <elem>h4</elem>).</info>
+        <page id="nav031p"/>
+        <site id="nav031s"/>
+      </best-practice>
+
+      <best-practice ref="nav030">
+        <name>number of empty heading elements</name>
+        <rule>Subheading elements (<elem>h2..h6</elem>) must contain text.</rule>
+        <page id="nav030p"/>
+        <site id="nav030s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/heading/"/>
     </category>
 
+    <category id="nav04">
+      <name>Form Controls</name>
+
+      <best-practice ref="nav041">
+        <name>form control labels</name>
+        <rule>Each <elem>input</elem> element with <attr>type=</attr><attr>text</attr> | <attr>password</attr> | <attr>checkbox</attr> | <attr>radio</attr> | <attr>file</attr> and each <elem>select</elem> and <elem>textarea</elem> element should either be referenced by the <attr>for</attr> attribute of a <elem>label</elem> element via its <attr>id</attr> attribute, or have a <attr>title</attr> attribute.</rule>
+        <info>Label referencing is implemented by setting the <elem>label</elem> element's <attr>for</attr> attribute value equal to that of the <elem>form</elem> control's <attr>id</attr> attribute.</info>
+        <page id="nav041p"/>
+        <site id="nav041s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/form/"/>
+    </category>
+
     <category id="nav03">
       <name>Navigation Bars</name>
 
-      <best-practice ref="nav003">
+      <best-practice ref="nav001">
         <name>navigation bars and menus</name>
         <rule>Each <elem>ol</elem> or <elem>ul</elem> element that appears to be a navigation bar or menu should be immediately preceded by a header element (<elem>h2..h6</elem>).</rule>
         <!--info>Lists that are comprised of text links (one <elem>li</elem> element that does not contain a link is allowed) are interpreted by FAE to be navigation bars or menus.</info-->
         <!--info>An <elem>ol</elem> or <elem>ul</elem> list is considered by FAE to be a navigation bar or menu if each <elem>li</elem> element (with one exception allowed) has as its sole content either a text link (<elem>a</elem> element) or a nested list of links.</info-->
         <info>FAE considers a list of links to be a navigation bar or menu. A list of links is defined as an <elem>ol</elem> or <elem>ul</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
-        <page id="nav003p"/>
-        <site id="nav003s"/>
+        <page id="nav001p"/>
+        <site id="nav001s"/>
       </best-practice>
 
-      <best-practice ref="nav010">
+      <best-practice ref="nav002">
         <name>redundant text links for area elements</name>
         <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
-        <page id="nav010p"/>
-        <site id="nav010s"/>
+        <page id="nav002p"/>
+        <site id="nav002s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/menu/"/>
-    </category>
-
-    <category id="nav04">
-      <name>Form Controls</name>
-
-      <best-practice ref="nav011">
-        <name>form control labels</name>
-        <rule>Each <elem>form</elem> control should be associated with a <elem>label</elem> element, either through encapsulation or <attr>id</attr> reference.</rule>
-        <info>Encapsulation simply means nesting the <elem>form</elem> control element within a <elem>label</elem> element. Reference is implemented by setting the <elem>label</elem> element's <attr>for</attr> attribute value equal to that of the <elem>form</elem> control's <attr>id</attr> attribute. Form controls tested include <elem>textarea</elem> and <elem>select</elem> elements, and <elem>input</elem> elements with <attr>type</attr> attribute values of <attr>text</attr>, <attr>password</attr>, <attr>checkbox</attr>, <attr>radio</attr>, <attr>file</attr> and <attr>image</attr>.</info>
-        <page id="nav011p"/>
-        <site id="nav011s"/>
-      </best-practice>
-
-      <link tgt="bp" href="nav/form/"/>
     </category>
 
     <category id="nav05">
@@ -137,11 +138,11 @@
     <category id="nav06">
       <name>Data Tables</name>
 
-      <best-practice ref="nav012">
+      <best-practice ref="nav003">
         <name>data tables</name>
         <rule>Data tables should utilize <elem>thead</elem> and/or <elem>th</elem> elements.</rule>
         <info>A <elem>table</elem> is considered to be a data table if it has two or more rows or columns and includes one or more <elem>thead</elem> or <elem>th</elem> elements.</info>
-        <page id="nav012p"/>
+        <page id="nav003p"/>
       </best-practice>
 
       <link tgt="bp" href="nav/stable/"/>
@@ -151,11 +152,11 @@
       <name>Frames</name>
 
       <!-- currently checking only for existence of title attribute, and not whether it's empty -->
-      <best-practice ref="nav008">
+      <best-practice ref="nav004">
         <name>frame titles</name>
         <rule>Each <elem>frame</elem> element should have a <attr>title</attr> attribute.</rule>
-        <page id="nav008p"/>
-        <site id="nav008s"/>
+        <page id="nav004p"/>
+        <site id="nav004s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/frame/"/>

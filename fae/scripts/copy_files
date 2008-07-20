@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ `pwd | grep ^/home/nhoyt/src/project` ]; then
+    PROJECT_DIR=/home/nhoyt/src/project
+elif [ `pwd | grep ^/usr/local/src/project` ]; then
+    PROJECT_DIR=/usr/local/src/project
+fi
+
+MEDIA_DIR=/var/www/html/media
+DTD_DIR=/var/www/fae/reports/xml
+
+echo -n 'Copy new versions of FAE files? (y): '
+read RESPONSE
+if [ -z $RESPONSE ] || [ $RESPONSE = 'y' ] || [ $RESPONSE = 'Y' ]; then
+    # remove subdirectories: css, images, js
+    if [ -e $MEDIA_DIR/css ]; then
+        rm -rf $MEDIA_DIR/css
+    fi
+    if [ -e $MEDIA_DIR/images ]; then
+        rm -rf $MEDIA_DIR/images
+    fi
+    if [ -e $MEDIA_DIR/js ]; then
+        rm -rf $MEDIA_DIR/js
+    fi
+
+		# copy media files
+    cp -r --target-directory=$MEDIA_DIR $PROJECT_DIR/media/*
+
+    # copy DTDs
+    cp --target-directory=$DTD_DIR $PROJECT_DIR/fae/dtd/entities.dtd
+    cp --target-directory=$DTD_DIR $PROJECT_DIR/fae/dtd/results.dtd
+    cp --target-directory=$DTD_DIR $PROJECT_DIR/fae/dtd/xhtml-lat1.ent
+    cp --target-directory=$DTD_DIR $PROJECT_DIR/fae/dtd/xhtml-special.ent
+    cp --target-directory=$DTD_DIR $PROJECT_DIR/fae/dtd/xhtml-symbol.ent
+
+    echo 'done'
+else
+    echo 'aborted!'
+fi

@@ -170,6 +170,7 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     wamt.extend(['-url',  url])
     wamt.extend(['-depth', depth])
     wamt.extend(['-span', span])
+    wamt.extend(['-version', settings.RULESET])
 
     if test: return ' '.join(wamt)
     retval = call(wamt)

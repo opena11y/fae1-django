@@ -17,7 +17,7 @@
 -->
 <!ELEMENT results (meta, page*, site, pages?, tests?)>
 
-<!ELEMENT meta (title, date, user, urls, depth, span, pg-count?)>
+<!ELEMENT meta (title, date, user, urls, depth, span, version, pg-count?)>
 
 <!--
   after evaluation and summarization, page content model should be

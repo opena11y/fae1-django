@@ -52,4 +52,10 @@
 
   <xsl:template match="note"/>
 
+  <!-- Copy HTML elements -->
+
+  <xsl:template match="a">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+
 </xsl:transform>

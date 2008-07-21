@@ -1,29 +1,30 @@
 # labels.py
 
 reports = {
-    'summary':  'Summary Report',
-    'sitewide': 'Sitewide Report',
-    'page':     'Page Report',
-    'menu':     'List of Pages',
-    'urls':     'List of URLs',
+    'summary':         'Summary Report',
+    'sitewide':        'Sitewide Report',
+    'page':            'Page Report',
+    'menu':            'List of Pages',
+    'urls':            'List of URLs',
     }
 
 sections = {
-    'nav':   'Navigation & Orientation',
-    'text':  'Text Equivalents',
-    'auto':  'Scripting',
-    'style': 'Styling',
-    'std':   'HTML Standards',
+    'nav':             'Navigation & Orientation',
+    'text':            'Text Equivalents',
+    'auto':            'Scripting',
+    'style':           'Styling',
+    'std':             'HTML Standards',
     }
 
 subtitles = {
-    'overview':   'Overview',
-    'rules':      'Rules Summary',
-    'users':      'Intended Users',
-    'future':     'Future Plans',
-    'usage':      'Usage Statistics',
-    'versions':   'Version History',
-    'disclaimer': 'Disclaimer',
+    'overview':       'Overview',
+    'rules':          'Rules Summary',
+    'users':          'Intended Users',
+    'future':         'Future Plans',
+    'usage':          'Usage Statistics',
+    'versions':       'Version History',
+    'versions_old':   'Pre-1.0 Versions',
+    'disclaimer':     'Disclaimer',
     }
 
 labels = {

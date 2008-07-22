@@ -39,7 +39,7 @@
         <site id="nav021s"/>
       </best-practice>
 
-      <best-practice ref="nav021">
+      <best-practice ref="nav022">
         <name>no more than two h1 elements</name>
         <rule>The page should contain no more than two <elem>h1</elem> elements.</rule>
         <page id="nav022p"/>

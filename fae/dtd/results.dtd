@@ -95,6 +95,8 @@
 
 <!ELEMENT span (#PCDATA)>
 
+<!ELEMENT version (#PCDATA)>
+
 <!ELEMENT pg-count (#PCDATA)>
 
 <!ELEMENT url (#PCDATA)>

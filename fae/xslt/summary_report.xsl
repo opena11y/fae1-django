@@ -92,13 +92,14 @@
 
             <xsl:variable name="pass" select="count($rsec//page-test[@eval='pass'])"/>
             <xsl:variable name="warn" select="count($rsec//page-test[@eval='warn'])"/>
-            <xsl:variable name="null" select="count($rsec//page-test[@eval='null'])"/>
+            <xsl:variable name="warn-null" select="count($rsec//page-test[@eval='warn-null'])"/>
             <xsl:variable name="fail" select="count($rsec//page-test[@eval='fail'])"/>
+            <xsl:variable name="fail-null" select="count($rsec//page-test[@eval='fail-null'])"/>
 
             <td headers="{$sid} t1c1" class="status">
               <xsl:call-template name="get-status">
                 <xsl:with-param name="pass" select="$pass"/>
-                <xsl:with-param name="warn" select="$warn"/>
+                <xsl:with-param name="warn" select="$warn + $warn-null"/>
                 <xsl:with-param name="total" select="$total"/>
               </xsl:call-template>
             </td>
@@ -110,13 +111,13 @@
             </td>
             <td headers="{$sid} t1c3" class="pct">
               <xsl:call-template name="get-pct">
-                <xsl:with-param name="count" select="$warn"/>
+                <xsl:with-param name="count" select="$warn + $warn-null"/>
                 <xsl:with-param name="total" select="$total"/>
               </xsl:call-template>
             </td>
             <td headers="{$sid} t1c4" class="pct">
               <xsl:call-template name="get-pct">
-                <xsl:with-param name="count" select="$null + $fail"/>
+                <xsl:with-param name="count" select="$fail + $fail-null"/>
                 <xsl:with-param name="total" select="$total"/>
               </xsl:call-template>
             </td>
@@ -173,8 +174,9 @@
 
               <xsl:variable name="pass" select="count($rcat//page-test[@eval='pass'])"/>
               <xsl:variable name="warn" select="count($rcat//page-test[@eval='warn'])"/>
-              <xsl:variable name="null" select="count($rcat//page-test[@eval='null'])"/>
+              <xsl:variable name="warn-null" select="count($rcat//page-test[@eval='warn-null'])"/>
               <xsl:variable name="fail" select="count($rcat//page-test[@eval='fail'])"/>
+              <xsl:variable name="fail-null" select="count($rcat//page-test[@eval='fail-null'])"/>
               <xsl:variable name="disc" select="count($rcat//page-test[@eval='disc'])"/>
 
               <td headers="{$sid} {$cid} t2c1" class="pct">
@@ -185,13 +187,13 @@
               </td>
               <td headers="{$sid} {$cid} t2c2" class="pct">
                 <xsl:call-template name="get-pct">
-                  <xsl:with-param name="count" select="$warn"/>
+                  <xsl:with-param name="count" select="$warn + $warn-null"/>
                   <xsl:with-param name="total" select="$total"/>
                 </xsl:call-template>
               </td>
               <td headers="{$sid} {$cid} t2c3" class="pct">
                 <xsl:call-template name="get-pct">
-                  <xsl:with-param name="count" select="$null + $fail"/>
+                  <xsl:with-param name="count" select="$fail + $fail-null"/>
                   <xsl:with-param name="total" select="$total"/>
                 </xsl:call-template>
               </td>

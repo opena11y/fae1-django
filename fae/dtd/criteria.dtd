@@ -5,7 +5,7 @@
 
 <!ELEMENT criteria (eval+)>
 
-<!ELEMENT eval (pass, warn?, null?, disc?)>
+<!ELEMENT eval (pass, warn?, warn-null?, fail-null?, disc?)>
 <!ATTLIST eval
 	id		ID			#REQUIRED
 	desc	CDATA		#IMPLIED
@@ -13,7 +13,8 @@
 
 <!ELEMENT pass (cmp | and | or)>
 <!ELEMENT warn (cmp | and | or)>
-<!ELEMENT null (cmp | and | or)>
+<!ELEMENT warn-null (cmp | and | or)>
+<!ELEMENT fail-null (cmp | and | or)>
 <!ELEMENT disc (cmp | and | or)>
 
 <!--

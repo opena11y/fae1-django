@@ -9,7 +9,7 @@
 <!ENTITY % entities SYSTEM "entities.dtd">
 %entities;
 
-<!ENTITY % eval-result "pass | warn | fail | null | disc">
+<!ENTITY % eval-result "pass | warn | warn-null | fail | fail-null | disc">
 
 <!--
   when no pages are downloaded, no page elements will be present;

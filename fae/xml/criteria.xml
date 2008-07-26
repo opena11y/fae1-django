@@ -62,15 +62,15 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- one and only one title element -->
+<!-- exactly one title element -->
 <eval id="nav011p">
   <pass><cmp op="eq" ref="b1" val="1"/></pass>
-  <null><cmp op="eq" ref="cnt1" val="0"/></null>
+  <fail-null><cmp op="eq" ref="cnt1" val="0"/></fail-null>
 </eval>
 
 <eval id="nav011s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <null><cmp op="eq" ref="tot1" val="0"/></null>
+  <fail-null><cmp op="eq" ref="tot1" val="0"/></fail-null>
 </eval>
 
 <!-- unique titles -->
@@ -83,28 +83,28 @@
     </and>
   </warn>
   <!-- no title elements found -->
-  <null><cmp op="eq" ref="tot1" val="0"/></null>
+  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
 </eval>
 
-<!-- empty h1 elements -->
+<!-- empty h1 elements (inclusive of img alt text) -->
 <!--
     cnt1: number of empty h1 elements
     tot1: total h1 elements
 -->
 <eval id="nav020p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+  <fail-null><cmp op="eq" ref="tot1" val="0"/></fail-null>
 </eval>
 
 <eval id="nav020s">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+  <fail-null><cmp op="eq" ref="tot1" val="0"/></fail-null>
 </eval>
 
 <!-- at least one h1 element -->
 <eval id="nav021p">
   <pass><cmp op="ge" ref="cnt1" val="1"/></pass>
-  <null><cmp op="eq" ref="cnt1" val="0"/></null>
+  <fail-null><cmp op="eq" ref="cnt1" val="0"/></fail-null>
 </eval>
 
 <eval id="nav021s">
@@ -115,6 +115,7 @@
 <eval id="nav022p">
   <pass><cmp op="le" ref="cnt1" val="2"/></pass>
   <warn><cmp op="gt" ref="cnt1" val="2"/></warn>
+  <warn-null><cmp op="eq" ref="cnt1" val="0"/></warn-null>
 </eval>
 
 <eval id="nav022s">
@@ -124,22 +125,38 @@
 
 <!-- h1s match title -->
 <eval id="nav023p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
-  <!-- Note: null no longer kicks in (but should it?) -->
-  <null>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <warn-null>
     <or>
       <cmp op="eq" ref="tot1" val="0"/>
       <cmp op="eq" ref="tot2" val="0"/>
     </or>
-  </null>
+  </warn-null>
 </eval>
 
 <eval id="nav023s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
 </eval>
 
-<!-- empty subheading elements -->
+<!-- empty h1 elements (exclusive of img alt text) -->
+<!--
+    cnt1: number of empty h1 elements
+    tot1: total h1 elements
+-->
+<eval id="nav024p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
+</eval>
+
+<eval id="nav024s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
+</eval>
+
+<!-- empty subheading elements (inclusive of img alt text) -->
 <!--
     cnt1: number of empty elements
     tot1: total elements
@@ -162,9 +179,9 @@
       <cmp op="gt" ref="tot1" val="0"/>
     </and>
   </pass>
-  <null><!-- no h1 elements -->
+  <fail-null><!-- no h1 elements -->
     <cmp op="eq" ref="cnt2" val="0"/>
-  </null>
+  </fail-null>
   <disc><!-- h1 elements exist but no successors -->
     <and>
       <cmp op="gt" ref="cnt2" val="0"/>
@@ -178,19 +195,52 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- form controls with labels -->
+<!-- empty subheading elements (exclusive of img alt text) -->
+<!--
+    cnt1: number of empty elements
+    tot1: total elements
+-->
+<eval id="nav032p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav032s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- form controls with labels: select, textarea and input with selected types -->
 <eval id="nav041p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <null>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="eq" ref="cnt2" val="0"/>
-    </and>
-  </null>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <eval id="nav041s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- form controls with labels: input with type=button|reset|submit -->
+<eval id="nav042p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav042s">
+  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- form controls with labels: input with type=image -->
+<eval id="nav043p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav043s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>

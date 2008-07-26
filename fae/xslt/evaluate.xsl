@@ -109,8 +109,14 @@
         <xsl:when test="$disc='true'">disc</xsl:when>
         <xsl:otherwise>
 
-          <xsl:variable name="null">
-            <xsl:apply-templates select="null">
+          <xsl:variable name="fail-null">
+            <xsl:apply-templates select="fail-null">
+              <xsl:with-param name="curr-test" select="$curr-test"/>
+            </xsl:apply-templates>
+          </xsl:variable>
+
+          <xsl:variable name="warn-null">
+            <xsl:apply-templates select="warn-null">
               <xsl:with-param name="curr-test" select="$curr-test"/>
             </xsl:apply-templates>
           </xsl:variable>
@@ -128,7 +134,8 @@
           </xsl:variable>
 
           <xsl:choose>
-            <xsl:when test="$null='true'">null</xsl:when>
+            <xsl:when test="$fail-null='true'">fail-null</xsl:when>
+            <xsl:when test="$warn-null='true'">warn-null</xsl:when>
             <xsl:when test="$pass='true'">pass</xsl:when>
             <xsl:when test="$warn='true'">warn</xsl:when>
             <xsl:otherwise>fail</xsl:otherwise>
@@ -147,7 +154,7 @@
 
   <!-- ======================================================== -->
 
-  <xsl:template match="pass|warn|null|disc">
+  <xsl:template match="pass|warn|warn-null|fail-null|disc">
     <xsl:param name="curr-test"/>
 
     <xsl:apply-templates>

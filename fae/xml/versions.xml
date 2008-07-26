@@ -12,7 +12,11 @@
 
     <item>New rules have been added, and existing rules modified, based on the <a class="external" href="http://www.dhs.state.il.us/iitaa/">IITAA</a> Implementation Guidelines. These include all rules in the Titles, Subheadings and Form Controls subsections of the Navigation &amp; Orientation section of Page and Sitewide Reports.</item>
 
-    <item>Manage Reports feature: As in previous versions, reports created by authenticated users are automatically purged after a certain number of days. However, a user may now select up to five reports (by default) to be permanently archived. Additionally, the last five reports that have been generated but not marked for permanent archiving are also saved.</item>
+    <item>Manage Reports feature: A registered user may now select up to five reports (by default) to be permanently archived. Additionally, the last five reports that have been generated but not marked for permanent archival are also saved.</item>
+
+    <item>Reports that do not meet the above criteria are now automatically purged based on their age (currently after they are two days old).</item>
+
+    <item>Usage statistics are now collected via automated script, and can be viewed from the About FAE menu under Usage Statistics.</item>
 
     <item>Run FAE changes: The default Run FAE form for authenticated users now accepts only a single URL. To analyze multiple URLs, select the Multiple URLs link in the top menu bar.</item>
 

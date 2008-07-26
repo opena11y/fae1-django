@@ -759,11 +759,15 @@ li.warn {
 	list-style-image:	url(/media/images/warn.jpg);
 }
 
+li.warn-null {
+	list-style-image:	url(/media/images/warn.jpg);
+}
+
 li.fail {
 	list-style-image:	url(/media/images/fail.jpg);
 }
 
-li.null {
+li.fail-null {
 	list-style-image:	url(/media/images/fail.jpg);
 }
 
@@ -771,7 +775,7 @@ li.disc {
 	list-style-image:	url(/media/images/disc.jpg);
 }
 
-li.pass, li.warn, li.fail, li.null, li.disc {
+li.pass, li.warn, li.warn-null, li.fail, li.fail-null, li.disc {
 	margin-bottom: 0.75em;
 	margin-left: 1.5em;
 }

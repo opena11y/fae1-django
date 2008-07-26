@@ -38,7 +38,7 @@
           </xsl:apply-templates>
         </xsl:when>
 
-        <xsl:otherwise><!-- $eval must have value of pass, warn, fail or null -->
+        <xsl:otherwise><!-- $eval must have value of pass, warn, warn-null, fail or fail-null -->
           <xsl:choose>
             <xsl:when test="child::msg[@id=$eval]">
               <xsl:apply-templates select="msg[@id=$eval]">
@@ -63,11 +63,12 @@
 
     <span class="eval">
       <xsl:choose>
-        <xsl:when test="$eval='pass'">Pass: </xsl:when>
-        <xsl:when test="$eval='warn'">Warn: </xsl:when>
-        <xsl:when test="$eval='fail'">Fail: </xsl:when>
-        <xsl:when test="$eval='null'">Fail: </xsl:when>
-        <xsl:when test="$eval='disc'">N/A: </xsl:when>
+        <xsl:when test="$eval='pass'">Pass</xsl:when>
+        <xsl:when test="$eval='warn'">Warning</xsl:when>
+        <xsl:when test="$eval='warn-null'">Warning</xsl:when>
+        <xsl:when test="$eval='fail'">Fail</xsl:when>
+        <xsl:when test="$eval='fail-null'">Fail</xsl:when>
+        <xsl:when test="$eval='disc'">N/A</xsl:when>
       </xsl:choose>
     </span>
   </xsl:template>
@@ -77,6 +78,7 @@
   <xsl:template match="msg">
     <xsl:param name="curr-test"/>
 
+    <xsl:if test="string-length(.)">: </xsl:if>
     <xsl:apply-templates>
       <xsl:with-param name="curr-test" select="$curr-test"/>
     </xsl:apply-templates>

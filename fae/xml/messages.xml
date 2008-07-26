@@ -26,57 +26,85 @@
   </message>
 
   <message id="nav010p">
-    <msg id="pass">No empty <elem>title</elem> elements were found.</msg>
+    <msg id="pass"><!--No empty <elem>title</elem> elements were found.--></msg>
     <msg id="fail"><ins ref="cnt1"><s><elem>title</elem> element is</s><p><elem>title</elem> elements are</p></ins> empty.</msg>
     <msg id="disc">No <elem>title</elem> elements were found.</msg>
   </message>
 
   <message id="nav011p">
+    <msg id="pass"/>
     <msg id="default"><ins ref="cnt1"><s><elem>title</elem> element was</s><p><elem>title</elem> elements were</p></ins> found.</msg>
   </message>
 
   <message id="nav012s">
     <msg id="default"><ins ref="pct1"/>% of all <elem>title</elem> elements are unique (<ins ref="cnt1"/> out of <ins ref="tot1"/>).</msg>
-    <msg id="null">No <elem>title</elem> elements were found.</msg>
+    <msg id="fail-null">No <elem>title</elem> elements were found.</msg>
   </message>
 
   <message id="nav020p">
-    <msg id="pass">No empty <elem>h1</elem> elements were found.</msg>
-    <msg id="fail"><ins ref="cnt1"><s> <elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
-    <msg id="disc">No <elem>h1</elem> elements were found.</msg>
+    <msg id="pass"><!--No empty <elem>h1</elem> elements were found.--></msg>
+    <msg id="fail"><ins ref="cnt1"><s><elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
+    <msg id="fail-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav021p">
-    <msg id="default"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
-    <msg id="null">No <elem>h1</elem> elements were found.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="fail-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav022p">
+    <msg id="pass"/>
     <msg id="default"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
   </message>
 
   <message id="nav023p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
+    <msg id="pass"/>
+    <msg id="warn"><ins ref="cnt1"/> out of <ins ref="tot1"/> (<ins ref="pct1"/>%) do not match.</msg>
+    <msg id="warn-null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
+  </message>
+
+  <message id="nav024p">
+    <msg id="pass"><!--No empty <elem>h1</elem> elements were found.--></msg>
+    <msg id="warn"><ins ref="cnt1"><s> <elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
+    <msg id="warn-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav030p">
-    <msg id="pass">No empty subheading elements were found.</msg>
+    <msg id="pass"><!--No empty subheading elements were found.--></msg>
     <msg id="fail"><ins ref="cnt1"><s>subheading element is</s><p>subheading elements are</p></ins> empty.</msg>
     <msg id="disc">No subheading elements were found.</msg>
   </message>
 
   <message id="nav031p">
-    <msg id="pass">Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.</msg>
+    <msg id="pass"><!--Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.--></msg>
     <msg id="fail">Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, <ins ref="cnt1"><s>is</s><p>are</p></ins> improperly nested.</msg>
-    <msg id="null">Improper nesting of subheading elements due to lack of an <elem>h1</elem> element.</msg>
+    <msg id="fail-null">Improper nesting of subheading elements due to lack of an <elem>h1</elem> element.</msg>
     <msg id="disc">No nested subheading elements were found.</msg>
   </message>
 
+  <message id="nav032p">
+    <msg id="pass"><!--No empty subheading elements were found.--></msg>
+    <msg id="warn"><ins ref="cnt1"><s>subheading element is</s><p>subheading elements are</p></ins> empty.</msg>
+    <msg id="disc">No subheading elements were found.</msg>
+  </message>
+
   <message id="nav041p">
-    <msg id="default"><ins ref="pct1"/>% (out of <ins ref="tot1"><s>control</s><p>controls</p></ins>, <ins ref="cnt1"><s>is referenced by a <elem>label</elem></s><p>are referenced by <elem>label</elem> elements</p></ins>, and <ins ref="cnt2"><s>has a <attr>title</attr> attribute</s><p>have <attr>title</attr> attributes</p></ins>).</msg>
-    <msg id="null"><ins ref="pct1"/>% (0 out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No <elem>form</elem> controls were found.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"><s><elem>form</elem> control does</s><p><elem>form</elem> controls do</p></ins> not meet the criteria.</msg>
+    <msg id="disc">No <elem>form</elem> controls of the specified types were found.</msg>
+  </message>
+
+  <message id="nav042p">
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"><s><elem>form</elem> control does</s><p><elem>form</elem> controls do</p></ins> not meet the criteria.</msg>
+    <msg id="disc">No <elem>form</elem> controls of the specified types were found.</msg>
+  </message>
+
+  <message id="nav043p">
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"><s><elem>form</elem> control does</s><p><elem>form</elem> controls do</p></ins> not meet the criteria.</msg>
+    <msg id="disc">No <elem>form</elem> controls of the specified type were found.</msg>
   </message>
 
   <!-- TEXT EQUIVALENTS -->

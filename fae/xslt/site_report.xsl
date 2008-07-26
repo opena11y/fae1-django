@@ -86,8 +86,8 @@
       <xsl:variable name="test-pages" select="$results/tests//test-pages[@id=$testid and not(preceding::test-pages[@id=$testid])]"/>
 
       <xsl:variable name="pass" select="count($test-pages/page-test[@eval='pass'])"/>
-      <xsl:variable name="warn" select="count($test-pages/page-test[@eval='warn'])"/>
-      <xsl:variable name="fail" select="count($test-pages/page-test[@eval='fail' or @eval='null'])"/>
+      <xsl:variable name="warn" select="count($test-pages/page-test[@eval='warn' or @eval='warn-null'])"/>
+      <xsl:variable name="fail" select="count($test-pages/page-test[@eval='fail' or @eval='fail-null'])"/>
       <xsl:variable name="disc" select="count($test-pages/page-test[@eval='disc'])"/>
 
       <li>

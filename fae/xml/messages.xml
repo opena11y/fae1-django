@@ -55,12 +55,13 @@
 
   <message id="nav022p">
     <msg id="pass"/>
-    <msg id="default"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="warn-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav023p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"/> out of <ins ref="tot1"/> (<ins ref="pct1"/>%) do not match.</msg>
+    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element does</s><p><elem>h1</elem> elements do</p></ins> not meet the criteria.</msg>
     <msg id="warn-null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
   </message>
 

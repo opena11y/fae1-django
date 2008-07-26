@@ -64,8 +64,8 @@
     <span class="eval">
       <xsl:choose>
         <xsl:when test="$eval='pass'">Pass</xsl:when>
-        <xsl:when test="$eval='warn'">Warning</xsl:when>
-        <xsl:when test="$eval='warn-null'">Warning</xsl:when>
+        <xsl:when test="$eval='warn'">Warn</xsl:when>
+        <xsl:when test="$eval='warn-null'">Warn</xsl:when>
         <xsl:when test="$eval='fail'">Fail</xsl:when>
         <xsl:when test="$eval='fail-null'">Fail</xsl:when>
         <xsl:when test="$eval='disc'">N/A</xsl:when>

@@ -102,7 +102,7 @@
     </category>
 
     <category id="nav04">
-      <name>Form Controls</name>
+      <name>Form Controls (<elem>input</elem>, <elem>select</elem> and <elem>textarea</elem> elements)</name>
 
       <best-practice ref="nav041">
         <name>form control labels for select, textarea and input elements</name>

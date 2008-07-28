@@ -86,7 +86,7 @@
   <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
 </eval>
 
-<!-- empty h1 elements (inclusive of img alt text) -->
+<!-- empty h1 elements, including img alt text -->
 <!--
     cnt1: number of empty h1 elements
     tot1: total h1 elements
@@ -101,30 +101,47 @@
   <fail-null><cmp op="eq" ref="tot1" val="0"/></fail-null>
 </eval>
 
-<!-- at least one h1 element -->
+<!-- empty h1 elements, excluding img alt text -->
+<!--
+    cnt1: number of empty h1 elements
+    tot1: total h1 elements
+-->
 <eval id="nav021p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
+</eval>
+
+<eval id="nav021s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
+</eval>
+
+<!-- at least one h1 element -->
+<eval id="nav022p">
   <pass><cmp op="ge" ref="cnt1" val="1"/></pass>
   <fail-null><cmp op="eq" ref="cnt1" val="0"/></fail-null>
 </eval>
 
-<eval id="nav021s">
+<eval id="nav022s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
 </eval>
 
 <!-- no more than two h1 elements -->
-<eval id="nav022p">
+<eval id="nav023p">
   <pass><cmp op="le" ref="cnt1" val="2"/></pass>
   <warn><cmp op="gt" ref="cnt1" val="2"/></warn>
   <warn-null><cmp op="eq" ref="cnt1" val="0"/></warn-null>
 </eval>
 
-<eval id="nav022s">
+<eval id="nav023s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <warn><cmp op="lt" ref="pct1" val="100"/></warn>
 </eval>
 
 <!-- h1s match title -->
-<eval id="nav023p">
+<eval id="nav024p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <warn-null>
@@ -135,28 +152,11 @@
   </warn-null>
 </eval>
 
-<eval id="nav023s">
+<eval id="nav024s">
   <pass><cmp op="eq" ref="pct1" val="0"/></pass>
 </eval>
 
-<!-- empty h1 elements (exclusive of img alt text) -->
-<!--
-    cnt1: number of empty h1 elements
-    tot1: total h1 elements
--->
-<eval id="nav024p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
-</eval>
-
-<eval id="nav024s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <warn-null><cmp op="eq" ref="tot1" val="0"/></warn-null>
-</eval>
-
-<!-- empty subheading elements (inclusive of img alt text) -->
+<!-- empty subheading elements, including img alt text -->
 <!--
     cnt1: number of empty elements
     tot1: total elements
@@ -171,8 +171,25 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- subheaders properly nested -->
+<!-- empty subheading elements, excluding img alt text -->
+<!--
+    cnt1: number of empty elements
+    tot1: total elements
+-->
 <eval id="nav031p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav031s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- subheaders properly nested -->
+<eval id="nav032p">
   <pass>
     <and><!-- no offenders out of non-empty successors -->
       <cmp op="eq" ref="cnt1" val="0"/>
@@ -190,25 +207,8 @@
   </disc>
 </eval>
 
-<eval id="nav031s">
-  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- empty subheading elements (exclusive of img alt text) -->
-<!--
-    cnt1: number of empty elements
-    tot1: total elements
--->
-<eval id="nav032p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
 <eval id="nav032s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 

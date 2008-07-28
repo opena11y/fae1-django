@@ -6,6 +6,7 @@
   <!-- NAVIGATION &amp; ORIENTATION -->
 
   <message id="nav001p">
+    <msg id="pass"/>
     <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
     <msg id="disc">No <elem>ol</elem> or <elem>ul</elem> elements that appear to be navigation menus were found.</msg>
   </message>
@@ -48,27 +49,27 @@
   </message>
 
   <message id="nav021p">
+    <msg id="pass"><!--No empty <elem>h1</elem> elements were found.--></msg>
+    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
+    <msg id="warn-null">No <elem>h1</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav022p">
     <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
     <msg id="fail-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
-  <message id="nav022p">
-    <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
-    <msg id="warn-null">No <elem>h1</elem> elements were found.</msg>
-  </message>
-
   <message id="nav023p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element does</s><p><elem>h1</elem> elements do</p></ins> not meet the criteria.</msg>
-    <msg id="warn-null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
+    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="warn-null">Due to missing elements (0 <elem>h1</elem> elements).</msg>
   </message>
 
   <message id="nav024p">
-    <msg id="pass"><!--No empty <elem>h1</elem> elements were found.--></msg>
-    <msg id="warn"><ins ref="cnt1"><s> <elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
-    <msg id="warn-null">No <elem>h1</elem> elements were found.</msg>
+    <msg id="pass"/>
+    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element does</s><p><elem>h1</elem> elements do</p></ins> not meet the criteria.</msg>
+    <msg id="warn-null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
   </message>
 
   <message id="nav030p">
@@ -78,16 +79,16 @@
   </message>
 
   <message id="nav031p">
+    <msg id="pass"><!--No empty subheading elements were found.--></msg>
+    <msg id="warn"><ins ref="cnt1"><s>subheading element is</s><p>subheading elements are</p></ins> empty.</msg>
+    <msg id="disc">No subheading elements were found.</msg>
+  </message>
+
+  <message id="nav032p">
     <msg id="pass"><!--Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.--></msg>
     <msg id="fail">Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, <ins ref="cnt1"><s>is</s><p>are</p></ins> improperly nested.</msg>
     <msg id="fail-null">Improper nesting of subheading elements due to lack of an <elem>h1</elem> element.</msg>
     <msg id="disc">No nested subheading elements were found.</msg>
-  </message>
-
-  <message id="nav032p">
-    <msg id="pass"><!--No empty subheading elements were found.--></msg>
-    <msg id="warn"><ins ref="cnt1"><s>subheading element is</s><p>subheading elements are</p></ins> empty.</msg>
-    <msg id="disc">No subheading elements were found.</msg>
   </message>
 
   <message id="nav041p">

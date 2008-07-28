@@ -32,41 +32,41 @@
       </best-practice>
       -->
 
-      <best-practice ref="nav021">
+      <best-practice ref="nav022">
         <name>at least one h1 element</name>
         <rule>The page must contain at least one <elem>h1</elem> element.</rule>
-        <page id="nav021p"/>
-        <site id="nav021s"/>
-      </best-practice>
-
-      <best-practice ref="nav022">
-        <name>no more than two h1 elements</name>
-        <rule>The page should contain no more than two <elem>h1</elem> elements.</rule>
         <page id="nav022p"/>
         <site id="nav022s"/>
       </best-practice>
 
       <best-practice ref="nav023">
-        <name>h1 substring of title</name>
-        <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
-        <info>The matching algorithm for this rule includes the <attr>alt</attr> text of any <elem>img</elem> elements the <elem>h1</elem> may contain, and ignores case, punctuation and spacing in the text content of the <elem>title</elem> and <elem>h1</elem> elements.</info>
+        <name>no more than two h1 elements</name>
+        <rule>The page should contain no more than two <elem>h1</elem> elements.</rule>
         <page id="nav023p"/>
         <site id="nav023s"/>
       </best-practice>
 
+      <best-practice ref="nav024">
+        <name>h1 substring of title</name>
+        <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
+        <info>The matching algorithm for this rule includes the <attr>alt</attr> text of any <elem>img</elem> elements the <elem>h1</elem> may contain, and ignores case, punctuation and spacing in the text content of the <elem>title</elem> and <elem>h1</elem> elements.</info>
+        <page id="nav024p"/>
+        <site id="nav024s"/>
+      </best-practice>
+
       <best-practice ref="nav020">
-        <name>number of empty h1 elements</name>
+        <name>number of empty h1 elements, including img alt text</name>
         <rule>Each <elem>h1</elem> element must have text content.</rule>
         <info>If an <elem>img</elem> element with an <attr>alt</attr> attribute is contained in an <elem>h1</elem> element, the <attr>alt</attr> attribute value is inserted in document order into the text content of the <elem>h1</elem> element.</info>
         <page id="nav020p"/>
         <site id="nav020s"/>
       </best-practice>
 
-      <best-practice ref="nav024">
+      <best-practice ref="nav021">
         <name>number of empty h1 elements, excluding img alt text</name>
         <rule>Each <elem>h1</elem> element should have text content exclusive of the <attr>alt</attr> text of any <elem>img</elem> elements it contains.</rule>
-        <page id="nav024p"/>
-        <site id="nav024s"/>
+        <page id="nav021p"/>
+        <site id="nav021s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/title/"/>
@@ -75,12 +75,12 @@
     <category id="nav02">
       <name>Subheadings (<elem>h2..h6</elem> elements)</name>
 
-      <best-practice ref="nav031">
+      <best-practice ref="nav032">
         <name>proper nesting of heading elements</name>
         <rule>Subheading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
         <info>Subheading elements should be used without skipping levels when descending through the sublevels <elem>h2..h6</elem>. For example, an <elem>h2</elem> element should follow an <elem>h1</elem> element, an <elem>h3</elem> element should follow an <elem>h2</elem> element, and so on. Note that this rule does not apply to subheadings of the same level (for example, an <elem>h3</elem> may follow another <elem>h3</elem>), or when ascending the hierarchy (an <elem>h2</elem> may follow an <elem>h4</elem>).</info>
-        <page id="nav031p"/>
-        <site id="nav031s"/>
+        <page id="nav032p"/>
+        <site id="nav032s"/>
       </best-practice>
 
       <best-practice ref="nav030">
@@ -91,11 +91,11 @@
         <site id="nav030s"/>
       </best-practice>
 
-      <best-practice ref="nav032">
+      <best-practice ref="nav031">
         <name>number of empty heading elements, excluding alt text</name>
         <rule>Each subheading element (<elem>h2..h6</elem>) should have text content exclusive of the <attr>alt</attr> text of any <elem>img</elem> elements it contains.</rule>
-        <page id="nav032p"/>
-        <site id="nav032s"/>
+        <page id="nav031p"/>
+        <site id="nav031s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/heading/"/>

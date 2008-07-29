@@ -1,38 +1,60 @@
 """
-Delete reports not marked for archiving for the specified
-username (or all users if "all" is specified).
+Delete reports created by specified username,
+or all users if "all" is specified.
 
 """
 import sys
 from django.core.exceptions import ObjectDoesNotExist
 from project.fae.models import User, UserReport
 
-#------------------------------------------------
-def delete_user_reports(username):
-    try:
-        user = User.objects.get(username=username)
-    except ObjectDoesNotExist:
-        print 'Username', username, 'not found!'
-        sys.exit(0)
+DEBUG = False
+EXCLUDE_ARCHIVED = True
+EXCLUDE_NO_STATS = False
 
-    count = 0
+#------------------------------------------------
+def delete_user_reports(user):
     reports = UserReport.objects.filter(user=user)
-    reports = reports.exclude(archive=True)
-    for report in reports:
-        if report.stats:
-            report.delete()
-            # print report.title
-            count += 1
-    return count
+
+    # Exclude based on the following criteria
+    if EXCLUDE_ARCHIVED: reports = reports.exclude(archive=True)
+    if EXCLUDE_NO_STATS: reports = reports.exclude(stats=False)
+
+    count = reports.count()
+    if not count:
+        print 'No reports found for user', user.username
+        return
+
+    # Get confirmation before deleting
+    prompt = 'Delete ' + str(count) + ' report(s) for user ' + user.username + '? (yes | no) '
+    response = raw_input(prompt)
+
+    if response == 'yes':
+        for report in reports:
+            if DEBUG:
+                print report.title
+            else:
+                report.delete()
+    else:
+        print 'Aborted!'
 
 #------------------------------------------------
 def main():
     if len(sys.argv) < 2:
         print 'Please provide username argument!'
         sys.exit(0)
+
     username = sys.argv[1]
-    count = delete_user_reports(username)
-    print 'Deleted', count, 'reports!'
+    if username == 'all':
+        users = User.objects.all()
+        for user in users:
+            delete_user_reports(user)
+    else:
+        try:
+            user = User.objects.get(username=username)
+        except ObjectDoesNotExist:
+            print 'Username', username, 'not found!'
+            sys.exit(0)
+        delete_user_reports(user)
 
 if __name__ == "__main__":
     main()

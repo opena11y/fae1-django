@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from project.fae.models import User, UserReport
 
 DEBUG = False
-EXCLUDE_ARCHIVED = True
+EXCLUDE_ARCHIVED = False
 EXCLUDE_NO_STATS = False
 
 #------------------------------------------------

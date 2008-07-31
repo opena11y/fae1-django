@@ -134,7 +134,7 @@
 
       <best-practice ref="nav001">
         <name>navigation bars and menus</name>
-        <rule>Each <elem>ol</elem> or <elem>ul</elem> element that appears to be a navigation bar or menu should be immediately preceded by a header element (<elem>h2..h6</elem>).</rule>
+        <rule>Each <elem>ol</elem> or <elem>ul</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar or menu should be immediately preceded by a heading element (<elem>h1..h6</elem>).</rule>
         <!--info>Lists that are comprised of text links (one <elem>li</elem> element that does not contain a link is allowed) are interpreted by FAE to be navigation bars or menus.</info-->
         <!--info>An <elem>ol</elem> or <elem>ul</elem> list is considered by FAE to be a navigation bar or menu if each <elem>li</elem> element (with one exception allowed) has as its sole content either a text link (<elem>a</elem> element) or a nested list of links.</info-->
         <info>FAE considers a list of links to be a navigation bar or menu. A list of links is defined as an <elem>ol</elem> or <elem>ul</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>

@@ -7,7 +7,7 @@
 
   <message id="nav001p">
     <msg id="pass"/>
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="warn"><ins ref="cnt1"><s><elem>ol</elem> or <elem>ul</elem> element does</s><p><elem>ol</elem> or <elem>ul</elem> elements do</p></ins> not meet the criteria.</msg>
     <msg id="disc">No <elem>ol</elem> or <elem>ul</elem> elements that appear to be navigation menus were found.</msg>
   </message>
 

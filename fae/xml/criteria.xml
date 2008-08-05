@@ -20,12 +20,14 @@
 
 <!-- area elements with redundant text link -->
 <eval id="nav002p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <eval id="nav002s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 

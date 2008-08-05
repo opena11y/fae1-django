@@ -8,7 +8,7 @@
     <name>Navigation &amp; Orientation</name>
 
     <category id="nav01">
-      <name>Titles (<elem>title</elem> &amp; <elem>h1</elem> elements)</name>
+      <name>Titles (<elem>title</elem> &amp; <elem>h1</elem>)</name>
 
       <best-practice ref="nav011">
         <name>one and only one title</name>
@@ -73,19 +73,19 @@
     </category>
 
     <category id="nav02">
-      <name>Subheadings (<elem>h2..h6</elem> elements)</name>
+      <name>Subheadings (<elem>h2</elem>..<elem>h6</elem>)</name>
 
       <best-practice ref="nav032">
         <name>proper nesting of heading elements</name>
         <rule>Subheading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
-        <info>Subheading elements should be used without skipping levels when descending through the sublevels <elem>h2..h6</elem>. For example, an <elem>h2</elem> element should follow an <elem>h1</elem> element, an <elem>h3</elem> element should follow an <elem>h2</elem> element, and so on. Note that this rule does not apply to subheadings of the same level (for example, an <elem>h3</elem> may follow another <elem>h3</elem>), or when ascending the hierarchy (an <elem>h2</elem> may follow an <elem>h4</elem>).</info>
+        <info>Subheading elements should be used without skipping levels when descending through the sublevels <elem>h2</elem>..<elem>h6</elem>. For example, an <elem>h2</elem> element should follow an <elem>h1</elem> element, an <elem>h3</elem> element should follow an <elem>h2</elem> element, and so on. Note that this rule does not apply to subheadings of the same level (for example, an <elem>h3</elem> may follow another <elem>h3</elem>), or when ascending the hierarchy (an <elem>h2</elem> may follow an <elem>h4</elem>).</info>
         <page id="nav032p"/>
         <site id="nav032s"/>
       </best-practice>
 
       <best-practice ref="nav030">
         <name>number of empty heading elements, including alt text</name>
-        <rule>Each subheading element (<elem>h2..h6</elem>) must have text content.</rule>
+        <rule>Each subheading element (<elem>h2</elem>..<elem>h6</elem>) must have text content.</rule>
         <info>If an <elem>img</elem> element with an <attr>alt</attr> attribute is contained in a subheading element, the <attr>alt</attr> attribute value is inserted in document order into the text content of the subheading element.</info>
         <page id="nav030p"/>
         <site id="nav030s"/>
@@ -93,7 +93,7 @@
 
       <best-practice ref="nav031">
         <name>number of empty heading elements, excluding alt text</name>
-        <rule>Each subheading element (<elem>h2..h6</elem>) should have text content exclusive of the <attr>alt</attr> text of any <elem>img</elem> elements it contains.</rule>
+        <rule>Each subheading element (<elem>h2</elem>..<elem>h6</elem>) should have text content exclusive of the <attr>alt</attr> text of any <elem>img</elem> elements it contains.</rule>
         <page id="nav031p"/>
         <site id="nav031s"/>
       </best-practice>
@@ -101,8 +101,29 @@
       <link tgt="bp" href="nav/heading/"/>
     </category>
 
+    <category id="nav03">
+      <name>Navigation Menus</name>
+
+      <best-practice ref="nav001">
+        <name>navigation bars and menus</name>
+        <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation menu should be immediately preceded by a heading element (preferably <elem>h2</elem>..<elem>h6</elem>).</rule>
+        <info>FAE considers a list of links to be a navigation menu. A list of links is defined as a <elem>ul</elem> or <elem>ol</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
+        <page id="nav001p"/>
+        <site id="nav001s"/>
+      </best-practice>
+
+      <best-practice ref="nav002">
+        <name>redundant text links for area elements</name>
+        <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
+        <page id="nav002p"/>
+        <site id="nav002s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/menu/"/>
+    </category>
+
     <category id="nav04">
-      <name>Form Controls (<elem>input</elem>, <elem>select</elem> and <elem>textarea</elem> elements)</name>
+      <name>Form Control Labels</name>
 
       <best-practice ref="nav041">
         <name>form control labels for select, textarea and input elements</name>
@@ -129,41 +150,18 @@
       <link tgt="bp" href="nav/form/"/>
     </category>
 
-    <category id="nav03">
-      <name>Navigation Bars</name>
-
-      <best-practice ref="nav001">
-        <name>navigation bars and menus</name>
-        <rule>Each <elem>ol</elem> or <elem>ul</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar or menu should be immediately preceded by a heading element (<elem>h1..h6</elem>).</rule>
-        <!--info>Lists that are comprised of text links (one <elem>li</elem> element that does not contain a link is allowed) are interpreted by FAE to be navigation bars or menus.</info-->
-        <!--info>An <elem>ol</elem> or <elem>ul</elem> list is considered by FAE to be a navigation bar or menu if each <elem>li</elem> element (with one exception allowed) has as its sole content either a text link (<elem>a</elem> element) or a nested list of links.</info-->
-        <info>FAE considers a list of links to be a navigation bar or menu. A list of links is defined as an <elem>ol</elem> or <elem>ul</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
-        <page id="nav001p"/>
-        <site id="nav001s"/>
-      </best-practice>
-
-      <best-practice ref="nav002">
-        <name>redundant text links for area elements</name>
-        <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
-        <page id="nav002p"/>
-        <site id="nav002s"/>
-      </best-practice>
-
-      <link tgt="bp" href="nav/menu/"/>
-    </category>
-
+    <!--
     <category id="nav05">
       <name>Document Linearization</name>
 
-      <!-- Same test also referenced in Styling: Content Positioning -->
       <best-practice ref="style002">
         <name>nested tables</name>
         <rule>Deeply nested tables can cause problems when a document is rendered in a linear mode, e.g., by screen readers.</rule>
         <page id="style002p"/>
         <site id="style002s"/>
       </best-practice>
-
     </category>
+    -->
 
     <category id="nav06">
       <name>Data Tables</name>

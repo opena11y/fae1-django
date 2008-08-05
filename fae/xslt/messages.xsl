@@ -95,13 +95,19 @@
       <span class="notFound"><xsl:value-of select="$ref"/> not found in <xsl:value-of select="$curr-test/@id"/>!</span>
     </xsl:if>
     <xsl:value-of select="$val"/>
-    <xsl:if test="child::s and child::p">
-      <xsl:text> </xsl:text>
-      <xsl:choose>
-        <xsl:when test="$val=1"><xsl:apply-templates select="s"/></xsl:when>
-        <xsl:otherwise><xsl:apply-templates select="p"/></xsl:otherwise>
-      </xsl:choose>
-    </xsl:if>
+  </xsl:template>
+
+  <!-- ======================================================== -->
+
+  <xsl:template match="sp">
+    <xsl:param name="curr-test"/>
+    <xsl:variable name="ref" select="@ref"/>
+    <xsl:variable name="val" select="$curr-test/r[@id=$ref]"/>
+
+    <xsl:choose>
+      <xsl:when test="$val=1"><xsl:apply-templates select="s"/></xsl:when>
+      <xsl:otherwise><xsl:apply-templates select="p"/></xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- ======================================================== -->

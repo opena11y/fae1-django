@@ -7,17 +7,18 @@
 
   <message id="nav001p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"><s><elem>ol</elem> or <elem>ul</elem> element does</s><p><elem>ol</elem> or <elem>ul</elem> elements do</p></ins> not meet the criteria.</msg>
-    <msg id="disc">No <elem>ol</elem> or <elem>ul</elem> elements that appear to be navigation menus were found.</msg>
+    <msg id="warn"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>ul</elem> or <elem>ol</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp> <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>ul</elem> or <elem>ol</elem> elements that appear to be navigation menus were found.</msg>
   </message>
 
   <message id="nav002p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>).</msg>
+    <msg id="pass"/>
+    <msg id="warn">(<ins ref="cnt1"/> <elem>area</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (<ins ref="pct1"/>% of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>area</elem> elements were found.</msg>
   </message>
 
   <message id="nav003p">
-    <msg id="default">Out of <ins ref="tot1"><s><elem>table</elem> element</s><p><elem>table</elem> elements</p></ins>, <ins ref="cnt1"><s>appears to be a data table</s><p>appear to be data tables</p></ins>. Of those data tables, <ins ref="cnt2"><s>utilizes</s><p>utilize</p></ins> the <elem>thead</elem> element, and <ins ref="cnt3"><s>utilizes</s><p>utilize</p></ins> the <elem>th</elem> element.</msg>
+    <msg id="default">Out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, <ins ref="cnt1"/> <sp ref="cnt1"><s>appears to be a data table</s><p>appear to be data tables</p></sp>. Of those data tables, <ins ref="cnt2"/> <sp ref="cnt2"><s>utilizes</s><p>utilize</p></sp> the <elem>thead</elem> element, and <ins ref="cnt3"/> <sp ref="cnt3"><s>utilizes</s><p>utilize</p></sp> the <elem>th</elem> element.</msg>
     <msg id="disc">No data tables were found.</msg>
   </message>
 
@@ -27,14 +28,14 @@
   </message>
 
   <message id="nav010p">
-    <msg id="pass"><!--No empty <elem>title</elem> elements were found.--></msg>
-    <msg id="fail"><ins ref="cnt1"><s><elem>title</elem> element is</s><p><elem>title</elem> elements are</p></ins> empty.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>title</elem> <sp ref="cnt1"><s>element is</s><p>elements are</p></sp> empty.</msg>
     <msg id="disc">No <elem>title</elem> elements were found.</msg>
   </message>
 
   <message id="nav011p">
     <msg id="pass"/>
-    <msg id="default"><ins ref="cnt1"><s><elem>title</elem> element was</s><p><elem>title</elem> elements were</p></ins> found.</msg>
+    <msg id="default"><ins ref="cnt1"/> <elem>title</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
   <message id="nav012s">
@@ -43,69 +44,69 @@
   </message>
 
   <message id="nav020p">
-    <msg id="pass"><!--No empty <elem>h1</elem> elements were found.--></msg>
-    <msg id="fail"><ins ref="cnt1"><s><elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>h1</elem> <sp ref="cnt1"><s>element is</s><p>elements are</p></sp> empty.</msg>
     <msg id="fail-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav021p">
-    <msg id="pass"><!--No empty <elem>h1</elem> elements were found.--></msg>
-    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element is</s><p><elem>h1</elem> elements are</p></ins> empty.</msg>
+    <msg id="pass"/>
+    <msg id="warn"><ins ref="cnt1"/> <elem>h1</elem> <sp ref="cnt1"><s>element is</s><p>elements are</p></sp> empty.</msg>
     <msg id="warn-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav022p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="fail"><ins ref="cnt1"/> <elem>h1</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
     <msg id="fail-null">No <elem>h1</elem> elements were found.</msg>
   </message>
 
   <message id="nav023p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element was</s><p><elem>h1</elem> elements were</p></ins> found.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>h1</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
     <msg id="warn-null">Due to missing elements (0 <elem>h1</elem> elements).</msg>
   </message>
 
   <message id="nav024p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"><s><elem>h1</elem> element does</s><p><elem>h1</elem> elements do</p></ins> not meet the criteria.</msg>
-    <msg id="warn-null">Due to missing elements (<ins ref="tot1"><s><elem>h1</elem> element</s><p><elem>h1</elem> elements</p></ins> and <ins ref="tot2"><s><elem>title</elem> element</s><p><elem>title</elem> elements</p></ins>).</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>h1</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="warn-null">Due to missing elements (<ins ref="tot1"/> <elem>h1</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp> and <ins ref="tot2"/> <elem>title</elem> <sp ref="tot2"><s>element</s><p>elements</p></sp>).</msg>
   </message>
 
   <message id="nav030p">
-    <msg id="pass"><!--No empty subheading elements were found.--></msg>
-    <msg id="fail"><ins ref="cnt1"><s>subheading element is</s><p>subheading elements are</p></ins> empty.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> subheading <sp ref="cnt1"><s>element is</s><p>elements are</p></sp> empty.</msg>
     <msg id="disc">No subheading elements were found.</msg>
   </message>
 
   <message id="nav031p">
-    <msg id="pass"><!--No empty subheading elements were found.--></msg>
-    <msg id="warn"><ins ref="cnt1"><s>subheading element is</s><p>subheading elements are</p></ins> empty.</msg>
+    <msg id="pass"/>
+    <msg id="warn"><ins ref="cnt1"/> subheading <sp ref="cnt1"><s>element is</s><p>elements are</p></sp> empty.</msg>
     <msg id="disc">No subheading elements were found.</msg>
   </message>
 
   <message id="nav032p">
-    <msg id="pass"><!--Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, all are properly nested.--></msg>
-    <msg id="fail">Of the <ins ref="tot1"><s>subheading element that follows</s><p>subheading elements that follow</p></ins> the last <elem>h1</elem> element, <ins ref="cnt1"><s>is</s><p>are</p></ins> improperly nested.</msg>
+    <msg id="pass"/>
+    <msg id="fail">Of the <ins ref="tot1"/> subheading <sp ref="tot1"><s>element that follows</s><p>elements that follow</p></sp> the last <elem>h1</elem> element, <ins ref="cnt1"/> <sp ref="cnt1"><s>is</s><p>are</p></sp> improperly nested.</msg>
     <msg id="fail-null">Improper nesting of subheading elements due to lack of an <elem>h1</elem> element.</msg>
     <msg id="disc">No nested subheading elements were found.</msg>
   </message>
 
   <message id="nav041p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"><s><elem>form</elem> control does</s><p><elem>form</elem> controls do</p></ins> not meet the criteria.</msg>
+    <msg id="fail"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>form</elem> <sp ref="tot1"><s>control</s><p>controls</p></sp> <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>form</elem> controls of the specified types were found.</msg>
   </message>
 
   <message id="nav042p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"><s><elem>form</elem> control does</s><p><elem>form</elem> controls do</p></ins> not meet the criteria.</msg>
+    <msg id="fail"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>form</elem> <sp ref="tot1"><s>control does</s><p>controls do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>form</elem> controls of the specified types were found.</msg>
   </message>
 
   <message id="nav043p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"><s><elem>form</elem> control does</s><p><elem>form</elem> controls do</p></ins> not meet the criteria.</msg>
+    <msg id="fail"><ins ref="cnt1"/> <elem>form</elem> <sp ref="cnt1"><s>control</s><p>controls</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>form</elem> controls of the specified type were found.</msg>
   </message>
 
@@ -161,24 +162,24 @@
   </message>
 
   <message id="style002p">
-    <msg id="default"><ins ref="cnt1"><s>nested table was</s><p>nested tables were</p></ins> found out of <ins ref="tot1"><s><elem>table</elem> element</s><p><elem>table</elem> elements</p></ins>, with a maximum depth of <ins ref="r1"/>.</msg>
+    <msg id="default"><ins ref="cnt1"/> nested <sp ref="cnt1"><s>table was</s><p>tables were</p></sp> found out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, with a maximum depth of <ins ref="r1"/>.</msg>
     <msg id="disc">No <elem>table</elem> elements were found.</msg>
   </message>
 
   <message id="style003p">
     <msg id="pass">No images appear to be stylistic based on their dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
     <msg id="warn">No images appear to be decorative based on their dimensions (having a width or height of less than 4 pixels). However, not all images (<ins ref="cnt2"/> out of <ins ref="tot1"/>) were retrieved and analyzed.</msg>
-    <msg id="fail"><ins ref="cnt1"><s>image appears to be stylistic based on its</s><p>images appear to be stylistic based on their</p></ins> dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
+    <msg id="fail"><ins ref="cnt1"/> <sp ref="cnt1"><s>image appears to be stylistic based on its</s><p>images appear to be stylistic based on their</p></sp> dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
     <msg id="disc">No <elem>img</elem> elements were found.</msg>
   </message>
 
   <!-- needs to be combined with style001p -->
   <message id="style004p">
-    <msg id="default"><ins ref="tot1"><s>inline style element was</s><p>inline style elements were</p></ins> found (<ins ref="r1"/> <elem>b</elem>, <ins ref="r2"/> <elem>basefont</elem>, <ins ref="r3"/> <elem>blink</elem>, <ins ref="r4"/> <elem>center</elem>, <ins ref="r5"/> <elem>font</elem>, <ins ref="r6"/> <elem>i</elem>, <ins ref="r7"/> <elem>marquee</elem>, <ins ref="r8"/> <elem>strike</elem>, <ins ref="r9"/> <elem>u</elem>).</msg>
+    <msg id="default"><ins ref="tot1"/> inline style <sp ref="tot1"><s>element was</s><p>elements were</p></sp> found (<ins ref="r1"/> <elem>b</elem>, <ins ref="r2"/> <elem>basefont</elem>, <ins ref="r3"/> <elem>blink</elem>, <ins ref="r4"/> <elem>center</elem>, <ins ref="r5"/> <elem>font</elem>, <ins ref="r6"/> <elem>i</elem>, <ins ref="r7"/> <elem>marquee</elem>, <ins ref="r8"/> <elem>strike</elem>, <ins ref="r9"/> <elem>u</elem>).</msg>
   </message>
 
   <message id="style005p">
-    <msg id="default"><ins ref="cnt1"><s>element with a <attr>color</attr> attribute was</s><p>elements with a <attr>color</attr> attribute were</p></ins> found.</msg>
+    <msg id="default"><ins ref="cnt1"/> <sp ref="cnt1"><s>element with a <attr>color</attr> attribute was</s><p>elements with a <attr>color</attr> attribute were</p></sp> found.</msg>
   </message>
 
   <!-- STANDARDS -->

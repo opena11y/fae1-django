@@ -1,5 +1,21 @@
 <!-- messages.dtd -->
 
+<!--
+  A message element contains multiple text templates, denoted as
+  msg elements, each of which corresponds to an evaluation result
+  for a rule test.
+
+  A msg element contains mixed content interspersed with ins, sp
+  elem and attr elements.
+
+  An ins element inserts the value of a test result parameter
+  whose name is referenced by its ref attribute.
+
+  An sp element contains singular (s) and plural (p) equivalents
+  of text expressions, one of which is selected based on the
+  numerical value of its ref attribute.
+-->
+
 <!ENTITY % entities SYSTEM "entities.dtd">
 %entities;
 
@@ -10,24 +26,30 @@
 	id		ID			#REQUIRED
 >
 
-<!ELEMENT msg (#PCDATA | ins | elem | attr)*>
+<!ELEMENT msg (#PCDATA | ins | sp | elem | attr)*>
 <!ATTLIST msg
-	id	(default | pass | warn | fail | null | disc)	#REQUIRED
+	id	(default | pass | warn | warn-null | fail | fail-null | disc)	#REQUIRED
 >
 
-<!--
-abbreviations:
-	s:	singular
-	p:	plural
--->
-
-<!ELEMENT ins (s,p)?>
+<!ELEMENT ins EMPTY>
 <!ATTLIST ins
 	ref	(%result-id;)	#REQUIRED
 >
 
-<!ELEMENT s (#PCDATA | elem | attr)*>
-<!ELEMENT p (#PCDATA | elem | attr)*>
+<!--
+abbreviations:
+  sp: singular/plural
+	s:	singular
+	p:	plural
+-->
+
+<!ELEMENT sp (s,p)>
+<!ATTLIST sp
+	ref	(%result-id;)	#REQUIRED
+>
+
+<!ELEMENT s (#PCDATA | ins | elem | attr)*>
+<!ELEMENT p (#PCDATA | ins | elem | attr)*>
 
 <!ELEMENT elem (#PCDATA)>
 <!ELEMENT attr (#PCDATA)>

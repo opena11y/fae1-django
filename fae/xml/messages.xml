@@ -5,18 +5,6 @@
 
   <!-- NAVIGATION &amp; ORIENTATION -->
 
-  <message id="nav001p">
-    <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>ul</elem> or <elem>ol</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp> <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
-    <msg id="disc">No <elem>ul</elem> or <elem>ol</elem> elements that appear to be navigation menus were found.</msg>
-  </message>
-
-  <message id="nav002p">
-    <msg id="pass"/>
-    <msg id="warn">(<ins ref="cnt1"/> <elem>area</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (<ins ref="pct1"/>% of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
-    <msg id="disc">No <elem>area</elem> elements were found.</msg>
-  </message>
-
   <message id="nav003p">
     <msg id="default">Out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, <ins ref="cnt1"/> <sp ref="cnt1"><s>appears to be a data table</s><p>appear to be data tables</p></sp>. Of those data tables, <ins ref="cnt2"/> <sp ref="cnt2"><s>utilizes</s><p>utilize</p></sp> the <elem>thead</elem> element, and <ins ref="cnt3"/> <sp ref="cnt3"><s>utilizes</s><p>utilize</p></sp> the <elem>th</elem> element.</msg>
     <msg id="disc">No data tables were found.</msg>
@@ -94,17 +82,35 @@
 
   <message id="nav041p">
     <msg id="pass"/>
+    <msg id="warn"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>ul</elem> or <elem>ol</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp> <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>ul</elem> or <elem>ol</elem> elements that appear to be navigation menus were found.</msg>
+  </message>
+
+  <message id="nav044p">
+    <msg id="pass"/>
+    <msg id="warn">(<ins ref="cnt1"/> <elem>area</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (<ins ref="pct1"/>% of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>area</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav050p">
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>label</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>legend</elem> <sp ref="cnt2"><s>element</s><p>elements</p></sp> are empty.</msg>
+    <msg id="disc">No <elem>label</elem> or <elem>legend</elem> elements were found.</msg>
+  </message>
+
+  <message id="nav051p">
+    <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>form</elem> <sp ref="tot1"><s>control</s><p>controls</p></sp> <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>form</elem> controls of the specified types were found.</msg>
   </message>
 
-  <message id="nav042p">
+  <message id="nav052p">
     <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>form</elem> <sp ref="tot1"><s>control does</s><p>controls do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>form</elem> controls of the specified types were found.</msg>
   </message>
 
-  <message id="nav043p">
+  <message id="nav053p">
     <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"/> <elem>form</elem> <sp ref="cnt1"><s>control</s><p>controls</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>form</elem> controls of the specified type were found.</msg>

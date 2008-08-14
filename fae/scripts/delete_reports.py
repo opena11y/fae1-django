@@ -3,13 +3,30 @@ Delete reports created by specified username,
 or all users if "all" is specified.
 
 """
-import sys
+import datetime, sys
 from django.core.exceptions import ObjectDoesNotExist
 from project.fae.models import User, UserReport
 
-DEBUG = False
+DEBUG = True
 EXCLUDE_ARCHIVED = False
 EXCLUDE_NO_STATS = False
+
+#------------------------------------------------
+def confirm_date():
+    # Get current system date
+    today = datetime.date.today()
+
+    # Ask user for current date (expect yyyy-mm-dd format)
+    prompt = 'Today\'s date: '
+    response = raw_input(prompt)
+
+    # Convert date string to datetime.date object
+    (year, month, day) = response.split('-')
+    input_date = datetime.date(int(year), int(month), int(day))
+
+    if today != input_date:
+        print 'Date is incorrect!'
+        sys.exit(0)
 
 #------------------------------------------------
 def delete_user_reports(user):
@@ -31,7 +48,7 @@ def delete_user_reports(user):
     if response == 'yes':
         for report in reports:
             if DEBUG:
-                print report.title
+                print user.username + ':', report.title
             else:
                 report.delete()
     else:
@@ -42,6 +59,8 @@ def main():
     if len(sys.argv) < 2:
         print 'Please provide username argument!'
         sys.exit(0)
+
+    if not DEBUG: confirm_date()
 
     username = sys.argv[1]
     if username == 'all':

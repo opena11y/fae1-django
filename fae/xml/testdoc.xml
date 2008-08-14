@@ -72,7 +72,7 @@
       <link tgt="bp" href="nav/title/"/>
     </category>
 
-    <category id="nav02">
+    <category id="nav03">
       <name>Subheadings (<elem>h2</elem>..<elem>h6</elem>)</name>
 
       <best-practice ref="nav032">
@@ -101,67 +101,61 @@
       <link tgt="bp" href="nav/heading/"/>
     </category>
 
-    <category id="nav03">
-      <name>Navigation Menus</name>
+    <category id="nav04">
+      <name>Navigation Bars</name>
 
-      <best-practice ref="nav001">
+      <best-practice ref="nav041">
         <name>navigation bars and menus</name>
-        <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation menu should be immediately preceded by a heading element (preferably <elem>h2</elem>..<elem>h6</elem>).</rule>
-        <info>FAE considers a list of links to be a navigation menu. A list of links is defined as a <elem>ul</elem> or <elem>ol</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
-        <page id="nav001p"/>
-        <site id="nav001s"/>
+        <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem>.</rule>
+        <info>FAE considers a list of links to be a navigation bar. A list of links is defined as a <elem>ul</elem> or <elem>ol</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
+        <page id="nav041p"/>
+        <site id="nav041s"/>
       </best-practice>
 
-      <best-practice ref="nav002">
+      <best-practice ref="nav044">
         <name>redundant text links for area elements</name>
         <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
-        <page id="nav002p"/>
-        <site id="nav002s"/>
+        <page id="nav044p"/>
+        <site id="nav044s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/menu/"/>
     </category>
 
-    <category id="nav04">
+    <category id="nav05">
       <name>Form Control Labels</name>
 
-      <best-practice ref="nav041">
+      <best-practice ref="nav051">
         <name>form control labels for select, textarea and input elements</name>
         <rule>Each <elem>input</elem> element with <attr>type=text</attr> | <attr>password</attr> | <attr>checkbox</attr> | <attr>radio</attr> | <attr>file</attr> and each <elem>select</elem> and <elem>textarea</elem> element must either be referenced by the <attr>for</attr> attribute of a <elem>label</elem> element via its <attr>id</attr> attribute, or have a <attr>title</attr> attribute.</rule>
         <info>Label referencing is implemented by setting the <elem>label</elem> element's <attr>for</attr> attribute value equal to that of the <elem>form</elem> control's <attr>id</attr> attribute.</info>
-        <page id="nav041p"/>
-        <site id="nav041s"/>
+        <page id="nav051p"/>
+        <site id="nav051s"/>
       </best-practice>
 
-      <best-practice ref="nav042">
+      <best-practice ref="nav052">
         <name>form control labels for input elements with type=button|reset|submit</name>
         <rule>Each <elem>input</elem> element with <attr>type=button</attr> | <attr>submit</attr> | <attr>reset</attr> must have either a <attr>value</attr> attribute or a <attr>title</attr> attribute.</rule>
-        <page id="nav042p"/>
-        <site id="nav042s"/>
+        <page id="nav052p"/>
+        <site id="nav052s"/>
       </best-practice>
 
-      <best-practice ref="nav043">
+      <best-practice ref="nav053">
         <name>form control labels for input elements with type=image</name>
         <rule>Each <elem>input</elem> element with <attr>type=image</attr> must have either an <attr>alt</attr> attribute or a <attr>title</attr> attribute.</rule>
-        <page id="nav043p"/>
-        <site id="nav043s"/>
+        <page id="nav053p"/>
+        <site id="nav053s"/>
+      </best-practice>
+
+      <best-practice ref="nav050">
+        <name>label and legend elements must not be empty</name>
+        <rule>Each <elem>label</elem> and <elem>legend</elem> element must have text content.</rule>
+        <page id="nav050p"/>
+        <site id="nav050s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/form/"/>
     </category>
-
-    <!--
-    <category id="nav05">
-      <name>Document Linearization</name>
-
-      <best-practice ref="style002">
-        <name>nested tables</name>
-        <rule>Deeply nested tables can cause problems when a document is rendered in a linear mode, e.g., by screen readers.</rule>
-        <page id="style002p"/>
-        <site id="style002s"/>
-      </best-practice>
-    </category>
-    -->
 
     <category id="nav06">
       <name>Data Tables</name>
@@ -189,6 +183,19 @@
 
       <link tgt="bp" href="nav/frame/"/>
     </category>
+
+    <!--
+    <category id="nav09">
+      <name>Document Linearization</name>
+
+      <best-practice ref="style002">
+        <name>nested tables</name>
+        <rule>Deeply nested tables can cause problems when a document is rendered in a linear mode, e.g., by screen readers.</rule>
+        <page id="style002p"/>
+        <site id="style002s"/>
+      </best-practice>
+    </category>
+    -->
 
     <link tgt="bp" href="nav/"/>
   </section>

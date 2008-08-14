@@ -5,32 +5,6 @@
 
 <!-- NAVIGATION &amp; ORIENTATION -->
 
-<!-- ol/ul navigation menus preceded by header element -->
-<eval id="nav001p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav001s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- area elements with redundant text link -->
-<eval id="nav002p">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="nav002s">
-  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
-  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
 <!-- num data tables out of total tables -->
 <!-- NOTE: This test always evaluates to either pass or disc! -->
 <eval id="nav003p">
@@ -214,35 +188,98 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- form controls with labels: select, textarea and input with selected types -->
+<!-- ol/ul navigation menus preceded by header element -->
 <eval id="nav041p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <eval id="nav041s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- area elements with redundant text link -->
+<eval id="nav044p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav044s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- empty label and legend elements -->
+<!--
+    cnt1: number of empty label elements
+    tot1: total label elements
+    cnt2: number of empty legend elements
+    tot2: total legend elements
+-->
+<eval id="nav050p">
+  <pass>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="cnt2" val="0"/>
+    </and>
+  </pass>
+  <disc>
+    <and>
+      <cmp op="eq" ref="tot1" val="0"/>
+      <cmp op="eq" ref="tot2" val="0"/>
+    </and>
+  </disc>
+</eval>
+
+<eval id="nav050s">
+  <pass>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="cnt2" val="0"/>
+    </and>
+  </pass>
+  <disc>
+    <and>
+      <cmp op="eq" ref="tot1" val="0"/>
+      <cmp op="eq" ref="tot2" val="0"/>
+    </and>
+  </disc>
+</eval>
+
+<!-- form controls with labels: select, textarea and input with selected types -->
+<eval id="nav051p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav051s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <!-- form controls with labels: input with type=button|reset|submit -->
-<eval id="nav042p">
+<eval id="nav052p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="nav042s">
+<eval id="nav052s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <!-- form controls with labels: input with type=image -->
-<eval id="nav043p">
+<eval id="nav053p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="nav043s">
+<eval id="nav053s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>

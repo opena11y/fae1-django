@@ -201,14 +201,27 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- area elements with redundant text link -->
-<eval id="nav044p">
+<!-- map navigation menus preceded by header element -->
+<eval id="nav042p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="nav044s">
+<eval id="nav042s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- area elements with redundant text link -->
+<eval id="nav043p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav043s">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>

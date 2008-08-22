@@ -105,18 +105,26 @@
       <name>Navigation Bars</name>
 
       <best-practice ref="nav041">
-        <name>navigation bars and menus</name>
+        <name>ul/ol navigation menus</name>
         <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem>.</rule>
         <info>FAE considers a list of links to be a navigation bar. A list of links is defined as a <elem>ul</elem> or <elem>ol</elem> element where each <elem>li</elem> element (with one exception allowed) has as its sole content either a single text link (<elem>a</elem> element) or a nested list of links.</info>
         <page id="nav041p"/>
         <site id="nav041s"/>
       </best-practice>
 
-      <best-practice ref="nav044">
+      <best-practice ref="nav042">
+        <name>map navigation bars</name>
+        <rule>Each <elem>map</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem></rule>
+        <info>FAE considers a <elem>map</elem> element to be a navigation bar if it contains one or more <elem>area</elem> elements.</info>
+        <page id="nav042p"/>
+        <site id="nav042s"/>
+      </best-practice>
+
+      <best-practice ref="nav043">
         <name>redundant text links for area elements</name>
         <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
-        <page id="nav044p"/>
-        <site id="nav044s"/>
+        <page id="nav043p"/>
+        <site id="nav043s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/menu/"/>

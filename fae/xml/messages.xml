@@ -82,13 +82,19 @@
 
   <message id="nav041p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"/> out of <ins ref="tot1"/> <elem>ul</elem> or <elem>ol</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp> <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>ul</elem> or <elem>ol</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>ul</elem> or <elem>ol</elem> elements that appear to be navigation menus were found.</msg>
   </message>
 
-  <message id="nav044p">
+  <message id="nav042p">
     <msg id="pass"/>
-    <msg id="warn">(<ins ref="cnt1"/> <elem>area</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (<ins ref="pct1"/>% of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>map</elem> <sp ref="tot1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>map</elem> elements that appear to be navigation menus were found.</msg>
+  </message>
+
+  <message id="nav043p">
+    <msg id="pass"/>
+    <msg id="warn"><ins ref="cnt1"/> <elem>area</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (<ins ref="pct1"/>% of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>area</elem> elements were found.</msg>
   </message>
 

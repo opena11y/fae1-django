@@ -88,7 +88,7 @@
 
   <message id="nav042p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"/> <elem>map</elem> <sp ref="tot1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>map</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No <elem>map</elem> elements that appear to be navigation menus were found.</msg>
   </message>
 

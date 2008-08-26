@@ -165,6 +165,7 @@
       <link tgt="bp" href="nav/form/"/>
     </category>
 
+    <!--
     <category id="nav06">
       <name>Data Tables</name>
 
@@ -177,11 +178,12 @@
 
       <link tgt="bp" href="nav/stable/"/>
     </category>
+    -->
 
+    <!--
     <category id="nav07">
       <name>Frames</name>
 
-      <!-- currently checking only for existence of title attribute, and not whether it's empty -->
       <best-practice ref="nav004">
         <name>frame titles</name>
         <rule>Each <elem>frame</elem> element should have a <attr>title</attr> attribute.</rule>
@@ -191,6 +193,7 @@
 
       <link tgt="bp" href="nav/frame/"/>
     </category>
+    -->
 
     <!--
     <category id="nav09">

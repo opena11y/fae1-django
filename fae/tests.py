@@ -14,8 +14,8 @@ def message(obj, frame):
 class SystemCallsTestCase(unittest.TestCase):
     def setUp(self):
         self.params = {
-            'url': 'http://www.ibm.com',
-            'title': 'IBM Test Report',
+            'url': 'http://www.disability.uiuc.edu',
+            'title': 'DRES Test Report',
             'depth': '2',
             'span': '1',
             'username': 'user1',

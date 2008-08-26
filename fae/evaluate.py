@@ -58,9 +58,9 @@ def download_resources(params, is_logged_in, uid, test=False):
 
     wget switches used:
 
-    --no-check-certificate
+    --no-check-certificate (not in use)
+    --omit-most-urls (blank-out urls in HTML files for elim. of duplicates; fae wget only; not in use)
     --type-postfixes (save files with type-identifying postfixes; fae wget only)
-    --omit-most-urls (blank-out urls in HTML files to facilitate elim. of duplicates; fae wget only)
     --tries
     --timeout
     --wait-retry
@@ -70,11 +70,11 @@ def download_resources(params, is_logged_in, uid, test=False):
     -k = --convert-links
     -p = --page-requisites
     -x = --force-directories
+    -P = --directory-prefix
     -r = --recursive
     -l = --level
-    -H = --span-hosts
-    -D = --domains=LIST
-    -P = --directory-prefix
+    --span-hosts
+    --domains=LIST
 
     """
     site_dir = os.path.join(settings.SITES_DIR, uid)
@@ -90,11 +90,11 @@ def download_resources(params, is_logged_in, uid, test=False):
     wget.extend(['-Q', '6m'])
     wget.extend(['-R', settings.REJECT_LIST])
     wget.extend(['-k', '-p', '-x'])
+    wget.extend(['-P', site_dir])
     if depth == '1' or depth == '2':
         wget.extend(['-r', '-l', depth])
         if span == '1':
-            wget.append('-HD{%s}' % get_next_level_domain(url))
-    wget.extend(['-P', site_dir])
+            wget.extend(['--span-hosts', '--domains=%s' % get_next_level_domain(url)])
     wget.append(url)
 
     if test: return ' '.join(wget)

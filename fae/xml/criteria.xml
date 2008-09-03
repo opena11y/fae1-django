@@ -12,14 +12,14 @@
   <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
 </eval>
 
-<!-- frames with title attribute -->
+<!-- frames without nonempty title attribute -->
 <eval id="nav004p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <eval id="nav004s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 

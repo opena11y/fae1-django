@@ -1,116 +1,57 @@
 <h2>What is FAE?</h2>
 
-<p>The Functional Accessibility Evaluator (FAE) analyzes web resources for markup
-that is consistent with the use of
-<a class="external" href="http://bestpractices.cita.uiuc.edu/html/">CITES/DRES
-HTML Best Practices</a> for development of functionally accessible web
-resources that also support interoperability.</p>
+<p>The Functional Accessibility Evaluator (FAE) analyzes web resources for markup that is consistent with the use of <a class="external" href="http://html.cita.uiuc.edu//">iCITA HTML Best Practices</a> for development of functionally accessible web resources that also support interoperability.</p>
 
-<p>The CITES/DRES HTML Best Practices are not a new standard, but rather a
-statement of techniques for implementation of the W3C
-<a class="external" href="http://www.w3.org/TR/WCAG">Web Content
-Accessibility Guidelines</a> and United States Federal Government
-<a class="external" href="http://www.access-board.gov/sec508/standards.htm">Section
-508 standards</a>. Following the best practices in developing web resources
-not only improves accessibility for people with disabilities, but also
-improves interoperability, giving everyone the benefit of having more options
-for accessing and using those resources.</p>
+<p>The iCITA HTML Best Practices are not a new standard, but rather a statement of techniques for implementation of the W3C <a class="external" href="http://www.w3.org/TR/WCAG">Web Content Accessibility Guidelines</a> and United States Federal Government <a class="external" href="http://www.access-board.gov/sec508/standards.htm">Section 508 standards</a>. Following the best practices in developing web resources not only improves accessibility for people with disabilities, but also improves interoperability, giving everyone the benefit of having more options for accessing and using those resources.</p>
 
 <h2>Running the Evaluator</h2>
 
-<p>The &ldquo;Run FAE&rdquo; page provides a form for specifying the
-following analysis parameters:</p>
+<p>The &ldquo;Run FAE&rdquo; page provides a form for specifying the following analysis parameters:</p>
 
 <dl>
-<!--
-<dt>URL(s)</dt>
-<dd>Specifies the page(s) to be evaluated. When one and only one URL is
-specified, that page will serve as the starting point of the analysis,
-along with additional pages, depending on the &ldquo;Depth of Evaluation&rdquo;
-and &ldquo;Follow Links in&rdquo; settings (see below). When multiple URLs
-are specified, the &ldquo;Depth of Evaluation&rdquo; parameter is set to
-&ldquo;Top-level page only&rdquo; and &ldquo;Follow Links in&rdquo; does not
-apply.</dd>
--->
-
 <dt>URL</dt>
-<dd>Specifies the URL that will serve as the starting point of the analysis.
-Depending on the &ldquo;Depth of Evaluation&rdquo; and &ldquo;Follow Links
-in&rdquo; settings (described below), additional pages linked from the
-starting URL may also be included in the analysis.</dd>
+<dd>Specifies the URL that will serve as the starting point of the analysis. Depending on the &ldquo;Depth of Evaluation&rdquo; and &ldquo;Follow Links in&rdquo; settings (described below), additional pages linked from the starting URL may also be included in the analysis.</dd>
 
 <dt>Report Title</dt>
-<dd>The title to be displayed at the top of each report page. If no title
-is specified, then &ldquo;Untitled Report&rdquo; is displayed.</dd>
+<dd>The title to be displayed at the top of each report page. If no title is specified, then &ldquo;Untitled Report&rdquo; is displayed.</dd>
 
 <dt>Depth of Evaluation</dt>
-<dd>When &ldquo;Top-level page only&rdquo; is selected, only the page
-specified by the URL will be analyzed.</dd>
-<dd>&ldquo;Include second-level pages&rdquo; will cause all pages
-linked from the top-level page (with domain restrictions as explained
-below) to be included in the analysis.</dd>
-<dd>&ldquo;Include third-level pages&rdquo; will cause all pages
-linked from the top- and second-level pages (with domain restrictions
-as explained below) to be included in the analysis.</dd>
+<dd>When &ldquo;Top-level page only&rdquo; is selected, only the page specified by the URL will be analyzed.</dd>
+<dd>&ldquo;Include second-level pages&rdquo; will cause all pages linked from the top-level page (with domain restrictions as explained below) to be included in the analysis.</dd>
+<dd>&ldquo;Include third-level pages&rdquo; will cause all pages linked from the top- and second-level pages (with domain restrictions as explained below) to be included in the analysis.</dd>
 
 <dt>Follow Links in</dt>
-<dd>In cases where &ldquo;Depth of Evaluation&rdquo; is set to either
-&ldquo;Include second-level pages&rdquo; or &ldquo;Include third-level
-pages&rdquo; the web crawler used by FAE can follow links in two different
-ways:</dd>
-<dd>When &ldquo;Specified domain only&rdquo; is selected, link following is
-restricted to the same domain as the specified URL.</dd>
-<dd>When &ldquo;Next-level subdomains&rdquo; is selected, links that are in
-subdomains of the next-level domain (relative to the domain specified
-by the URL) will also be followed.</dd>
-<!--
-<dd>Note that when a URL is specified in the &ldquo;URL(s)&rdquo; field, the
-label text for the &ldquo;Follow Links in&rdquo; buttons changes to indicate
-specific domain names. For example, if &ldquo;news.google.com&rdquo; is entered,
-the text &ldquo;Specified domain only&rdquo; is changed to &ldquo;news.google.com
-domain only&rdquo; and &ldquo;Next-level subdomains&rdquo; is changed to
-&ldquo;All google.com subdomains&rdquo;.</dd>
--->
+<dd>In cases where &ldquo;Depth of Evaluation&rdquo; is set to either &ldquo;Include second-level pages&rdquo; or &ldquo;Include third-level pages&rdquo; the web crawler used by FAE can follow links in two different ways:</dd>
+<dd>When &ldquo;Specified domain only&rdquo; is selected, link following is restricted to the same domain as the specified URL.</dd>
+<dd>When &ldquo;Next-level subdomains&rdquo; is selected, links that are in subdomains of the next-level domain (relative to the domain specified by the URL) will also be followed.</dd>
 </dl>
 
-<p>After successfully completing the analysis, FAE displays the Summary
-Report, which provides a high-level view of the evaluation results, and places
-a link to this report in the Archived Reports list. This list includes additional
-report information such as the analysis date/time, the number of pages analyzed,
-and the report title or, in the case of no title, the URL.</p>
+<p>After successfully completing the analysis, FAE displays the Summary Report, which provides a high-level view of the evaluation results, and places a link to this report in the Archived Reports list. This list includes additional report information such as the analysis date/time, the number of pages analyzed, the report title, the starting URL and the depth of link following.</p>
 
 <h2>Analysis Categories</h2>
 
-<p>FAE organizes the analysis of documents based on the following
-categories:</p>
+<p>FAE organizes the analysis of documents based on the following categories:</p>
 
 <dl>
 <dt>Navigation &amp; Orientation:</dt>
-<dd>Inclusion of structural markup that facilitates navigation and
-contextual orientation;</dd>
+<dd>Inclusion of structural markup that facilitates navigation and contextual orientation;</dd>
 
 <dt>Text Equivalents:</dt>
-<dd>Proper use of images for interoperability and the provision of text
-descriptions for non-text content;</dd>
+<dd>Proper use of images for interoperability and the provision of text descriptions for non-text content;</dd>
 
 <dt>Scripting:</dt>
-<dd>Avoidance of scripting techniques that compromise accessibility and
-interoperability;</dd>
+<dd>Avoidance of scripting techniques that compromise accessibility and interoperability;</dd>
 
 <dt>Styling:</dt>
-<dd>Use of CSS styling techniques to separate content and structural
-information from styling and presentation;</dd>
+<dd>Use of CSS styling techniques to separate content and structural information from styling and presentation;</dd>
 
 <dt>Standards:</dt>
-<dd>Support for standards to improve interoperability and provide
-more choices in the use of technologies for rendering web content.</dd>
+<dd>Support for standards to improve interoperability and provide more choices in the use of technologies for rendering web content.</dd>
 </dl>
 
 <h2>Linking Directly to FAE</h2>
 
-<p>It is now possible to place a link to FAE on a web page that, when selected,
-causes FAE to evaluate the page and display the resulting Summary Report. The
-following HTML snippet should be used:</p>
+<p>It is now possible to place a link to FAE on a web page that, w hen selected, causes FAE to evaluate the page and display the resulting Summary Report. The following HTML snippet should be used:</p>
 
 <p><code>&lt;a href="http://{{ site.domain }}/evaluate/link/"&gt;Check with FAE&lt;/a&gt;</code></p>
 

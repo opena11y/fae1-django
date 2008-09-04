@@ -5,10 +5,23 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.b3</title>
+    <date>2008-09-04</date>
+
+    <item>Added and/or modified rules in the Navigation Bars and Form Control Labels subsections of Navigation &amp; Orientation.</item>
+
+    <item>A significant amount of work was put into the navigation list rule in the Navigation Bars section, which should now allow for many more variations of navigation list markup.</item>
+
+    <item>Refactored the navigation test modules in the OCaml analysis engine.</item>
+
+    <item>FAE is now running on Django 1.0, which was released today.</item>
+  </version>
+
+  <version>
     <title>Version 1.0.b2</title>
     <date>2008-07-29</date>
 
-    <item>New rules added in the Titles, Subheadings and Form Controls subsections of Navigation &amp; Orientation.</item>
+    <item>New rules added in the Titles, Subheadings and Form Control Labels subsections of Navigation &amp; Orientation.</item>
 
     <item>Rule evaluation result messages at the Page Report level have been reworked according to the following scheme: When the result is 'pass', no additional information is provided; when the result is 'warn' or 'fail', the number of elements that do not meet the criteria for passing the rule is reported.</item>
   </version>

@@ -482,8 +482,8 @@ def report(request, rptid, type=None, section=None, pageid=None):
 def pgrpteval(request):
     if request.is_ajax():
         report_info = request.session.get('report', {})
-        testid = request['testid'] if request.has_key('testid') else ''
-        eval = request['eval'] if request.has_key('eval') else ''
+        testid = request.GET.get('testid', '')
+        eval = request.GET.get('eval', '')
         content = get_pgrpteval_content(report_info, testid, eval)
     else:
         content = 'None'

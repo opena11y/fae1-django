@@ -54,9 +54,6 @@ class Organization(models.Model):
     class Meta:
         ordering = ["name"]
 
-    class Admin:
-        pass
-
 class UserProfile(models.Model):
     ACCT_TYPE_CHOICES = (
         (1, 'Standard'),
@@ -73,9 +70,6 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.user.username
 
-    class Admin:
-        pass
-
 class EmailSuffix(models.Model):
     suffix        = models.CharField(max_length=128, primary_key=True)
     org           = models.ForeignKey(Organization)
@@ -85,9 +79,6 @@ class EmailSuffix(models.Model):
 
     class Meta:
         ordering = ["suffix"]
-
-    class Admin:
-        pass
 
 class UserReport(models.Model):
     id            = models.CharField(max_length=30, primary_key=True)
@@ -116,9 +107,6 @@ class UserReport(models.Model):
     class Meta:
         ordering = ["-timestamp"]
 
-    class Admin:
-        pass
-
 class GuestReport(models.Model):
     id            = models.CharField(max_length=30, primary_key=True)
     timestamp     = models.DateTimeField()
@@ -138,9 +126,6 @@ class GuestReport(models.Model):
     class Meta:
         ordering = ["-timestamp"]
 
-    class Admin:
-        pass
-
 class UsageStats(models.Model):
     date          = models.DateField(primary_key=True)
     user_reports  = models.IntegerField()
@@ -153,15 +138,9 @@ class UsageStats(models.Model):
     class Meta:
         get_latest_by = "date"
 
-    class Admin:
-        pass
-
 class PurgeStats(models.Model):
     date          = models.DateField(primary_key=True)
     guest_reports = models.IntegerField()
 
     class Meta:
         get_latest_by = "date"
-
-    class Admin:
-        pass

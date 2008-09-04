@@ -1,5 +1,8 @@
 from django.conf.urls.defaults import *
+from django.contrib import admin
 from fae import views
+
+admin.autodiscover()
 
 urlpatterns = patterns(
     '',
@@ -41,5 +44,5 @@ urlpatterns = patterns(
     (r'^accounts/', include('registration.urls')),
 
     # Admin
-    (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^admin/(.*)', admin.site.root),
 )

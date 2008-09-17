@@ -16,6 +16,12 @@
     <msg id="disc">No <elem>frame</elem> elements were found.</msg>
   </message>
 
+  <message id="nav005p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>frameset</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>frameset</elem> elements were found.</msg>
+  </message>
+
   <message id="nav010p">
     <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"/> <elem>title</elem> <sp ref="cnt1"><s>element is</s><p>elements are</p></sp> empty.</msg>

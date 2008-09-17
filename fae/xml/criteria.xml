@@ -23,6 +23,17 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
+<!-- framesets without unique title attribute on frame elements -->
+<eval id="nav005p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="nav005s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
 <!-- empty title elements -->
 <!--
     cnt1: number of empty elements

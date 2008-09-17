@@ -184,10 +184,18 @@
       <name>Frames</name>
 
       <best-practice ref="nav004">
-        <name>frame titles</name>
+        <name>nonempty frame titles</name>
         <rule>Each <elem>frame</elem> element must have a nonempty <attr>title</attr> attribute.</rule>
         <page id="nav004p"/>
         <site id="nav004s"/>
+      </best-practice>
+
+      <best-practice ref="nav005">
+        <name>unique frame titles</name>
+        <rule>The <attr>title</attr> attribute content must be unique for each <elem>frame</elem> element within a <elem>frameset</elem>.</rule>
+        <info>Uniqueness comparisons are case-insensitive and performed on whitespace-normalized attribute values.</info>
+        <page id="nav005p"/>
+        <site id="nav005s"/>
       </best-practice>
 
       <link tgt="bp" href="nav/frame/"/>

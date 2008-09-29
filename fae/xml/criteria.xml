@@ -5,6 +5,17 @@
 
 <!-- NAVIGATION &amp; ORIENTATION -->
 
+<!-- html@lang with valid language code -->
+<eval id="nav001p">
+  <pass>
+    <and>
+      <cmp op="eq" ref="b1" val="1"/>
+      <cmp op="eq" ref="b2" val="1"/>
+    </and>
+  </pass>
+  <fail-null><cmp op="eq" ref="b1" val="0"/></fail-null>
+</eval>
+
 <!-- num data tables out of total tables -->
 <!-- NOTE: This test always evaluates to either pass or disc! -->
 <eval id="nav003p">
@@ -497,22 +508,13 @@
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
 </eval>
 
-<!-- default language declaration -->
-<eval id="std002p">
-  <pass><cmp op="eq" ref="b1" val="1"/></pass>
-</eval>
-
-<eval id="std002s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-</eval>
-
 <!-- character encoding declaration -->
-<eval id="std003p">
+<eval id="std002p">
   <pass><cmp op="eq" ref="b1" val="1"/></pass>
   <warn><cmp op="eq" ref="b1" val="0"/></warn>
 </eval>
 
-<eval id="std003s">
+<eval id="std002s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
   <warn><cmp op="lt" ref="pct1" val="100"/></warn>
 </eval>

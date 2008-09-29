@@ -5,7 +5,7 @@
 
   <!-- ************************************************ -->
   <section id="nav">
-    <name>Navigation &amp; Orientation</name>
+    <name>Navigation</name>
 
     <category id="nav01">
       <name>Titles (<elem>title</elem> &amp; <elem>h1</elem>)</name>
@@ -165,8 +165,19 @@
       <link tgt="bp" href="nav/form/"/>
     </category>
 
-    <!--
     <category id="nav06">
+      <name>Default Language</name>
+
+      <best-practice ref="nav001">
+        <name>html@lang attribute</name>
+        <rule>Each page must have a <attr>lang</attr> attribute on its <elem>html</elem> element whose value is a valid two-character language code.</rule>
+        <page id="nav001p"/>
+        <site id="nav001s"/>
+      </best-practice>
+    </category>
+
+    <!--
+    <category id="nav07">
       <name>Data Tables</name>
 
       <best-practice ref="nav003">
@@ -180,7 +191,7 @@
     </category>
     -->
 
-    <category id="nav07">
+    <category id="nav08">
       <name>Frames</name>
 
       <best-practice ref="nav004">
@@ -349,7 +360,7 @@
   -->
 
   <section id="style">
-    <name>Styling</name>
+    <name>Style</name>
 
     <category id="style01">
       <name>Text Styling</name>
@@ -424,25 +435,18 @@
 
       <best-practice ref="std001">
         <name>DOCTYPE declaration</name>
-        <rule>Each page should include a DOCTYPE declaration to facilitate validation.</rule>
+        <rule>Each page must include a DOCTYPE declaration to facilitate rendering and validation.</rule>
         <page id="std001p"/>
         <site id="std001s"/>
       </best-practice>
 
       <best-practice ref="std002">
-        <name>default language decl.</name>
-        <rule>Each page should specify the default language using the <attr>lang</attr> and/or <attr>xml:lang</attr> attribute on the <elem>html</elem> element.</rule>
-        <info>For example, to specify English as the default language in HTML 4.0, use: <elem>&lt;html lang=&quot;en&quot;&gt;</elem> and in XHTML, use: <elem>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot;&gt;</elem></info>
+        <name>character encoding decl.</name>
+        <!--rule>Each page should specify its character encoding in a <elem>meta</elem> element with <attr>content</attr> attribute (using <attr>charset=</attr>) in conjunction with the <attr>http-equiv=&quot;content-type&quot;</attr> attribute and value.</rule-->
+        <rule>The character encoding of each page should be specified within the value of the <attr>content</attr> attribute <!--(using <attr>charset=</attr>)--> on a <elem>meta</elem> element that also includes an <attr>http-equiv</attr> attribute set to <attr>&quot;content-type&quot;</attr>.</rule>
+        <info>For example, if the character encoding is UTF-8, it could be specified in XHTML with: <attr>&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;</attr></info>
         <page id="std002p"/>
         <site id="std002s"/>
-      </best-practice>
-
-      <best-practice ref="std003">
-        <name>character encoding decl.</name>
-        <rule>Each page should specify the character encoding with an <elem>html/head/meta</elem> element using the <attr>content</attr> attribute in conjunction with the <attr>http-equiv=&quot;content-type&quot;</attr> attribute.</rule>
-        <info>For example, if the character encoding is UTF-8, it could be specified in XHTML with: <attr>&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;</attr></info>
-        <page id="std003p"/>
-        <site id="std003s"/>
       </best-practice>
 
       <link tgt="bp" href="standards/html/"/>

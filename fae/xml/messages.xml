@@ -5,6 +5,12 @@
 
   <!-- NAVIGATION &amp; ORIENTATION -->
 
+  <message id="nav001p">
+    <msg id="pass"/>
+    <msg id="default">The <attr>lang</attr> attribute value is not a valid language code.</msg>
+    <msg id="fail-null">The <attr>lang</attr> attribute was not specified.</msg>
+  </message>
+
   <message id="nav003p">
     <msg id="default">Out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, <ins ref="cnt1"/> <sp ref="cnt1"><s>appears to be a data table</s><p>appear to be data tables</p></sp>. Of those data tables, <ins ref="cnt2"/> <sp ref="cnt2"><s>utilizes</s><p>utilize</p></sp> the <elem>thead</elem> element, and <ins ref="cnt3"/> <sp ref="cnt3"><s>utilizes</s><p>utilize</p></sp> the <elem>th</elem> element.</msg>
     <msg id="disc">No data tables were found.</msg>
@@ -204,17 +210,12 @@
   <!-- STANDARDS -->
 
   <message id="std001p">
-    <msg id="pass">A DOCTYPE declaration was found.</msg>
+    <msg id="pass"/>
     <msg id="fail">A DOCTYPE declaration was not found.</msg>
   </message>
 
   <message id="std002p">
-    <msg id="pass">The default language was specified.</msg>
-    <msg id="fail">The default language was not specified.</msg>
-  </message>
-
-  <message id="std003p">
-    <msg id="pass">The character encoding was specified.</msg>
+    <msg id="pass"/>
     <msg id="warn">The character encoding was not specified.</msg>
   </message>
 

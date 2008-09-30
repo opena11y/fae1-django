@@ -5,23 +5,40 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.b4</title>
+    <date>2008-09-29</date>
+
+    <item>Added &quot;unique frame titles within frameset&quot; rule to the Navigation/Frames subsection. Also modified the &quot;frame title rule&quot; to check that attribute value is nonempty.</item>
+
+    <item>Reimplemented the default language rule formerly in the HTML Standards section and moved it to the Navigation/Default Language subsection. FAE now checks whether the value of the lang attribute is a valid two-character language code as defined by the IANA.</item>
+
+    <item>Reimplemented the DOCTYPE rule in the HTML Standards section. FAE now stores the DOCTYPE of each page during the initialization phase so that it is available to any rule/test evaluation.</item>
+
+    <item>Renamed two of the five main sections of Sitewide and Page reports to match the new Best Practices main category names.</item>
+
+    <item>Added a Beta Testing page in About FAE that itemizes new features and rules that need further testing.</item>
+
+    <item>Prepended a (New) indicator to each new rule in the Sitewide and Page reports to facilitate beta testing.</item>
+  </version>
+
+  <version>
     <title>Version 1.0.b3</title>
     <date>2008-09-04</date>
 
-    <item>Added and/or modified rules in the Navigation Bars and Form Control Labels subsections of Navigation &amp; Orientation.</item>
+    <item>Added and/or modified rules in the Navigation Bars and Form Control Labels subsections of Navigation.</item>
 
     <item>A significant amount of work was put into the navigation list rule in the Navigation Bars section, which should now allow for many more variations of navigation list markup.</item>
 
     <item>Refactored the navigation test modules in the OCaml analysis engine.</item>
 
-    <item>FAE is now running on Django 1.0, which was released today.</item>
+    <item>Modified various parts of FAE for compatibility with Django 1.0, which was released yesterday.</item>
   </version>
 
   <version>
     <title>Version 1.0.b2</title>
     <date>2008-07-29</date>
 
-    <item>New rules added in the Titles, Subheadings and Form Control Labels subsections of Navigation &amp; Orientation.</item>
+    <item>New rules added in the Titles, Subheadings and Form Control Labels subsections of Navigation.</item>
 
     <item>Rule evaluation result messages at the Page Report level have been reworked according to the following scheme: When the result is 'pass', no additional information is provided; when the result is 'warn' or 'fail', the number of elements that do not meet the criteria for passing the rule is reported.</item>
   </version>
@@ -32,7 +49,7 @@
 
     <item>FAE is now based on the <a class="external" href="http://www.djangoproject.com">Django web application framework</a> written in the <a class="external" href="http://python.org">Python programming language</a>. As in previous versions, it also consists of an analysis engine written in <a class="external" href="http://caml.inria.fr/ocaml/index.en.html">Objective CAML</a> and a <a class="external" href="http://www.postgresql.org/">PostgreSQL DBMS</a>.</item>
 
-    <item>New rules have been added, and existing rules modified, based on the <a class="external" href="http://www.dhs.state.il.us/iitaa/">IITAA</a> Implementation Guidelines. These include all rules in the Titles, Subheadings and Form Controls subsections of the Navigation &amp; Orientation section of Page and Sitewide Reports.</item>
+    <item>New rules have been added, and existing rules modified, based on the <a class="external" href="http://www.dhs.state.il.us/iitaa/">IITAA</a> Implementation Guidelines. These include all rules in the Titles, Subheadings and Form Controls subsections of the Navigation section of Page and Sitewide Reports.</item>
 
     <item>Manage Reports feature: A registered user may now select up to five reports (by default) to be permanently archived. Additionally, the last five reports that have been generated but not marked for permanent archival are also saved.</item>
 

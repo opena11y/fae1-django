@@ -59,6 +59,7 @@
     <xsl:param name="page"/>
 
     <xsl:if test="descendant::page">
+      <a id="{@id}"/>
       <h3>
         <xsl:apply-templates select="name"/>
         <xsl:apply-templates select="link">
@@ -81,6 +82,7 @@
 
     <xsl:if test="child::page">
       <li>
+        <xsl:if test="@new"><span style="color:#777;font-size:90%">(New) </span></xsl:if>
         <xsl:apply-templates select="rule"/>
       </li>
       <!-- TO DO: display info element as well -->

@@ -91,6 +91,7 @@
       <xsl:variable name="disc" select="count($test-pages/page-test[@eval='disc'])"/>
 
       <li>
+        <xsl:if test="@new"><span style="color:#777;font-size:90%">(New) </span></xsl:if>
         <xsl:apply-templates select="rule"/>
         <!-- TO DO: display info element as well -->
 

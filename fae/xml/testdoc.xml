@@ -3,50 +3,43 @@
 
 <testdoc>
 
-  <!-- ************************************************ -->
+  <!-- ================================================ -->
   <section id="nav">
     <name>Navigation</name>
 
-    <category id="nav01">
+    <!-- ================================================ -->
+    <category id="titles">
       <name>Titles (<elem>title</elem> &amp; <elem>h1</elem>)</name>
 
-      <best-practice ref="nav011">
+      <best-practice ref="nav011" new="1.0.b1">
         <name>one and only one title</name>
         <rule>The page must contain exactly one <elem>title</elem> element.</rule>
         <page id="nav011p"/>
         <site id="nav011s"/>
       </best-practice>
 
-      <best-practice ref="nav010">
+      <best-practice ref="nav010" new="1.0.b1">
         <name>number of empty title elements</name>
         <rule>The <elem>title</elem> element must have text content.</rule>
         <page id="nav010p"/>
         <site id="nav010s"/>
       </best-practice>
 
-      <!--
-      <best-practice ref="nav012">
-        <name>unique titles</name>
-        <rule>Each page <elem>title</elem> should be unique across the site.</rule>
-        <site id="nav012s"/>
-      </best-practice>
-      -->
-
-      <best-practice ref="nav022">
+      <best-practice ref="nav022" new="1.0.b1">
         <name>at least one h1 element</name>
         <rule>The page must contain at least one <elem>h1</elem> element.</rule>
         <page id="nav022p"/>
         <site id="nav022s"/>
       </best-practice>
 
-      <best-practice ref="nav023">
+      <best-practice ref="nav023" new="1.0.b1">
         <name>no more than two h1 elements</name>
         <rule>The page should contain no more than two <elem>h1</elem> elements.</rule>
         <page id="nav023p"/>
         <site id="nav023s"/>
       </best-practice>
 
-      <best-practice ref="nav024">
+      <best-practice ref="nav024" new="1.0.b2">
         <name>h1 substring of title</name>
         <rule>The text content of each <elem>h1</elem> element should match all or part of the <elem>title</elem> content.</rule>
         <info>The matching algorithm for this rule includes the <attr>alt</attr> text of any <elem>img</elem> elements the <elem>h1</elem> may contain, and ignores case, punctuation and spacing in the text content of the <elem>title</elem> and <elem>h1</elem> elements.</info>
@@ -54,7 +47,7 @@
         <site id="nav024s"/>
       </best-practice>
 
-      <best-practice ref="nav020">
+      <best-practice ref="nav020" new="1.0.b2">
         <name>number of empty h1 elements, including img alt text</name>
         <rule>Each <elem>h1</elem> element must have text content.</rule>
         <info>If an <elem>img</elem> element with an <attr>alt</attr> attribute is contained in an <elem>h1</elem> element, the <attr>alt</attr> attribute value is inserted in document order into the text content of the <elem>h1</elem> element.</info>
@@ -62,7 +55,7 @@
         <site id="nav020s"/>
       </best-practice>
 
-      <best-practice ref="nav021">
+      <best-practice ref="nav021" new="1.0.b2">
         <name>number of empty h1 elements, excluding img alt text</name>
         <rule>Each <elem>h1</elem> element should have text content exclusive of the <attr>alt</attr> text of any <elem>img</elem> elements it contains.</rule>
         <page id="nav021p"/>
@@ -72,10 +65,11 @@
       <link tgt="bp" href="nav/title/"/>
     </category>
 
-    <category id="nav03">
+    <!-- ================================================ -->
+    <category id="subheadings">
       <name>Subheadings (<elem>h2</elem>..<elem>h6</elem>)</name>
 
-      <best-practice ref="nav032">
+      <best-practice ref="nav032" new="1.0.b1">
         <name>proper nesting of heading elements</name>
         <rule>Subheading elements that follow the last <elem>h1</elem> should be properly nested.</rule>
         <info>Subheading elements should be used without skipping levels when descending through the sublevels <elem>h2</elem>..<elem>h6</elem>. For example, an <elem>h2</elem> element should follow an <elem>h1</elem> element, an <elem>h3</elem> element should follow an <elem>h2</elem> element, and so on. Note that this rule does not apply to subheadings of the same level (for example, an <elem>h3</elem> may follow another <elem>h3</elem>), or when ascending the hierarchy (an <elem>h2</elem> may follow an <elem>h4</elem>).</info>
@@ -83,7 +77,7 @@
         <site id="nav032s"/>
       </best-practice>
 
-      <best-practice ref="nav030">
+      <best-practice ref="nav030" new="1.0.b2">
         <name>number of empty heading elements, including alt text</name>
         <rule>Each subheading element (<elem>h2</elem>..<elem>h6</elem>) must have text content.</rule>
         <info>If an <elem>img</elem> element with an <attr>alt</attr> attribute is contained in a subheading element, the <attr>alt</attr> attribute value is inserted in document order into the text content of the subheading element.</info>
@@ -91,7 +85,7 @@
         <site id="nav030s"/>
       </best-practice>
 
-      <best-practice ref="nav031">
+      <best-practice ref="nav031" new="1.0.b2">
         <name>number of empty heading elements, excluding alt text</name>
         <rule>Each subheading element (<elem>h2</elem>..<elem>h6</elem>) should have text content exclusive of the <attr>alt</attr> text of any <elem>img</elem> elements it contains.</rule>
         <page id="nav031p"/>
@@ -101,10 +95,11 @@
       <link tgt="bp" href="nav/heading/"/>
     </category>
 
-    <category id="nav04">
+    <!-- ================================================ -->
+    <category id="nav-bars">
       <name>Navigation Bars</name>
 
-      <best-practice ref="nav041">
+      <best-practice ref="nav041" new="1.0.b3">
         <name>ul/ol navigation menus</name>
         <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem>.</rule>
         <info>FAE considers a <elem>ul</elem> or <elem>ol</elem> element to be a navigation bar if it appears to be a navigation list, defined recursively as follows. A navigation list is a <elem>ul</elem> or <elem>ol</elem> element that contains two or more &quot;item with link&quot; <elem>li</elem> elements, and no more than one <elem>li</elem> element that does not qualify as an &quot;item with link&quot;. An &quot;item with link&quot; is defined as an <elem>li</elem> element that contains either a single text link (<elem>a</elem> element) or a link followed by a nested navigation list, optionally preceded by a heading element.</info>
@@ -112,7 +107,7 @@
         <site id="nav041s"/>
       </best-practice>
 
-      <best-practice ref="nav042">
+      <best-practice ref="nav042" new="1.0.b3">
         <name>map navigation bars</name>
         <rule>Each <elem>map</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem></rule>
         <info>FAE considers a <elem>map</elem> element to be a navigation bar if it contains two or more <elem>area</elem> elements.</info>
@@ -120,7 +115,7 @@
         <site id="nav042s"/>
       </best-practice>
 
-      <best-practice ref="nav043">
+      <best-practice ref="nav043" new="1.0.b3">
         <name>redundant text links for area elements</name>
         <rule>Each <elem>area</elem> element should have a redundant text link (<elem>a</elem> element) with matching <attr>href</attr> value.</rule>
         <page id="nav043p"/>
@@ -130,10 +125,11 @@
       <link tgt="bp" href="nav/menu/"/>
     </category>
 
-    <category id="nav05">
+    <!-- ================================================ -->
+    <category id="form-labels">
       <name>Form Control Labels</name>
 
-      <best-practice ref="nav051">
+      <best-practice ref="nav051" new="1.0.b1">
         <name>form control labels for select, textarea and input elements</name>
         <rule>Each <elem>input</elem> element with <attr>type=text</attr> | <attr>password</attr> | <attr>checkbox</attr> | <attr>radio</attr> | <attr>file</attr> and each <elem>select</elem> and <elem>textarea</elem> element must either be referenced by the <attr>for</attr> attribute of a <elem>label</elem> element via its <attr>id</attr> attribute, or have a <attr>title</attr> attribute.</rule>
         <info>Label referencing is implemented by setting the <elem>label</elem> element's <attr>for</attr> attribute value equal to that of the <elem>form</elem> control's <attr>id</attr> attribute.</info>
@@ -141,21 +137,21 @@
         <site id="nav051s"/>
       </best-practice>
 
-      <best-practice ref="nav052">
+      <best-practice ref="nav052" new="1.0.b1">
         <name>form control labels for input elements with type=button|reset|submit</name>
         <rule>Each <elem>input</elem> element with <attr>type=button</attr> | <attr>submit</attr> | <attr>reset</attr> must have either a <attr>value</attr> attribute or a <attr>title</attr> attribute.</rule>
         <page id="nav052p"/>
         <site id="nav052s"/>
       </best-practice>
 
-      <best-practice ref="nav053">
+      <best-practice ref="nav053" new="1.0.b2">
         <name>form control labels for input elements with type=image</name>
         <rule>Each <elem>input</elem> element with <attr>type=image</attr> must have either an <attr>alt</attr> attribute or a <attr>title</attr> attribute.</rule>
         <page id="nav053p"/>
         <site id="nav053s"/>
       </best-practice>
 
-      <best-practice ref="nav050">
+      <best-practice ref="nav050" new="1.0.b2">
         <name>label and legend elements must not be empty</name>
         <rule>Each <elem>label</elem> and <elem>legend</elem> element must have text content.</rule>
         <page id="nav050p"/>
@@ -165,10 +161,11 @@
       <link tgt="bp" href="nav/form/"/>
     </category>
 
-    <category id="nav06">
+    <!-- ================================================ -->
+    <category id="language">
       <name>Default Language</name>
 
-      <best-practice ref="nav001">
+      <best-practice ref="nav001" new="1.0.b4">
         <name>html@lang attribute</name>
         <rule>Each page must have a <attr>lang</attr> attribute on its <elem>html</elem> element whose value is a valid two-character language code.</rule>
         <page id="nav001p"/>
@@ -176,8 +173,9 @@
       </best-practice>
     </category>
 
+    <!-- ================================================ -->
     <!--
-    <category id="nav07">
+    <category id="data-tables">
       <name>Data Tables</name>
 
       <best-practice ref="nav003">
@@ -191,17 +189,18 @@
     </category>
     -->
 
-    <category id="nav08">
+    <!-- ================================================ -->
+    <category id="frames">
       <name>Frames</name>
 
-      <best-practice ref="nav004">
+      <best-practice ref="nav004" new="1.0.b4">
         <name>nonempty frame titles</name>
         <rule>Each <elem>frame</elem> element must have a nonempty <attr>title</attr> attribute.</rule>
         <page id="nav004p"/>
         <site id="nav004s"/>
       </best-practice>
 
-      <best-practice ref="nav005">
+      <best-practice ref="nav005" new="1.0.b4">
         <name>unique frame titles</name>
         <rule>The <attr>title</attr> attribute content must be unique for each <elem>frame</elem> element within a <elem>frameset</elem>.</rule>
         <info>Uniqueness comparisons are case-insensitive and performed on whitespace-normalized attribute values.</info>
@@ -212,8 +211,9 @@
       <link tgt="bp" href="nav/frame/"/>
     </category>
 
+    <!-- ================================================ -->
     <!--
-    <category id="nav09">
+    <category id="linear">
       <name>Document Linearization</name>
 
       <best-practice ref="style002">
@@ -228,10 +228,11 @@
     <link tgt="bp" href="nav/"/>
   </section>
 
-  <!-- ************************************************ -->
+  <!-- ================================================ -->
   <section id="text">
     <name>Text Equivalents</name>
 
+    <!-- ================================================ -->
     <category id="text01">
       <name>Images</name>
 
@@ -262,6 +263,7 @@
       <link tgt="bp" href="text/info/"/>
     </category>
 
+    <!-- ================================================ -->
     <category id="text02">
       <name>Embedded Objects</name>
 
@@ -291,10 +293,11 @@
     <link tgt="bp" href="text/"/>
   </section>
 
-  <!-- ************************************************ -->
+  <!-- ================================================ -->
   <section id="auto">
     <name>Scripting</name>
 
+    <!-- ================================================ -->
     <category id="auto01">
       <name>Device Independence</name>
 
@@ -317,6 +320,7 @@
       -->
     </category>
 
+    <!-- ================================================ -->
     <!--
     <category id="auto02">
       <name>Dynamic Content</name>
@@ -335,14 +339,14 @@
     <link tgt="bp" href="script/"/>
   </section>
 
-  <!-- ************************************************ -->
+  <!-- ================================================ -->
 
   <!-- tags to avoid, in the following groupings:
   font, basefont: deprecated elements for specifying font attributes such as color and size; use HTML structural elements and/or CSS
 
   big, small, tt, strike, s, u: deprecated inline elements for styling text; use CSS
 
-  center, blockquote: deprecated elements for aligning or indenting blocks of text; use CSS
+  center: deprecated element for aligning or indenting blocks of text; use CSS
 
   b, i: although not deprecated in XHTML, these presentational elements should be replaced
   either by strong and em, respectively, which are [much more] device-independent [warn only?] or with CSS
@@ -362,6 +366,7 @@
   <section id="style">
     <name>Style</name>
 
+    <!-- ================================================ -->
     <category id="style01">
       <name>Text Styling</name>
 
@@ -384,6 +389,7 @@
 
     </category>
 
+    <!-- ================================================ -->
     <category id="style02">
       <name>Content Positioning</name>
 
@@ -400,6 +406,7 @@
       -->
     </category>
 
+    <!-- ================================================ -->
     <category id="style03">
       <name>Images</name>
 
@@ -426,24 +433,24 @@
     -->
  </section>
 
-  <!-- ************************************************ -->
+  <!-- ================================================ -->
   <section id="std">
     <name>HTML Standards</name>
 
-    <category id="std01">
+    <!-- ================================================ -->
+    <category id="w3c-specs">
       <name>W3C Specifications</name>
 
-      <best-practice ref="std001">
+      <best-practice ref="std001" new="1.0.b4">
         <name>DOCTYPE declaration</name>
         <rule>Each page must include a DOCTYPE declaration to facilitate rendering and validation.</rule>
         <page id="std001p"/>
         <site id="std001s"/>
       </best-practice>
 
-      <best-practice ref="std002">
+      <best-practice ref="std002" new="1.0.b4">
         <name>character encoding decl.</name>
-        <!--rule>Each page should specify its character encoding in a <elem>meta</elem> element with <attr>content</attr> attribute (using <attr>charset=</attr>) in conjunction with the <attr>http-equiv=&quot;content-type&quot;</attr> attribute and value.</rule-->
-        <rule>The character encoding of each page should be specified within the value of the <attr>content</attr> attribute <!--(using <attr>charset=</attr>)--> on a <elem>meta</elem> element that also includes an <attr>http-equiv</attr> attribute set to <attr>&quot;content-type&quot;</attr>.</rule>
+        <rule>The character encoding of each page should be specified within the value of the <attr>content</attr> attribute (using <attr>charset=</attr>) on a <elem>meta</elem> element that also includes an <attr>http-equiv</attr> attribute set to <attr>&quot;content-type&quot;</attr>.</rule>
         <info>For example, if the character encoding is UTF-8, it could be specified in XHTML with: <attr>&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;</attr></info>
         <page id="std002p"/>
         <site id="std002s"/>

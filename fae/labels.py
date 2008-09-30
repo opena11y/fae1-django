@@ -19,6 +19,7 @@ sections = {
 
 subtitles = {
     'overview':       'Overview',
+    'beta':           'Beta Testing',
     'rules':          'Rules Summary',
     'users':          'Intended Users',
     'future':         'Future Plans',

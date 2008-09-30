@@ -171,6 +171,8 @@
         <page id="nav001p"/>
         <site id="nav001s"/>
       </best-practice>
+
+      <link tgt="bp" href="nav/lang/"/>
     </category>
 
     <!-- ================================================ -->

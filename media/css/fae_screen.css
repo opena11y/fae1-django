@@ -40,9 +40,9 @@ body {
 	border:				none;
 }
 
-.hidden {			/* Used for content that should be displayed */
-	/* by non-stylesheet-aware browsers          */
-	display:		none !important;
+.hidden {
+	position: absolute;
+	left: -5000px;
 }
 
 .notprinted {			/* Used for content that should not be */
@@ -356,24 +356,24 @@ q		- use &ldquo; and &rdquo; instead
 /********** Styles for Main Content **********/
 
 #main {
-	text-align:			justify;
-	line-height:		1.5;
+	text-align:		justify;
+	line-height:	1.5;
 	color:				black;
-	background:			white;
+	background:   white;
 	margin:				0 0 0 12.5em;
 	padding:			0.5em 1.5em 1em 1em;
-	border-left:		1px solid #999999;
+	border-left:	1px solid #999999;
 }
 
 #main h1 {				/* Should be used once, following navhead */
 	color:				#999999;
-	background:			transparent;
-	margin:				0 0 0.5em 0;
+	background:		transparent;
+	margin:				0 0 0.25em 0;
 }
 
 #main .highlight {		/* Highlight box (for warnings, etc) */
 	color:				inherit;
-	background:			#F0F0F0;
+	background:		#F0F0F0;
 	margin:				1em 0;
 	padding:			1em 2.5em;
 	border:				1px solid #999999;
@@ -1172,20 +1172,20 @@ table.archive th.archive-0, table.archive td.archive-0 {
 
 table.archive th.archive-1, table.archive td.archive-1 {
 	padding-left:		1.5em;
+	width:				40%;
+}
+
+table.archive th.archive-2, table.archive td.archive-2 {
+	padding-left:		1.5em;
 	text-align:			left;
 	white-space:		nowrap;
 	width:				5%;
 }
 
-table.archive th.archive-2, table.archive td.archive-2 {
+table.archive th.archive-3, table.archive td.archive-3 {
 	padding-left:		1.5em;
 	text-align:			right;
 	width:				5%;
-}
-
-table.archive th.archive-3, table.archive td.archive-3 {
-	padding-left:		1.5em;
-	width:				40%;
 }
 
 table.archive th.archive-4, table.archive td.archive-4 {
@@ -1205,6 +1205,7 @@ table.archive th.archive-5, table.archive td.archive-5 {
 li.menu-highlight {
 	background-color:	#f0f0f0;
 	border-top:			1px solid #999;
+	border-right:		1px solid #999;
 	border-bottom:		1px solid #999;
 }
 
@@ -1342,6 +1343,9 @@ ul.reports-disc li { list-style-image: url(/media/images/disc.jpg); }
 
 /* Overrides 5 Feb 2008 */
 div.subtitle, h1, h2 { font-family: georgia, times new roman, serif }
+
 body { font-family: tahoma, arial, helvetica, sans-serif; font-size: 90%; }
 
 div#message { font-size: 120%; font-weight: bold; color: #039; background-color: #f0f0f0; }
+
+span.new { color: #777; font-size: 90%; }

@@ -29,13 +29,13 @@
   <xsl:template match="/">
     <xsl:variable name="site" select="/results/site"/>
 
+    <h1><xsl:value-of select="$title"/></h1>
+
     <xsl:call-template name="context-header"/>
 
     <script type="text/javascript">
       var idArray = <xsl:call-template name="get-testids"/>;
     </script>
-
-    <h1><xsl:value-of select="$title"/></h1>
 
     <xsl:apply-templates select="$testdoc//section[@id=$section]">
       <xsl:with-param name="site" select="$site"/>
@@ -60,8 +60,7 @@
     <xsl:param name="site"/>
 
     <xsl:if test="descendant::page">
-      <a id="{@id}"/>
-      <h3>
+      <h3 id="{@id}">
         <xsl:apply-templates select="name"/>
         <xsl:apply-templates select="link[@tgt='bp']">
           <xsl:with-param name="name" select="name"/>
@@ -91,7 +90,7 @@
       <xsl:variable name="disc" select="count($test-pages/page-test[@eval='disc'])"/>
 
       <li>
-        <xsl:if test="@new"><span style="color:#777;font-size:90%">(New) </span></xsl:if>
+        <xsl:if test="@new"><span class="new">(New) </span></xsl:if>
         <xsl:apply-templates select="rule"/>
         <!-- TO DO: display info element as well -->
 

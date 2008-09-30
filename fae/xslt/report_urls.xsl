@@ -18,11 +18,11 @@
   <xsl:template match="/">
     <xsl:variable name="count" select="count(/results/meta/urls/url)"/>
 
+    <h1>List of URLs</h1>
+
     <xsl:call-template name="context-header">
       <xsl:with-param name="display-urls" select="false()"/>
     </xsl:call-template>
-
-    <h1>List of URLs</h1>
 
     <xsl:for-each select="/results/meta/urls/url">
       <div title="{concat('URL: ', position(), ' of ', $count)}"><xsl:apply-templates/></div>

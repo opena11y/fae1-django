@@ -28,13 +28,13 @@
         <tr>
           <xsl:choose>
             <xsl:when test="$title='Unspecified' or $title='No Title' or string-length($title)=0">
-              <td class="context-1">Report Title: <xsl:value-of select="$default-report-title"/></td>
+              <td class="context-1"><xsl:value-of select="$default-report-title"/></td>
             </xsl:when>
             <xsl:otherwise>
-              <td class="context-1">Report Title: <strong><xsl:value-of select="$title"/></strong></td>
+              <td class="context-1"><strong><xsl:value-of select="$title"/></strong></td>
             </xsl:otherwise>
           </xsl:choose>
-          <td class="context-2">Date: <xsl:value-of select="/results/meta/date"/></td>
+          <td class="context-2"><strong><xsl:value-of select="/results/meta/date"/></strong></td>
         </tr>
 
         <xsl:if test="number(/results/meta/pg-count) &gt; 1">

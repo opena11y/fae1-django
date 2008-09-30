@@ -6,7 +6,7 @@
 
   <version>
     <title>Version 1.0.b4</title>
-    <date>2008-09-29</date>
+    <date>2008-09-30</date>
 
     <item>Added &quot;unique frame titles within frameset&quot; rule to the Navigation/Frames subsection. Also modified the &quot;frame title rule&quot; to check that attribute value is nonempty.</item>
 
@@ -19,6 +19,10 @@
     <item>Added a Beta Testing page in About FAE that itemizes new features and rules that need further testing.</item>
 
     <item>Prepended a (New) indicator to each new rule in the Sitewide and Page reports to facilitate beta testing.</item>
+
+    <item>Reworked layout of report pages so that last h1 element precedes the report context information box.</item>
+
+    <item>Reorganized Archived Reports and Manage Reports tables to place Report Title column at left.</item>
   </version>
 
   <version>

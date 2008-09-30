@@ -13,21 +13,21 @@
 <form method="POST" action="">
 <table cellpadding="0" cellspacing="0" class="archive" summary="Manage Reports Table">
 <tr class="row-highlight">
-    <th class="archive-0" id="c0">Archive</th>
-    <th class="archive-1" id="c1">Date/Time</th>
-    <th class="archive-2" id="c2">Pages</th>
-    <th class="archive-3" id="c3">Report Title</th>
-    <th class="archive-4" id="c4">URL</th>
-    <th class="archive-5" id="c4">Depth</th>
+    <th class="archive-0">Archive</th>
+    <th class="archive-1">Report Title</th>
+    <th class="archive-2">Date/Time</th>
+    <th class="archive-3">Pages</th>
+    <th class="archive-4">URL</th>
+    <th class="archive-5">Depth</th>
 </tr>
 {% for report, form in archive_info %}
 <tr{% if forloop.counter|divisibleby:"2" %} class="row-highlight"{% endif %}>
-<td class="archive-0{% ifequal report.id current_id %} selected{% endifequal %}" headers="c0">{{ form.archive }}</td>
-<td class="archive-1{% ifequal report.id current_id %} selected{% endifequal %}" headers="c1">{{ report.timestamp|date:"Y-m-d H:i" }}</td>
-<td class="archive-2{% ifequal report.id current_id %} selected{% endifequal %}" headers="c2">{{ report.pgcount }}</td>
-<td class="archive-3{% ifequal report.id current_id %} selected{% endifequal %}" headers="c3">{{ report.title }}</td>
-<td class="archive-4{% ifequal report.id current_id %} selected{% endifequal %}" headers="c4">{{ report.url }}{% ifnotequal report.urlcount 1 %} ...{% endifnotequal %}</td>
-<td class="archive-5{% ifequal report.id current_id %} selected{% endifequal %}" headers="c5">{{ report.depth }}</td>
+<td class="archive-0{% ifequal report.id current_id %} selected{% endifequal %}">{{ form.archive }}</td>
+<td class="archive-1{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.title }}</td>
+<td class="archive-2{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.timestamp|date:"Y-m-d H:i" }}</td>
+<td class="archive-3{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.pgcount }}</td>
+<td class="archive-4{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.url }}{% ifnotequal report.urlcount 1 %} ...{% endifnotequal %}</td>
+<td class="archive-5{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.depth }}</td>
 </tr>
 {% endfor %}
 </table>

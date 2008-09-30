@@ -54,9 +54,9 @@
       </xsl:choose>
     </xsl:variable>
 
-    <xsl:call-template name="context-header"/>
-
     <h1><xsl:value-of select="$title"/></h1>
+
+    <xsl:call-template name="context-header"/>
 
     <table cellpadding="0" cellspacing="0" class="summary" summary="page/test evaluation percentages and status summaries by HTML best practices main categories">
       <caption>Test Evaluation Summaries in HTML Best Practices Main Categories</caption>
@@ -155,9 +155,6 @@
               <xsl:attribute name="class">highlight</xsl:attribute>
             </xsl:if>
             <th id="{$cid}" class="row-header">
-              <!--
-              <a href="report.php?id={$id}&amp;pc={$pc}&amp;type={$type}&amp;section={$skey}{$pageid}#{$ckey}"><xsl:apply-templates select="name"/></a>
-              -->
             <xsl:choose>
               <xsl:when test="$type='page'">
                 <a href="/report/{$id}/{$type}/{$pageid}/{$skey}/#{$ckey}"><xsl:apply-templates select="name"/></a>

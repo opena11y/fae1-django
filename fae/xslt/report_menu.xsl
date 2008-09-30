@@ -23,13 +23,11 @@
   <!-- root template -->
 
   <xsl:template match="/">
-
     <xsl:variable name="pg-count" select="/results/meta/pg-count"/>
-    <xsl:call-template name="context-header"/>
 
     <h1><xsl:value-of select="$title"/></h1>
 
-    <p>FAE analyzed <xsl:value-of select="$pg-count"/> page<xsl:if test="number($pg-count) &gt; 1">s</xsl:if> on <xsl:value-of select="/results/meta/date"/></p>
+    <xsl:call-template name="context-header"/>
 
     <ol title="List of Pages">
       <xsl:for-each select="/results/pages/page-info">

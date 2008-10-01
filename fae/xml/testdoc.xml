@@ -5,7 +5,7 @@
 
   <!-- ================================================ -->
   <section id="nav">
-    <name>Navigation</name>
+    <name>Navigation &amp; Orientation</name>
 
     <!-- ================================================ -->
     <category id="titles">
@@ -167,7 +167,8 @@
 
       <best-practice ref="nav001" new="1.0.b4">
         <name>html@lang attribute</name>
-        <rule>Each page must have a <attr>lang</attr> attribute on its <elem>html</elem> element whose value is a valid two-character language code.</rule>
+        <rule>Each page must have a <attr>lang</attr> attribute on its <elem>html</elem> element whose value or initial subtag is a valid two-character language code.</rule>
+        <info>Valid two-character language codes are defined in the IANA Language Subtag Registry. If the <attr>lang</attr> attribute value is hyphenated, then the substring preceding the first hyphen is tested for validity.</info>
         <page id="nav001p"/>
         <site id="nav001s"/>
       </best-practice>

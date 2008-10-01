@@ -7,7 +7,7 @@
 
   <message id="nav001p">
     <msg id="pass"/>
-    <msg id="default">The <attr>lang</attr> attribute value is not a valid language code.</msg>
+    <msg id="default">The <attr>lang</attr> attribute value does not include a valid language code.</msg>
     <msg id="fail-null">The <attr>lang</attr> attribute was not specified.</msg>
   </message>
 

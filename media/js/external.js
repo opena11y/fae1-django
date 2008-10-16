@@ -15,14 +15,19 @@ function addHandlers() {
 }
 /*
  * launchWindow:
- *   Handles only keypress events from carriage return or space.
- *   Sets focus to new window.
+ *   Handles onclick events and keypress events from carriage return
+ *   or space. Sets focus to new window.
  */
 function launchWindow(objAnchor, objEvent) {
   var iKeyCode, bSuccess=false;
+  // The launchFn variable determines how the new URL is displayed. Setting
+  // it to window.open opens the URL in a new tab/window, depending on the
+  // browser configuration; window.location.href opens the URL in the same
+  // tab or window.
+  var launchFn = window.open;
 
   // If the event is from a keyboard, we only want to open the
-  // new window if the user requested the link (return or space)
+  // new window if the user requested the link (return or space).
   if (objEvent && objEvent.type == 'keypress')
   {
     if (objEvent.keyCode)
@@ -31,19 +36,18 @@ function launchWindow(objAnchor, objEvent) {
       iKeyCode = objEvent.which;
 
     // If not carriage return or space, return true so that the user agent
-    // continues to process the action
+    // continues to process the action.
     if (iKeyCode != 13 && iKeyCode != 32)
       return true;
   }
 
-  bSuccess = window.open(objAnchor.href);
+  bSuccess = launchFn(objAnchor.href);
 
   // If the window did not open, allow the browser to continue the default
-  // action of opening in the same window
-  if (!bSuccess)
-    return true;
+  // action of opening in the same window.
+  if (!bSuccess) { return true; }
 
-  // The window was opened, so stop the browser processing further
+  // The window was opened, so stop the browser processing further.
   bSuccess.focus()
   return false;
 }

@@ -321,71 +321,104 @@
 
 <!-- TEXT EQUIVALENTS -->
 
-<!-- img elements with alt text -->
+<!-- img elements with alt attribute -->
 <eval id="text001p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <eval id="text001s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- embed elements with alt text -->
-<eval id="text002p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="text002s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- applet elements with alt text -->
-<eval id="text003p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="text003s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- object elements with alternative content -->
-<eval id="text004p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="text004s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- img elements with alt attribute -->
-<eval id="text005p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="text005s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <!-- img elements with alt attribute with non-null value -->
-<eval id="text006p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+<eval id="text002p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="text006s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <warn><cmp op="lt" ref="pct1" val="100"/></warn>
+<eval id="text002s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- decorative images -->
+<eval id="text003p">
+  <pass>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="cnt2" val="0"/>
+    </and>
+  </pass>
+  <warn>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="gt" ref="cnt2" val="0"/>
+    </and>
+  </warn>
+  <disc><cmp op="eq" ref="tot2" val="0"/></disc>
+</eval>
+
+<eval id="text003s">
+  <pass>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="eq" ref="cnt2" val="0"/>
+    </and>
+  </pass>
+  <warn>
+    <and>
+      <cmp op="eq" ref="cnt1" val="0"/>
+      <cmp op="gt" ref="cnt2" val="0"/>
+    </and>
+  </warn>
+  <disc><cmp op="eq" ref="tot2" val="0"/></disc>
+</eval>
+
+<!-- area elements with alt attribute -->
+<eval id="text004p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text004s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- embed elements with alt text -->
+<eval id="text010p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text010s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- applet elements with alt text -->
+<eval id="text011p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text011s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- object elements with alternative content -->
+<eval id="text012p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<eval id="text012s">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
@@ -424,77 +457,40 @@
 
 <!-- STYLING -->
 
-<!-- elements styled with inline style elements -->
+<!-- center and font elements -->
 <eval id="style001p">
-  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
+  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
 </eval>
 
-<eval id="style001s">
-  <pass><cmp op="eq" ref="pct1" val="0"/></pass>
-</eval>
-
-<!-- nested tables -->
+<!-- b elements -->
 <eval id="style002p">
-  <pass><cmp op="eq" ref="r1" val="0"/></pass>
-  <warn><cmp op="eq" ref="r1" val="1"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="style002s">
-  <pass><cmp op="eq" ref="r1" val="0"/></pass>
-  <warn><cmp op="eq" ref="r1" val="1"/></warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- decorative images -->
-<eval id="style003p">
-  <pass>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="eq" ref="pct1" val="100"/>
-    </and>
-  </pass>
-  <warn>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="lt" ref="pct1" val="100"/>
-    </and>
-  </warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<eval id="style003s">
-  <pass>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="eq" ref="pct1" val="100"/>
-    </and>
-  </pass>
-  <warn>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="lt" ref="pct1" val="100"/>
-    </and>
-  </warn>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- inline style elements -->
-<eval id="style004p">
-  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
-</eval>
-
-<eval id="style004s">
-  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
-</eval>
-
-<!-- elements with color attribute -->
-<eval id="style005p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
 </eval>
 
-<eval id="style005s">
+<!-- i elements -->
+<eval id="style003p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+</eval>
+
+<!-- u elements -->
+<eval id="style004p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+</eval>
+
+<!-- blink and marquee elements -->
+<eval id="style005p">
   <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+</eval>
+
+<!-- nested tables -->
+<eval id="style006p">
+  <pass><cmp op="eq" ref="r1" val="0"/></pass>
+  <warn><cmp op="eq" ref="r1" val="1"/></warn>
+</eval>
+
+<eval id="style006s">
+  <pass><cmp op="eq" ref="r1" val="0"/></pass>
+  <warn><cmp op="eq" ref="r1" val="1"/></warn>
 </eval>
 
 <!-- STANDARDS -->

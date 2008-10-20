@@ -138,33 +138,46 @@
   <!-- TEXT EQUIVALENTS -->
 
   <message id="text001p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>img</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not have an <attr>alt</attr> attribute.</msg>
     <msg id="disc">No <elem>img</elem> elements were found.</msg>
   </message>
 
   <message id="text002p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No <elem>embed</elem> elements were found.</msg>
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>img</elem> <sp ref="cnt1"><s>element has</s><p>elements have</p></sp> an empty <attr>alt</attr> attribute.</msg>
+    <msg id="disc">No <elem>img</elem> elements with an <attr>alt</attr> attribute were found.</msg>
   </message>
 
   <message id="text003p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No <elem>applet</elem> elements were found.</msg>
-  </message>
-
-  <message id="text004p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No <elem>object</elem> elements were found.</msg>
-  </message>
-
-  <message id="text005p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
+    <msg id="pass"/>
+    <msg id="warn">No images appear to be decorative based on their dimensions (having a width or height less than 8 pixels). However, not all images (<ins ref="tot1"/> out of <ins ref="tot2"/>) were retrieved and analyzed.</msg>
+    <msg id="fail"><ins ref="cnt1"/> <sp ref="cnt1"><s>image appears to be stylistic based on its</s><p>images appear to be stylistic based on their</p></sp> dimensions (having a width or height less than 8 pixels). <ins ref="tot1"/> out of <ins ref="tot2"/> images were retrieved and analyzed.</msg>
     <msg id="disc">No <elem>img</elem> elements were found.</msg>
   </message>
 
-  <message id="text006p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No <elem>img</elem> elements with an <attr>alt</attr> attribute were found.</msg>
+  <message id="text004p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>area</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not have an <attr>alt</attr> attribute.</msg>
+    <msg id="disc">No <elem>area</elem> elements were found.</msg>
+  </message>
+
+  <message id="text010p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>embed</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>embed</elem> elements were found.</msg>
+  </message>
+
+  <message id="text011p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>applet</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>applet</elem> elements were found.</msg>
+  </message>
+
+  <message id="text012p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <elem>object</elem> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No <elem>object</elem> elements were found.</msg>
   </message>
 
   <!-- SCRIPTING &amp; AUTOMATION -->
@@ -182,29 +195,33 @@
   <!-- STYLING -->
 
   <message id="style001p">
-    <msg id="default"><ins ref="pct1"/>% of the content on the page is styled using deprecated HTML elements.</msg>
-    <msg id="null">No deprecated style elements were found.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>font</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>center</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> were found.</msg>
   </message>
 
   <message id="style002p">
-    <msg id="default"><ins ref="cnt1"/> nested <sp ref="cnt1"><s>table was</s><p>tables were</p></sp> found out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, with a maximum depth of <ins ref="r1"/>.</msg>
-    <msg id="disc">No <elem>table</elem> elements were found.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>b</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
   <message id="style003p">
-    <msg id="pass">No images appear to be stylistic based on their dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
-    <msg id="warn">No images appear to be decorative based on their dimensions (having a width or height of less than 4 pixels). However, not all images (<ins ref="cnt2"/> out of <ins ref="tot1"/>) were retrieved and analyzed.</msg>
-    <msg id="fail"><ins ref="cnt1"/> <sp ref="cnt1"><s>image appears to be stylistic based on its</s><p>images appear to be stylistic based on their</p></sp> dimensions (having a width or height of less than 4 pixels). <ins ref="cnt2"/> out of <ins ref="tot1"/> images were retrieved and analyzed.</msg>
-    <msg id="disc">No <elem>img</elem> elements were found.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>i</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
-  <!-- needs to be combined with style001p -->
   <message id="style004p">
-    <msg id="default"><ins ref="tot1"/> inline style <sp ref="tot1"><s>element was</s><p>elements were</p></sp> found (<ins ref="r1"/> <elem>b</elem>, <ins ref="r2"/> <elem>basefont</elem>, <ins ref="r3"/> <elem>blink</elem>, <ins ref="r4"/> <elem>center</elem>, <ins ref="r5"/> <elem>font</elem>, <ins ref="r6"/> <elem>i</elem>, <ins ref="r7"/> <elem>marquee</elem>, <ins ref="r8"/> <elem>strike</elem>, <ins ref="r9"/> <elem>u</elem>).</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>u</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
   <message id="style005p">
-    <msg id="default"><ins ref="cnt1"/> <sp ref="cnt1"><s>element with a <attr>color</attr> attribute was</s><p>elements with a <attr>color</attr> attribute were</p></sp> found.</msg>
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>blink</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>marquee</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> were found.</msg>
+  </message>
+
+  <message id="style006p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> nested <sp ref="cnt1"><s>table was</s><p>tables were</p></sp> found out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, with a maximum nesting level of <ins ref="r1"/>.</msg>
   </message>
 
   <!-- STANDARDS -->

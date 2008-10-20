@@ -11,8 +11,8 @@ RESULTS_FILE_DEBUG = False
 
 faedev, faetest, faedata = range(3)
 PLATFORM = faedev
-VERSION = '1.0.b4'
-RULESET = '1.0.2'
+VERSION = '1.0.b5'
+RULESET = '1.0.3'
 
 PROJECT_DIR = ('/home/nhoyt/src/project', '/usr/local/src/project', '/usr/local/src/faedata')
 DB_NAME =     ('faedev',     'faetest',     'faedata')

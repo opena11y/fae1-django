@@ -99,7 +99,7 @@
     <category id="nav-bars">
       <name>Navigation Bars</name>
 
-      <best-practice ref="nav041" new="1.0.b3">
+      <best-practice ref="nav041" new="1.0.b5">
         <name>ul/ol navigation menus</name>
         <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem>.</rule>
         <info>FAE considers a <elem>ul</elem> or <elem>ol</elem> element to be a navigation bar if it appears to be a navigation list, defined recursively as follows. A navigation list is a <elem>ul</elem> or <elem>ol</elem> element that contains two or more &quot;item with link&quot; <elem>li</elem> elements, and no more than one <elem>li</elem> element that does not qualify as an &quot;item with link&quot;. An &quot;item with link&quot; is defined as an <elem>li</elem> element that contains either a single text link (<elem>a</elem> element) or a link followed by a nested navigation list, optionally preceded by a heading element.</info>
@@ -107,10 +107,10 @@
         <site id="nav041s"/>
       </best-practice>
 
-      <best-practice ref="nav042" new="1.0.b3">
+      <best-practice ref="nav042" new="1.0.b5">
         <name>map navigation bars</name>
         <rule>Each <elem>map</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem></rule>
-        <info>FAE considers a <elem>map</elem> element to be a navigation bar if it contains two or more <elem>area</elem> elements.</info>
+        <info>FAE considers a <elem>map</elem> element to be a navigation bar if it contains one or more <elem>area</elem> elements.</info>
         <page id="nav042p"/>
         <site id="nav042s"/>
       </best-practice>
@@ -214,20 +214,6 @@
       <link tgt="bp" href="nav/frame/"/>
     </category>
 
-    <!-- ================================================ -->
-    <!--
-    <category id="linear">
-      <name>Document Linearization</name>
-
-      <best-practice ref="style002">
-        <name>nested tables</name>
-        <rule>Deeply nested tables can cause problems when a document is rendered in a linear mode, e.g., by screen readers.</rule>
-        <page id="style002p"/>
-        <site id="style002s"/>
-      </best-practice>
-    </category>
-    -->
-
     <link tgt="bp" href="nav/"/>
   </section>
 
@@ -237,30 +223,13 @@
 
     <!-- ================================================ -->
     <category id="text01">
-      <name>Images</name>
+      <name>Informative Images</name>
 
-      <!--
-      <best-practice ref="text001">
-        <name>images with alt text</name>
-        <rule>Each <elem>img</elem> element should have <attr>alt</attr> text.</rule>
-        <info><elem>img</elem> elements with <attr>alt=&quot;&quot;</attr> should be moved to CSS.</info>
+      <best-practice ref="text001" new="1.0.b5">
+        <name>images with alt attribute</name>
+        <rule>Each <elem>img</elem> element must have an <attr>alt</attr> attribute.</rule>
         <page id="text001p"/>
         <site id="text001s"/>
-      </best-practice>
-      -->
-
-      <best-practice ref="text005">
-        <name>images with alt attribute</name>
-        <rule>Each <elem>img</elem> element should have an <attr>alt</attr> attribute.</rule>
-        <page id="text005p"/>
-        <site id="text005s"/>
-      </best-practice>
-
-      <best-practice ref="text006">
-        <name>images with alt text</name>
-        <rule>Each <elem>img</elem> element with an <attr>alt</attr> attribute should have alt text.</rule>
-        <page id="text006p"/>
-        <site id="text006s"/>
       </best-practice>
 
       <link tgt="bp" href="text/info/"/>
@@ -268,30 +237,68 @@
 
     <!-- ================================================ -->
     <category id="text02">
-      <name>Embedded Objects</name>
+      <name>Decorative Images</name>
 
-      <best-practice ref="text002">
-        <name>embed elements</name>
-        <rule>Each <elem>embed</elem> element should have <attr>alt</attr> text.</rule>
+      <best-practice ref="text002" new="1.0.b5">
+        <name>images with alt text</name>
+        <rule>Each <elem>img</elem> element with an <attr>alt</attr> attribute should have alt text.</rule>
+        <info>Each <elem>img</elem> element that has an empty <attr>alt</attr> attribute value should be removed; CSS techniques should be used instead for styling the graphical content.</info>
         <page id="text002p"/>
         <site id="text002s"/>
       </best-practice>
 
-      <best-practice ref="text003">
-        <name>applet elements</name>
-        <rule>Each <elem>applet</elem> element should have <attr>alt</attr> text.</rule>
+      <best-practice ref="text003" new="1.0.b5">
+        <name>images with width or height less than 8 pixels</name>
+        <rule>Avoid using <elem>img</elem> elements for stylistic purposes such as separator bars or list bullets; use CSS instead.</rule>
+        <info>Each <elem>img</elem> element with width or height less than 8 pixels should be removed; CSS techniques should be used instead for styling the graphical content.</info>
         <page id="text003p"/>
         <site id="text003s"/>
       </best-practice>
 
-      <best-practice ref="text004">
-        <name>object elements</name>
-        <rule>Each <elem>object</elem> element should contain alternate text content.</rule>
+      <link tgt="bp" href="text/dec/"/>
+    </category>
+
+    <!-- ================================================ -->
+    <category id="text03">
+      <name>Image Maps</name>
+
+      <best-practice ref="text004" new="1.0.b5">
+        <name>area elements with alt attribute</name>
+        <rule>Each <elem>area</elem> element must have an <attr>alt</attr> attribute.</rule>
         <page id="text004p"/>
         <site id="text004s"/>
       </best-practice>
 
+      <link tgt="bp" href="text/map/"/>
     </category>
+
+    <!-- ================================================ -->
+    <!--
+    <category id="text04">
+      <name>Embedded Objects</name>
+
+      <best-practice ref="text010" new="1.0.b5">
+        <name>embed elements</name>
+        <rule>Each <elem>embed</elem> element must have <attr>alt</attr> text.</rule>
+        <page id="text010p"/>
+        <site id="text010s"/>
+      </best-practice>
+
+      <best-practice ref="text011" new="1.0.b5">
+        <name>applet elements</name>
+        <rule>Each <elem>applet</elem> element must have <attr>alt</attr> text.</rule>
+        <page id="text011p"/>
+        <site id="text011s"/>
+      </best-practice>
+
+      <best-practice ref="text012" new="1.0.b5">
+        <name>object elements</name>
+        <rule>Each <elem>object</elem> element must contain alternate text content.</rule>
+        <page id="text012p"/>
+        <site id="text012s"/>
+      </best-practice>
+    </category>
+    -->
 
     <link tgt="bp" href="text/"/>
   </section>
@@ -343,29 +350,6 @@
   </section>
 
   <!-- ================================================ -->
-
-  <!-- tags to avoid, in the following groupings:
-  font, basefont: deprecated elements for specifying font attributes such as color and size; use HTML structural elements and/or CSS
-
-  big, small, tt, strike, s, u: deprecated inline elements for styling text; use CSS
-
-  center: deprecated element for aligning or indenting blocks of text; use CSS
-
-  b, i: although not deprecated in XHTML, these presentational elements should be replaced
-  either by strong and em, respectively, which are [much more] device-independent [warn only?] or with CSS
-
-  blink, marquee: deprecated presentational elements for motion effects which at best can be very
-  distracting, and at worst can induce seizures [more]; [don't use the elements or the effects]
-  -->
-
-  <!-- attributes to avoid, in the following groupings:
-  color, bgcolor, background: creates presentational markup relating to colors and background images;
-  use CSS
-
-  align, width, height, border, hspace, vspace: creates presentational markup relating to size,
-  alignment and borders; use CSS
-  -->
-
   <section id="style">
     <name>Style</name>
 
@@ -373,67 +357,61 @@
     <category id="style01">
       <name>Text Styling</name>
 
-      <!-- HTML Tech. for WCAG 2.0 also includes tt, big, small, s -->
-      <best-practice ref="style004">
-        <name>inline style elements</name>
-        <rule>Avoid the use of inline style elements; use CSS instead.</rule>
-        <info>FAE currently tests for the following inline style elements: <elem>b</elem>, <elem>basefont</elem>, <elem>blink</elem>, <elem>center</elem>, <elem>font</elem>, <elem>i</elem>, <elem>marquee</elem>, <elem>strike</elem> and <elem>u</elem>.</info>
-        <page id="style004p"/>
-        <site id="style004s"/>
+      <best-practice ref="style001" new="1.0b5">
+        <name>inline style elements: font and center</name>
+        <rule>The <elem>font</elem> and <elem>center</elem> elements must not be used. Instead use structural markup with CSS for styling.</rule>
+        <page id="style001p"/>
+        <site id="style001s"/>
       </best-practice>
 
-      <!-- HTML Tech. for WCAG 2.0 also includes bgcolor -->
-      <best-practice ref="style005">
-        <name>inline style attributes</name>
-        <rule>Avoid using the deprecated <attr>color</attr> attribute on HTML elements for specifying color; use CSS instead.</rule>
-        <page id="style005p"/>
-        <site id="style005s"/>
-      </best-practice>
-
-    </category>
-
-    <!-- ================================================ -->
-    <category id="style02">
-      <name>Content Positioning</name>
-
-      <best-practice ref="style002">
-        <name>tables for positioning &amp; layout</name>
-        <rule>Avoid using tables for page layout; use CSS instead.</rule>
-        <info>The existence of deeply nested tables suggests that tables are being used for page layout. Nested tables can cause readability problems when a page is linearized.</info>
+      <best-practice ref="style002" new="1.0b5">
+        <name>inline style elements: b</name>
+        <rule>The <elem>b</elem> element must not be used for bold styling of text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>strong</elem> element for emphasizing words, phrases or sentences.</rule>
         <page id="style002p"/>
         <site id="style002s"/>
       </best-practice>
 
-      <!-- no content
-      <link tgt="bp" href="styling/css_layout.php"/>
-      -->
-    </category>
-
-    <!-- ================================================ -->
-    <category id="style03">
-      <name>Images</name>
-
-      <best-practice ref="text001">
-        <name>images with alt text</name>
-        <rule>Each <elem>img</elem> element should have <attr>alt</attr> text.</rule>
-        <info><elem>img</elem> elements with <attr>alt=&quot;&quot;</attr> should be moved to CSS.</info>
-        <page id="text001p"/>
-        <site id="text001s"/>
-      </best-practice>
-
-      <best-practice ref="style003">
-        <name>decorative images</name>
-        <rule>Avoid using <elem>img</elem> elements for stylistic purposes such as separator bars or list bullets; use CSS instead.</rule>
+      <best-practice ref="style003" new="1.0b5">
+        <name>inline style elements: i</name>
+        <rule>The <elem>i</elem> element must not be used to italicize text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>em</elem> element for emphasizing words, phrases or sentences.</rule>
         <page id="style003p"/>
         <site id="style003s"/>
       </best-practice>
 
-      <link tgt="bp" href="text/dec"/>
+      <best-practice ref="style004" new="1.0b5">
+        <name>inline style elements: u</name>
+        <rule>The <elem>u</elem> element must not be used to underline text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>em</elem> or <elem>strong</elem> elements for emphasizing words, phrases or sentences.</rule>
+        <page id="style004p"/>
+        <site id="style004s"/>
+      </best-practice>
+
+      <best-practice ref="style005" new="1.0b5">
+        <name>inline style elements: blink and marquee</name>
+        <rule>The <elem>blink</elem> and <elem>marquee</elem> elements must not be used.</rule>
+        <info>Blinking or moving text causes accessibility problems for people with photosenstive epilepsy and visual impairments.</info>
+        <page id="style005p"/>
+        <site id="style005s"/>
+      </best-practice>
+
+      <link tgt="bp" href="style/text/"/>
     </category>
 
-    <!--
-    <link tgt="bp" href="styling/"/>
-    -->
+    <!-- ================================================ -->
+    <category id="style02">
+      <name>Layout Tables</name>
+
+      <best-practice ref="style006" new="1.0b5">
+        <name>tables for positioning &amp; layout</name>
+        <rule>Tables should be used only for organizing data in rows and columns. Use CSS instead of tables and nested tables to visually layout blocks of related content for graphical rendering.</rule>
+        <!--rule>Avoid using tables for page layout; use CSS instead.</rule-->
+        <info>The existence of deeply nested tables suggests that tables are being used for page layout. Nested tables can cause readability problems when a page is linearized.</info>
+        <page id="style006p"/>
+        <site id="style006s"/>
+      </best-practice>
+
+      <link tgt="bp" href="style/layout/"/>
+    </category>
+
  </section>
 
   <!-- ================================================ -->

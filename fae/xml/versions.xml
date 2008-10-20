@@ -5,6 +5,21 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.b5</title>
+    <date>2008-10-20</date>
+
+    <item>Updated Navigation &amp; Orientation/Default Language rule to recognize initial language subtag possibly followed by additional hyphen-separated subtags for region or script.</item>
+
+    <item>Modified and expanded the heuristics used for detecting and evaluating Navigation Bar markup patterns and rules to add significantly more flexibility.</item>
+
+    <item>Created three new subsections in the Text Equivalents section: Informative Images, Decorative Images and Image Maps, and implements all Pass/Fail rules for these subsections.</item>
+
+    <item>In Style/Text Styling, implemented new rules for inline style elements, including font, center, b, i, u, blink and marquee. Also created new subsection, Layout Tables, which now includes the modified linearization rule.</item>
+
+    <item>Added Best Practices links and (New) indicators for new rules in the About FAE: Rules Summary page.</item>
+  </version>
+
+  <version>
     <title>Version 1.0.b4</title>
     <date>2008-09-30</date>
 

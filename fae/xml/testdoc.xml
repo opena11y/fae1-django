@@ -102,7 +102,7 @@
       <best-practice ref="nav041" new="1.0.b5">
         <name>ul/ol navigation menus</name>
         <rule>Each <elem>ul</elem> or <elem>ol</elem> element that precedes the last <elem>h1</elem> element and appears to be a navigation bar should be immediately preceded by a heading element, preferably an <elem>h2</elem>.</rule>
-        <info>FAE considers a <elem>ul</elem> or <elem>ol</elem> element to be a navigation bar if it appears to be a navigation list, defined recursively as follows. A navigation list is a <elem>ul</elem> or <elem>ol</elem> element that contains two or more &quot;item with link&quot; <elem>li</elem> elements, and no more than one <elem>li</elem> element that does not qualify as an &quot;item with link&quot;. An &quot;item with link&quot; is defined as an <elem>li</elem> element that contains either a single text link (<elem>a</elem> element) or a link followed by a nested navigation list, optionally preceded by a heading element.</info>
+        <info>FAE considers a <elem>ul</elem> or <elem>ol</elem> element to be a navigation bar if it appears to be a navigation list, defined recursively as follows. A navigation list is a <elem>ul</elem> or <elem>ol</elem> element that contains one or more &quot;item with link&quot; <elem>li</elem> elements, and no more than one <elem>li</elem> element that does not qualify as an &quot;item with link&quot;. An &quot;item with link&quot; is defined as an <elem>li</elem> element that contains either a single text link (<elem>a</elem> element) or a link followed by a nested navigation list, optionally preceded by a heading element.</info>
         <page id="nav041p"/>
         <site id="nav041s"/>
       </best-practice>

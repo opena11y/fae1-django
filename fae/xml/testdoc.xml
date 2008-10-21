@@ -241,16 +241,14 @@
 
       <best-practice ref="text002" new="1.0.b5">
         <name>images with alt text</name>
-        <rule>Each <elem>img</elem> element with an <attr>alt</attr> attribute should have alt text.</rule>
-        <info>Each <elem>img</elem> element that has an empty <attr>alt</attr> attribute value should be removed; CSS techniques should be used instead for styling the graphical content.</info>
+        <rule>Each <elem>img</elem> element with an empty <attr>alt</attr> attribute should be removed; CSS techniques should be used instead.</rule>
         <page id="text002p"/>
         <site id="text002s"/>
       </best-practice>
 
       <best-practice ref="text003" new="1.0.b5">
         <name>images with width or height less than 8 pixels</name>
-        <rule>Avoid using <elem>img</elem> elements for stylistic purposes such as separator bars or list bullets; use CSS instead.</rule>
-        <info>Each <elem>img</elem> element with width or height less than 8 pixels should be removed; CSS techniques should be used instead for styling the graphical content.</info>
+        <rule>Each <elem>img</elem> element with width or height less than 8 pixels should be removed; CSS techniques should be used instead.</rule>
         <page id="text003p"/>
         <site id="text003s"/>
       </best-practice>

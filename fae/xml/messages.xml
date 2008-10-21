@@ -150,9 +150,8 @@
   </message>
 
   <message id="text003p">
-    <msg id="pass"/>
-    <msg id="warn">No images appear to be decorative based on their dimensions (having a width or height less than 8 pixels). However, not all images (<ins ref="tot1"/> out of <ins ref="tot2"/>) were retrieved and analyzed.</msg>
-    <msg id="fail"><ins ref="cnt1"/> <sp ref="cnt1"><s>image appears to be stylistic based on its</s><p>images appear to be stylistic based on their</p></sp> dimensions (having a width or height less than 8 pixels). <ins ref="tot1"/> out of <ins ref="tot2"/> images were retrieved and analyzed.</msg>
+    <msg id="pass"><ins ref="tot1"/> out of <ins ref="tot2"/> images were retrieved and analyzed.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <sp ref="cnt1"><s>image appears</s><p>images appear</p></sp> to be decorative based on <sp ref="cnt1"><s>its</s><p>their</p></sp> dimensions (width or height less than 8 pixels); <ins ref="tot1"/> out of <ins ref="tot2"/> images were retrieved and analyzed.</msg>
     <msg id="disc">No <elem>img</elem> elements were found.</msg>
   </message>
 

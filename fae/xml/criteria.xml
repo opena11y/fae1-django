@@ -332,7 +332,7 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- img elements with alt attribute with non-null value -->
+<!-- img elements with empty alt attribute -->
 <eval id="text002p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
@@ -347,34 +347,14 @@
 
 <!-- decorative images -->
 <eval id="text003p">
-  <pass>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="eq" ref="cnt2" val="0"/>
-    </and>
-  </pass>
-  <warn>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="gt" ref="cnt2" val="0"/>
-    </and>
-  </warn>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot2" val="0"/></disc>
 </eval>
 
 <eval id="text003s">
-  <pass>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="eq" ref="cnt2" val="0"/>
-    </and>
-  </pass>
-  <warn>
-    <and>
-      <cmp op="eq" ref="cnt1" val="0"/>
-      <cmp op="gt" ref="cnt2" val="0"/>
-    </and>
-  </warn>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot2" val="0"/></disc>
 </eval>
 

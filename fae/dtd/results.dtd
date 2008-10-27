@@ -29,7 +29,7 @@
     id      CDATA          #IMPLIED
 >
 
-<!ELEMENT site (test+)>
+<!ELEMENT site (test*)>
 
 <!ELEMENT test (r+)>
 <!ATTLIST test

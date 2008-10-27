@@ -11,6 +11,12 @@
     <msg id="fail-null">The <attr>lang</attr> attribute was not specified.</msg>
   </message>
 
+  <message id="nav002p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <sp ref="cnt1"><s>element has an</s><p>elements have</p></sp> <attr>accesskey</attr> <sp ref="cnt1"><s>value that is</s><p>values that are</p></sp> not unique.</msg>
+    <msg id="disc">No elements with an <attr>accesskey</attr> attribute were found.</msg>
+  </message>
+
   <message id="nav003p">
     <msg id="default">Out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, <ins ref="cnt1"/> <sp ref="cnt1"><s>appears to be a data table</s><p>appear to be data tables</p></sp>. Of those data tables, <ins ref="cnt2"/> <sp ref="cnt2"><s>utilizes</s><p>utilize</p></sp> the <elem>thead</elem> element, and <ins ref="cnt3"/> <sp ref="cnt3"><s>utilizes</s><p>utilize</p></sp> the <elem>th</elem> element.</msg>
     <msg id="disc">No data tables were found.</msg>
@@ -183,20 +189,32 @@
   <!-- SCRIPTING &amp; AUTOMATION -->
 
   <message id="auto001p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No elements with an <attr>onmouseover</attr> attribute were found.</msg>
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
   </message>
 
   <message id="auto002p">
-    <msg id="default"><ins ref="pct1"/>% (<ins ref="cnt1"/> out of <ins ref="tot1"/>)</msg>
-    <msg id="disc">No elements with an <attr>onmouseout</attr> attribute were found.</msg>
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No focusable elements with an <attr>onmouseover</attr> attribute were found.</msg>
+  </message>
+
+  <message id="auto003p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="cnt1"/> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No focusable elements with an <attr>onmouseout</attr> attribute were found.</msg>
+  </message>
+
+  <message id="auto004p">
+    <msg id="pass"/>
+    <msg id="default"><ins ref="tot1"/> <sp ref="cnt1"><s>element does</s><p>elements do</p></sp> not meet the criteria.</msg>
   </message>
 
   <!-- STYLING -->
 
   <message id="style001p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> <elem>font</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>center</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> were found.</msg>
+    <msg id="fail"><ins ref="cnt1"/> <elem>font</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>center</elem> <sp ref="cnt2"><s>element</s><p>elements</p></sp> were found.</msg>
   </message>
 
   <message id="style002p">

@@ -81,7 +81,7 @@
 
     <xsl:if test="child::page">
       <li>
-        <xsl:if test="@new"><span class="new">(New) </span></xsl:if>
+        <xsl:call-template name="new-rule"/>
         <xsl:apply-templates select="rule"/>
       </li>
       <!-- TO DO: display info element as well -->

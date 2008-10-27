@@ -193,6 +193,19 @@
     -->
 
     <!-- ================================================ -->
+    <category id="accesskey">
+      <name>Access Keys</name>
+
+      <best-practice ref="nav002" new="1.0.b6">
+        <name>accesskey values should be unique</name>
+        <rule>Each <attr>accesskey</attr> attribute value on a page should be unique.</rule>
+        <page id="nav002p"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/accesskey/"/>
+    </category>
+
+    <!-- ================================================ -->
     <category id="frames">
       <name>Frames</name>
 
@@ -307,49 +320,52 @@
 
     <!-- ================================================ -->
     <category id="auto01">
-      <name>Device Independence</name>
+      <name>onclick</name>
 
       <best-practice ref="auto001">
-        <name>onmouseover and onfocus actions</name>
-        <rule>Each element with an <attr>onmouseover</attr> attribute should also have an <attr>onfocus</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <name>onclick actions on nonfocusable elements</name>
+        <!--rule>Elements that cannot accept keyboard focus should not have <attr>onclick</attr> attributes.</rule-->
+        <rule>The <attr>onclick</attr> attribute should not be used on elements that cannot accept keyboard focus.</rule>
         <page id="auto001p"/>
-        <site id="auto001s"/>
       </best-practice>
 
-      <best-practice ref="auto002">
-        <name>onmouseout and onblur actions</name>
-        <rule>Each element with an <attr>onmouseout</attr> attribute should also have an <attr>onblur</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
-        <page id="auto002p"/>
-        <site id="auto002s"/>
-      </best-practice>
-
-      <!-- no content
-      <link tgt="bp" href="auto/keyboard.php"/>
-      -->
+      <link tgt="bp" href="script/onclick/"/>
     </category>
 
     <!-- ================================================ -->
-    <!--
     <category id="auto02">
-      <name>Dynamic Content</name>
+      <name>onmouseover &amp; onmouseout</name>
 
-      <best-practice ref="auto003">
-        <name>calls to write &amp; writeln</name>
-        <rule>TBD</rule>
-        <page id="auto003p"/>
-        <site id="auto003s"/>
+      <best-practice ref="auto002">
+        <name>onmouseover and onfocus actions on focusable elements</name>
+        <rule>Each focusable element with an <attr>onmouseover</attr> attribute must also have an <attr>onfocus</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <info>Focusable elements are primarily links and form controls. Specifically, they include the <elem>a</elem> element with an <attr>href</attr> attribute and/or a <attr>tabindex</attr> attribute with a value of 0 or greater, and the <elem>area</elem>, <elem>button</elem>, <elem>input</elem>, <elem>select</elem> and <elem>textarea</elem> elements.</info>
+        <page id="auto002p"/>
       </best-practice>
 
-      <link tgt="bp" href="auto/dcontent.php"/>
+      <best-practice ref="auto003">
+        <name>onmouseout and onblur actions on focusable elements</name>
+        <rule>Each focusable element with an <attr>onmouseout</attr> attribute must also have an <attr>onblur</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <info>Focusable elements are primarily links and form controls. Specifically, they include the <elem>a</elem> element with an <attr>href</attr> attribute and/or a <attr>tabindex</attr> attribute with a value of 0 or greater, and the <elem>area</elem>, <elem>button</elem>, <elem>input</elem>, <elem>select</elem> and <elem>textarea</elem> elements.</info>
+        <page id="auto003p"/>
+      </best-practice>
+
+      <best-practice ref="auto004">
+        <name>onmouseover and onmouseout actions on nonfocusable elements</name>
+        <!--rule>Elements that cannot accept keyboard focus should not have <attr>onmouseover</attr> or <attr>onmouseout</attr> attributes; use CSS techniques instead to provide the desired stylistic effects.</rule-->
+        <rule>The <attr>onmouseover</attr> and <attr>onmouseout</attr> attributes should not be used on elements that cannot accept keyboard focus; use CSS techniques instead to provide the desired stylistic effects.</rule>
+        <page id="auto004p"/>
+      </best-practice>
+
+      <link tgt="bp" href="script/onmouseover/"/>
     </category>
-    -->
 
     <link tgt="bp" href="script/"/>
   </section>
 
   <!-- ================================================ -->
   <section id="style">
-    <name>Style</name>
+    <name>Styling</name>
 
     <!-- ================================================ -->
     <category id="style01">

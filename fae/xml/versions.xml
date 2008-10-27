@@ -5,6 +5,17 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.b6</title>
+    <date>2008-10-27</date>
+
+    <item>Added Scripting rules in onclick and onmouseover/onmouseout subsections.</item>
+    <item>Added Navigation &amp; Orientation/Access Keys rule.</item>
+    <item>Added a reference and link to the Illinois Information Technology Accessibility Act (IITAA) on the About FAE: Overview page.</item>
+    <item>All rules in FAE are now either new or updated (with a total of 37 rules in this version); removed (New) indicators on Page and Sitewide Reports and Rules Summary pages.</item>
+
+  </version>
+
+  <version>
     <title>Version 1.0.b5</title>
     <date>2008-10-20</date>
 

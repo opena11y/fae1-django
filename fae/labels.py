@@ -12,7 +12,7 @@ sections = {
     'nav':             'Navigation & Orientation',
     'text':            'Text Equivalents',
     'auto':            'Scripting',
-    'style':           'Style',
+    'style':           'Styling',
     'std':             'HTML Standards',
     }
 

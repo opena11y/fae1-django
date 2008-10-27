@@ -48,9 +48,9 @@
 
   <xsl:template match="best-practice">
     <li>
-      <xsl:if test="@new"><span class="new">(New) </span></xsl:if>
+      <xsl:call-template name="new-rule"/>
       <xsl:apply-templates select="rule"/>
-      <xsl:if test="info"><blockquote style="font-size:88%;margin:0.5em 2em"><xsl:apply-templates select="info"/></blockquote></xsl:if>
+      <xsl:if test="info"><blockquote class="ruleinfo"><xsl:apply-templates select="info"/></blockquote></xsl:if>
     </li>
   </xsl:template>
 

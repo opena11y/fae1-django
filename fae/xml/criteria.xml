@@ -16,6 +16,13 @@
   <fail-null><cmp op="eq" ref="b1" val="0"/></fail-null>
 </eval>
 
+<!-- nonunique accesskey attribute values -->
+<eval id="nav002p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
 <!-- num data tables out of total tables -->
 <!-- NOTE: This test always evaluates to either pass or disc! -->
 <eval id="nav003p">
@@ -404,35 +411,28 @@
 
 <!-- SCRIPTING &amp; AUTOMATION -->
 
-<!-- elements with onmouseover and onfocus -->
+<!-- nonfocusable elements with onclick -->
 <eval id="auto001p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
 </eval>
 
-<eval id="auto001s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- elements with onmouseout and onblur -->
+<!-- focusable elements with onmouseover and onfocus -->
 <eval id="auto002p">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="auto002s">
-  <pass><cmp op="eq" ref="pct1" val="100"/></pass>
-  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
-</eval>
-
-<!-- calls to document.write/writeln -->
+<!-- focusable elements with onmouseout and onblur -->
 <eval id="auto003p">
-  <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<eval id="auto003s">
+<!-- nonfocusable elements with onmouseover or onmouseout -->
+<eval id="auto004p">
   <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+  <warn><cmp op="gt" ref="tot1" val="0"/></warn>
 </eval>
 
 <!-- STYLING -->

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
+<xsl:variable name="display-new" select="false()"/>
+
   <!-- ======================================================== -->
 
   <xsl:template name="context-header">
@@ -185,6 +187,12 @@
     <xsl:param name="name"/>
     <xsl:variable name="prefix" select="//link-base[@tgt='bp']/@href"/>
     <a class="external best-practices" href="{concat($prefix, @href)}" title="Best Practices: {$name}">Best Practices<span> (opens in a new window)</span></a>
+  </xsl:template>
+
+  <!-- ======================================================== -->
+
+  <xsl:template name="new-rule">
+    <xsl:if test="$display-new and @new"><span class="new">(New) </span></xsl:if>
   </xsl:template>
 
 </xsl:transform>

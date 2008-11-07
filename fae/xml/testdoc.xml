@@ -151,7 +151,7 @@
         <site id="nav053s"/>
       </best-practice>
 
-      <best-practice ref="nav050" new="1.0.b2">
+      <best-practice ref="nav050" new="1.0.b3">
         <name>label and legend elements must not be empty</name>
         <rule>Each <elem>label</elem> and <elem>legend</elem> element must have text content.</rule>
         <page id="nav050p"/>
@@ -322,9 +322,8 @@
     <category id="auto01">
       <name>onclick</name>
 
-      <best-practice ref="auto001">
+      <best-practice ref="auto001" new="1.0.b6">
         <name>onclick actions on nonfocusable elements</name>
-        <!--rule>Elements that cannot accept keyboard focus should not have <attr>onclick</attr> attributes.</rule-->
         <rule>The <attr>onclick</attr> attribute should not be used on elements that cannot accept keyboard focus.</rule>
         <page id="auto001p"/>
       </best-practice>
@@ -336,21 +335,21 @@
     <category id="auto02">
       <name>onmouseover &amp; onmouseout</name>
 
-      <best-practice ref="auto002">
+      <best-practice ref="auto002" new="1.0.b6">
         <name>onmouseover and onfocus actions on focusable elements</name>
         <rule>Each focusable element with an <attr>onmouseover</attr> attribute must also have an <attr>onfocus</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
         <info>Focusable elements are primarily links and form controls. Specifically, they include the <elem>a</elem> element with an <attr>href</attr> attribute and/or a <attr>tabindex</attr> attribute with a value of 0 or greater, and the <elem>area</elem>, <elem>button</elem>, <elem>input</elem>, <elem>select</elem> and <elem>textarea</elem> elements.</info>
         <page id="auto002p"/>
       </best-practice>
 
-      <best-practice ref="auto003">
+      <best-practice ref="auto003" new="1.0.b6">
         <name>onmouseout and onblur actions on focusable elements</name>
         <rule>Each focusable element with an <attr>onmouseout</attr> attribute must also have an <attr>onblur</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
         <info>Focusable elements are primarily links and form controls. Specifically, they include the <elem>a</elem> element with an <attr>href</attr> attribute and/or a <attr>tabindex</attr> attribute with a value of 0 or greater, and the <elem>area</elem>, <elem>button</elem>, <elem>input</elem>, <elem>select</elem> and <elem>textarea</elem> elements.</info>
         <page id="auto003p"/>
       </best-practice>
 
-      <best-practice ref="auto004">
+      <best-practice ref="auto004" new="1.0.b6">
         <name>onmouseover and onmouseout actions on nonfocusable elements</name>
         <!--rule>Elements that cannot accept keyboard focus should not have <attr>onmouseover</attr> or <attr>onmouseout</attr> attributes; use CSS techniques instead to provide the desired stylistic effects.</rule-->
         <rule>The <attr>onmouseover</attr> and <attr>onmouseout</attr> attributes should not be used on elements that cannot accept keyboard focus; use CSS techniques instead to provide the desired stylistic effects.</rule>

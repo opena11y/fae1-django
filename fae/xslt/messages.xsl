@@ -75,6 +75,12 @@
 
   <!-- ======================================================== -->
 
+  <xsl:template match="msg[@id='disc']">
+    <xsl:param name="curr-test"/>
+  </xsl:template>
+
+  <!-- ======================================================== -->
+
   <xsl:template match="msg">
     <xsl:param name="curr-test"/>
 

@@ -24,17 +24,17 @@
     <ul class="{$class}">
       <xsl:choose>
         <xsl:when test="$eval='fail'">
-          <xsl:for-each select="results/tests//test-pages[@id=$testid and not(preceding::test-pages[@id=$testid])]/page-test[@eval='fail' or @eval='fail-null']">
+          <xsl:for-each select="results/tests//test-pages[@id=$testid]/page-test[@eval='fail' or @eval='fail-null']">
             <xsl:call-template name="page-test"/>
           </xsl:for-each>
         </xsl:when>
         <xsl:when test="$eval='warn'">
-          <xsl:for-each select="results/tests//test-pages[@id=$testid and not(preceding::test-pages[@id=$testid])]/page-test[@eval='warn' or @eval='warn-null']">
+          <xsl:for-each select="results/tests//test-pages[@id=$testid]/page-test[@eval='warn' or @eval='warn-null']">
             <xsl:call-template name="page-test"/>
           </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:for-each select="results/tests//test-pages[@id=$testid and not(preceding::test-pages[@id=$testid])]/page-test[@eval=$eval]">
+          <xsl:for-each select="results/tests//test-pages[@id=$testid]/page-test[@eval=$eval]">
             <xsl:call-template name="page-test"/>
           </xsl:for-each>
         </xsl:otherwise>

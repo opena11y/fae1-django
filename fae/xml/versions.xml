@@ -5,6 +5,19 @@
   <title>Version History</title>
 
   <version>
+    <title>Under Development</title>
+    <date>2008-11-07</date>
+
+    <item>Changed function used to select focusable elements such that the href attribute on an a element may be empty.</item>
+
+    <item>For rule evaluation result N/A, Page Reports now only display the text &quot;N/A&quot;, suppressing any additional information explaining why the N/A result was produced.</item>
+
+    <note>Updated the XPath expressions for Ajax/XSLT extraction of Page Report URLs from the results file.</note>
+
+    <note>Created an exception class in evaluate.py module for better reporting of XML processing problems.</note>
+  </version>
+
+  <version>
     <title>Version 1.0.b6</title>
     <date>2008-10-27</date>
 

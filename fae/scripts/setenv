@@ -3,7 +3,7 @@
 export DJANGO_SETTINGS_MODULE=project.settings
 
 if [ `pwd | grep ^/home/nhoyt/src` ]; then
-    export PYTHONPATH=/home/nhoyt/src
+    export PYTHONPATH=/usr/local/src:/home/nhoyt/src
 elif [ `pwd | grep ^/usr/local/src` ]; then
     export PYTHONPATH=/usr/local/src
 fi

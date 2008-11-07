@@ -16,6 +16,12 @@ if settings.RESOURCES_DEBUG:
 else:
     call = subprocess.call
 
+class XMLValidationError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)
+
 #----------------------------------------------------------------
 def evaluate(params, is_logged_in, timestamp):
     uid = generate()
@@ -179,8 +185,9 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     try:
         tree = etree.parse(results_file, parser)
     except etree.XMLSyntaxError:
-        # TODO: provide more info if invalid
-        return 0
+        if not settings.RESULTS_FILE_DEBUG:
+            remove_results_file(is_logged_in, uid)
+        raise XMLValidationError(uid)
 
     # run preprocessor transformations
     run_evaluate_proc(results_file)

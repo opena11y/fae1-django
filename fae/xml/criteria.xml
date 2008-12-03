@@ -23,13 +23,6 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
-<!-- num data tables out of total tables -->
-<!-- NOTE: This test always evaluates to either pass or disc! -->
-<eval id="nav003p">
-  <pass><cmp op="ge" ref="cnt1" val="0"/></pass>
-  <disc><cmp op="eq" ref="cnt1" val="0"/></disc>
-</eval>
-
 <!-- frames without nonempty title attribute -->
 <eval id="nav004p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
@@ -323,6 +316,32 @@
 
 <eval id="nav053s">
   <pass><cmp op="eq" ref="pct1" val="100"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- Debug-only: num data tables out of total tables -->
+<!-- Note: always evaluates to either pass or disc! -->
+<eval id="nav060p">
+  <pass><cmp op="ge" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- data tables must utilize th in first cell of all columns or rows -->
+<eval id="nav061p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- data tables must have summary attribute -->
+<eval id="nav062p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
+<!-- each data table must have unique summary attribute value -->
+<eval id="nav063p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 

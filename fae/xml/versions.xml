@@ -5,15 +5,16 @@
   <title>Version History</title>
 
   <version>
-    <title>Under Development</title>
-    <date>2008-11-07</date>
+    <title>Version 1.0.b7</title>
+    <date>2008-12-03</date>
 
-    <item>Changed function used to select focusable elements such that the href attribute on an a element may be empty.</item>
+    <item>Added three Navigation &amp; Orientation/Data Tables rules.</item>
+    <item>Modified the rule evaluation result messages scheme at the Page Report level: When the result is N/A, only the text &quot;N/A&quot; is displayed; no additional information is provided.</item>
+    <item>Modified the function used to select focusable elements such that the href attribute on an &apos;a&apos; element may be empty.</item>
 
-    <item>For rule evaluation result N/A, Page Reports now only display the text &quot;N/A&quot;, suppressing any additional information explaining why the N/A result was produced.</item>
-
+    <note>Added local_settings.py for dynamic detection of installation parameters.</note>
+    <note>Added a data tables detection rule for debugging purposes only (nav060p).</note>
     <note>Updated the XPath expressions for Ajax/XSLT extraction of Page Report URLs from the results file.</note>
-
     <note>Created an exception class in evaluate.py module for better reporting of XML processing problems.</note>
   </version>
 
@@ -33,13 +34,9 @@
     <date>2008-10-20</date>
 
     <item>Modified and expanded the heuristics used for detecting and evaluating Navigation Bar markup patterns and rules to add significantly more flexibility.</item>
-
     <item>Updated Navigation &amp; Orientation/Default Language rule to recognize initial language subtag possibly followed by additional hyphen-separated subtags for region or script.</item>
-
     <item>In the Text Equivalents report section, created three new subsections: Informative Images, Decorative Images and Image Maps, and implemented all pass/fail rules for these subsections.</item>
-
     <item>In the Style report section, created two new subsections:Text Styling and Layout Tables. Implemented new pass/fail rules for inline style elements, including font, center, b, i, u, blink and marquee. Modified linearization rule previously in Navigation &amp; Orientation and moved it to the Layout Tables section.</item>
-
     <item>Added Best Practices links and (New) indicators for new rules in the About FAE: Rules Summary page.</item>
   </version>
 

@@ -9,18 +9,16 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
-faedev, faetest, faedata = range(3)
-PLATFORM = faedev
-VERSION = '1.0.b6'
-RULESET = '1.0.4'
+VERSION = '1.0.b7'
+RULESET = '1.0.b7'
 
-PROJECT_DIR = ('/home/nhoyt/src/project', '/usr/local/src/project', '/usr/local/src/faedata')
-DB_NAME =     ('faedev',     'faetest',     'faedata')
-DB_USER =     ('faedev',     'faetest',     'faedata')
-DB_PASSWORD = ('faeDev2oo8', 'faeTest2oo8', 'faeData2oo8')
+try:
+    from local_settings import *
+except:
+    pass
 
-XML_PATH = os.path.join(PROJECT_DIR[PLATFORM], 'fae/xml')
-XSLT_PATH = os.path.join(PROJECT_DIR[PLATFORM], 'fae/xslt')
+XML_PATH = os.path.join(PROJECT_DIR, 'fae/xml')
+XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
 
 USER_REPORTS_DIR = '/var/www/fae/reports/user'
 GUEST_REPORTS_DIR = '/var/www/fae/reports/guest'
@@ -134,7 +132,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR[PLATFORM], 'templates'),
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (

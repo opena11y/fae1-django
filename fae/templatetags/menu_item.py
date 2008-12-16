@@ -12,7 +12,11 @@ def get_list_item(url, label, is_selected):
     to label. If is_selected, set CSS class appropriately.
 
     """
-    highlight = ' class="highlight"' if is_selected else ''
+    if is_selected:
+        highlight = ' class="highlight"'
+    else:
+        highlight = ''
+
     return '<li' + highlight + '><a href="' + url + '">' + label + '</a></li>'
 
 #----------------------------------------------------------------

@@ -528,8 +528,12 @@ def get_report_info(request, rptid):
     # Get latest report parameters if they exist
     report_info = request.session.get('report', {})
 
-    primary = UserReport if request.user.is_authenticated() else GuestReport
-    secondary = GuestReport if request.user.is_authenticated() else UserReport
+    if request.user.is_authenticated():
+        primary   = UserReport
+        secondary = GuestReport
+    else:
+        primary   = GuestReport
+        secondary = UserReport
 
     if 'rptid' in report_info and report_info['rptid'] == rptid:
         return report_info

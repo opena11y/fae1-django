@@ -1350,4 +1350,4 @@ div#message { font-size: 120%; font-weight: bold; color: #039; background-color:
 
 span.new { color: #777; font-size: 90%; }
 
-blockquote.ruleinfo { font-size: 90%; margin: 0.5em 2em; }
+blockquote.ruleinfo { font-size: 90%; margin: 0.5em 1.5em; padding: 0 0.5em;  background-color: #f0f0f0; }

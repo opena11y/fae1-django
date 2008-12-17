@@ -17,17 +17,17 @@ try:
 except:
     pass
 
-XML_PATH = os.path.join(PROJECT_DIR, 'fae/xml')
+XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
 
-USER_REPORTS_DIR = '/var/www/fae/reports/user'
-GUEST_REPORTS_DIR = '/var/www/fae/reports/guest'
-SITES_DIR = '/var/www/fae/sites'
-LOGS_DIR = '/var/www/fae/logs'
-DOC_ROOT = '/var/www/html'
+USER_REPORTS_DIR  = os.path.join(VAR_PATH, 'reports/user')
+GUEST_REPORTS_DIR = os.path.join(VAR_PATH, 'reports/guest')
+SITES_DIR         = os.path.join(VAR_PATH, 'sites')
+LOGS_DIR          = os.path.join(VAR_PATH, 'logs')
+DOC_ROOT          = os.path.join(VAR_PATH, 'html')
 
-WGET = '/var/www/fae/bin/wget'
-WAMT = '/var/www/fae/bin/wamt'
+WGET = os.path.join(VAR_PATH, 'bin/wget')
+WAMT = os.path.join(VAR_PATH, 'bin/wamt')
 XSLTPROC = '/usr/bin/xsltproc'
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies

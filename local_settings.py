@@ -9,12 +9,15 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 (DEVELOPMENT, STAGING, PRODUCTION) = tuple(range(3))
 
 # Dynamically determine which installation
-if PROJECT_DIR == '/home/nhoyt/src/project':
+if   PROJECT_DIR == '/home/nhoyt/src/project':
     PLATFORM = DEVELOPMENT
-elif PROJECT_DIR == '/usr/local/src/project':
+    VAR_PATH = '/var/www/faedev'
+elif PROJECT_DIR == '/usr/local/faetest/project':
     PLATFORM = STAGING
-else:
+    VAR_PATH = '/var/www/faetest'
+elif PROJECT_DIR == '/usr/local/faedata/project':
     PLATFORM = PRODUCTION
+    VAR_PATH = '/var/www/faedata'
 
 DB_NAME =     ('faedev',     'faetest',     'faedata')
 DB_USER =     ('faedev',     'faetest',     'faedata')

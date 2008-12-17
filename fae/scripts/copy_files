@@ -2,12 +2,18 @@
 
 if [ `pwd | grep ^/home/nhoyt/src/project` ]; then
     PROJECT_DIR=/home/nhoyt/src/project
-elif [ `pwd | grep ^/usr/local/src/project` ]; then
-    PROJECT_DIR=/usr/local/src/project
+		MEDIA_DIR=/var/www/faedev/html/media
+		DTD_DIR=/var/www/faedev/reports/xml
+elif [ `pwd | grep ^/usr/local/faetest/project` ]; then
+    PROJECT_DIR=/usr/local/faetest/project
+		MEDIA_DIR=/var/www/faetest/html/media
+		DTD_DIR=/var/www/faetest/reports/xml
+elif [ `pwd | grep ^/usr/local/faedata/project` ]; then
+    PROJECT_DIR=/usr/local/faedata/project
+		MEDIA_DIR=/var/www/faedata/html/media
+		DTD_DIR=/var/www/faedata/reports/xml
 fi
 
-MEDIA_DIR=/var/www/html/media
-DTD_DIR=/var/www/fae/reports/xml
 
 echo -n 'Copy new versions of FAE files? (y): '
 read RESPONSE

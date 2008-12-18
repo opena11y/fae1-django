@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from fae import views
+from fae import views, utils
 
 admin.autodiscover()
 
@@ -9,6 +9,10 @@ urlpatterns = patterns(
     # Default page
     (r'^$', views.index),
     (r'^multi/$', views.index_multi),
+
+    # Debugging
+    (r'^sysinfo/$', utils.sysinfo),
+    (r'^urltest/$', utils.urltest),
 
     # Report pages
     (r'^report/([0-9a-f]{16})/$', views.report),

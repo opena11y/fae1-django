@@ -2,7 +2,7 @@
     <object pk="1" model="fae.organization">
         <field type="CharField" name="name">University of Illinois at Urbana-Champaign</field>
         <field type="IntegerField" name="org_type">5</field>
-        <field type="CharField" name="url">http://www.uiuc.edu/</field>
+        <field type="CharField" name="url">http://illinois.edu/</field>
     </object>
     <object pk="2" model="fae.organization">
         <field type="CharField" name="name">University of Illinois at Chicago</field>
@@ -47,7 +47,7 @@
     <object pk="10" model="fae.organization">
         <field type="CharField" name="name">Southern Illinois University Carbondale</field>
         <field type="IntegerField" name="org_type">4</field>
-        <field type="CharField" name="url">http://www.siu.edu/siuc/</field>
+        <field type="CharField" name="url">http://www.siuc.edu//</field>
     </object>
     <object pk="11" model="fae.organization">
         <field type="CharField" name="name">Southern Illinois University Edwardsville</field>

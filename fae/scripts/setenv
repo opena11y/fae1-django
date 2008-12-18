@@ -4,8 +4,10 @@ export DJANGO_SETTINGS_MODULE=project.settings
 
 if [ `pwd | grep ^/home/nhoyt/src` ]; then
     export PYTHONPATH=/usr/local/src:/home/nhoyt/src
-elif [ `pwd | grep ^/usr/local/src` ]; then
-    export PYTHONPATH=/usr/local/src
+elif [ `pwd | grep ^/usr/local/faetest` ]; then
+    export PYTHONPATH=/usr/local/src:/usr/local/faetest
+elif [ `pwd | grep ^/usr/local/faedata` ]; then
+    export PYTHONPATH=/usr/local/src:/usr/local/faedata
 fi
 
 if [ -n $1 ]; then

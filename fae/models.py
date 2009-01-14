@@ -137,10 +137,3 @@ class UsageStats(models.Model):
 
     class Meta:
         get_latest_by = "date"
-
-class PurgeStats(models.Model):
-    date          = models.DateField(primary_key=True)
-    guest_reports = models.IntegerField()
-
-    class Meta:
-        get_latest_by = "date"

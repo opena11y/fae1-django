@@ -9,8 +9,8 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
-VERSION = '1.0.b7'
-RULESET = '1.0.b7'
+VERSION = '1.0.b8'
+RULESET = '1.0.b8'
 
 try:
     from local_settings import *

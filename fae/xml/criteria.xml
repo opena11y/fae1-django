@@ -345,6 +345,20 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
+<!-- each th element in complex data table must have unique id attribute -->
+<eval id="nav064p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot2" val="0"/></disc>
+</eval>
+
+<!-- each td element in complex data table must have headers attribute that
+     references one or more th elements via their id attributes
+-->
+<eval id="nav065p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot2" val="0"/></disc>
+</eval>
+
 <!-- TEXT EQUIVALENTS -->
 
 <!-- img elements with alt attribute -->

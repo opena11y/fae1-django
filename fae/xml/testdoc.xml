@@ -182,34 +182,48 @@
     <category id="data-tables">
       <name>Data Tables</name>
 
-      <info>To qualify as a data table, the <elem>table</elem> element must contain at least 2 rows and 2 columns, and have or contain at least one of the following: a <attr>summary</attr> attribute, <elem>caption</elem> element, <elem>thead</elem> element, <elem>th</elem> element, or <elem>td</elem> element with <attr>scope</attr> or <attr>headers</attr> attribute.</info>
+      <info>To qualify as a data table, the <elem>table</elem> element must (a) contain at least two rows and two columns and (b) have or contain at least one of the following: a <attr>summary</attr> attribute; a <elem>caption</elem> element; a <elem>thead</elem> element; a <elem>th</elem> element; or a <elem>td</elem> element with a <attr>scope</attr> or <attr>headers</attr> attribute.</info>
+
+      <info>To qualify as a complex data table, the <elem>table</elem> element must (a) qualify as a data table and (b) contain any of the following: a <elem>thead</elem> element that contains two or more <elem>tr</elem> elements; a <elem>tr</elem> element with a <elem>td</elem> or <elem>th</elem> element with a <attr>rowspan</attr> or <attr>colspan</attr> attribute value greater than 1; a <elem>tr</elem> element that contains at least one <elem>td</elem> element and two or more <elem>th</elem> elements; two or more <elem>tr</elem> elements that contain only <elem>th</elem> elements; a <elem>tr</elem> element with a <elem>td</elem> or <elem>th</elem> element with a <attr>headers</attr> attribute value that contains more than two <attr>IDREF</attr>s.</info>
 
       <!--
       <best-practice ref="nav060">
-        <name>data table detection (debug only)</name>
-        <rule>Debug-only: data table detection.</rule>
-        <info>A <elem>table</elem> is considered to be a data table if it has at least two rows and two columns, and has one or more of the following: a <attr>summary</attr> attribute; a <elem>caption</elem> element, a <elem>thead</elem> element, a <elem>th</elem> element, or a <elem>td</elem> element with a <attr>scope</attr> or <attr>headers</attr> attribute.</info>
+        <name>simple and complex data table detection (debug only)</name>
+        <rule>Debug-only: Number of simple and complex data tables on the page.</rule>
         <page id="nav060p"/>
       </best-practice>
       -->
 
       <best-practice ref="nav061" new="1.0.b7">
         <name>data table must use th in first cell of all columns or rows</name>
-        <rule>Each data <elem>table</elem> must utilize <elem>th</elem> elements as the first cells of all columns or rows.</rule>
+        <rule>Each data table must utilize <elem>th</elem> elements as the first cells of all columns or rows.</rule>
         <page id="nav061p"/>
       </best-practice>
 
       <best-practice ref="nav062" new="1.0.b7">
         <name>each data table must have summary attribute</name>
-        <rule>Each data <elem>table</elem> must have a nonempty <attr>summary</attr> attribute.</rule>
+        <rule>Each data table must have a nonempty <attr>summary</attr> attribute.</rule>
         <page id="nav062p"/>
       </best-practice>
 
       <best-practice ref="nav063" new="1.0.b7">
         <name>unique summary attribute values on data tables</name>
-        <rule>The <attr>summary</attr> attribute value for each data <elem>table</elem> on a page should be unique.</rule>
+        <rule>The <attr>summary</attr> attribute value for each data table on a page should be unique.</rule>
         <info>Uniqueness comparisons are case-insensitive and performed on whitespace-normalized attribute values.</info>
         <page id="nav063p"/>
+      </best-practice>
+
+      <best-practice ref="nav064" new="1.0.b8">
+        <name>unique id attribute on all th elements in complex data table</name>
+        <rule>Each <elem>th</elem> element in a complex data table must have an <attr>id</attr> attribute whose value is unique relative to all <attr>id</attr>s on the page.</rule>
+        <page id="nav064p"/>
+      </best-practice>
+
+      <best-practice ref="nav065" new="1.0.b8">
+        <name>all td elements must have headers attribute with valid IDREFs to th elements in complex data table</name>
+        <!--rule>Each <elem>td</elem> element in a complex data table must have a <attr>headers</attr> attribute that references the associated <elem>th</elem> elements via their <attr>id</attr> attributes.</rule-->
+        <rule>Each <elem>td</elem> element in a complex data table must have a <attr>headers</attr> attribute that references the <attr>id</attr> attributes of associated <elem>th</elem> elements.</rule>
+        <page id="nav065p"/>
       </best-practice>
 
       <link tgt="bp" href="nav/dtable/"/>

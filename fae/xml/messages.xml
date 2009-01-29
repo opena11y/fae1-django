@@ -137,26 +137,38 @@
   </message>
 
   <message id="nav060p">
-    <msg id="default">Out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, <ins ref="cnt1"/> <sp ref="cnt1"><s>is a data table</s><p>are data tables</p></sp>.<!-- Of those data tables, <ins ref="cnt2"/> <sp ref="cnt2"><s>is a complex data table</s><p>are complex data tables</p></sp>.--></msg>
-    <msg id="disc">No data <elem>tables</elem> were found.</msg>
+    <msg id="default">Out of <ins ref="tot1"/> <elem>table</elem> <sp ref="tot1"><s>element</s><p>elements</p></sp>, <ins ref="cnt1"/> <sp ref="cnt1"><s>is a data table</s><p>are data tables</p></sp>, and of those, <ins ref="cnt2"/> <sp ref="cnt2"><s>is a complex data table</s><p>are complex data tables</p></sp>.</msg>
+    <msg id="disc">No data tables were found.</msg>
   </message>
 
   <message id="nav061p">
     <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"/> data <sp ref="cnt1"><s><elem>table</elem></s><p><elem>tables</elem></p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
-    <msg id="disc">No data <elem>tables</elem> were found.</msg>
+    <msg id="disc">No data tables were found.</msg>
   </message>
 
   <message id="nav062p">
     <msg id="pass"/>
     <msg id="fail"><ins ref="cnt1"/> data <sp ref="cnt1"><s><elem>table</elem></s><p><elem>tables</elem></p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
-    <msg id="disc">No data <elem>tables</elem> were found.</msg>
+    <msg id="disc">No data tables were found.</msg>
   </message>
 
   <message id="nav063p">
     <msg id="pass"/>
     <msg id="warn"><ins ref="cnt1"/> data <sp ref="cnt1"><s><elem>table</elem></s><p><elem>tables</elem></p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
-    <msg id="disc">No data <elem>tables</elem> were found.</msg>
+    <msg id="disc">No data tables were found.</msg>
+  </message>
+
+  <message id="nav064p">
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>th</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (out of <ins ref="tot1"/> total in <ins ref="tot2"/> complex data <sp ref="tot2"><s>table</s><p>tables</p></sp>) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No complex data tables were found.</msg>
+  </message>
+
+  <message id="nav065p">
+    <msg id="pass"/>
+    <msg id="fail"><ins ref="cnt1"/> <elem>td</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> (out of <ins ref="tot1"/> total in <ins ref="tot2"/> complex data <sp ref="tot2"><s>table</s><p>tables</p></sp>) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="disc">No complex data tables were found.</msg>
   </message>
 
   <!-- TEXT EQUIVALENTS -->

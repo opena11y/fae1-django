@@ -11,13 +11,13 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Dynamically determine which installation
 if   PROJECT_DIR == '/home/nhoyt/src/project':
     PLATFORM = DEVELOPMENT
-    VAR_PATH = '/var/www/cita/faedev'
-elif PROJECT_DIR == '/usr/local/faetest/project':
+    FAE_PATH = '/services/faedev'
+elif PROJECT_DIR == '/services/faetest/lib/project':
     PLATFORM = STAGING
-    VAR_PATH = '/var/www/cita/faetest'
-elif PROJECT_DIR == '/usr/local/faedata/project':
+    FAE_PATH = '/services/faetest'
+elif PROJECT_DIR == '/services/faedata/lib/project':
     PLATFORM = PRODUCTION
-    VAR_PATH = '/var/www/cita/faedata'
+    FAE_PATH = '/services/faedata'
 
 DB_NAME =     ('faedev',     'faetest',     'faedata')
 DB_USER =     ('faedev',     'faetest',     'faedata')

@@ -3,11 +3,11 @@
 export DJANGO_SETTINGS_MODULE=project.settings
 
 if [ `pwd | grep ^/home/nhoyt/src` ]; then
-    export PYTHONPATH=/usr/local/src:/home/nhoyt/src
-elif [ `pwd | grep ^/usr/local/faetest` ]; then
-    export PYTHONPATH=/usr/local/src:/usr/local/faetest
-elif [ `pwd | grep ^/usr/local/faedata` ]; then
-    export PYTHONPATH=/usr/local/src:/usr/local/faedata
+    export PYTHONPATH=/services/faedev/lib:/home/nhoyt/src
+elif [ `pwd | grep ^/services/faetest/lib` ]; then
+    export PYTHONPATH=/services/faetest/lib
+elif [ `pwd | grep ^/services/faedata/lib` ]; then
+    export PYTHONPATH=/services/faedata/lib
 fi
 
 if [ -n $1 ]; then

@@ -9,7 +9,7 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
-VERSION = '1.0.b8'
+VERSION = '1.0.rc1'
 RULESET = '1.0.b8'
 
 try:
@@ -20,14 +20,14 @@ except:
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
 
-USER_REPORTS_DIR  = os.path.join(VAR_PATH, 'reports/user')
-GUEST_REPORTS_DIR = os.path.join(VAR_PATH, 'reports/guest')
-SITES_DIR         = os.path.join(VAR_PATH, 'sites')
-LOGS_DIR          = os.path.join(VAR_PATH, 'logs')
-DOC_ROOT          = os.path.join(VAR_PATH, 'html')
+USER_REPORTS_DIR  = os.path.join(FAE_PATH, 'reports/user')
+GUEST_REPORTS_DIR = os.path.join(FAE_PATH, 'reports/guest')
+SITES_DIR         = os.path.join(FAE_PATH, 'sites')
+LOGS_DIR          = os.path.join(FAE_PATH, 'logs')
+DOC_ROOT          = os.path.join(FAE_PATH, 'html')
 
-WGET = os.path.join(VAR_PATH, 'bin/wget')
-WAMT = os.path.join(VAR_PATH, 'bin/wamt')
+WGET = os.path.join(FAE_PATH, 'bin/wget')
+WAMT = os.path.join(FAE_PATH, 'bin/wamt')
 XSLTPROC = '/usr/bin/xsltproc'
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies

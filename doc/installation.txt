@@ -1,0 +1,55 @@
+
+FAE Installation: Library dependencies and pathnames
+
+---------------------
+System-wide libraries
+---------------------
+
+* Python 2.5.2 or later
+* Apache 2.2.3 or later
+* mod_python 3.3.1
+* libxml2 2.7.2 or later
+* libxslt 1.1.24 or later
+* Objective Caml 3.09 or later
+
+* Django 1.0.2 or later
+* psycopg2 2.0.7 or later
+* pg_config (installed automatically as dependency of psycopg2?)
+* docutils (needed by Django's built-in admin app)
+* lxml 2.1.2 or later
+
+------------------------------
+Application-specific libraries
+------------------------------
+
+* django-registration
+
+---------
+Pathnames
+---------
+
+FAE will utilize the following directory structure:
+
+The Django project files will be installed in:
+    /services/<app-id>/lib/project
+
+where <app-id> is one of faedev, faetest, faedata
+(these names match those of their respective databases on fileserv)
+
+Any other Django-specific third-party apps (e.g., registration)
+will also be installed in /services/<app-id>/lib/
+
+The entire structure for FAE will look like the following (using the
+staging installation (faetest) as an example):
+
+/services/faetest/bin       binaries such as wamt and wget
+
+/services/faetest/html      document root for apache (static media files)
+
+/services/faetest/lib       Python packages (e.g., project, registration)
+
+/services/faetest/logs      log files
+
+/services/faetest/reports   user data
+
+/services/faetest/sites     downloaded files (analyzed then deleted)

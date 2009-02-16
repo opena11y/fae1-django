@@ -6,11 +6,17 @@ admin.site.register(models.UserProfile)
 admin.site.register(models.EmailSuffix)
 
 class UserReportAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'timestamp', 'archive')
+    list_display = ('id', 'user', 'timestamp', 'stats', 'archive')
     ordering = ('user',)
-    list_filter = ('archive', 'user')
+    list_filter = ('archive', 'stats', 'user')
 
 admin.site.register(models.UserReport, UserReportAdmin)
 
-admin.site.register(models.GuestReport)
+class GuestReportAdmin(admin.ModelAdmin):
+    list_display = ('id', 'timestamp', 'stats')
+    ordering = ('timestamp',)
+    list_filter = ('stats', )
+
+admin.site.register(models.GuestReport, GuestReportAdmin)
+
 admin.site.register(models.UsageStats)

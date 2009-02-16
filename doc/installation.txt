@@ -24,6 +24,16 @@ Application-specific libraries
 
 * django-registration
 
+* wamt (copy binary from appserv)
+
+* wget
+
+  Build our version with these commands:
+  $ ./configure
+  $ make
+
+	Copy from src subdirectory to bin
+
 ---------
 Pathnames
 ---------

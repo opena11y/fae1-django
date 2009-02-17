@@ -51,7 +51,7 @@ function disable(id) {
 {% if user.is_authenticated %}
 <li><span class="separator">|</span><a href="/multi/">Multiple URLs</a></li>
 <li><span class="separator">|</span><a href="/accounts/profile/">My Account</a></li>
-<li><span class="separator">|</span><a href="/accounts/logout/">Log Out</a></li>
+<li><span class="separator">|</span><a href="/accounts/logout/">Log Out: {{ user.username }}</a></li>
 {% else %}
 <li><span class="separator">|</span><a href="/accounts/register/">Register</a></li>
 <li><span class="separator">|</span><a href="/accounts/login/?next=/">Log In</a></li>

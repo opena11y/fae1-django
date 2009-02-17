@@ -1,3 +1,5 @@
+{% load humanize %}
+
 <ul class="horizontal-menu">
 <li><a href="/about/usage/">Past 7 days</a> | </li>
 <li><a href="/about/usage/?span=thismonth">This month</a> | </li>
@@ -18,17 +20,17 @@
 {% for record in stats %}
 <tr>
 <td>{{ record.date }}</td>
-<td class="numeric">{{ record.user_reports }}</td>
-<td class="numeric">{{ record.user_pgcount }}</td>
-<td class="numeric">{{ record.guest_reports }}</td>
-<td class="numeric">{{ record.guest_pgcount }}</td>
+<td class="numeric">{{ record.user_reports|intcomma }}</td>
+<td class="numeric">{{ record.user_pgcount|intcomma }}</td>
+<td class="numeric">{{ record.guest_reports|intcomma }}</td>
+<td class="numeric">{{ record.guest_pgcount|intcomma }}</td>
 </tr>
 {% endfor %}
 <tr class="footer">
 <th>Totals</th>
-<td class="numeric">{{ user_reports }}</td>
-<td class="numeric">{{ user_pgcount }}</td>
-<td class="numeric">{{ guest_reports }}</td>
-<td class="numeric">{{ guest_pgcount }}</td>
+<td class="numeric">{{ user_reports|intcomma }}</td>
+<td class="numeric">{{ user_pgcount|intcomma }}</td>
+<td class="numeric">{{ guest_reports|intcomma }}</td>
+<td class="numeric">{{ guest_pgcount|intcomma }}</td>
 </tr>
 </table>

@@ -15,7 +15,7 @@ admin.site.register(models.UserReport, UserReportAdmin)
 
 class GuestReportAdmin(admin.ModelAdmin):
     list_display = ('id', 'timestamp', 'url', 'stats')
-    ordering = ('timestamp',)
+    ordering = ('-timestamp',)
     list_filter = ('stats',)
 
 admin.site.register(models.GuestReport, GuestReportAdmin)

@@ -10,6 +10,15 @@ elif [ `pwd | grep ^/services/faedata/lib` ]; then
     export PYTHONPATH=/services/faedata/lib
 fi
 
-if [ -n $1 ]; then
-    eval /usr/local/bin/python2.5 $1
+# Check for command-line argument.
+if [ -z $1 ]; then
+    echo 'Please specify a filename.'
+    exit 0
+fi
+
+# If file exists then run it as a python script,
+# passing in any additional arguments.
+if [ -e $1 ]; then
+    python $@
+else echo 'Please specify an existing file to run.'
 fi

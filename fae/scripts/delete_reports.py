@@ -5,7 +5,7 @@ or all users if "all" is specified.
 """
 import datetime, sys
 from django.core.exceptions import ObjectDoesNotExist
-from project.fae.models import User, UserReport
+from project.fae.models import User, UserReport, GuestReport
 
 DEBUG = False
 EXCLUDE_ARCHIVED = True
@@ -55,12 +55,33 @@ def delete_user_reports(user):
         print 'Aborted!'
 
 #------------------------------------------------
+def delete_guest_reports():
+    reports = GuestReport.objects.all()
+
+    count = reports.count()
+    if not count:
+        print 'No guest reports found.'
+        return
+
+    # Get confirmation before deleting
+    prompt = 'Delete ' + str(count) + ' guest report(s)' + '? (yes | no) '
+    response = raw_input(prompt)
+
+    if response == 'yes':
+        for report in reports:
+            report.delete()
+    else:
+        print 'Aborted!'
+
+#------------------------------------------------
 def main():
     if len(sys.argv) < 2:
         print 'Please provide username argument!'
         sys.exit(0)
 
     if not DEBUG: confirm_date()
+
+    delete_guest_reports()
 
     username = sys.argv[1]
     if username == 'all':

@@ -7,15 +7,16 @@ admin.site.register(models.EmailSuffix)
 
 class UserReportAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'timestamp', 'stats', 'archive')
-    ordering = ('user',)
-    list_filter = ('archive', 'stats', 'user')
+    ordering = ('user__username',)
+    list_filter = ('archive', 'stats')
+    search_fields = ('user__username', 'user__last_name', 'user__first_name')
 
 admin.site.register(models.UserReport, UserReportAdmin)
 
 class GuestReportAdmin(admin.ModelAdmin):
     list_display = ('id', 'timestamp', 'stats')
     ordering = ('timestamp',)
-    list_filter = ('stats', )
+    list_filter = ('stats',)
 
 admin.site.register(models.GuestReport, GuestReportAdmin)
 

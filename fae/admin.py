@@ -14,10 +14,15 @@ class UserReportAdmin(admin.ModelAdmin):
 admin.site.register(models.UserReport, UserReportAdmin)
 
 class GuestReportAdmin(admin.ModelAdmin):
-    list_display = ('id', 'timestamp', 'stats')
+    list_display = ('id', 'timestamp', 'url', 'stats')
     ordering = ('timestamp',)
     list_filter = ('stats',)
 
 admin.site.register(models.GuestReport, GuestReportAdmin)
 
-admin.site.register(models.UsageStats)
+class UsageStatsAdmin(admin.ModelAdmin):
+    list_display = ('date', 'user_reports', 'user_pgcount', 'guest_reports', 'guest_pgcount')
+    ordering = ('-date',)
+    list_filter = ('date',)
+
+admin.site.register(models.UsageStats, UsageStatsAdmin)

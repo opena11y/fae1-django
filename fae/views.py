@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 from project.settings import ACCT_TYPE_QUOTA, DEFAULT_QUOTA, ACCT_TYPE_BUFFER, DEFAULT_BUFFER
 from project.settings import STATS_DAYS_OFFSET as DAYS_OFFSET
@@ -502,8 +502,37 @@ def about(request, content_id='overview'):
         }
 
     if content_id == 'usage':
-        stats = UsageStats.objects.all()
+        today = date.today()
+        one_week_ago = today - timedelta(days=8) # account for lag in collecting stats
+        span = request.GET.get('span', '')
+
+        if span == 'thismonth':
+            stats = UsageStats.objects.filter(date__month=today.month, date__year=today.year)
+        elif span == 'lastmonth':
+            if today.month == 1:
+                month, year = 12, today.year - 1
+            else:
+                month, year = today.month - 1, today.year
+            stats = UsageStats.objects.filter(date__month=month, date__year=year)
+        elif span == 'thisyear':
+            stats = UsageStats.objects.filter(date__year=today.year)
+        elif span == 'all':
+            stats = UsageStats.objects.all()
+        else: # Default to last seven days
+            stats = UsageStats.objects.filter(date__gte=one_week_ago, date__lte=today)
         context['stats'] = stats
+
+        # Aggregate totals for reports and pgcount fields
+        user_reports = 0; user_pgcount = 0; guest_reports = 0; guest_pgcount = 0
+        for record in stats:
+            user_reports += record.user_reports
+            user_pgcount += record.user_pgcount
+            guest_reports += record.guest_reports
+            guest_pgcount += record.guest_pgcount
+        context['user_reports'] = user_reports
+        context['user_pgcount'] = user_pgcount
+        context['guest_reports'] = guest_reports
+        context['guest_pgcount'] = guest_pgcount
 
     # Return response
     t = get_template('about/about.html')

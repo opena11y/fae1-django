@@ -137,3 +137,4 @@ class UsageStats(models.Model):
 
     class Meta:
         get_latest_by = "date"
+        ordering = ["date"]

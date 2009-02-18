@@ -519,8 +519,10 @@ def about(request, content_id='overview'):
         elif span == 'all':
             stats = UsageStats.objects.all()
         else: # Default to last seven days
+            span = 'default'
             stats = UsageStats.objects.filter(date__gte=one_week_ago, date__lte=today)
         context['stats'] = stats
+        context['caption'] = labels['stats'][span]
 
         # Aggregate totals for reports and pgcount fields
         user_reports = 0; user_pgcount = 0; guest_reports = 0; guest_pgcount = 0

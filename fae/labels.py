@@ -28,6 +28,14 @@ subtitles = {
     'disclaimer':     'Disclaimer',
     }
 
+stats = {
+    'default':        'Past 7 days',
+    'thismonth':      'This month',
+    'lastmonth':      'Last month',
+    'thisyear':       'This year',
+    'all':            'All dates',
+    }
+
 labels = {
     'about':          'About FAE',
     'archive':        'Archived Reports',
@@ -42,5 +50,6 @@ labels = {
     'untitled':       'Untitled Report',
     'report':         reports,    
     'section':        sections,
+    'stats':          stats,
     'subtitle':       subtitles,
     }

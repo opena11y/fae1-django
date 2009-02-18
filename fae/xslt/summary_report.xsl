@@ -21,6 +21,15 @@
   <xsl:variable name="testdoc" select="document('../xml/testdoc.xml')/testdoc"/>
   <xsl:variable name="link-prefix" select="$testdoc/link-base[@tgt='bp']/@href"/>
 
+  <xsl:variable name="tblcap-summary">Evaluation Results by Best Practices Main Category</xsl:variable>
+  <xsl:variable name="tblsum-summary">Aggregated rules evaluation results by HTML Best Practices main categories.</xsl:variable>
+
+  <xsl:variable name="tblcap-detail">Evaluation Results by Best Practices Subcategory</xsl:variable>
+  <xsl:variable name="tblsum-detail">Aggregated rules evaluation results by HTML Best Practices subcategories.</xsl:variable>
+
+  <xsl:variable name="intro-legend">Status values are based on aggregated evaluation results of Pass, Warn or N/A, as defined in the following table.</xsl:variable>
+  <xsl:variable name="tblsum-legend">Definitions of Status values, which are assigned to Best Practices main categories in the first Evaluation Results table above.</xsl:variable>
+
   <xsl:key name="section-lookup" match="tests/section" use="@id"/>
   <xsl:key name="category-lookup" match="tests/section/category" use="@id"/>
 
@@ -58,10 +67,10 @@
 
     <xsl:call-template name="context-header"/>
 
-    <table cellpadding="0" cellspacing="0" class="summary" summary="page/test evaluation percentages and status summaries by HTML best practices main categories">
-      <caption>Test Evaluation Summaries in HTML Best Practices Main Categories</caption>
+    <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-summary}">
+      <caption style="padding-top: 1em"><xsl:value-of select="$tblcap-summary"/></caption>
       <tr>
-        <th class="row-header"></th>
+        <th id="t1c0">Category</th>
         <th id="t1c1" class="status" style="background-color: #f0f0f0">Status <sup><a href="#status">1</a></sup></th>
         <th id="t1c2" class="pass"><span class="pct">%</span> Pass</th>
         <th id="t1c3" class="warn"><span class="pct">%</span> Warn</th>
@@ -126,15 +135,10 @@
       </xsl:for-each>
     </table>
 
-    <div id="print-legend">
-      <br/>
-      <xsl:call-template name="display-legend"/>
-    </div>
-
-    <table cellpadding="0" cellspacing="0" class="summary" summary="page/test evaluation percentages by HTML best practices subcategories">
-      <caption style="padding-top: 1.5em">Test Evaluation Percentages in HTML Best Practices Subcategories</caption>
+    <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-detail}">
+      <caption style="padding-top: 1.5em"><xsl:value-of select="$tblcap-detail"/></caption>
       <tr>
-        <th></th>
+        <th id="t2c0">Category/Subcategory</th>
         <th id="t2c1" class="pass"><span class="pct">%</span> Pass</th>
         <th id="t2c2" class="warn"><span class="pct">%</span> Warn</th>
         <th id="t2c3" class="fail"><span class="pct">%</span> Fail</th>
@@ -206,7 +210,7 @@
       </xsl:for-each>
     </table>
 
-    <div id="screen-legend">
+    <div id="legend">
       <br/>
       <a name="status"/>
       <xsl:call-template name="display-legend"/>
@@ -218,9 +222,9 @@
   <xsl:template name="display-legend">
     <p><sup>1</sup> <strong>Status Value Definitions</strong></p>
 
-    <div style="margin-top: -1em; margin-bottom: 1em;">The 'Status' column values in this table are based on the percentage of page tests in the corresponding HTML Best Practices category that evaluate to Pass, Warn or N/A, as indicated below.</div>
+    <div style="margin-top: -1em; margin-bottom: 1em;"><xsl:value-of select="$intro-legend"/></div>
 
-    <table class="legend" cellpadding="0" cellspacing="0">
+    <table class="legend" cellpadding="0" cellspacing="0" summary="{$tblsum-legend}">
       <thead>
         <tr class="highlight">
           <th>Value</th><th class="pct">Percent</th><th class="eval">Result</th>

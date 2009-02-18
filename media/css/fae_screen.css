@@ -1130,10 +1130,6 @@ table.legend th.eval {
 	padding-left:		0.5em;
 }
 
-div#print-legend {
-	display:			none;
-}
-
 /* Report Archive */
 
 table.archive {

@@ -70,8 +70,8 @@
     <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-summary}">
       <caption style="padding-top: 1em"><xsl:value-of select="$tblcap-summary"/></caption>
       <tr>
-        <th id="t1c0">Category</th>
-        <th id="t1c1" class="status" style="background-color: #f0f0f0">Status <sup><a href="#status">1</a></sup></th>
+        <th id="t1c0" class="category">Category</th>
+        <th id="t1c1" class="status">Status <sup><a href="#status">1</a></sup></th>
         <th id="t1c2" class="pass"><span class="pct">%</span> Pass</th>
         <th id="t1c3" class="warn"><span class="pct">%</span> Warn</th>
         <th id="t1c4" class="fail"><span class="pct">%</span> Fail</th>
@@ -138,7 +138,7 @@
     <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-detail}">
       <caption style="padding-top: 1.5em"><xsl:value-of select="$tblcap-detail"/></caption>
       <tr>
-        <th id="t2c0">Category/Subcategory</th>
+        <th id="t2c0" class="category">Subcategory</th>
         <th id="t2c1" class="pass"><span class="pct">%</span> Pass</th>
         <th id="t2c2" class="warn"><span class="pct">%</span> Warn</th>
         <th id="t2c3" class="fail"><span class="pct">%</span> Fail</th>

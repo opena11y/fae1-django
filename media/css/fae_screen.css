@@ -1014,6 +1014,11 @@ table.summary caption {
 	text-align:			left;
 }
 
+table.summary th.category,
+table.summary th.status {
+	background-color: #f0f0f0;
+}
+
 table.summary td.status,
 table.summary th.status {
 	width:				30%;

@@ -6,12 +6,13 @@
 
   <version>
     <title>Version 1.0.rc1</title>
-    <date>2009-02-17</date>
+    <date>2009-02-18</date>
 
     <item>Modified installation directory structure to work with CITES standards.</item>
     <item>Upgraded Django to latest version: 1.0.2.</item>
     <item>Added display of username in Utilities menubar.</item>
     <item>Added filter options on Usage Statistics page.</item>
+    <item>Modified table captions, descriptive text and formatting of Summary Report.</item>
     <note>Added doc/installation.txt to document library dependencies and installation pathnames.</note>
     <note>Updated admin pages for UserReport, GuestReport and UserStats models.</note>
   </version>

@@ -138,7 +138,7 @@
     <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-detail}">
       <caption style="padding-top: 1.5em"><xsl:value-of select="$tblcap-detail"/></caption>
       <tr>
-        <th id="t2c0" class="category">Subcategory</th>
+        <th id="t2c0" class="category">Category/Subcategory</th>
         <th id="t2c1" class="pass"><span class="pct">%</span> Pass</th>
         <th id="t2c2" class="warn"><span class="pct">%</span> Warn</th>
         <th id="t2c3" class="fail"><span class="pct">%</span> Fail</th>

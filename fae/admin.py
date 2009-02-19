@@ -8,7 +8,7 @@ admin.site.register(models.EmailSuffix)
 class UserReportAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'timestamp', 'stats', 'archive')
     ordering = ('user__username',)
-    list_filter = ('archive', 'stats')
+    list_filter = ('timestamp', 'archive', 'stats')
     search_fields = ('user__username', 'user__last_name', 'user__first_name')
 
 admin.site.register(models.UserReport, UserReportAdmin)

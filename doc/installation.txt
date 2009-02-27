@@ -28,11 +28,14 @@ Application-specific libraries
 
 * wget
 
-  Build our version with these commands:
-  $ ./configure
-  $ make
+1. Get the wget source files from Subversion with:
+   $ svn checkout svn://www.dres.uiuc.edu/wget/trunk wget
 
-	Copy from src subdirectory to bin
+2. CD to wget and build our version with these commands:
+   $ ./configure
+   $ make
+
+3. Copy wget executable from src subdirectory to bin.
 
 ---------
 Pathnames

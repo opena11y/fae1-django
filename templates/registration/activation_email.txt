@@ -1,4 +1,4 @@
-Welcome! You've just completed Step 1 of account registration for the {{ site.name }}.
+Welcome! You've just completed Step 1 of your account registration for {{ site.name }}.
 
 To complete Step 2, the last step of your registration, please select the following link within the next {{ expiration_days }} days:
 

@@ -12,13 +12,19 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 if   PROJECT_DIR == '/home/nhoyt/src/project':
     PLATFORM = DEVELOPMENT
     FAE_PATH = '/services/faedev'
+    ALLOW_REGISTRATION = False
 elif PROJECT_DIR == '/services/faetest/lib/project':
     PLATFORM = STAGING
     FAE_PATH = '/services/faetest'
+    ALLOW_REGISTRATION = True
 elif PROJECT_DIR == '/services/faedata/lib/project':
     PLATFORM = PRODUCTION
     FAE_PATH = '/services/faedata'
+    ALLOW_REGISTRATION = False
 
-DB_NAME =     ('faedev',     'faetest',     'faedata')
-DB_USER =     ('faedev',     'faetest',     'faedata')
-DB_PASSWORD = ('faeDev2oo8', 'faeTest2oo8', 'faeData2oo8')
+DB_NAME =        ('faedev',      'faetest',     'faedata')
+DB_USER =        ('faedev',      'faetest',     'faedata')
+DB_PASSWORD =    ('faeDev2oo8',  'faeTest2oo8', 'faeData2oo8')
+
+FAE_INSTALL =    ('development', 'beta test',   'production')
+VERSION_SUFFIX = (' (dev. version)', ' (test version)', '')

@@ -9,13 +9,15 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 
-VERSION = '1.0.rc1'
-RULESET = '1.0.b8'
-
 try:
     from local_settings import *
 except:
     pass
+
+VERSION = '1.0' + VERSION_SUFFIX[PLATFORM]
+INSTALLATION = FAE_INSTALL[PLATFORM]
+PUBLIC_URL = 'http://fae.cita.uiuc.edu/'
+RULESET = '1.0.0'
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')

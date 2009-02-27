@@ -255,7 +255,7 @@ def process_dhtml(request):
             report.save()
             return HttpResponseRedirect('/report/%s/' % uid)
         else:
-            return message(request, response, 'Unable to create report!')
+            return message(request, HttpResponse(), 'Unable to create report!')
 
     else:
         return message(request, HttpResponse(), 'No DHTML data detected!')
@@ -310,6 +310,16 @@ def message(request, response, text):
     html = t.render(RequestContext(request, context))
     response.write(html)
     return response
+
+#----------------------------------------------------------------
+def registration_closed(request):
+    """
+    Return the response using the specified template.
+    """
+    t = get_template('registration/registration_closed.html')
+    context = { 'installation': settings.INSTALLATION, 'public_url': settings.PUBLIC_URL }
+    html = t.render(RequestContext(request, context))
+    return HttpResponse(html)
 
 #----------------------------------------------------------------
 @login_required

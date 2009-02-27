@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from fae import views, utils
+from registration.forms import RegistrationFormUniqueEmail
+from registration.views import register
 
 admin.autodiscover()
 
@@ -41,12 +44,28 @@ urlpatterns = patterns(
     # User profile
     (r'^accounts/profile/$', views.my_account),
 
-    # Authentication (The following overrides a mapping in registration.urls)
+    # Admin
+    (r'^admin/(.*)', admin.site.root),
+)
+
+if settings.ALLOW_REGISTRATION:
+    urlpatterns += patterns(
+        '',
+        # Require unique email address by specifying form_class
+        (r'^accounts/register/$', register, {'form_class': RegistrationFormUniqueEmail}, 'registration_register'),
+    )
+else:
+    urlpatterns += patterns(
+        '',
+        # Override register URL in registration.urls
+        (r'^accounts/register/$', views.registration_closed),
+    )
+
+urlpatterns += patterns(
+    '',
+    # Override logout URL in registration.urls
     (r'^accounts/logout/$', views.logout),
 
     # Registration app (includes account management)
     (r'^accounts/', include('registration.urls')),
-
-    # Admin
-    (r'^admin/(.*)', admin.site.root),
 )

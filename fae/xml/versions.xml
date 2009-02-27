@@ -5,16 +5,18 @@
   <title>Version History</title>
 
   <version>
-    <title>Version 1.0.rc1</title>
-    <date>2009-02-18</date>
+    <title>Version 1.0</title>
+    <date>2009-02-27</date>
 
-    <item>Modified installation directory structure to work with CITES standards.</item>
-    <item>Upgraded Django to latest version: 1.0.2.</item>
+    <item>Modified Summary Report table captions, descriptive text and formatting.</item>
     <item>Added display of username in Utilities menubar.</item>
     <item>Added filter options on Usage Statistics page.</item>
-    <item>Modified table captions, descriptive text and formatting of Summary Report.</item>
+    <item>Added account registration requirement of unique e-mail address.</item>
+    <item>Modified installation directory structure to work with CITES standards.</item>
+    <item>Upgraded Django to latest version: 1.0.2.</item>
     <note>Added doc/installation.txt to document library dependencies and installation pathnames.</note>
     <note>Updated admin pages for UserReport, GuestReport and UserStats models.</note>
+    <note>Added mechanism for disallowing account registrations based on installation platform.</note>
   </version>
 
   <version>

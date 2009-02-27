@@ -47,7 +47,7 @@
     <object pk="10" model="fae.organization">
         <field type="CharField" name="name">Southern Illinois University Carbondale</field>
         <field type="IntegerField" name="org_type">4</field>
-        <field type="CharField" name="url">http://www.siuc.edu//</field>
+        <field type="CharField" name="url">http://www.siuc.edu/</field>
     </object>
     <object pk="11" model="fae.organization">
         <field type="CharField" name="name">Southern Illinois University Edwardsville</field>

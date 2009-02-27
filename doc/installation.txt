@@ -66,3 +66,35 @@ staging installation (faetest) as an example):
 /services/faetest/reports   user data
 
 /services/faetest/sites     downloaded files (analyzed then deleted)
+
+-----------------------------
+Additional installation steps
+-----------------------------
+
+* Build wget and copy executable file to /services/<app-id>/bin
+
+* Copy wamt executable using rsync to /services/<app-id>/bin
+
+* Create subdirectories under /services/<app-id>/reports
+  (guest, user, xml) and chown guest and user to apache.
+
+* Create subdirectories under /services/<app-id>/html
+	(media/css, media/images, media/js)
+
+* Create symbolic link named 'admin' in /services/<app-id>/html/media
+  that links to Django's contrib/admin/media directory.
+
+* Install the django-registration package in /services/<app-id>/lib
+  in registration subdirectory.
+
+* Use svn export to create project directory in /services/<app-id>/lib
+
+* Run the project/fae/scripts/copy_files script to populate html/media
+  and reports/xml subdirectories.
+
+* If needed, run 'python manage.py syncdb' to create database tables.
+
+* If needed, run 'python manage.py loaddata organization' to populate
+  fae_organization table.
+
+* Add crontab entry to call collect_stats.py and purge_reports.py

@@ -24,7 +24,7 @@
   <xsl:template match="section">
     <h2><xsl:apply-templates select="name"/></h2>
 
-    <xsl:for-each select="info"><blockquote class="ruleinfo"><xsl:apply-templates/></blockquote></xsl:for-each>
+    <xsl:for-each select="info"><blockquote class="ruleinfo"><div><xsl:apply-templates/></div></blockquote></xsl:for-each>
     <xsl:apply-templates select="category"/>
   </xsl:template>
 
@@ -39,7 +39,7 @@
         </xsl:apply-templates>
       </h3>
 
-      <xsl:for-each select="info"><blockquote class="ruleinfo"><xsl:apply-templates/></blockquote></xsl:for-each>
+      <xsl:for-each select="info"><blockquote class="ruleinfo"><div><xsl:apply-templates/></div></blockquote></xsl:for-each>
       <ul>
         <xsl:apply-templates select="best-practice"/>
       </ul>
@@ -52,7 +52,7 @@
     <li>
       <xsl:call-template name="new-rule"/>
       <xsl:apply-templates select="rule"/>
-      <xsl:for-each select="info"><blockquote class="ruleinfo"><xsl:apply-templates/></blockquote></xsl:for-each>
+      <xsl:for-each select="info"><blockquote class="ruleinfo"><div><xsl:apply-templates/></div></blockquote></xsl:for-each>
     </li>
   </xsl:template>
 

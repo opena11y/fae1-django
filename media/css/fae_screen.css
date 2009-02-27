@@ -933,25 +933,24 @@ ul.top-menu li span.separator {
 
 /* Run FAE */
 
-form {
-	margin:				0;
-	padding:			0;
-}
+form { margin: 0; padding: 0; }
 
-form div.urls {
-	margin:				0;
-	padding:			0;
-}
+form div.urls { margin: 0; padding: 0; }
+form div.report-title { margin:	0; padding: 1em 0 0 0; }
 
-form div.notes {
-	margin:				0.3em 0 0.6em 2.5em;
-	padding:			0;
-}
+form div.urls label,
+form div.report-title label,
+form legend label { color: #039 ; font-weight: bold; font-size: 96% }
 
-form div.notes ul {
-	margin:				0;
-	padding:			0;
-}
+form div.urls label,
+form div.report-title label { padding-left: 1.1em }
+
+form div.urls input,
+form div.report-title input { padding-left: 0.9em }
+
+form div.notes { margin: 0.3em 0 0.6em 2.5em; padding: 0; }
+
+form div.notes ul { margin: 0; padding: 0; }
 
 form textarea.textfield,
 form input.textfield {
@@ -959,15 +958,8 @@ form input.textfield {
 	font-size:			inherit;
 }
 
-form div.report-title {
-	margin:				0;
-	padding:			1em 0 0 0;
-}
-
-form div.radio-btns {
-	margin:				0;
-	padding:			1em 0 0 0;
-}
+form div.radio-btns {	margin: 0; padding: 1em 0 0 0; }
+form div.radio-btns ul { list-style-type: none; margin: 0 0; padding: 0.5em 0 }
 
 form fieldset.radio-btns {
 	width:				35em;
@@ -979,6 +971,7 @@ form div.submit {
 	padding:			1.5em 0 0 0;
 }
 
+ul.errorlist { margin: 0 0; padding: 0.5em 1.1em; font-weight: bold }
 /* Summary Report */
 
 table.summary {
@@ -1352,6 +1345,7 @@ div#message { font-size: 120%; font-weight: bold; color: #039; background-color:
 span.new { color: #777; font-size: 90%; }
 
 blockquote.ruleinfo { font-size: 90%; margin: 0.5em 1.5em; padding: 0 0.5em;  background-color: #f0f0f0; }
+li blockquote.ruleinfo { margin: 0.5em 1.5em 0.5em 0em; }
 
 table.stats { border-collapse: collapse; margin-top: 1em }
 table.stats th, table.stats td { border: 1px solid black; padding: 4px }

@@ -9,7 +9,7 @@ reports = {
     }
 
 sections = {
-    'nav':             'Navigation & Orientation',
+    'nav':             'Navigation &amp; Orientation',
     'text':            'Text Equivalents',
     'auto':            'Scripting',
     'style':           'Styling',

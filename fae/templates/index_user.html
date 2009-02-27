@@ -48,14 +48,6 @@ function initDoc() {
 {% block bodytag %}<body onload="initDoc()" onunload="enable('submit')">{% endblock %}
 
 {% block content %}
-<style type="text/css">
-div.radio-btns ul { list-style-type: none; margin: 0 0; padding: 0.5em 0 }
-ul.errorlist { margin: 0 0; padding: 0.5em 1.1em; font-weight: bold }
-div.urls label, div.report-title label, form legend label { color: #039 ; font-weight: bold; font-size: 96% }
-div.urls label, div.report-title label { padding-left: 1.1em }
-div.urls input, div.report-title input { padding-left: 0.9em }
-</style>
-
 <h1>{{ title }}</h1>
 <div>
 <p>Use this form to evaluate the functional accessibility of one or more web pages starting at the specified URL. The generated report will be saved in the <a href="/reports/archive/">Archived Reports</a> list. See <a href="/about/">About FAE</a> for more information.</p>

@@ -801,6 +801,8 @@ div#context table td {
 
 div#context table td.context-1 { width: 65%; }
 div#context table td.context-2 { width: 34%; text-align: right; }
+div#context table td.context-1.headline { font-weight: bold; }
+div#context table td.context-2.headline { font-weight: bold; }
 div#context span.context { padding-left: 2em; }
 
 /* Begin overrides */
@@ -972,31 +974,31 @@ form div.submit {
 }
 
 ul.errorlist { margin: 0 0; padding: 0.5em 1.1em; font-weight: bold }
+
 /* Summary Report */
 
 table.summary {
-	border-collapse: collapse;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+table.summary.detail {
+  width: 60%;
 }
 
 table.summary td,
 table.summary th {
-	border:				1px solid #999;
-	padding:			2px;
-	vertical-align:		top;
+  border: 1px solid #999;
+  padding: 2px;
+  vertical-align: top;
 }
 
-table.summary th {
-	text-align:			left;
-}
+table.summary th { text-align: left; }
 
-table.summary th a, table.summary td a {
-	text-decoration: underline;
-}
+table.summary th a, table.summary td a { text-decoration: underline; }
 
 table.summary th a:link,
-table.summary th a:visited {
-	color: #06C;
-}
+table.summary th a:visited { color: #06C; }
 
 table.summary caption {
 	font-size:			120%;
@@ -1012,23 +1014,28 @@ table.summary th.status {
 	background-color: #f0f0f0;
 }
 
+table.summary td.category,
+table.summary th.category {
+  width: 30%;
+}
+
 table.summary td.status,
 table.summary th.status {
-	width:				30%;
+  width: 25%;
 }
 
 table.summary th.pass,
 table.summary th.warn,
 table.summary th.fail,
 table.summary th.disc {
-	text-align:			right;
-	width:				14%;
+  text-align: right;
+  width: 14%;
 }
 
 table.summary td.pct,
 table.summary th.pct {
-	text-align:			right;
-	width:				14%;
+  text-align: right;
+  width: 14%;
 }
 
 table.summary td.section {
@@ -1037,9 +1044,8 @@ table.summary td.section {
 }
 
 table.summary th.row-header {
-	font-weight:		normal;
-	padding-left:		1.5em;
-	width:				30%;
+  font-weight: normal;
+  padding-left: 1.5em;
 }
 
 table.summary th.pass {

@@ -27,7 +27,7 @@
   <xsl:variable name="tblcap-detail">Evaluation Results by Best Practices Subcategory</xsl:variable>
   <xsl:variable name="tblsum-detail">Aggregated rules evaluation results by HTML Best Practices subcategories.</xsl:variable>
 
-  <xsl:variable name="intro-legend">Status values are based on aggregated evaluation results of Pass, Warn or N/A, as defined in the following table.</xsl:variable>
+  <xsl:variable name="intro-legend">Status values are based on aggregated evaluation results of Pass, N/A (not applicable) and Warn, as defined in the following table.</xsl:variable>
   <xsl:variable name="tblsum-legend">Definitions of Status values, which are assigned to Best Practices main categories in the first Evaluation Results table above.</xsl:variable>
 
   <xsl:key name="section-lookup" match="tests/section" use="@id"/>
@@ -97,24 +97,24 @@
 
           <xsl:for-each select="$results/results">
             <xsl:variable name="rsec" select="key('section-lookup', $skey)"/>
-            <xsl:variable name="total" select="count($rsec//page-test[not(@eval='disc')])"/>
-
+            <xsl:variable name="total" select="count($rsec//page-test)"/>
             <xsl:variable name="pass" select="count($rsec//page-test[@eval='pass'])"/>
             <xsl:variable name="warn" select="count($rsec//page-test[@eval='warn'])"/>
             <xsl:variable name="warn-null" select="count($rsec//page-test[@eval='warn-null'])"/>
             <xsl:variable name="fail" select="count($rsec//page-test[@eval='fail'])"/>
             <xsl:variable name="fail-null" select="count($rsec//page-test[@eval='fail-null'])"/>
+            <xsl:variable name="disc" select="count($rsec//page-test[@eval='disc'])"/>
 
             <td headers="{$sid} t1c1" class="status">
               <xsl:call-template name="get-status">
-                <xsl:with-param name="pass" select="$pass"/>
+                <xsl:with-param name="pass" select="$pass + $disc"/>
                 <xsl:with-param name="warn" select="$warn + $warn-null"/>
                 <xsl:with-param name="total" select="$total"/>
               </xsl:call-template>
             </td>
             <td headers="{$sid} t1c2" class="pct">
               <xsl:call-template name="get-pct">
-                <xsl:with-param name="count" select="$pass"/>
+                <xsl:with-param name="count" select="$pass + $disc"/>
                 <xsl:with-param name="total" select="$total"/>
               </xsl:call-template>
             </td>
@@ -135,21 +135,22 @@
       </xsl:for-each>
     </table>
 
-    <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-detail}">
+    <div style="margin-top: 0.5em">Note: % Pass includes N/A results.</div>
+
+    <table cellpadding="0" cellspacing="0" class="summary detail" summary="{$tblsum-detail}">
       <caption style="padding-top: 1.5em"><xsl:value-of select="$tblcap-detail"/></caption>
       <tr>
         <th id="t2c0" class="category">Category/Subcategory</th>
         <th id="t2c1" class="pass"><span class="pct">%</span> Pass</th>
         <th id="t2c2" class="warn"><span class="pct">%</span> Warn</th>
         <th id="t2c3" class="fail"><span class="pct">%</span> Fail</th>
-        <th id="t2c4" class="disc"><span class="pct">%</span><xsl:text> </xsl:text><abbr title="Not Applicable">N/A</abbr></th>
       </tr>
 
       <xsl:for-each select="$testdoc/section">
         <xsl:variable name="skey" select="@id"/>
         <xsl:variable name="sid" select="concat('t2s', position())"/>
         <tr>
-          <th id="{$sid}" class="section" colspan="5"><xsl:apply-templates select="name"/></th>
+          <th id="{$sid}" class="section" colspan="4"><xsl:apply-templates select="name"/></th>
         </tr>
         <xsl:for-each select="category">
           <xsl:variable name="ckey" select="@id"/>
@@ -182,7 +183,7 @@
 
               <td headers="{$sid} {$cid} t2c1" class="pct">
                 <xsl:call-template name="get-pct">
-                  <xsl:with-param name="count" select="$pass"/>
+                  <xsl:with-param name="count" select="$pass + $disc"/>
                   <xsl:with-param name="total" select="$total"/>
                 </xsl:call-template>
               </td>
@@ -198,17 +199,13 @@
                   <xsl:with-param name="total" select="$total"/>
                 </xsl:call-template>
               </td>
-              <td headers="{$sid} {$cid} t2c4" class="pct">
-                <xsl:call-template name="get-pct">
-                  <xsl:with-param name="count" select="$disc"/>
-                  <xsl:with-param name="total" select="$total"/>
-                </xsl:call-template>
-              </td>
             </xsl:for-each>
           </tr>
         </xsl:for-each>
       </xsl:for-each>
     </table>
+
+    <div style="margin-top: 0.5em">Note: % Pass includes N/A results.</div>
 
     <div id="legend">
       <br/>
@@ -231,19 +228,16 @@
         </tr>
       </thead>
       <tr>
-        <td class="stat-1">Complete</td><td class="pct">100</td><td class="eval">Pass</td>
+        <td class="stat-1">Complete</td><td class="pct">100</td><td class="eval">Pass + N/A</td>
       </tr>
       <tr class="highlight">
-        <td class="stat-2">Almost Complete</td><td class="pct">95&#8211;100</td><td class="eval">Pass + Warn</td>
+        <td class="stat-2">Almost Complete</td><td class="pct">95&#8211;100</td><td class="eval">Pass + N/A + Warn</td>
       </tr>
       <tr>
-        <td class="stat-3">Partially Implemented</td><td class="pct">40&#8211;94</td><td class="eval">Pass + Warn</td>
+        <td class="stat-3">Partially Implemented</td><td class="pct">40&#8211;94</td><td class="eval">Pass + N/A + Warn</td>
       </tr>
       <tr class="highlight">
-        <td class="stat-4">Not Implemented</td><td class="pct">0&#8211;39</td><td class="eval">Pass + Warn</td>
-      </tr>
-      <tr>
-        <td class="stat-0">Not Applicable</td><td class="pct">100</td><td class="eval">N/A</td>
+        <td class="stat-4">Not Implemented</td><td class="pct">0&#8211;39</td><td class="eval">Pass + N/A + Warn</td>
       </tr>
     </table>
   </xsl:template>

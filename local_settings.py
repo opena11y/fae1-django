@@ -27,4 +27,4 @@ DB_USER =        ('faedev',      'faetest',     'faedata')
 DB_PASSWORD =    ('faeDev2oo8',  'faeTest2oo8', 'faeData2oo8')
 
 FAE_INSTALL =    ('development', 'beta test',   'production')
-VERSION_SUFFIX = (' (dev. version)', ' (test version)', '')
+VERSION_SUFFIX = (' (development)', ' (test version)', '')

@@ -27,6 +27,8 @@
   <xsl:variable name="tblcap-detail">Evaluation Results by Best Practices Subcategory</xsl:variable>
   <xsl:variable name="tblsum-detail">Aggregated rules evaluation results by HTML Best Practices subcategories.</xsl:variable>
 
+  <xsl:variable name="note-pct-pass">Note: % Pass includes N/A results.</xsl:variable>
+
   <xsl:variable name="intro-legend">Status values are based on aggregated evaluation results of Pass, N/A (not applicable) and Warn, as defined in the following table.</xsl:variable>
   <xsl:variable name="tblsum-legend">Definitions of Status values, which are assigned to Best Practices main categories in the first Evaluation Results table above.</xsl:variable>
 
@@ -135,7 +137,7 @@
       </xsl:for-each>
     </table>
 
-    <div style="margin-top: 0.5em">Note: % Pass includes N/A results.</div>
+    <div class="table-note"><xsl:value-of select="$note-pct-pass"/></div>
 
     <table cellpadding="0" cellspacing="0" class="summary detail" summary="{$tblsum-detail}">
       <caption style="padding-top: 1.5em"><xsl:value-of select="$tblcap-detail"/></caption>
@@ -205,7 +207,7 @@
       </xsl:for-each>
     </table>
 
-    <div style="margin-top: 0.5em">Note: % Pass includes N/A results.</div>
+    <div class="table-note"><xsl:value-of select="$note-pct-pass"/></div>
 
     <div id="legend">
       <br/>

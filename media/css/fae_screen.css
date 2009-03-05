@@ -1134,6 +1134,8 @@ table.legend th.eval {
 	padding-left:		0.5em;
 }
 
+div.table-note { margin-top: 0.5em; }
+
 /* Report Archive */
 
 table.archive {

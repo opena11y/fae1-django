@@ -24,7 +24,7 @@ def get_latest_date(model, fieldname):
         record = model.objects.latest(fieldname)
         return getattr(record, fieldname)
     except model.DoesNotExist:
-        return datetime.date(2008, 6, 15)
+        return datetime.date(2009, 3, 1)
 
 #------------------------------------------------
 def get_reports_by_date(model, date):

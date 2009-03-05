@@ -16,11 +16,11 @@ if   PROJECT_DIR == '/home/nhoyt/src/project':
 elif PROJECT_DIR == '/services/faetest/lib/project':
     PLATFORM = STAGING
     FAE_PATH = '/services/faetest'
-    ALLOW_REGISTRATION = True
+    ALLOW_REGISTRATION = False
 elif PROJECT_DIR == '/services/faedata/lib/project':
     PLATFORM = PRODUCTION
     FAE_PATH = '/services/faedata'
-    ALLOW_REGISTRATION = False
+    ALLOW_REGISTRATION = True
 
 DB_NAME =        ('faedev',      'faetest',     'faedata')
 DB_USER =        ('faedev',      'faetest',     'faedata')

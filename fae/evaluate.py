@@ -103,8 +103,14 @@ def download_resources(params, is_logged_in, uid, test=False):
             wget.extend(['--span-hosts', '--domains=%s' % get_next_level_domain(url)])
     wget.append(url)
 
+    if settings.WGET_DEBUG and url.startswith('https'):
+        log_file = open(os.path.join(settings.LOGS_DIR, 'wget.log'), 'a')
+        kwargs = { 'stdout': log_file, 'stderr': subprocess.STDOUT }
+    else:
+        kwargs = {}
+
     if test: return ' '.join(wget)
-    return call(wget)
+    return call(wget, **kwargs)
 
 #----------------------------------------------------------------
 def save_resources(request, uid):

@@ -2,12 +2,13 @@
 
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # Begin custom settings
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
+WGET_DEBUG = False
 
 try:
     from local_settings import *

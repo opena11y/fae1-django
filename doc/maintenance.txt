@@ -1,0 +1,17 @@
+1. To delete inactive accounts (where users registered but did not
+   confirm their registration AND are inactive) use this command:
+
+   $ python manage.py cleanupregistration
+
+2. To cleanup expired sessions in the session table:
+
+   $ django-admin.py cleanup
+
+3. The following lines should be added to crontab (with modifications
+   depending on installation) for automating the collection of usage
+   statistics and purging of reports:
+
+   PYTHONPATH=/services/faedata/lib
+   DJANGO_SETTINGS_MODULE=project.settings
+   10 3 * * * /usr/bin/python $PYTHONPATH/project/fae/scripts/collect_stats.py
+   20 3 * * * /usr/bin/python $PYTHONPATH/project/fae/scripts/purge_reports.py

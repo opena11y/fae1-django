@@ -5,6 +5,18 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.1</title>
+    <date>2009-04-03</date>
+
+    <item>Updated content of Disclaimer page.</item>
+    <item>Added instructions for Username field in registration form.</item>
+    <item>Updated 404 template to cross-reference information on purging of reports.</item>
+    <item>Fixed typographical error in Rules Summary.</item>
+    <note>Added template tag href_lookup for maintaining consistency re. links to external resources.</note>
+    <note>Changed values in ACCT_TYPE_BUFFER: reduced number of reports saved by default for levels 2 and 4.</note>
+  </version>
+
+  <version>
     <title>Version 1.0</title>
     <date>2009-02-27</date>
 

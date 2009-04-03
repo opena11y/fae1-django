@@ -1,8 +1,10 @@
+{% load href_lookup %}
+
 <h2>What is FAE?</h2>
 
-<p>The Functional Accessibility Evaluator (FAE) analyzes web pages for markup that is consistent with the use of <a class="external" href="http://html.cita.uiuc.edu//">iCITA HTML Best Practices</a> for the development of functionally accessible web resources that also support interoperability.</p>
+<p>The Functional Accessibility Evaluator (FAE) analyzes web pages for markup that is consistent with the use of <a class="external" href="{% href_lookup best_practices %}">iCITA HTML Best Practices</a> for the development of functionally accessible web resources that also support interoperability.</p>
 
-<p>The iCITA HTML Best Practices are not a new standard, but rather a statement of techniques for implementation of the W3C <a class="external" href="http://www.w3.org/TR/WCAG">Web Content Accessibility Guidelines (WCAG)</a>, the United States Federal Government <a class="external" href="http://www.access-board.gov/sec508/standards.htm">Electronic and Information Technology Accessibility Standards (Section 508)</a> and the <a class="external" href="http://www.dhs.state.il.us/page.aspx?item=32765">Illinois Information Technology Accessibility Act (IITAA)</a>. Following the best practices in developing web resources not only improves accessibility for people with disabilities, but also improves interoperability, giving everyone the benefit of having more options for accessing and using those resources.</p>
+<p>The iCITA HTML Best Practices are not a new standard, but rather a statement of techniques for implementation of the W3C <a class="external" href="{% href_lookup wcag %}">Web Content Accessibility Guidelines (WCAG)</a>, the United States Federal Government <a class="external" href="{% href_lookup section_508 %}">Electronic and Information Technology Accessibility Standards (Section 508)</a> and the <a class="external" href="{% href_lookup iitaa_home %}">Illinois Information Technology Accessibility Act (IITAA)</a>. Following the best practices in developing web resources not only improves accessibility for people with disabilities, but also improves interoperability, giving everyone the benefit of having more options for accessing and using those resources.</p>
 
 <h2>Running the Evaluator</h2>
 
@@ -57,6 +59,6 @@
 
 <h2>Evaluating Dynamic and/or Protected Web Resources</h2>
 
-<p>To analyze pages that do not have static URLs and/or require an account login for access, the <a class="external" href="http://firefox.cita.uiuc.edu/">Firefox Accessibility Extension</a> is available. It now includes functionality for sending copies of such pages directly to FAE for generating Summary and Page Reports.</p>
+<p>To analyze pages that do not have static URLs and/or require an account login for access, the <a class="external" href="{% href_lookup firefox_ext %}">Firefox Accessibility Extension</a> is available. It now includes functionality for sending copies of such pages directly to FAE for generating Summary and Page Reports.</p>
 
 <p>In the interest of privacy, any pages that are analyzed by FAE, including those sent by the Accessibility Extension, are immediately deleted once the evaluation reports have been generated.</p>

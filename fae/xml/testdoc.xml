@@ -438,7 +438,7 @@
       <best-practice ref="style005" new="1.0.b5">
         <name>inline style elements: blink and marquee</name>
         <rule>The <elem>blink</elem> and <elem>marquee</elem> elements must not be used.</rule>
-        <info>Blinking or moving text causes accessibility problems for people with photosenstive epilepsy and visual impairments.</info>
+        <info>Blinking or moving text causes accessibility problems for people with photosensitive epilepsy and visual impairments.</info>
         <page id="style005p"/>
         <site id="style005s"/>
       </best-practice>

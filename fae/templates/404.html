@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}<title>{{ site.name }}: Page Not Found</title>{% endblock %}
+{% block title %}<title>{{ site.name }}: Not Found</title>{% endblock %}
 
 {% block content %}
-<h1>Page Not Found</h1>
+<h1>Not Found</h1>
 
-<p>The URL you provided does not match any of those configured for FAE.</p>
+<p>The URL you provided does not correspond to any known page or resource.</p>
+<p>If you were trying to link to an {{ site.name }} report, it is possible that it has been purged{% if user.is_authenticated %} (please see the <a href="/reports/manage/">Manage Reports</a> page){% endif %}.</p>
 {% endblock %}

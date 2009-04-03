@@ -1,21 +1,18 @@
-<p>Rules for tests in the Functional Accessibility Evaluator (FAE) are based
-on <a class="external" href="http://bestpractices.cita.uiuc.edu/html/">CITES/DRES
-HTML Best Practices</a>, which describe techniques that can be used for
-implementing WCAG and Section 508 requirements.</p>
+{% load href_lookup %}
+
+<p>Rules for tests in the Functional Accessibility Evaluator (FAE) are based on the <a class="external" href="{% href_lookup best_practices %}">iCITA HTML Best Practices</a>, which describe techniques that can be used for implementing the <a class="external" href="{% href_lookup wcag %}">Web Content Accessibility Guidelines (WCAG)</a>, the United States Federal Government <a class="external" href="{% href_lookup section_508 %}">Electronic and Information Technology Accessibility Standards (Section 508)</a> and the <a class="external" href="{% href_lookup iitaa_impl %}">Illinois Information Technology Accessibility Act (IITAA)</a> requirements.</p>
 
 <p>Please be aware of the following limitations in the use of FAE:</p>
 
 <ol>
-<li>The set of rules currently derived from the CITES/DRES HTML Best Practices
-are incomplete, and not all of these rules have associated tests in FAE.</li>
-<li>FAE and its test components may not be able to interpret all markup; we
-recommend that people validate their documents to improve the ability of FAE
-to intepret markup.</li>
-<li>Web pages may be accessible or conform to WCAG or Section 508 requirements
-and still may fail the tests used by FAE for evaluating functional
-accessibility.</li>
-<li>The use of FAE does not replace accessibility testing with persons with
-disabilities. We feel FAE is useful for identifying obvious functional
-accessibility issues, but we encourage further testing with persons with
-disabilities to verify the accessibility of a web site.</li>
+<li>The iCITA HTML Best Practices do not include tests for all the requirements of WCAG, Section 508 and IITAA. There are many requirements that can only be tested through manual inspection and/or testing with people with disabilities to verify conformance.</li>
+
+<li>While passing all of the FAE rules will generally provide highly accessible web pages, it should not be inferred from this that all accessibility requirements have been met. We encourage you to become familiar with all accessibility requirements and to be sure to implement them in your designs, including requirements that can only be tested manually.</li>
+
+<li>FAE and its test components may not be able to interpret all markup; we recommend that you validate your documents to improve the ability of FAE to intepret markup.</li>
+
+<!--li>Web pages may be accessible or conform to WCAG, Section 508 or IITAA requirements and still fail the tests used by FAE for evaluating functional accessibility.
+</li-->
+
+<li>You may be using techniques not defined in the best practices to conform to WCAG, Section 508 or IITAA requirements and this may result in not passing some of the tests used by FAE for evaluating functional accessibility.</li>
 </ol>

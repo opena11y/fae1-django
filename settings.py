@@ -15,7 +15,7 @@ try:
 except:
     pass
 
-VERSION = '1.0' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.0.1' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.uiuc.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION
@@ -49,9 +49,9 @@ ACCT_TYPE_QUOTA = {
 DEFAULT_BUFFER = 5
 ACCT_TYPE_BUFFER = {
     1 : DEFAULT_BUFFER,
-    2 : 10,
+    2 : DEFAULT_BUFFER,
     3 : 10,
-    4 : 20,
+    4 : 10,
     5 : 20
     }
 

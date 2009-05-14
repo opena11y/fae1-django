@@ -5,6 +5,15 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.2</title>
+    <date>2009-05-14</date>
+
+    <item>Updated FAE to Ruleset 0509-1. This entailed changing the Scripting rules for onmouseover and onmouseout from Pass/Fail to Pass/Warn.</item>
+    <item>Added a Ruleset specifier in the header content for all reports, and an explanation for it in a subsection of the About FAE: Overview page entitled FAE Rulesets.</item>
+    <item>All FAE URLs now reflect the domain name changeover from uiuc.edu to illinois.edu.</item>
+  </version>
+
+  <version>
     <title>Version 1.0.1</title>
     <date>2009-04-03</date>
 

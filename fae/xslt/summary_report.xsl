@@ -15,6 +15,7 @@
   <xsl:param name="id"/>
   <xsl:param name="pc"/>
   <xsl:param name="pid"/>
+  <xsl:param name="ruleset"/>
   <xsl:param name="title"/>
 
   <xsl:variable name="results" select="/"/>
@@ -67,7 +68,9 @@
 
     <h1><xsl:value-of select="$title"/></h1>
 
-    <xsl:call-template name="context-header"/>
+    <xsl:call-template name="context-header">
+      <xsl:with-param name="ruleset-current" select="$ruleset"/>
+    </xsl:call-template>
 
     <table cellpadding="0" cellspacing="0" class="summary" summary="{$tblsum-summary}">
       <caption style="padding-top: 1em"><xsl:value-of select="$tblcap-summary"/></caption>

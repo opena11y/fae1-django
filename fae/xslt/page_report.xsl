@@ -17,6 +17,7 @@
   <xsl:param name="pc"/>
   <xsl:param name="section"/>
   <xsl:param name="pid"/>
+  <xsl:param name="ruleset"/>
   <xsl:param name="title"/>
   <xsl:param name="nodata"/>
 
@@ -34,6 +35,7 @@
     <xsl:call-template name="context-header">
       <xsl:with-param name="url" select="/results/pages/page-info[@id=$pid]/name"/>
       <xsl:with-param name="page-title" select="/results/pages/page-info[@id=$pid]/title"/>
+      <xsl:with-param name="ruleset-current" select="$ruleset"/>
     </xsl:call-template>
 
     <xsl:apply-templates select="$testdoc//section[@id=$section]">

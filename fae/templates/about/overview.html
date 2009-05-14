@@ -51,9 +51,17 @@
 <dd>Support for HTML standards to improve interoperability and provide more choices in the use of technologies for rendering web content.</dd>
 </dl>
 
+<h2>FAE Rulesets</h2>
+
+<p>The current ruleset version is <strong>{{ ruleset }}</strong>.</p>
+
+<p>While we try to maintain as much stability as possible regarding the rules on which FAE analysis and evaluation are based (<a class="external" href="{% href_lookup best_practices %}">iCITA HTML Best Practices</a>), that set of rules is, by its nature, dynamic. As more is learned about the functional accessibility of Web resources, the ruleset is updated to reflect the most recent knowledge.</p>
+
+<p>The report header indicates the ruleset version that was in use by FAE when the report was generated. If that version corresponds to the current ruleset, this is indicated by "(current)". If it does not, this is indicated by "(outdated: current ruleset is {{ ruleset }})".</p>
+
 <h2>Linking Directly to FAE</h2>
 
-<p>It is now possible to place a link to FAE on a web page that, w hen selected, causes FAE to evaluate the page and display the resulting Summary Report. The following HTML snippet should be used:</p>
+<p>It is now possible to place a link to FAE on a web page that, when selected, causes FAE to evaluate the page and display the resulting Summary Report. The following HTML snippet should be used:</p>
 
 <p><code>&lt;a href="http://{{ site.domain }}/evaluate/link/"&gt;Check with FAE&lt;/a&gt;</code></p>
 

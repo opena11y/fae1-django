@@ -34,6 +34,7 @@ def get_report_content(report_info, title):
         'pc':      u"'%s'" % report_info['pgcount'],
         'section': u"'%s'" % report_info['section'],
         'pid':     u"'%s'" % report_info['pageid'],
+        'ruleset': u"'%s'" % settings.RULESET,
         'title':   u"'%s'" % title,
         }
 

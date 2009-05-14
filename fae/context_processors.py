@@ -1,9 +1,10 @@
 from django.contrib.sites.models import Site
-from project.settings import VERSION, TEST_INSTALL
+from project.settings import RULESET, VERSION, TEST_INSTALL
 
 def app(request):
     context = {
         'site': Site.objects.get_current(),
+        'ruleset': RULESET,
         'version': VERSION,
         'test_install': TEST_INSTALL,
         }

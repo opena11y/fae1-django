@@ -3,8 +3,8 @@ from django import template
 register = template.Library()
 
 href_dictionary = {
-    'best_practices': 'http://html.cita.uiuc.edu/',
-    'firefox_ext':    'http://firefox.cita.uiuc.edu/',
+    'best_practices': 'http://html.cita.illinois.edu/',
+    'firefox_ext':    'http://firefox.cita.illinois.edu/',
     'iitaa_home':     'http://www.dhs.state.il.us/IITAA/',
     'iitaa_impl':     'http://www.dhs.state.il.us/IITAA/IITAAWebImplementationGuidelines.html',
     'section_508':    'http://www.access-board.gov/sec508/standards.htm',

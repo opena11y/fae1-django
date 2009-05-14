@@ -12,6 +12,8 @@
 
   <xsl:strip-space elements="*"/>
 
+  <xsl:param name="ruleset"/>
+
   <!-- ======================================================== -->
   <!-- root template -->
 
@@ -22,6 +24,7 @@
 
     <xsl:call-template name="context-header">
       <xsl:with-param name="display-urls" select="false()"/>
+      <xsl:with-param name="ruleset-current" select="$ruleset"/>
     </xsl:call-template>
 
     <xsl:for-each select="/results/meta/urls/url">

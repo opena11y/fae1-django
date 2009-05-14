@@ -31,7 +31,7 @@
 				/* The global font size is set to 90% as   */
 				/* most browsers' normal font is too large */
 body {
-	font-family:		Verdana, Arial, Helvetica, sans-serif;
+	font-family:		Helvetica, Verdana, Arial, sans-serif;
 	font-size:			90%;	/* Allow IE/Win to resize the document */
 	color:				black;
 	background:			#f0f0f0;

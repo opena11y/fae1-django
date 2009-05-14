@@ -10,16 +10,17 @@ RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
 
+RULESET = '0905-1' # should match wamttest version
+
 try:
     from local_settings import *
 except:
     pass
 
-VERSION = '1.0.1' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.0.2' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
-PUBLIC_URL = 'http://fae.cita.uiuc.edu/'
+PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION
-RULESET = '1.0.0'
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
@@ -108,7 +109,7 @@ AUTH_PROFILE_MODULE = 'fae.userprofile'
 
 # Registration application settings:
 ACCOUNT_ACTIVATION_DAYS = 14
-DEFAULT_FROM_EMAIL = 'do-not-reply@cita.uiuc.edu'
+DEFAULT_FROM_EMAIL = 'do-not-reply@cita.illinois.edu'
 
 # Overrides
 LOGIN_REDIRECT_URL = '/'

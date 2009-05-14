@@ -453,12 +453,14 @@
 <!-- focusable elements with onmouseover and onfocus -->
 <eval id="auto002p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
 <!-- focusable elements with onmouseout and onblur -->
 <eval id="auto003p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 

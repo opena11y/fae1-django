@@ -17,6 +17,7 @@
   <xsl:param name="pc"/>
   <xsl:param name="section"/>
   <xsl:param name="pid"/><!-- not used -->
+  <xsl:param name="ruleset"/>
   <xsl:param name="title"/>
   <xsl:param name="nodata"/>
 
@@ -31,7 +32,9 @@
 
     <h1><xsl:value-of select="$title"/></h1>
 
-    <xsl:call-template name="context-header"/>
+    <xsl:call-template name="context-header">
+      <xsl:with-param name="ruleset-current" select="$ruleset"/>
+    </xsl:call-template>
 
     <script type="text/javascript">
       var idArray = <xsl:call-template name="get-testids"/>;

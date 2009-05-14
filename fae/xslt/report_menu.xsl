@@ -15,6 +15,7 @@
   <xsl:param name="id"/>
   <xsl:param name="section"/>
   <xsl:param name="pid"/>
+  <xsl:param name="ruleset"/>
   <xsl:param name="title"/>
 
   <xsl:variable name="prefix">/report/<xsl:value-of select="$id"/>/page/</xsl:variable>
@@ -27,7 +28,9 @@
 
     <h1><xsl:value-of select="$title"/></h1>
 
-    <xsl:call-template name="context-header"/>
+    <xsl:call-template name="context-header">
+      <xsl:with-param name="ruleset-current" select="$ruleset"/>
+    </xsl:call-template>
 
     <ol title="List of Pages">
       <xsl:for-each select="/results/pages/page-info">

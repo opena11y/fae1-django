@@ -7,6 +7,7 @@
 
   <xsl:template name="context-header">
     <xsl:param name="url"/>
+    <xsl:param name="ruleset-current"/>
     <xsl:param name="page-title"/>
     <xsl:param name="link" select="false()"/>
     <xsl:param name="display-urls" select="true()"/>
@@ -25,6 +26,20 @@
 
     <xsl:variable name="span" select="number(/results/meta/span) = 1"/>
 
+    <xsl:variable name="ruleset-report" select="/results/meta/version"/>
+    <xsl:variable name="ruleset-prefix" select="concat('Ruleset: ', $ruleset-report)"/>
+    <xsl:variable name="ruleset-suffix">
+      <xsl:choose>
+        <xsl:when test="$ruleset-current = $ruleset-report">
+          <xsl:value-of select="' (current)'"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="concat(' (outdated: current ruleset is ', $ruleset-current, ')')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="ruleset-message" select="concat($ruleset-prefix, $ruleset-suffix)"/>
+
     <div id="context">
       <table cellpadding="0" cellspacing="0">
         <tr>
@@ -39,13 +54,21 @@
           <td class="context-2 headline"><xsl:value-of select="/results/meta/date"/></td>
         </tr>
 
-        <xsl:if test="number(/results/meta/pg-count) &gt; 1">
-          <tr>
-            <td class="context-1">Pages: <xsl:value-of select="/results/meta/pg-count"/>
-            <xsl:if test="$span"><span class="context">Span: Next-level subdomains</span></xsl:if></td>
-            <td class="context-2">Depth: <xsl:value-of select="$depth"/></td>
-          </tr>
-        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="number(/results/meta/pg-count) &gt; 1">
+            <tr>
+              <td class="context-1" colspan="2">Pages: <xsl:value-of select="/results/meta/pg-count"/>
+              <span class="context">Depth: <xsl:value-of select="$depth"/></span>
+              <xsl:if test="$span"><span class="context">Span: Next-level subdomains</span></xsl:if>
+              <span class="context"><xsl:value-of select="$ruleset-message"/></span></td>
+            </tr>
+          </xsl:when>
+          <xsl:otherwise>
+            <tr>
+              <td class="context-1" colspan="2"><xsl:value-of select="$ruleset-message"/></td>
+            </tr>
+          </xsl:otherwise>
+        </xsl:choose>
 
         <xsl:if test="$display-urls">
           <tr>

@@ -376,13 +376,13 @@
 
       <best-practice ref="auto002" new="1.0.b6">
         <name>onmouseover and onfocus actions on focusable elements</name>
-        <rule>Each focusable element with an <attr>onmouseover</attr> attribute must also have an <attr>onfocus</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <rule>Each focusable element with an <attr>onmouseover</attr> attribute should also have an <attr>onfocus</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
         <page id="auto002p"/>
       </best-practice>
 
       <best-practice ref="auto003" new="1.0.b6">
         <name>onmouseout and onblur actions on focusable elements</name>
-        <rule>Each focusable element with an <attr>onmouseout</attr> attribute must also have an <attr>onblur</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
+        <rule>Each focusable element with an <attr>onmouseout</attr> attribute should also have an <attr>onblur</attr> attribute, and their associated event handlers should trigger the same or similar actions.</rule>
         <page id="auto003p"/>
       </best-practice>
 
@@ -493,5 +493,5 @@
     <link tgt="bp" href="standards/"/>
   </section>
 
-  <link-base tgt="bp" href="http://html.cita.uiuc.edu/"/>
+  <link-base tgt="bp" href="http://html.cita.illinois.edu/"/>
 </testdoc>

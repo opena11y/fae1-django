@@ -143,19 +143,19 @@
 
   <message id="nav061p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> data <sp ref="cnt1"><s><elem>table</elem></s><p><elem>tables</elem></p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="fail"><ins ref="cnt1"/> data <sp ref="cnt1"><s>table</s><p>tables</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No data tables were found.</msg>
   </message>
 
   <message id="nav062p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> data <sp ref="cnt1"><s><elem>table</elem></s><p><elem>tables</elem></p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="fail"><ins ref="cnt1"/> data <sp ref="cnt1"><s>table</s><p>tables</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No data tables were found.</msg>
   </message>
 
   <message id="nav063p">
     <msg id="pass"/>
-    <msg id="warn"><ins ref="cnt1"/> data <sp ref="cnt1"><s><elem>table</elem></s><p><elem>tables</elem></p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
+    <msg id="warn"><ins ref="cnt1"/> data <sp ref="cnt1"><s>table</s><p>tables</p></sp> (out of <ins ref="tot1"/> total) <sp ref="cnt1"><s>does</s><p>do</p></sp> not meet the criteria.</msg>
     <msg id="disc">No data tables were found.</msg>
   </message>
 

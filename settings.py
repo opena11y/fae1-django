@@ -10,14 +10,14 @@ RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
 
-RULESET = '0905-1' # should match wamttest version
+RULESET = '0906-1' # should match wamttest version
 
 try:
     from local_settings import *
 except:
     pass
 
-VERSION = '1.0.2' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.0.3' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION

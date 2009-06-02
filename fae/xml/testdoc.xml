@@ -195,8 +195,8 @@
       -->
 
       <best-practice ref="nav061" new="1.0.b7">
-        <name>data table must use th in first cell of all columns or rows</name>
-        <rule>Each data table must utilize <elem>th</elem> elements as the first cells of all columns or rows.</rule>
+        <name>data table must use th in first cell of all columns and each row must also contain at least one th</name>
+        <rule>For each data table, the first cell in each column must be a <elem>th</elem> element, and each row must contain at least one <elem>th</elem> element.</rule>
         <page id="nav061p"/>
       </best-practice>
 

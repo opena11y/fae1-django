@@ -3,13 +3,19 @@ import subprocess
 
 from datetime import datetime
 from urllib import unquote
-from urlparse import urlparse
 from lxml import etree
 
 from django.conf import settings
 from django.utils.encoding import smart_str
 
 from uid import generate
+from resource_acquisition import call_wget, call_dhtmlget
+
+# Set default resource_acquistion function
+if settings.USE_DHTMLGET:
+    download_resources = call_dhtmlget
+else:
+    download_resources = call_wget
 
 if settings.RESOURCES_DEBUG:
     call = subprocess.check_call
@@ -25,6 +31,13 @@ class XMLValidationError(Exception):
 #----------------------------------------------------------------
 def evaluate(params, is_logged_in, timestamp):
     uid = generate()
+
+    # Select the appropriate download function
+    if params['dhtml'] and is_logged_in:
+        download_resources = call_dhtmlget
+    else:
+        download_resources = call_wget
+
     download_resources(params, is_logged_in, uid)
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
@@ -33,6 +46,13 @@ def evaluate(params, is_logged_in, timestamp):
 #----------------------------------------------------------------
 def multi_evaluate(params, is_logged_in, timestamp):
     uid = generate()
+
+    # Select the appropriate download function
+    if params['dhtml'] and is_logged_in:
+        download_resources = call_dhtmlget
+    else:
+        download_resources = call_wget
+
     urls = params['urls'].split()
 
     for url in urls:
@@ -54,63 +74,6 @@ def evaluate_dhtml(params, is_logged_in, timestamp):
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
-
-#----------------------------------------------------------------
-def download_resources(params, is_logged_in, uid, test=False):
-    """
-    Call wget to download resources from specified url.
-
-    Keys of interest in params dict: url, depth (optional), span (optional)
-
-    wget switches used:
-
-    --no-check-certificate (not in use)
-    --omit-most-urls (blank-out urls in HTML files for elim. of duplicates; fae wget only; not in use)
-    --type-postfixes (save files with type-identifying postfixes; fae wget only)
-    --tries
-    --timeout
-    --wait-retry
-    -erobots (evaluate robots.txt files)
-    -Q = --quota
-    -R = --reject LIST
-    -k = --convert-links
-    -p = --page-requisites
-    -x = --force-directories
-    -P = --directory-prefix
-    -r = --recursive
-    -l = --level
-    --span-hosts
-    --domains=LIST
-
-    """
-    site_dir = os.path.join(settings.SITES_DIR, uid)
-    url = params['url']
-    depth = params.get('depth', '')
-    span = params.get('span', '')
-
-    # construct command
-    wget = []
-    if not is_logged_in: wget.append('nice')
-    wget.append(settings.WGET)
-    wget.extend(['--type-postfixes', '--tries=3', '--timeout=30', '--waitretry=3', '-erobots=off'])
-    wget.extend(['-Q', '6m'])
-    wget.extend(['-R', settings.REJECT_LIST])
-    wget.extend(['-k', '-p', '-x'])
-    wget.extend(['-P', site_dir])
-    if depth == '1' or depth == '2':
-        wget.extend(['-r', '-l', depth])
-        if span == '1':
-            wget.extend(['--span-hosts', '--domains=%s' % get_next_level_domain(url)])
-    wget.append(url)
-
-    if settings.WGET_DEBUG and url.startswith('https'):
-        log_file = open(os.path.join(settings.LOGS_DIR, 'wget.log'), 'a')
-        kwargs = { 'stdout': log_file, 'stderr': subprocess.STDOUT }
-    else:
-        kwargs = {}
-
-    if test: return ' '.join(wget)
-    return call(wget, **kwargs)
 
 #----------------------------------------------------------------
 def save_resources(request, uid):
@@ -235,13 +198,6 @@ def run_xsltproc(filename, stylesheet):
     xsltproc.append(stylesheet)
     xsltproc.append(filename)
     call(xsltproc)
-
-#----------------------------------------------------------------
-def get_next_level_domain(url):
-    obj = urlparse(url)
-    domain = obj.netloc.split(':')[0]
-    components = domain.split('.')
-    return '.'.join(components[1:])
 
 #----------------------------------------------------------------
 def get_results_filename(is_logged_in, uid):

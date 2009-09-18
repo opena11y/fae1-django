@@ -26,11 +26,13 @@ class DepthEvalForm(forms.Form):
     title = forms.CharField(label='Report Title:', max_length=128, required=False, widget=TextFieldWidget)
     depth = forms.ChoiceField(label='Depth of Evaluation', choices=DEPTH_CHOICES, initial=0, widget=forms.RadioSelect)
     span = forms.ChoiceField(label='Follow Links in', choices=SPAN_CHOICES, initial=0, widget=forms.RadioSelect, required=False)
+    dhtml = forms.BooleanField(label='Include DHTML content', initial=0, widget=forms.CheckboxInput, required=False)
 
 class MultiEvalForm(forms.Form):
     TEXTAREA_ATTRS = { 'rows': '10', 'cols': '60', 'class': 'textfield', 'onfocus': 'this.select()' }
     urls = forms.CharField(label='URLs:', widget=forms.Textarea(attrs=TEXTAREA_ATTRS))
     title = forms.CharField(label='Report Title:', max_length=128, required=False, widget=TextFieldWidget)
+    dhtml = forms.BooleanField(label='Include DHTML content', initial=0, widget=forms.CheckboxInput, required=False)
 
 class UserForm(forms.ModelForm):
     class Meta:

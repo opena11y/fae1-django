@@ -1,0 +1,14 @@
+----------------------------------------------------------------
+Request (by JG) 2009-04-02
+@summary_report
+
+Based on suggestions by R.W. Crowl, may want to revise calculations so that we are mainly looking at %Fail (as was discussed some time ago by the best practices working group).
+
+----------------------------------------------------------------
+Request (by NH) 2009-04-03
+@registration
+
+Would like to include the username in the activation_email.txt that is part of Step 1. of registration.
+
+Investigated how the registration package works with respect to context variables that are made available to the various templates that it uses. The activation_email template is only passed three context variables, and it is not a configuration option to pass in additional variables.
+

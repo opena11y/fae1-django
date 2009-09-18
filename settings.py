@@ -17,10 +17,11 @@ try:
 except:
     pass
 
-VERSION = '1.0.3' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.0.4' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION
+USE_DHTMLGET = False # default value (can be overridden)
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')
@@ -31,6 +32,7 @@ SITES_DIR         = os.path.join(FAE_PATH, 'sites')
 LOGS_DIR          = os.path.join(FAE_PATH, 'logs')
 DOC_ROOT          = os.path.join(FAE_PATH, 'html')
 
+DHTMLGET = os.path.join(FAE_PATH, 'bin/dhtmlget.sh')
 WGET = os.path.join(FAE_PATH, 'bin/wget')
 WAMT = os.path.join(FAE_PATH, 'bin/wamt')
 XSLTPROC = '/usr/bin/xsltproc'

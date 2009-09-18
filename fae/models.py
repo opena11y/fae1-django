@@ -91,6 +91,7 @@ class UserReport(models.Model):
     title         = models.CharField(max_length=128, blank=True)
     archive       = models.BooleanField(default=False)
     stats         = models.BooleanField(default=False)
+    dhtml         = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.id

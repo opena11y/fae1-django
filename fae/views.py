@@ -43,6 +43,7 @@ def index_user(request):
                 'title': form.cleaned_data['title'] or labels['untitled'],
                 'depth': form.cleaned_data['depth'],
                 'span': form.cleaned_data['span'],
+                'dhtml': form.cleaned_data['dhtml'],
                 'username': request.user.username
                 }
             now = datetime.now()
@@ -56,7 +57,8 @@ def index_user(request):
                     url = params['url'],
                     urlcount = 1,
                     depth = params['depth'],
-                    title = params['title']
+                    title = params['title'],
+                    dhtml = params['dhtml']
                     )
                 report.save()
                 response = HttpResponseRedirect('/report/%s/' % uid)
@@ -66,6 +68,10 @@ def index_user(request):
             response.set_cookie('d_title', value=form.cleaned_data['title'], max_age=settings.MAX_AGE)
             response.set_cookie('d_depth', value=form.cleaned_data['depth'], max_age=settings.MAX_AGE)
             response.set_cookie('d_span', value=form.cleaned_data['span'], max_age=settings.MAX_AGE)
+            if form.cleaned_data['dhtml']:
+                response.set_cookie('d_dhtml', value=form.cleaned_data['dhtml'], max_age=settings.MAX_AGE)
+            else:
+                response.delete_cookie('d_dhtml')
 
             if status:
                 return response
@@ -82,6 +88,8 @@ def index_user(request):
             init_values['depth'] = request.COOKIES['d_depth']
         if 'd_span' in request.COOKIES:
             init_values['span'] = request.COOKIES['d_span']
+        if 'd_dhtml' in request.COOKIES:
+            init_values['dhtml'] = request.COOKIES['d_dhtml']
         form = DepthEvalForm(initial=init_values)
 
     context = {
@@ -167,6 +175,7 @@ def index_multi(request):
             params = {
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title'] or labels['untitled'],
+                'dhtml': form.cleaned_data['dhtml'],
                 'username': request.user.username
                 }
             now = datetime.now()
@@ -182,13 +191,18 @@ def index_multi(request):
                     url = urls[0],
                     urlcount = len(urls),
                     depth = 0,
-                    title = params['title']
+                    title = params['title'],
+                    dhtml = params['dhtml']
                     )
                 report.save()
                 response = HttpResponseRedirect('/report/%s/' % uid)
 
             response.set_cookie('m_urls', value=form.cleaned_data['urls'], max_age=settings.MAX_AGE)
             response.set_cookie('m_title', value=form.cleaned_data['title'], max_age=settings.MAX_AGE)
+            if form.cleaned_data['dhtml']:
+                response.set_cookie('m_dhtml', value=form.cleaned_data['dhtml'], max_age=settings.MAX_AGE)
+            else:
+                response.delete_cookie('m_dhtml')
 
             if status:
                 return response
@@ -200,6 +214,8 @@ def index_multi(request):
             init_values['urls'] = request.COOKIES['m_urls']
         if 'm_title' in request.COOKIES:
             init_values['title'] = request.COOKIES['m_title']
+        if 'm_dhtml' in request.COOKIES:
+            init_values['dhtml'] = request.COOKIES['m_dhtml']
         form = MultiEvalForm(initial=init_values)
 
     context = {

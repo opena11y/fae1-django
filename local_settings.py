@@ -9,7 +9,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 (DEVELOPMENT, STAGING, PRODUCTION) = tuple(range(3))
 
 # Dynamically determine which installation
-if   PROJECT_DIR == '/home/nhoyt/src/project':
+if   PROJECT_DIR == '/services/faedev/lib/project': # '/home/nhoyt/src/project':
     PLATFORM = DEVELOPMENT
     FAE_PATH = '/services/faedev'
     ALLOW_REGISTRATION = False

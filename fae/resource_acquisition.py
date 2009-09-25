@@ -1,5 +1,6 @@
 import os
 import subprocess
+import logging
 
 from urlparse import urlparse
 
@@ -72,6 +73,9 @@ def call_wget(params, is_logged_in, uid, test=False):
     else:
         kwargs = {}
 
+    if settings.LOGGING and is_logged_in:
+        logging.debug("Calling WGET: %s", ' '.join(wget))
+
     if test: return ' '.join(wget)
     return call(wget, **kwargs)
 
@@ -112,6 +116,9 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
 
     dhtmlget.extend(['-N', site_dir])
     dhtmlget.append(url)
+
+    if settings.LOGGING and is_logged_in:
+        logging.debug("Calling DHTMLGET: %s", ' '.join(dhtmlget))
 
     if test: return ' '.join(dhtmlget)
     return call(dhtmlget)

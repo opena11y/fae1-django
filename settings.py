@@ -1,6 +1,7 @@
 # Django settings for webapp project.
 
 import os
+import logging
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -9,6 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
+LOGGING = True
 
 RULESET = '0906-1' # should match wamttest version
 
@@ -36,6 +38,12 @@ DHTMLGET = os.path.join(FAE_PATH, 'bin/dhtmlget.sh')
 WGET = os.path.join(FAE_PATH, 'bin/wget')
 WAMT = os.path.join(FAE_PATH, 'bin/wamt')
 XSLTPROC = '/usr/bin/xsltproc'
+
+logging.basicConfig(
+    level    = logging.DEBUG,
+    format   = '%(asctime)s %(levelname)s %(message)s',
+    filename = os.path.join(LOGS_DIR, 'fae-django.log')
+)
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies
 STATS_DAYS_OFFSET = 2 # minimum of 2 days

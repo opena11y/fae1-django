@@ -1,5 +1,6 @@
 import os
 import subprocess
+import logging
 
 from datetime import datetime
 from urllib import unquote
@@ -38,8 +39,20 @@ def evaluate(params, is_logged_in, timestamp):
     else:
         download_resources = call_wget
 
+    start_time = datetime.now()
     download_resources(params, is_logged_in, uid)
+    end_time = datetime.now()
+
+    if settings.LOGGING and is_logged_in:
+        logging.debug("Elapsed time for %s download: %s", uid, end_time - start_time)
+
+    start_time = datetime.now()
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
+    end_time = datetime.now()
+
+    if settings.LOGGING and is_logged_in:
+        logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
+
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
 

@@ -32,6 +32,11 @@ to gain access to these additional features:</p>
 {{ form.url.label_tag }}<br/>{{ form.url }}
 </div>
 
+<div class="radio-btns">
+{% if form.dhtml.errors %}{{ form.dhtml.errors }}{% endif %}
+{{ form.dhtml }} {{ form.dhtml.label_tag }}
+</div>
+
 <div class="submit">
 <input type="submit" id="submit" value="Evaluate"/>
 </div>

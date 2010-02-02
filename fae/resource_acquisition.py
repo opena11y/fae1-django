@@ -73,7 +73,7 @@ def call_wget(params, is_logged_in, uid, test=False):
     else:
         kwargs = {}
 
-    if settings.LOGGING and is_logged_in:
+    if settings.LOGGING:
         logging.debug("Calling WGET for %s: %s", params['username'], ' '.join(wget))
 
     if test: return ' '.join(wget)
@@ -117,7 +117,7 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
     dhtmlget.extend(['-N', site_dir])
     dhtmlget.append(url)
 
-    if settings.LOGGING and is_logged_in:
+    if settings.LOGGING:
         logging.debug("Calling DHTMLGET for %s: %s", params['username'], ' '.join(dhtmlget))
 
     if test: return ' '.join(dhtmlget)

@@ -23,7 +23,6 @@ VERSION = '1.0.4' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION
-USE_DHTMLGET = False # default value (can be overridden)
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')

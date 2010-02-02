@@ -9,6 +9,7 @@ class TextFieldWidget(forms.TextInput):
 
 class BasicEvalForm(forms.Form):
     url = forms.URLField(label='URL:', initial='http://', verify_exists=True, widget=TextFieldWidget)
+    dhtml = forms.BooleanField(label='Include DHTML content', initial=0, widget=forms.CheckboxInput, required=False)
 
 class DepthEvalForm(forms.Form):
     DEPTH_CHOICES = (

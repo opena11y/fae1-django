@@ -12,12 +12,6 @@ from django.utils.encoding import smart_str
 from uid import generate
 from resource_acquisition import call_wget, call_dhtmlget
 
-# Set default resource_acquistion function
-if settings.USE_DHTMLGET:
-    download_resources = call_dhtmlget
-else:
-    download_resources = call_wget
-
 if settings.RESOURCES_DEBUG:
     call = subprocess.check_call
 else:
@@ -34,7 +28,7 @@ def evaluate(params, is_logged_in, timestamp):
     uid = generate()
 
     # Select the appropriate download function
-    if params['dhtml'] and is_logged_in:
+    if params['dhtml']:
         download_resources = call_dhtmlget
     else:
         download_resources = call_wget
@@ -43,14 +37,14 @@ def evaluate(params, is_logged_in, timestamp):
     download_resources(params, is_logged_in, uid)
     end_time = datetime.now()
 
-    if settings.LOGGING and is_logged_in:
+    if settings.LOGGING:
         logging.debug("Elapsed time for %s download: %s", uid, end_time - start_time)
 
     start_time = datetime.now()
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     end_time = datetime.now()
 
-    if settings.LOGGING and is_logged_in:
+    if settings.LOGGING:
         logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
 
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
@@ -61,7 +55,7 @@ def multi_evaluate(params, is_logged_in, timestamp):
     uid = generate()
 
     # Select the appropriate download function
-    if params['dhtml'] and is_logged_in:
+    if params['dhtml']:
         download_resources = call_dhtmlget
     else:
         download_resources = call_wget

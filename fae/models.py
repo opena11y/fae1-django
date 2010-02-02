@@ -114,6 +114,7 @@ class GuestReport(models.Model):
     pgcount       = models.IntegerField()
     url           = models.URLField()
     stats         = models.BooleanField(default=False)
+    dhtml         = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.id

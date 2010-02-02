@@ -120,6 +120,7 @@ def index_guest(request):
             params = {
                 'url': form.cleaned_data['url'],
                 'title': labels['untitled'],
+                'dhtml': form.cleaned_data['dhtml'],
                 'username': 'guest'
                 }
             now = datetime.now()
@@ -129,12 +130,17 @@ def index_guest(request):
                     id = uid,
                     timestamp = now,
                     pgcount = status,
-                    url = params['url']
+                    url = params['url'],
+                    dhtml = params['dhtml']
                     )
                 report.save()
                 response = HttpResponseRedirect('/report/%s/' % uid)
 
             response.set_cookie('b_url', value=form.cleaned_data['url'], max_age=settings.MAX_AGE)
+            if form.cleaned_data['dhtml']:
+                response.set_cookie('b_dhtml', value=form.cleaned_data['dhtml'], max_age=settings.MAX_AGE)
+            else:
+                response.delete_cookie('b_dhtml')
 
             if status:
                 return response
@@ -144,6 +150,8 @@ def index_guest(request):
         init_values = {}
         if 'b_url' in request.COOKIES:
             init_values['url'] = request.COOKIES['b_url']
+        if 'b_dhtml' in request.COOKIES:
+            init_values['dhtml'] = request.COOKIES['b_dhtml']
         form = BasicEvalForm(initial=init_values)
 
     context = {

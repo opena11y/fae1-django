@@ -62,14 +62,27 @@ def multi_evaluate(params, is_logged_in, timestamp):
 
     urls = params['urls'].split()
 
+    start_time = datetime.now()
+
     for url in urls:
         params['url'] = url
         download_resources(params, is_logged_in, uid)
 
+    end_time = datetime.now()
+
+    if settings.LOGGING:
+        logging.debug("Elapsed time for %s downloads: %s", uid, end_time - start_time)
+
     # Cleanup the params dictionary
     del params['url']
 
+    start_time = datetime.now()
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
+    end_time = datetime.now()
+
+    if settings.LOGGING:
+        logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
+
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
 
@@ -78,7 +91,14 @@ def evaluate_dhtml(params, is_logged_in, timestamp):
     uid = generate()
     request = params['request']
     save_resources(request, uid)
+
+    start_time = datetime.now()
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
+    end_time = datetime.now()
+
+    if settings.LOGGING:
+        logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
+
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
 

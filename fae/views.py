@@ -253,6 +253,7 @@ def process_dhtml(request):
             'url': 'Unspecified',
             'depth': '0',
             'title': 'DHTML Report',
+            'dhtml': True,
             'username': request.user.username
             }
         now = datetime.now()
@@ -267,14 +268,16 @@ def process_dhtml(request):
                     url = params['url'],
                     urlcount = 1,
                     depth = params['depth'],
-                    title = params['title']
+                    title = params['title'],
+                    dhtml = params['dhtml']
                     )
             else:
                 report = GuestReport(
                     id = uid,
                     timestamp = now,
                     pgcount = status,
-                    url = params['url']
+                    url = params['url'],
+                    dhtml = params['dhtml']
                     )
             report.save()
             return HttpResponseRedirect('/report/%s/' % uid)
@@ -294,6 +297,7 @@ def process_link(request):
             'url': request.META['HTTP_REFERER'],
             'depth': '0',
             'title': 'Direct Link Report',
+            'dhtml': True,
             'username': 'guest'
             }
         now = datetime.now()
@@ -303,7 +307,8 @@ def process_link(request):
                 id = uid,
                 timestamp = now,
                 pgcount = status,
-                url = params['url']
+                url = params['url'],
+                dhtml = params['dhtml']
                 )
             report.save()
             return HttpResponseRedirect('/report/%s/' % uid)

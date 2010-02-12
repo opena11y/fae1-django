@@ -25,6 +25,7 @@
     </xsl:variable>
 
     <xsl:variable name="span" select="number(/results/meta/span) = 1"/>
+    <xsl:variable name="dhtml" select="number(/results/meta/dhtml) = 1"/>
 
     <xsl:variable name="ruleset-report" select="/results/meta/version"/>
     <xsl:variable name="ruleset-prefix" select="concat('Ruleset: ', $ruleset-report)"/>
@@ -60,12 +61,13 @@
               <td class="context-1" colspan="2">Pages: <xsl:value-of select="/results/meta/pg-count"/>
               <span class="context">Depth: <xsl:value-of select="$depth"/></span>
               <xsl:if test="$span"><span class="context">Span: Next-level subdomains</span></xsl:if>
+              <xsl:if test="$dhtml"><span class="context">DHTML: Y</span></xsl:if>
               <span class="context"><xsl:value-of select="$ruleset-message"/></span></td>
             </tr>
           </xsl:when>
           <xsl:otherwise>
             <tr>
-              <td class="context-1" colspan="2"><xsl:value-of select="$ruleset-message"/></td>
+              <td class="context-1" colspan="2"><xsl:choose><xsl:when test="$dhtml">DHTML: Y<span class="context"><xsl:value-of select="$ruleset-message"/></span></xsl:when><xsl:otherwise><xsl:value-of select="$ruleset-message"/></xsl:otherwise></xsl:choose></td>
             </tr>
           </xsl:otherwise>
         </xsl:choose>

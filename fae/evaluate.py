@@ -158,6 +158,8 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     depth = params.get('depth', '0')
     span = params.get('span', '')
     if not span: span = '0'
+    dhtml_bool = params.get('dhtml', False)
+    dhtml = '1' if dhtml_bool else '0'
     user = params['username']
 
     # construct command and call it
@@ -172,6 +174,7 @@ def analyze_resources(params, is_logged_in, uid, timestamp, test=False):
     wamt.extend(['-url',  url])
     wamt.extend(['-depth', depth])
     wamt.extend(['-span', span])
+    wamt.extend(['-dhtml', dhtml])
 
     if test: return ' '.join(wamt)
     retval = call(wamt)

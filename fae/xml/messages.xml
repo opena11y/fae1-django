@@ -244,22 +244,22 @@
 
   <message id="style001p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> <elem>font</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>center</elem> <sp ref="cnt2"><s>element</s><p>elements</p></sp> were found.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>font</elem> <sp ref="cnt1"><s>element</s><p>elements</p></sp> and <ins ref="cnt2"/> <elem>center</elem> <sp ref="cnt2"><s>element</s><p>elements</p></sp> were found.</msg>
   </message>
 
   <message id="style002p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> <elem>b</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>b</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
   <message id="style003p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> <elem>i</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>i</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
   <message id="style004p">
     <msg id="pass"/>
-    <msg id="fail"><ins ref="cnt1"/> <elem>u</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
+    <msg id="warn"><ins ref="cnt1"/> <elem>u</elem> <sp ref="cnt1"><s>element was</s><p>elements were</p></sp> found.</msg>
   </message>
 
   <message id="style005p">

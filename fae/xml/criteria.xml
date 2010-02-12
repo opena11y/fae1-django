@@ -475,21 +475,25 @@
 <!-- center and font elements -->
 <eval id="style001p">
   <pass><cmp op="eq" ref="tot1" val="0"/></pass>
+  <warn><cmp op="gt" ref="tot1" val="0"/></warn>
 </eval>
 
 <!-- b elements -->
 <eval id="style002p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
 </eval>
 
 <!-- i elements -->
 <eval id="style003p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
 </eval>
 
 <!-- u elements -->
 <eval id="style004p">
   <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <warn><cmp op="gt" ref="cnt1" val="0"/></warn>
 </eval>
 
 <!-- blink and marquee elements -->

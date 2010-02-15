@@ -5,10 +5,19 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.1.b1</title>
+    <date>2010-02-15</date>
+
+    <item>Integrated the new iCITA-developed facility named DHTMLget into FAE. When the &quot;Include DHTML content&quot; option is selected in the Run FAE form, DHTMLget is used to download HTML pages that include any dynamic HTML (DHTML) content resulting from JavaScript &quot;onLoad&quot; event handlers and inline scripting.</item>
+    <item>Updated the FAE user interface to indicate that the &quot;Include DHTML content&quot; option was selected for a particular evaluation. Each report header for such an evaluation indicates &quot;DHTML: Y&quot;, and the Archived Reports list indicates this with a &apos;Y&apos; in the &quot;DHTML&quot; column.</item>
+    <item>Updated FAE to Ruleset 1002-1: Changed the Styling/Text Styling rules for the &apos;font&apos;, &apos;center&apos;, &apos;b&apos;, &apos;i&apos; and &apos;u&apos; elements from Pass/Fail to Pass/Warn.</item>
+  </version>
+
+  <version>
     <title>Version 1.0.3</title>
     <date>2009-06-02</date>
 
-    <item>Updated FAE to Ruleset 0906-1: changed the Navigation &amp; Orientation/Data Tables rule regarding the use of th elements.</item>
+    <item>Updated FAE to Ruleset 0906-1: Changed the Navigation &amp; Orientation/Data Tables rule regarding the use of th elements.</item>
     <item>Old rule: Each data table must utilize th elements as the first cells of all columns or rows.</item>
     <item>New rule: For each data table, the first cell in each column must be a th element, and each row must contain at least one th element.</item>
   </version>
@@ -17,7 +26,7 @@
     <title>Version 1.0.2</title>
     <date>2009-05-14</date>
 
-    <item>Updated FAE to Ruleset 0905-1: changed the two Scripting rules for onmouseover and onmouseout from Pass/Fail to Pass/Warn.</item>
+    <item>Updated FAE to Ruleset 0905-1: Changed the two Scripting rules for onmouseover and onmouseout from Pass/Fail to Pass/Warn.</item>
     <item>Added a Ruleset specifier in the header content for all reports, and an explanation for it in a subsection of the About FAE: Overview page entitled FAE Rulesets.</item>
     <item>All FAE URLs now reflect the domain name changeover from uiuc.edu to illinois.edu.</item>
   </version>

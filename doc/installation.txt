@@ -24,7 +24,7 @@ Application-specific libraries
 
 * django-registration
 
-* wamt (copy binary from appserv)
+* wamt (copy binary from faedev)
 
 * wget
 

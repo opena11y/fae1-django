@@ -15,3 +15,17 @@
    DJANGO_SETTINGS_MODULE=project.settings
    10 3 * * * /usr/bin/python $PYTHONPATH/project/fae/scripts/collect_stats.py
    20 3 * * * /usr/bin/python $PYTHONPATH/project/fae/scripts/purge_reports.py
+
+4. When the Fedora OS is upgraded, the following steps are needed:
+
+   * In /services/fae[dev|test]/html/media delete the symbolic link named admin
+     and update its definition to point at the new Django admin/media directory:
+
+     ln -s /usr/lib/python2.6/site-packages/django/contrib/admin/media admin
+
+   * Rebuild wget (see doc/installation.txt) and copy the new executable to the
+     /services/fae[dev|test]/bin directory.
+
+   * Likewise with wamt (the ocaml executable).
+
+   * Restart apache.

@@ -90,6 +90,8 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
 
     -P              # add prefix and postfix strings to filename
     -p              # include page-requisites
+    -R              # replace escaped comment delimiters with non-escaped characters
+    -T              # remove text content from script tags
 
     -l <depth>      # where depth is 0, 1 or 2; default is 0
     -C              # enable link following to all subdomains of url
@@ -107,7 +109,7 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
     dhtmlget = []
     if not is_logged_in: dhtmlget.append('nice')
     dhtmlget.append(settings.DHTMLGET)
-    dhtmlget.extend(['-P', '-p', '-R'])
+    dhtmlget.extend(['-P', '-p', '-R', '-T'])
 
     if depth == '1' or depth == '2':
         dhtmlget.extend(['-l', depth])

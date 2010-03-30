@@ -60,7 +60,7 @@ class UserProfile(models.Model):
         (2, 'Level 2'),
         (3, 'Level 3'),
         (4, 'Level 4'),
-        (5, 'Unlimited'),
+        (5, 'Maximum'),
     )
 
     user          = models.ForeignKey(User, unique=True)

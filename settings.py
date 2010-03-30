@@ -41,7 +41,7 @@ XSLTPROC = '/usr/bin/xsltproc'
 logging.basicConfig(
     level    = logging.DEBUG,
     format   = '%(asctime)s %(levelname)s %(message)s',
-    filename = os.path.join(LOGS_DIR, 'fae-django.log')
+    filename = os.path.join(DOC_ROOT, 'logs', 'timing.log')
 )
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies

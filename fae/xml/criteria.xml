@@ -319,6 +319,12 @@
   <disc><cmp op="eq" ref="tot1" val="0"/></disc>
 </eval>
 
+<!-- non-unique id value on form controls that require label -->
+<eval id="nav054p">
+  <pass><cmp op="eq" ref="cnt1" val="0"/></pass>
+  <disc><cmp op="eq" ref="tot1" val="0"/></disc>
+</eval>
+
 <!-- Debug-only: num data tables out of total tables -->
 <!-- Note: always evaluates to either pass or disc! -->
 <eval id="nav060p">

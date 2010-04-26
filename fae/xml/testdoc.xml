@@ -160,6 +160,12 @@
         <site id="nav050s"/>
       </best-practice>
 
+      <best-practice ref="nav054" new="1.1.b2">
+        <name>unique id on form controls</name>
+        <rule>If an <elem>input</elem>, <elem>select</elem>, <elem>textarea</elem> or <elem>button</elem> element has an <attr>id</attr> attribute, its value must be unique relative to all <attr>id</attr>s on the page.</rule>
+        <page id="nav054p"/>
+      </best-practice>
+
       <link tgt="bp" href="nav/form/"/>
     </category>
 

@@ -5,6 +5,16 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.1.b2</title>
+    <date>2010-04-26</date>
+
+    <item>Updated FAE to Ruleset 1004-1: Added Navigation &amp; Orientation/Form Controls rule that requires unique &apos;id&apos; values on all form controls with an &apos;id&apos; attribute.</item>
+
+    <item>Updated DHTMLget component to version 1.0.8.</item>
+    <item>Changed a few remaining URLs from uiuc.edu to illinois.edu.</item>
+  </version>
+
+  <version>
     <title>Version 1.1.b1</title>
     <date>2010-02-15</date>
 

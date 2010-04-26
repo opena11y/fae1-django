@@ -12,14 +12,14 @@ RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
 LOGGING = True
 
-RULESET = '1002-1' # should match wamttest version
+RULESET = '1004-1' # should match wamttest version
 
 try:
     from local_settings import *
 except:
     pass
 
-VERSION = '1.1.b1' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.1.b2' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION
@@ -79,7 +79,7 @@ DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASE_NAME = DB_NAME[PLATFORM]
 DATABASE_USER = DB_USER[PLATFORM]
 DATABASE_PASSWORD = DB_PASSWORD[PLATFORM]
-DATABASE_HOST = 'fileserv.dres.uiuc.edu'
+DATABASE_HOST = 'fileserv.dres.illinois.edu'
 DATABASE_PORT = ''
 
 # Local time zone for this installation. Choices can be found here:

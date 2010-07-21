@@ -33,4 +33,7 @@
 
    * Likewise with wamt (the ocaml executable).
 
+   * Make sure that /services/fae[dev|test|data]/html/logs/timing.log exists and
+     is owned by the apache user account.
+
    * Restart apache.

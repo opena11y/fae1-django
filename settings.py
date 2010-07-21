@@ -10,7 +10,6 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
-LOGGING = False
 
 RULESET = '1004-1' # should match wamttest version
 
@@ -22,8 +21,10 @@ except:
 VERSION = '1.0.4' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
+
 TEST_INSTALL = PLATFORM != PRODUCTION
 ENABLE_DHTMLGET = TEST_INSTALL
+LOGGING = TEST_INSTALL
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')

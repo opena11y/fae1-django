@@ -1,0 +1,40 @@
+media/css/fae_screen.css
+* Changed hidden class to use absolute positioning
+* Reduced bottom margin of h1 element
+* Moved/renamed archive-? classes
+* Added span.new class
+
+fae/xslt/context_header.xsl
+* Reformatting; removed some unnecessary labels
+
+fae/xslt/page_report.xsl
+* Swapped position of h1 and context-header
+* Added id to h3 instead of having separate anchor
+* Now using span.new
+
+fae/xslt/site_report.xsl
+* Swapped position of h1 and context-header
+* Added id to h3 instead of having separate anchor
+* Now using span.new
+
+fae/xslt/report_menu.xsl
+* Swapped position of h1 and context-header
+* Removed unneeded text whose info is now in context-header
+
+fae/xslt/report_urls.xsl
+* Swapped position of h1 and context-header
+
+fae/xslt/summary_report.xsl
+* Swapped position of h1 and context-header
+
+fae/templates/archive.html
+* Reorganized columns; removed headers and id attributes
+
+fae/templates/manage.html
+* Reorganized columns; removed headers and id attributes
+
+fae/xml/testdoc.xml
+* Added BP links for Default Language subsection
+
+fae/xml/versions.xml
+* New features for 1.0.b4

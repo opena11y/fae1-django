@@ -1,0 +1,21 @@
+fae/evaluate.py
+* Created an exception class for better reporting of XML processing problems
+  when validating results file in analyze_resources fn. Also added code that
+  was missing to delete the results file when the validation fails.
+
+fae/scripts/setenv
+* Added /usr/local/src to PYTHONPATH
+
+fae/xml/testdoc.xml
+* Added "new" attribute and version number to best-practice elements where it
+  had been omitted.
+
+fae/xml/versions.xml
+* Added 'Under Development' features.
+
+fae/xslt/messages.xsl
+* Added separate msg template for @id='disc' to suppress additional information
+  explaining why the N/A result was produced. Now just display 'N/A'.
+
+fae/xslt/pgrpteval.xsl
+* Updated the XPath expressions for selecting test-pages URLs.

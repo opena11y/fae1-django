@@ -1,0 +1,29 @@
+settings.py
+* Changed VERSION to 1.0.b5 and RULESET to 1.0.3.
+
+fae/scripts/delete_reports.py
+* Changed value of DEBUG to False.
+
+fae/templates/about/beta.html
+* Added listing of sections/subsections with new rules/tests.
+
+fae/xml/criteria.xml
+* Updated criteria for new/modified rules in the Text Equivalents and
+  Style sections to comply with new approach of making it the primary
+  objective to report	warnings and failures. Includes all text*p/s and
+  style*p/s eval elements.
+
+fae/xml/messages.xml
+* Added new content for all Text Equivalent and Style message elements.
+
+fae/xml/testdoc.xml
+* Added new content for all Text Equivalent and Style rules.
+* Removed Navigation & Orientation/Document Linearization subsection,
+  since subsection and rule have been moved to Style/Layout Tables.
+
+fae/xml/versions.xml
+* Added descriptions of new features for version 1.0.b5.
+
+fae/xslt/rules.xsl
+* Added display of (new) for new rules, and Best Practices link for all
+  subsections with new rules.

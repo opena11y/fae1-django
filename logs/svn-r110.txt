@@ -1,0 +1,37 @@
+settings.py
+* Added TEST_INSTALL boolean variable
+
+fae/context_processors.py
+* Added test_install to global context
+
+fae/labels.py
+* Fixed ampersand problem
+
+fae/templates/base.html
+* Changed DOCTYPE to XHTML 1.0 (from 1.1) to sidestep the
+  lang and xml:lang attribute problem (want to use both)
+* Changed value of lang/xml:lang from 'en' to 'en-us'
+* Added conditional display of link to W3C HTML Validator
+
+fae/templates/sidebar.html
+* Added hidden h2 before Hide All Lists list for FAE
+  Navigation Bar tests
+
+fae/templates/index_user.html
+fae/templates/index_guest.html
+fae/templates/index_multi.html
+* Moved contents of style elements to fae_screen.css
+
+fae/xml/versions.xml
+* Updated with features from this changeset
+
+fae/xslt/rules.xsl
+* Added div element as container inside of blockquote as
+  required for W3C validation/XHTML DTD
+
+media/css/fae_screen.css
+* Tweaked formatting of Rules Summary li blockquote elements
+* Moved properties here from Run FAE forms
+
+templates/registration/login.html
+* Added div around hidden input element for W3C validation

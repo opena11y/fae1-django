@@ -1,0 +1,14 @@
+fae/templates/index_guest.html
+* Removed unnecessary label on input type=submit
+
+fae/templates/index_multi.html
+* Removed unnecessary label on input type=submit
+
+fae/templates/index_user.html
+* Removed unnecessary label on input type=submit
+
+fae/templates/about/beta.html
+* Replace apos entities with apostrophe character
+
+fae/templates/base.html
+* Added lang attribute to html element

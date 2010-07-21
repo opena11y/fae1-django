@@ -1,0 +1,23 @@
+settings.py
+* changed values in ACCT_TYPE_BUFFER: reduced number of reports
+  saved by default for levels 2 and 4
+* updated version number to 1.0.1
+
+fae/templates/404.html
+* added explanatory text relating to reports and purging
+
+fae/templates/about/disclaimer.html
+* edits per Jon Gunderson
+* using new href_lookup template tag
+
+fae/templates/about/overview.html
+* using new href_lookup template tag
+
+fae/templatetags/href_lookup.py
+* tag for maintaining consistency re. links to external resources
+
+fae/xml/testdoc.xml
+* fixed typo
+
+templates/registration/registration_form.html
+* added instructions for Username field

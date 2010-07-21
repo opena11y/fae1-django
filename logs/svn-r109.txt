@@ -1,0 +1,29 @@
+doc/installation.txt
+* Added further wget build instructions.
+
+fae/xml/versions.xml
+* Added new feature descriptions.
+
+fae/fixtures/organization.xml
+* Fixed typo in URL.
+
+fae/views.py
+* Added registration_closed view.
+
+templates/registration/activation_email.txt
+* Updated content to match site name.
+
+templates/registration/registration_closed.html
+* New template to provide registration closed explanation.
+
+local_settings.py
+* Added ALLOW_REGISTRATION, FAE_INSTALL and VERSION_SUFFIX variables.
+
+settings.py
+* Added INSTALLATION and PUBLIC_URL variables.
+
+urls.py
+* Added test for ALLOW_REGISTRATION to conditionally call
+  different registration view functions based on its value.
+* Passing in RegistrationFormUniqueEmail to prevent users from
+  signing up for multiple accounts with same e-mail address.

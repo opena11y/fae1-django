@@ -1,0 +1,24 @@
+settings.py
+* Updated RULESET and VERSION values.
+
+fae/evaluate.py
+* Added dhtml switch and value to wamt command line args.
+
+fae/dtd/results.dtd
+* Added dhtml element as child of meta element.
+
+fae/xml/criteria.xml
+* Changed style001p, style002p, style003p and style004p from Pass/Fail
+  to Pass/Warn.
+
+fae/xml/messages.xml
+* Changed msg id from fail to warn for style001p, style002p, style003p
+  and style004p.
+
+fae/xslt/context_header.xsl
+* Added conditional display of "DHTML: Y" in report headers.
+
+Additional notes:
+* In faedev database, updated site URL field.
+* Rebuilt wget for new OS version.
+* Updated media soft link to new Django version.

@@ -5,11 +5,21 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.4</title>
+    <date>2010-07-21</date>
+
+    <item>Updated FAE to Ruleset 1004-1</item>
+    <item>Added Navigation &amp; Orientation/Form Controls rule that requires unique &apos;id&apos; values on all form controls with an &apos;id&apos; attribute.</item>
+    <item>Changed the Styling/Text Styling rules for the &apos;font&apos;, &apos;center&apos;, &apos;b&apos;, &apos;i&apos; and &apos;u&apos; elements from Pass/Fail to Pass/Warn.</item>
+    <item>Changed a few remaining URLs from uiuc.edu to illinois.edu.</item>
+  </version>
+
+<!--
+  <version>
     <title>Version 1.1.b2</title>
     <date>2010-04-26</date>
 
     <item>Updated FAE to Ruleset 1004-1: Added Navigation &amp; Orientation/Form Controls rule that requires unique &apos;id&apos; values on all form controls with an &apos;id&apos; attribute.</item>
-
     <item>Updated DHTMLget component to version 1.0.8.</item>
     <item>Changed a few remaining URLs from uiuc.edu to illinois.edu.</item>
   </version>
@@ -19,9 +29,10 @@
     <date>2010-02-15</date>
 
     <item>Integrated the new iCITA-developed facility named DHTMLget into FAE. When the &quot;Include DHTML content&quot; option is selected in the Run FAE form, DHTMLget is used to download HTML pages that include any dynamic HTML (DHTML) content resulting from JavaScript &quot;onLoad&quot; event handlers and inline scripting.</item>
-    <item>Updated the FAE user interface to indicate that the &quot;Include DHTML content&quot; option was selected for a particular evaluation. Each report header for such an evaluation indicates &quot;DHTML: Y&quot;, and the Archived Reports list indicates this with a &apos;Y&apos; in the &quot;DHTML&quot; column.</item>
+    <item>Updated the FAE user interface to indicate that the &quot;Include DHTML content&quot; option was selected for a particular evaluation. Each report header for such an evaluation indicates &quot;DHTML: Y&quot;, and the Archived Reports and Manage Reports tables indicate this with a &apos;Y&apos; in the &quot;DHTML&quot; column.</item>
     <item>Updated FAE to Ruleset 1002-1: Changed the Styling/Text Styling rules for the &apos;font&apos;, &apos;center&apos;, &apos;b&apos;, &apos;i&apos; and &apos;u&apos; elements from Pass/Fail to Pass/Warn.</item>
   </version>
+-->
 
   <version>
     <title>Version 1.0.3</title>

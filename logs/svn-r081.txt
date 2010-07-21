@@ -1,0 +1,41 @@
+settings.py
+* Updated VERSION & RULESET values.
+
+fae/labels.py
+* Changed 'Style' back to 'Styling'.
+
+fae/templates/about/beta.html
+* Content updates; added link to Google Group.
+
+fae/templates/about/overview.html
+* Content updates: links, category labels, etc.
+
+fae/xml/criteria.xml
+* Changed criteria for existing scripting rules.
+* Added scripting, accesskey eval. criteria.
+
+fae/xml/messages.xml
+* Updated existing scripting messages.
+* Added scripting, accesskey messages.
+
+fae/xml/testdoc.xml
+* Scripting updates, Access Keys category and rule.
+
+fae/xml/versions.xml
+* Version 1.0.b6 additions and notes.
+
+fae/xslt/context_header.xsl
+* Added variable display-new and template new-rule.
+
+fae/xslt/page_report.xsl
+* Added call to template new-rule.
+
+fae/xslt/rules.xsl
+* Added call to template new-rule.
+* Moved blockquote CSS to blockquote.ruleinfo class.
+
+fae/xslt/site_report.xsl
+* Added call to template new-rule.
+
+media/css/fae_screen.css
+* Added blockquote.ruleinfo properties.

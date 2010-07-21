@@ -43,7 +43,7 @@ def index_user(request):
                 'title': form.cleaned_data['title'] or labels['untitled'],
                 'depth': form.cleaned_data['depth'],
                 'span': form.cleaned_data['span'],
-                'dhtml': form.cleaned_data['dhtml'],
+                'dhtml': form.cleaned_data['dhtml'] and settings.ENABLE_DHTMLGET,
                 'username': request.user.username
                 }
             now = datetime.now()
@@ -120,7 +120,7 @@ def index_guest(request):
             params = {
                 'url': form.cleaned_data['url'],
                 'title': labels['untitled'],
-                'dhtml': form.cleaned_data['dhtml'],
+                'dhtml': form.cleaned_data['dhtml'] and settings.ENABLE_DHTMLGET,
                 'username': 'guest'
                 }
             now = datetime.now()
@@ -183,7 +183,7 @@ def index_multi(request):
             params = {
                 'urls': form.cleaned_data['urls'],
                 'title': form.cleaned_data['title'] or labels['untitled'],
-                'dhtml': form.cleaned_data['dhtml'],
+                'dhtml': form.cleaned_data['dhtml'] and settings.ENABLE_DHTMLGET,
                 'username': request.user.username
                 }
             now = datetime.now()
@@ -253,7 +253,7 @@ def process_dhtml(request):
             'url': 'Unspecified',
             'depth': '0',
             'title': 'DHTML Report',
-            'dhtml': True,
+            'dhtml':  settings.ENABLE_DHTMLGET,
             'username': request.user.username
             }
         now = datetime.now()
@@ -297,7 +297,7 @@ def process_link(request):
             'url': request.META['HTTP_REFERER'],
             'depth': '0',
             'title': 'Direct Link Report',
-            'dhtml': True,
+            'dhtml':  settings.ENABLE_DHTMLGET,
             'username': 'guest'
             }
         now = datetime.now()

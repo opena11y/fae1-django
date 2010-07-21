@@ -17,7 +17,9 @@
     <th class="archive-1">Report Title</th>
     <th class="archive-2">Date/Time</th>
     <th class="archive-3">Pages</th>
+    {% if enable_dhtmlget %}
     <th class="archive-4">DHTML</th>
+    {% endif %}
     <th class="archive-5">URL</th>
     <th class="archive-6">Depth</th>
 </tr>
@@ -27,7 +29,9 @@
 <td class="archive-1{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.title }}</td>
 <td class="archive-2{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.timestamp|date:"Y-m-d H:i" }}</td>
 <td class="archive-3{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.pgcount }}</td>
+{% if enable_dhtmlget %}
 <td class="archive-4{% ifequal report.id current_id %} selected{% endifequal %}">{% if report.dhtml %}Y{% endif %}</td>
+{% endif %}
 <td class="archive-5{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.url }}{% ifnotequal report.urlcount 1 %} ...{% endifnotequal %}</td>
 <td class="archive-6{% ifequal report.id current_id %} selected{% endifequal %}">{{ report.depth }}</td>
 </tr>

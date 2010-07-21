@@ -1,0 +1,11 @@
+settings.py
+* Updated RULESET to 0906-1 and VERSION to 1.0.3.
+
+fae/xml/messages.xml
+* Minor formatting changes for data table messages.
+
+fae/xml/testdoc.xml
+* Updated nav061 (data table rule requiring use of th elements)
+
+fae/xml/versions.xml
+* Added description of Version 1.0.3.

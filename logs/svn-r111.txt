@@ -1,0 +1,13 @@
+local_settings.py
+* Tweaked VERSION_SUFFIX
+
+media/css/fae_screen.css
+* Modified summary table properties.
+
+fae/xslt/context_header.xsl
+* Moved inline formatting to CSS stylesheet.
+
+fae/xslt/summary_report.xsl
+* Now folding in N/A results with % Pass.
+* Deleted N/A column from subcategories table.
+* Deleted N/A row from Status value definitions.

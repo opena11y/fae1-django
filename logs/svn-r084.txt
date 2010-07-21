@@ -1,0 +1,18 @@
+local_settings.py
+* New file that detects which installation is running and accordingly
+  sets parameters used by settings.py.
+
+settings.py
+* Now imports all local_settings variables.
+
+fae/xml/testdoc.xml
+* Added new rules for tests nav060p, nav061p, nav062p and nav063p.
+
+fae/xml/criteria.xml
+* Added criteria for tests nav060p, nav061p, nav062p and nav063p.
+
+fae/xml/messages.xml
+* Added messages for tests nav060p, nav061p, nav062p and nav063p.
+
+fae/xml/versions.xml
+* Updated for version 1.0.b7.

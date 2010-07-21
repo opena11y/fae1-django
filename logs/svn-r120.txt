@@ -1,0 +1,46 @@
+Database modifications:
+* Issued command in psql for faedev and faetest:
+  alter table fae_userreport add column dhtml boolean;
+
+local_settings.py
+* Changed PROJECT_DIR for faedev
+
+settings.py
+* Added USE_DHTMLGET and DHTMLGET variables
+* Updated VERSION string
+
+evaluate.py
+* Set the default download function based on value of USE_DHTMLGET.
+* Added conditional use of dhtmlget based on 'dhtml' param in both the
+  evaluate and multi_evaluate functions.
+
+fae/forms.py
+* Added BooleanField dhtml checkbox for both DepthEvalForm and MultiEvalForm.
+
+fae/resource_acquisition.py
+* New module that includes functions call_wget and call_dhtml.
+
+fae/templates/index_user.html
+fae/templates/index_multi.html
+* Added display of dhtml checkbox field.
+
+fae/templates/archive.html
+fae/templates/manage.html
+* Added DHTML column that displays 'Y' if DHTMLGET was used.
+
+fae/models.py
+* Added dhtml field in UserReport model.
+
+fae/views.py
+* In index_user and index_multi functions:
+  1. Add cleaned_data['dhtml'] to params dictionary, which is passed to
+     evaluate fn.
+  2. Save value of params['dhtml'] to UserReport record.
+  3. Set or delete a cookie named d_dhtml or m_dhtml
+  4. Utilize request.COOKIES['X_dhtml'] in init_values for form.
+
+doc/enhancements.txt
+* Added enhancements ideas and requests document.
+
+media/css/fae_screen.css
+* Added DHTML column styling

@@ -1,0 +1,21 @@
+fae/labels.py
+* Changed BP/report main section labels to match new best practices
+
+fae/scripts/extract_language_codes.py
+* New script to extract two-character language codes
+
+fae/scripts/language-subtag-registry
+* Downloaded file from IANA
+
+fae/xml/criteria.xml
+* Moved default language test from std002 to nav001
+* Updated criteria based on two boolean values
+
+fae/xml/messages.xml
+* Moved default language test from std002 to nav001
+* Updated language for DOCTYPE and char. encoding results
+
+fae/xml/testdoc.xml
+* Changed report main section labels to match new best practices
+* Moved default language test to Navigation section
+* Reworded DOCTYPE and char. encoding rules

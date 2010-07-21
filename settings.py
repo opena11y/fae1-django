@@ -19,10 +19,11 @@ try:
 except:
     pass
 
-VERSION = '1.1.b2' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.0.4' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 TEST_INSTALL = PLATFORM != PRODUCTION
+ENABLE_DHTMLGET = TEST_INSTALL
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')

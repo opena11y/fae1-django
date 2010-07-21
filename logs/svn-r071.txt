@@ -1,0 +1,31 @@
+fae/templates/about/about.html
+* Added Beta Testing link
+* Commented our Intended Users, Future Plans links
+
+fae/templates/about/beta.html
+* New page to explain beta testing objectives
+
+fae/templates/about/overview.html
+* Updated with new labels for main BP categories
+
+fae/dtd/testdoc.dtd
+* Added new attribute to best-practice element
+
+fae/xml/testdoc.xml
+* Added new attribute to all new rules for better reporting
+
+fae/xml/versions.xml
+* Added version 1.0.b4 notes
+
+fae/xslt/page_report.xsl
+* Added (New) identifier for new rules
+* Fixed problem with linking from Summary Report table
+
+fae/xslt/site_report.xsl
+* Added (New) identifier for new rules
+
+fae/labels.py
+* Added beta label
+
+settings.py
+* Updated VERSION

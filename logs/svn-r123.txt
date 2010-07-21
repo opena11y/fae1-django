@@ -1,0 +1,27 @@
+settings.py
+* Removed USE_DHTMLGET variable.
+
+fae/models.py
+* Added BooleanField dhtml to GuestReport class.
+
+fae/forms.py
+* Added BooleanField dhtml to BasicEvalForm class.
+
+fae/views.py
+* Added 'dhtml' key in params dictionary
+* Added assignment to dhtml field in GuestReport for saving.
+* Added code to get and set b_dhtml cookie value for use in form init_values.
+
+fae/evaluate.py
+* Removed code at top level of module for assigning to download_resources.
+* Removed logic relating to 'dhtml' key in params and settings.LOGGING that
+  depended on value of is_logged_in.
+
+fae/resource_acquisition.py
+* Removed logic relating to settings.LOGGING that depended on is_logged_in.
+
+fae/templates/index_guest.html
+* Added 'Include DHTML content' content checkbox.
+
+Note: Also added dhtml column to fae_guestreport table in faedev database
+with command: ALTER TABLE fae_guestreport ADD "dhtml" boolean NOT NULL;

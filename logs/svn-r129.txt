@@ -1,0 +1,25 @@
+Changeset focus: new rule: unique ids for all form controls with id attribute
+Secondary focus: update uiuc.edu URLs to illinois.edu
+
+settings.py
+* changed RULESET to 1004-1
+* changed VERSION to 1.1.b2
+* updated URL for fileserv
+
+fae/xml/testdoc.xml
+* added best-practice ref="nav054" element
+
+fae/xml/messages.xml
+* added message id="nav054p" element
+
+fae/xml/criteria.xml
+* added eval id="nav054p" element
+
+fae/xml/versions.xml
+* added notes for version 1.1.b2
+
+fae/templates/base.html
+* updated Contact Us email address to illinois.edu
+
+fae/templates/about/future.html
+* updated CITA BP URL to illinois.edu

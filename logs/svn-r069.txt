@@ -1,0 +1,8 @@
+17 Sep 2008
+
+Added nav005 rule for uniqueness of title attribute on each
+frame within frameset, involving all of the following:
+
+* fae/xml/testdoc.xml
+* fae/xml/messages.xml
+* fae/xml/criteria.xml

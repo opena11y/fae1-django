@@ -1,0 +1,38 @@
+settings.py
+* Updated PUBLIC_URL and DEFAULT_FROM_EMAIL with illinois.edu
+* Updated RULESET to 0905-1 and VERSION to 1.0.2
+
+fae/context_processors.py
+* Added RULESET to global context.
+
+fae/processors.py
+* Added RULESET to report stylesheet params dictionary in get_report_content fn.
+
+fae/templatetags/href_lookup.py
+* Updated best_practices and firefox URLs.
+
+fae/templates/about/overview.html
+* Added section entitled FAE Rulesets.
+
+fae/xml/criteria.xml
+* Added <warn> result and criteria for auto002p and auto003p.
+
+fae/xml/testdoc.xml
+* Changed text content of onmouseover (auto002p) and onmouseout (auto003p) rules.
+
+fae/xml/versions.xml
+* Added description of Version 1.0.2.
+
+fae/xslt/context_header.xsl
+* Added Ruleset specifier and logic for output of appropriate message.
+
+fae/xslt/report_menu.xsl
+fae/xslt/report_urls.xsl
+fae/xslt/page_report.xsl
+fae/xslt/site_report.xsl
+fae/xslt/summary_report.xsl
+* Added ruleset param and passing of it to context-header template call for each
+  of the above stylesheets.
+
+media/css/fae_screen.css
+* Minor tweak to font-family value to be more Mac-friendly.

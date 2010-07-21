@@ -1,0 +1,34 @@
+logs
+* Added svn-r*.txt files to SVN
+
+settings.py
+* Added ENABLE_DHTMLGET variable
+* Changed version to 1.0.4
+
+fae/views.py
+* Added test of ENABLE_DHTMLGET variable in setting 'dhtml' value in params dictionary
+
+fae/context_processors.py
+* Added enable_dhtmlget (based on ENABLE_DHTMLGET) to default context
+
+fae/templates/index_user.html
+* Conditional display of dhtml form control based on enable_dhtmlget variable
+
+fae/templates/index_guest.html
+* Conditional display of dhtml form control based on enable_dhtmlget variable
+
+fae/templates/index_multi.html
+* Conditional display of dhtml form control based on enable_dhtmlget variable
+
+fae/templates/archive.html
+* Conditional display of DHTML column based on enable_dhtmlget variable
+
+fae/templates/manage.html
+* Conditional display of DHTML column based on enable_dhtmlget variable
+
+fae/templates/about/overview.html
+* Conditional display of 'Include DHTML content' definition
+
+fae/xml/versions.xml
+* Added version 1.0.4 based on rules additions in previous beta versions
+* Commented out 1.1.x beta versions

@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
-LOGGING = True
+LOGGING = False
 
 RULESET = '1004-1' # should match wamttest version
 

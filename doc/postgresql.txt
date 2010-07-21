@@ -1,0 +1,6 @@
+
+psql commands
+  $ psql -h localhost -d faedev -U faedev -W
+
+  faedev=> alter table fae_userreport add "dhtml" boolean;
+  faedev=> alter table fae_guestreport add "dhtml" boolean;

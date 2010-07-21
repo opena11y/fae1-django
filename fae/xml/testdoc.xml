@@ -415,28 +415,28 @@
 
       <best-practice ref="style001" new="1.0.b5">
         <name>inline style elements: font and center</name>
-        <rule>The <elem>font</elem> and <elem>center</elem> elements must not be used. Instead use structural markup with CSS for styling.</rule>
+        <rule>The <elem>font</elem> and <elem>center</elem> elements should not be used. Instead use structural markup with CSS for styling.</rule>
         <page id="style001p"/>
         <site id="style001s"/>
       </best-practice>
 
       <best-practice ref="style002" new="1.0.b5">
         <name>inline style elements: b</name>
-        <rule>The <elem>b</elem> element must not be used for bold styling of text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>strong</elem> element for emphasizing words, phrases or sentences.</rule>
+        <rule>The <elem>b</elem> element should not be used for bold styling of text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>strong</elem> element for emphasizing words, phrases or sentences.</rule>
         <page id="style002p"/>
         <site id="style002s"/>
       </best-practice>
 
       <best-practice ref="style003" new="1.0.b5">
         <name>inline style elements: i</name>
-        <rule>The <elem>i</elem> element must not be used to italicize text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>em</elem> element for emphasizing words, phrases or sentences.</rule>
+        <rule>The <elem>i</elem> element should not be used to italicize text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>em</elem> element for emphasizing words, phrases or sentences.</rule>
         <page id="style003p"/>
         <site id="style003s"/>
       </best-practice>
 
       <best-practice ref="style004" new="1.0.b5">
         <name>inline style elements: u</name>
-        <rule>The <elem>u</elem> element must not be used to underline text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>em</elem> or <elem>strong</elem> elements for emphasizing words, phrases or sentences.</rule>
+        <rule>The <elem>u</elem> element should not be used to underline text content. Instead use heading elements <elem>h1..h6</elem> for heading text or the <elem>em</elem> or <elem>strong</elem> elements for emphasizing words, phrases or sentences.</rule>
         <page id="style004p"/>
         <site id="style004s"/>
       </best-practice>

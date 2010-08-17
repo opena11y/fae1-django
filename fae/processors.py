@@ -8,18 +8,18 @@ from labels import labels
 def init_report_procs():
     """Initialize XSLT transform processors."""
 
-    global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt, pgrpteval_xslt
+    global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt, data_export_xslt, pgrpteval_xslt
 
     summary_report_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'summary_report.xsl'))
-    site_report_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'site_report.xsl'))
-    page_report_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'page_report.xsl'))
-    report_menu_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'report_menu.xsl'))
-    report_urls_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'report_urls.xsl'))
-    pgrpteval_xslt = etree.parse(os.path.join(settings.XSLT_PATH, 'pgrpteval.xsl'))
+    site_report_xslt    = etree.parse(os.path.join(settings.XSLT_PATH, 'site_report.xsl'))
+    page_report_xslt    = etree.parse(os.path.join(settings.XSLT_PATH, 'page_report.xsl'))
+    report_menu_xslt    = etree.parse(os.path.join(settings.XSLT_PATH, 'report_menu.xsl'))
+    report_urls_xslt    = etree.parse(os.path.join(settings.XSLT_PATH, 'report_urls.xsl'))
+    data_export_xslt    = etree.parse(os.path.join(settings.XSLT_PATH, 'data_export.xsl'))
+    pgrpteval_xslt      = etree.parse(os.path.join(settings.XSLT_PATH, 'pgrpteval.xsl'))
 
 #----------------------------------------------------------------
 def get_report_content(report_info, title):
-    global summary_report_xslt, site_report_xslt, page_report_xslt, report_menu_xslt, report_urls_xslt
 
     # Try parsing the XML results file
     filename = report_info['filename']
@@ -50,6 +50,8 @@ def get_report_content(report_info, title):
         proc = etree.XSLT(report_menu_xslt)
     elif t == 'urls':
         proc = etree.XSLT(report_urls_xslt)
+    elif t == 'xml':
+        proc = etree.XSLT(data_export_xslt)
     else:
         proc = None
 
@@ -64,7 +66,6 @@ def get_report_content(report_info, title):
 
 #----------------------------------------------------------------
 def get_pgrpteval_content(report_info, testid, eval):
-    global pgrpteval_xslt
 
     # Try parsing the XML results file
     filename = report_info['filename']

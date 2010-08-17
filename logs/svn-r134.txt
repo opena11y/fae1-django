@@ -1,0 +1,23 @@
+local_settings.py
+* Removed unneeded comment
+
+urls.py
+* Added 'xml' parameter value to report URL
+
+fae/labels.py
+* Added 'Download XML' label
+
+fae/processors.py
+* Added global variable data_export_xslt for preloaded processor
+* Removed unneeded global declarations in functions that were only
+  reading global variables (i.e., not assigning values to them)
+
+fae/views.py
+* Added block of code in 'report' view function for data export
+
+fae/templates/sidebar.html
+* Added Download XML (report_item xml) link for authenticated users
+
+fae/xslt/data_export.xsl
+* XSLT transform that converts results file to abbreviated XML for
+  data export (information similar to Sitewide Report)

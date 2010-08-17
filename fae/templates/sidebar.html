@@ -41,6 +41,15 @@
 </div>
 {% endif %} {# display_sections #}
 
+{% if user.is_authenticated %}
+<div>
+<h2 class="hidden">Navigation: Download XML Link</h2>
+<ul>
+{% report_item xml %}
+</ul>
+</div>
+{% endif %}
+
 {% ifequal report.type 'sitewide' %}
 <div style="display:none" id="hideAll">
 <h2 class="hidden">Page Control: Hide All Lists</h2>

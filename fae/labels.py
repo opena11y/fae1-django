@@ -6,6 +6,7 @@ reports = {
     'page':            'Page Report',
     'menu':            'List of Pages',
     'urls':            'List of URLs',
+    'xml':             'Download XML',
     }
 
 sections = {

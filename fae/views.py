@@ -483,6 +483,14 @@ def report(request, rptid, type=None, section=None, pageid=None):
     # Store report parameters in session variable
     request.session['report'] = report_info
 
+    # If we're exporting data as XML, we do that here...
+    if report_info['type'] == 'xml':
+        export_filename = 'fae-' + rptid + '.xml'
+        content = get_report_content(report_info, '')
+        response = HttpResponse(content, mimetype='text/xml')
+        response['Content-Disposition'] = 'attachment; filename=%s' % export_filename
+        return response
+
     # Construct the document title
     title = labels['report'][report_info['type']]
     if report_info['type'] == 'page' and report_info['pgcount'] != '1':

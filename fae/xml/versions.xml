@@ -5,6 +5,13 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.0.5</title>
+    <date>2010-08-17</date>
+
+    <item>Added data export functionality via the &apos;Download XML&apos; link. The XML file that results from selecting this link contains most of the information displayed in the Sitewide Report, except that for each rule, while page counts are given for each evalution result, specific pages are listed only for evaluation results of Warn and Fail.</item>
+  </version>
+
+  <version>
     <title>Version 1.0.4</title>
     <date>2010-07-21</date>
 

@@ -88,16 +88,16 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
 
     dhtmlget switches used:
 
-    -P              # add prefix and postfix strings to filename
-    -p              # include page-requisites
-    -R              # replace escaped comment delimiters with non-escaped characters
-    -T              # remove text content from script tags
+    -p --page-requisities           # include image page-requisites for analysis
+    -t --type-postfixes             # add type postfixes to filename for analysis engine
+    -c --replace-comment-entities   # replace comment entities with non-escaped characters
+    -e --empty-script-tags          # remove text content from script tags
 
-    -l <depth>      # where depth is 0, 1 or 2; default is 0
-    -C              # enable link following to all subdomains of url
-    -Q <number>     # where number is in MBs; default is 10
+    -d <number> --depth=<number>    # where number is 0, 1 or 2; default is 0
+    -s --span-subdomains            # enable link following to all subdomains of url
 
-    -N <directory>  # required
+    -Q <number> --quota=<number>    # where number is in MBs; currently using default (10 MB)
+    -N <dir> --directory-name=<dir> # REQUIRED
 
     """
     site_dir = os.path.join(settings.SITES_DIR, uid)
@@ -109,12 +109,12 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
     dhtmlget = []
     if not is_logged_in: dhtmlget.append('nice')
     dhtmlget.append(settings.DHTMLGET)
-    dhtmlget.extend(['-P', '-p', '-R', '-T'])
+    dhtmlget.extend(['-p', '-t', '-c', '-e'])
 
     if depth == '1' or depth == '2':
-        dhtmlget.extend(['-l', depth])
+        dhtmlget.extend(['-d', depth])
         if span == '1':
-            dhtmlget.append('-C')
+            dhtmlget.append('-s')
 
     dhtmlget.extend(['-N', site_dir])
     dhtmlget.append(url)

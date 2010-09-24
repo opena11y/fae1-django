@@ -1,0 +1,21 @@
+#! /bin/bash
+
+export DJANGO_SETTINGS_MODULE=project.settings
+
+# Note: For the following if statement to work, you
+# must invoke this script with its full pathname.
+
+if [ `echo $0 | grep ^/services/faedev/lib` ]; then
+    export PYTHONPATH=/services/faedev/lib
+elif [ `echo $0 | grep ^/services/faetest/lib` ]; then
+    export PYTHONPATH=/services/faetest/lib
+elif [ `echo $0 | grep ^/services/faedata/lib` ]; then
+    export PYTHONPATH=/services/faedata/lib
+else
+    echo "ERROR: Unable to set PYTHONPATH to a known value."
+    exit 1
+fi
+
+/usr/bin/python $PYTHONPATH/project/fae/scripts/collect_stats.py
+/usr/bin/python $PYTHONPATH/project/fae/scripts/purge_reports.py
+/usr/bin/django-admin cleanup

@@ -1,0 +1,30 @@
+#! /bin/bash
+
+# This script deletes directory trees under 'sites'
+# with modification dates of at least 30 days past.
+# If no argument is specified, 90 days is assumed.
+
+# Note: For the following if statement to work, you
+# must invoke this script with its full pathname.
+
+if [ `echo $0 | grep ^/services/faedev` ]; then
+    INSTALL_PATH=/services/faedev
+elif [ `echo $0 | grep ^/services/faetest` ]; then
+    INSTALL_PATH=/services/faetest
+elif [ `echo $0 | grep ^/services/faedata` ]; then
+    INSTALL_PATH=/services/faedata
+else
+    echo "ERROR: Unable to set INSTALL_PATH to a known value."
+    exit 1
+fi
+
+if [ -z $1 ]; then
+    DAYS=90
+elif [ $1 -lt 30 ]; then
+		echo "WARNING: Using minimum value of 30 for DAYS variable."
+    DAYS=30
+else 
+    DAYS=$1
+fi
+
+find ${INSTALL_PATH}/sites -maxdepth 1 -mindepth 1 -type d -mtime +$DAYS -exec /bin/rm -r '{}' \;

@@ -1,0 +1,22 @@
+settings.py
+* updated VERSION from 1.0.5 to 1.1.b1
+
+fae/scripts/list_email_addresses.py
+* new script to print email addresses of all active user accounts
+
+fae/templates/dhtml_note.html
+* warning snippet re. longer evaluation times with "Include DHTML content"
+  option (links to new content in About FAE: Running the Evaluator)
+
+fae/templates/index_user.html
+* added include tag for DHTML warning
+
+fae/templates/index_multi.html
+* added include tag for DHTML warning
+
+fae/templates/about/overview.html
+* added new content in Running the Evaluator explaining in detail the
+  "Include DHTML content" option
+
+fae/xml/versions.xml
+* added entry for version 1.1.b1

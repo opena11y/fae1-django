@@ -6,6 +6,7 @@
 
 <p>The iCITA HTML Best Practices are not a new standard, but rather a statement of techniques for implementation of the W3C <a class="external" href="{% href_lookup wcag %}">Web Content Accessibility Guidelines (WCAG)</a>, the United States Federal Government <a class="external" href="{% href_lookup section_508 %}">Electronic and Information Technology Accessibility Standards (Section 508)</a> and the <a class="external" href="{% href_lookup iitaa_home %}">Illinois Information Technology Accessibility Act (IITAA)</a>. Following the best practices in developing web resources not only improves accessibility for people with disabilities, but also improves interoperability, giving everyone the benefit of having more options for accessing and using those resources.</p>
 
+<a id="running_the_evaluator"></a>
 <h2>Running the Evaluator</h2>
 
 <p>The &ldquo;Run FAE&rdquo; page provides a form for specifying the following analysis parameters:</p>
@@ -29,9 +30,9 @@
 
 {% if enable_dhtmlget %}
 <dt>Include DHTML content</dt>
-<dd>When this option is selected, FAE uses an iCITA-developed facility named DHTMLget to download web resources. As it downloads each HTML page, DHTMLget first runs its JavaScript interpreter and invokes all &ldquo;onLoad&rdquo; handlers and inline scripting, which may add dynamic HTML (DHTML) content to the page. It then saves the resulting Document Object Model (DOM) for evaluation by FAE.</dd>
-<dd>When this option is not selected, FAE uses a modified version of the GNU wget utility, which does not include a JavaScript interpreter.</dd>
-<dd>Please note that selecting this option can result in slightly or, in some cases, significantly longer download times.</dd>
+<dd>When this option is selected, FAE uses an iCITA-developed utility named DHTMLGET to download web resources. As it downloads each HTML page, DHTMLGET invokes any JavaScript &ldquo;onload&rdquo; event handlers and inline scripting it finds, using its built-in JavaScript interpreter, which adds corresponding dynamic HTML (DHTML) content to the page. DHTMLGET then saves the resulting Document Object Model (DOM) for evaluation by FAE.</dd>
+<dd>Please note that selecting this option may result in slightly or, in some cases, significantly longer evaluation times, especially when &ldquo;Depth of Evaluation&rdquo; includes second- and third-level pages. However, to the extent that pages include significant amounts of DHTML content, the coverage and accuracy of the evaluation is improved.</dd>
+<dd>When this option is not selected, FAE uses a modified version of the GNU wget utility, which does not include a JavaScript interpreter. (The wget utility has been used in all versions of FAE prior to 1.1.) When wget is used, FAE analyzes exactly what the server sends as its HTTP response. This means that &ldquo;onload&rdquo; and inline DHTML content, if present on a page, is not included in the evaluation.</dd>
 {% endif %}
 </dl>
 

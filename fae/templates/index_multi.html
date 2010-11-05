@@ -39,6 +39,7 @@ function initDoc() {
 
 {% if enable_dhtmlget %}
 <div class="radio-btns">
+{% include "dhtml_note.html" %}
 {% if form.dhtml.errors %}{{ form.dhtml.errors }}{% endif %}
 {{ form.dhtml }} {{ form.dhtml.label_tag }}
 </div>

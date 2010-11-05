@@ -16,7 +16,7 @@ if   PROJECT_DIR == '/services/faedev/lib/project':
 elif PROJECT_DIR == '/services/faetest/lib/project':
     PLATFORM = STAGING
     FAE_PATH = '/services/faetest'
-    ALLOW_REGISTRATION = False
+    ALLOW_REGISTRATION = True
 elif PROJECT_DIR == '/services/faedata/lib/project':
     PLATFORM = PRODUCTION
     FAE_PATH = '/services/faedata'

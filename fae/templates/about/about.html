@@ -6,7 +6,7 @@
 <script type="text/javascript" src="/media/js/external.js"></script>
 {% endblock %}
 
-{% block bodytag %}<body onload="addHandlers()">{% endblock %}
+{% block bodytag %}<body onload="addHandlers(); decode('contact')">{% endblock %}
 
 {% block content %}
 <h1>{{ title }}</h1>

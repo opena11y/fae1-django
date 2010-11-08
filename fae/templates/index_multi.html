@@ -10,7 +10,7 @@ function initDoc() {
 </script>
 {% endblock %}
 
-{% block bodytag %}<body onload="initDoc()" onunload="enable('submit')">{% endblock %}
+{% block bodytag %}<body onload="initDoc(); decode('contact')" onunload="enable('submit')">{% endblock %}
 
 {% block content %}
 <h1>{{ title }}</h1>

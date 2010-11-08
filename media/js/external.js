@@ -7,10 +7,10 @@ function addHandlers() {
   var myArray = $$('a.external');
   for (var i = 0; i < myArray.length; ++i) {
     var item = myArray[i];
-    item.onclick = function(event) { return launchWindow(this, event); }
+    item.onclick = function(event) { return launchWindow(this, event); };
     // UAAG requires that user agents handle events in a device-independent manner
     // but only some browsers do this, so add keyboard event to be sure
-    item.onkeypress = function(event) { return launchWindow(this, event); }
+    item.onkeypress = function(event) { return launchWindow(this, event); };
   }
 }
 /*
@@ -48,6 +48,6 @@ function launchWindow(objAnchor, objEvent) {
   if (!bSuccess) { return true; }
 
   // The window was opened, so stop the browser processing further.
-  bSuccess.focus()
+  bSuccess.focus();
   return false;
 }

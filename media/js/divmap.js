@@ -56,13 +56,13 @@ function PageReportEval(divId) {
   this.div.setAttribute('tabindex', 0);
 
   if (document.addEventListener) {
-    div.addEventListener('keydown', function(e) { divKeyDownHandler(e, obj) }, true);
-    link.addEventListener('click', function(e) { linkClickHandler(e, obj) }, true);
+    div.addEventListener('keydown', function(e) { divKeyDownHandler(e, obj); }, true);
+    link.addEventListener('click', function(e) { linkClickHandler(e, obj); }, true);
   }
   else if (document.attachEvent) {
-    var wrappedHandler1 = function(e) { if (!e) e = window.event; divKeyDownHandler.call(div, e, obj) }
+    var wrappedHandler1 = function(e) { if (!e) e = window.event; divKeyDownHandler.call(div, e, obj); };
     div.attachEvent('onkeydown', wrappedHandler1);
-    var wrappedHandler2 = function(e) { if (!e) e = window.event; linkClickHandler.call(link, e, obj) }
+    var wrappedHandler2 = function(e) { if (!e) e = window.event; linkClickHandler.call(link, e, obj); };
     link.attachEvent('onclick', wrappedHandler2);
   }
 }

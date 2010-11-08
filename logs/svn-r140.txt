@@ -1,0 +1,31 @@
+settings.py
+* changed ACCT_TYPE_QUOTA dictionary values
+  from 5,10,20,50,100 to 5,20,100,200,500
+
+local_settings.py
+* added CONTACT_EMAIL variable
+
+fae/context_processors.py
+* added contact_email to app context
+
+fae/templates/base.html
+* added decode fn. for email address obfuscation
+* obfuscated Contact Us email address
+
+fae/templates/index_guest.html
+fae/templates/index_multi.html
+fae/templates/index_user.html
+fae/templates/report.html
+fae/templates/site_report.html
+fae/templates/about/about.html
+* added decode('contact') to list of onload handlers
+
+media/js/divmap.js
+media/js/external.js
+* added missing semicolons
+
+doc/templates.txt
+* new file to describe and track template dependencies
+
+logs/svn-r140.txt
+* this file

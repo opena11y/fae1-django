@@ -52,10 +52,10 @@ STATS_DAYS_OFFSET = 2 # minimum of 2 days
 DEFAULT_QUOTA = 5
 ACCT_TYPE_QUOTA = {
     1 : DEFAULT_QUOTA,
-    2 : 10,
-    3 : 20,
-    4 : 50,
-    5 : 100
+    2 : 20,
+    3 : 100,
+    4 : 200,
+    5 : 500
     }
 
 DEFAULT_BUFFER = 5

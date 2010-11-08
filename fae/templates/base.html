@@ -35,10 +35,38 @@ function disable(id) {
   var widget = getElement(id);
   widget.disabled = true;
 }
+function decode(id) {
+  var prefix = "Email: ";
+  var linkText = "Contact Us";
+
+  // get the encoded element if it exists
+  var srcNode = getElement(id);
+  if (!srcNode) { return; }
+
+  // decode the address
+  var address = srcNode.firstChild.nodeValue;
+  address = address.replace(prefix, "");
+  address = address.replace(/ at /, "@");
+  address = address.replace(/ dot /g, ".");
+
+  // construct the decoded link element
+  var tgtNode = document.createElement("a");
+
+  var hrefAttr = document.createAttribute("href");
+  hrefAttr.value = "mailto:" + address;
+  tgtNode.setAttributeNode(hrefAttr);
+
+  var textNode = document.createTextNode(linkText);
+  tgtNode.appendChild(textNode);
+
+  // get parent node of encoded element
+  var prnt = srcNode.parentNode;
+  prnt.replaceChild(tgtNode, srcNode);
+}
 </script>
 {% endblock %}
 </head>
-{% block bodytag %}<body>{% endblock %}
+{% block bodytag %}<body onload="decode('contact')">{% endblock %}
 <!-- header -->
 <div id="header">
 <div class="left"><a href="/"><img src="/media/images/fae_logo.gif" alt="fae"/></a></div>
@@ -69,7 +97,7 @@ function disable(id) {
 <div id="footer">
 <hr />
 Copyright &copy; 2005&ndash;{% now "Y" %}, University of Illinois.  All rights reserved.
-<span class="separator">|</span><a href="mailto:fae@cita.illinois.edu">Contact Us</a>
+<span class="separator">|</span><span id="contact">Email: {{ contact_email }}</span>
 <span class="separator">|</span><a href="http://www.vpaa.uillinois.edu/policies/web_privacy.asp?bch=1">Privacy Policy</a>
 <span class="separator">|</span><a href="/about/disclaimer/">Disclaimer</a>
 {% if test_install %}

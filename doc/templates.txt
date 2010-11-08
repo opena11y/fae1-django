@@ -1,0 +1,33 @@
+Django templates and their dependencies
+---------------------------------------
+* The base template is base.html
+
+* All second-level templates extend the base template, using the following
+  command:
+
+  {% extends "base.html" %}
+
+* base.html has the following bodytag:
+
+  {% block bodytag %}<body onload="decode('contact')">{% endblock %}
+
+  Therefore, all templates that extend base.html and override bodytag must
+  call decode('contact')
+
+* The second-level templates and their onload handlers
+
+404.html            (inherits from base.html)
+500.html            (inherits from base.html)
+message.html        (inherits from base.html)
+
+archive.html        (inherits from base.html)
+manage.html         (inherits from base.html)
+my_account.html     (inherits from base.html)
+
+index_guest.html    <body onload="initDoc(); decode('contact')" onunload="enable('submit')">
+index_multi.html    <body onload="initDoc(); decode('contact')" onunload="enable('submit')">
+index_user.html     <body onload="initDoc(); decode('contact')" onunload="enable('submit')">
+
+about/about.html    <body onload="addHandlers(); decode('contact')">
+report.html         <body onload="addHandlers(); decode('contact')">
+site_report.html    <body onload="initDoc(); addHandlers(); decode('contact')">

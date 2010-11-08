@@ -12,14 +12,17 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 if   PROJECT_DIR == '/services/faedev/lib/project':
     PLATFORM = DEVELOPMENT
     FAE_PATH = '/services/faedev'
+    CONTACT_EMAIL = 'fae at cita dot illinois dot edu'
     ALLOW_REGISTRATION = False
 elif PROJECT_DIR == '/services/faetest/lib/project':
     PLATFORM = STAGING
     FAE_PATH = '/services/faetest'
+    CONTACT_EMAIL = 'fae dot test at penguinmail dot com'
     ALLOW_REGISTRATION = True
 elif PROJECT_DIR == '/services/faedata/lib/project':
     PLATFORM = PRODUCTION
     FAE_PATH = '/services/faedata'
+    CONTACT_EMAIL = 'fae at cita dot illinois dot edu'
     ALLOW_REGISTRATION = True
 
 DB_NAME =        ('faedev',      'faetest',     'faedata')

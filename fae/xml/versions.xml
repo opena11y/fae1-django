@@ -6,10 +6,13 @@
 
   <version>
     <title>Version 1.1.b1</title>
-    <date>2010-11-05</date>
+    <date>2010-11-15</date>
 
     <item>Integrated the new iCITA-developed utility named DHTMLGET into FAE. When the &quot;Include DHTML content&quot; option is selected in the Run FAE form, DHTMLGET is used to download HTML pages such that any dynamic HTML (DHTML) content resulting from JavaScript &quot;onload&quot; event handlers and inline scripting is included.</item>
     <item>Updated the FAE user interface to indicate that the &quot;Include DHTML content&quot; option was selected for a particular evaluation. Each report header for such an evaluation indicates &quot;DHTML: Y&quot;, and the Archived Reports and Manage Reports tables indicate this with a &apos;Y&apos; in the &quot;DHTML&quot; column.</item>
+    <item>Updated FAE to Ruleset 1011-1: Changed the Navigation &amp; Orientation/Data Tables rule regarding the use of th elements.</item>
+    <item>Old rule: For each data table, the first cell in each column must be a th element, and each row must contain at least one th element.</item>
+    <item>New rule: Each data table must include column and/or row headers: The first cell in each column must be a th element, and/or each row must contain at least one th element.</item>
   </version>
 
   <version>

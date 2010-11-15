@@ -11,7 +11,7 @@ RESOURCES_DEBUG = False
 RESULTS_FILE_DEBUG = False
 WGET_DEBUG = False
 
-RULESET = '1004-1' # should match wamttest version
+RULESET = '1011-1' # should match wamttest version
 
 try:
     from local_settings import *

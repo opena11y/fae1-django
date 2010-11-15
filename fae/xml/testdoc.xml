@@ -170,21 +170,6 @@
     </category>
 
     <!-- ================================================ -->
-    <category id="language">
-      <name>Default Language</name>
-
-      <best-practice ref="nav001" new="1.0.b4">
-        <name>html@lang attribute</name>
-        <rule>Each page must have a <attr>lang</attr> attribute on its <elem>html</elem> element whose value or initial subtag is a valid two-character language code.</rule>
-        <info>Valid two-character language codes are defined in the IANA Language Subtag Registry. If the <attr>lang</attr> attribute value is hyphenated, then the substring preceding the first hyphen is tested for validity.</info>
-        <page id="nav001p"/>
-        <site id="nav001s"/>
-      </best-practice>
-
-      <link tgt="bp" href="nav/lang/"/>
-    </category>
-
-    <!-- ================================================ -->
     <category id="data-tables">
       <name>Data Tables</name>
 
@@ -202,7 +187,7 @@
 
       <best-practice ref="nav061" new="1.0.b7">
         <name>data table must use th in first cell of all columns and each row must also contain at least one th</name>
-        <rule>For each data table, the first cell in each column must be a <elem>th</elem> element, and each row must contain at least one <elem>th</elem> element.</rule>
+        <rule>Each data table must include column and/or row headers: The first cell in each column must be a <elem>th</elem> element, and/or each row must contain at least one <elem>th</elem> element.</rule>
         <page id="nav061p"/>
       </best-practice>
 
@@ -233,6 +218,21 @@
       </best-practice>
 
       <link tgt="bp" href="nav/dtable/"/>
+    </category>
+
+    <!-- ================================================ -->
+    <category id="language">
+      <name>Default Language</name>
+
+      <best-practice ref="nav001" new="1.0.b4">
+        <name>html@lang attribute</name>
+        <rule>Each page must have a <attr>lang</attr> attribute on its <elem>html</elem> element whose value or initial subtag is a valid two-character language code.</rule>
+        <info>Valid two-character language codes are defined in the IANA Language Subtag Registry. If the <attr>lang</attr> attribute value is hyphenated, then the substring preceding the first hyphen is tested for validity.</info>
+        <page id="nav001p"/>
+        <site id="nav001s"/>
+      </best-practice>
+
+      <link tgt="bp" href="nav/lang/"/>
     </category>
 
     <!-- ================================================ -->

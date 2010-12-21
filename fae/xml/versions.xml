@@ -5,6 +5,14 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.1.b2</title>
+    <date>2010-12-21</date>
+
+    <item>Updated DHTMLGET to version 1.4 with new algorithm for conversion of character entities.</item>
+    <note>Updated UserAdmin class to include date_joined and last_login fields.</note>
+  </version>
+
+  <version>
     <title>Version 1.1.b1</title>
     <date>2010-11-15</date>
 

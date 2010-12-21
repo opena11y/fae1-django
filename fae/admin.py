@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from project.fae import models
 
 admin.site.register(models.Organization)
@@ -26,3 +27,12 @@ class UsageStatsAdmin(admin.ModelAdmin):
     list_filter = ('date',)
 
 admin.site.register(models.UsageStats, UsageStatsAdmin)
+
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'first_name', 'last_name', 'date_joined', 'last_login', 'is_staff')
+    ordering = ('username',)
+    list_filter = ('is_active', 'is_staff', 'is_superuser')
+    search_fields = ('username', 'email', 'last_name', 'first_name')
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)

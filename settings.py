@@ -18,7 +18,7 @@ try:
 except:
     pass
 
-VERSION = '1.1.b2' + VERSION_SUFFIX[PLATFORM]
+VERSION = '1.1' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 

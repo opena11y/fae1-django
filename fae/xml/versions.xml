@@ -5,10 +5,18 @@
   <title>Version History</title>
 
   <version>
+    <title>Version 1.1</title>
+    <date>2011-01-19</date>
+
+    <item>Integrated the new iCITA-developed utility named DHTMLGET into FAE. When the &quot;Include DHTML content&quot; option is selected in the Run FAE form, DHTMLGET is used to download HTML pages such that any dynamic HTML (DHTML) content resulting from JavaScript &quot;onload&quot; event handlers and inline scripting is included in the evaluation.</item>
+    <item>Note: The change to the data table rule regarding the use of th elements (see notes for 1.1.b1) means that reports run with prior versions of FAE (with ruleset ID lower than 1011-1) may display an inaccurate result for this rule. Where the evaluation of data tables is of primary interest, it is advised that any such reports be rerun.</item>
+  </version>
+
+  <version>
     <title>Version 1.1.b2</title>
     <date>2010-12-21</date>
 
-    <item>Updated DHTMLGET to version 1.4 with new algorithm for conversion of character entities.</item>
+    <item>Updated DHTMLGET to version 1.4 with new algorithm for conversion of character entities (in testing version only).</item>
     <note>Updated UserAdmin class to include date_joined and last_login fields.</note>
   </version>
 
@@ -16,7 +24,7 @@
     <title>Version 1.1.b1</title>
     <date>2010-11-15</date>
 
-    <item>Integrated the new iCITA-developed utility named DHTMLGET into FAE. When the &quot;Include DHTML content&quot; option is selected in the Run FAE form, DHTMLGET is used to download HTML pages such that any dynamic HTML (DHTML) content resulting from JavaScript &quot;onload&quot; event handlers and inline scripting is included.</item>
+    <item>Includes DHTMLGET and the option to &quot;Include DHTML content&quot; (in testing version only).</item>
     <item>Updated the FAE user interface to indicate that the &quot;Include DHTML content&quot; option was selected for a particular evaluation. Each report header for such an evaluation indicates &quot;DHTML: Y&quot;, and the Archived Reports and Manage Reports tables indicate this with a &apos;Y&apos; in the &quot;DHTML&quot; column.</item>
     <item>Updated FAE to Ruleset 1011-1: Changed the Navigation &amp; Orientation/Data Tables rule regarding the use of th elements.</item>
     <item>Old rule: For each data table, the first cell in each column must be a th element, and each row must contain at least one th element.</item>

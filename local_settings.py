@@ -17,8 +17,8 @@ if   PROJECT_DIR == '/services/faedev/lib/project':
 elif PROJECT_DIR == '/services/faetest/lib/project':
     PLATFORM = STAGING
     FAE_PATH = '/services/faetest'
-    CONTACT_EMAIL = 'faetest-1 dot 1 at penguinmail dot com'
-    ALLOW_REGISTRATION = True
+    CONTACT_EMAIL = 'fae at cita dot illinois dot edu'
+    ALLOW_REGISTRATION = False
 elif PROJECT_DIR == '/services/faedata/lib/project':
     PLATFORM = PRODUCTION
     FAE_PATH = '/services/faedata'

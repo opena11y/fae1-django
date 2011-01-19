@@ -1,0 +1,15 @@
+Installing a new version of FAE 1.x
+
+* stop Apache
+
+* delete /services/faexxx/lib/project directory and its contents
+
+* use getproject alias to export current fae-django revision
+
+* use getwamt alias to copy the current faetest version of wamt
+
+* create subdirectory logs/dhtmlget with proper permissions
+
+* run the script: project/fae/scripts/copy_files
+
+* start Apache

@@ -22,9 +22,16 @@ VERSION = '1.1' + VERSION_SUFFIX[PLATFORM]
 INSTALLATION = FAE_INSTALL[PLATFORM]
 PUBLIC_URL = 'http://fae.cita.illinois.edu/'
 
+# TEST_INSTALL: acts as a boolean used to differentiate the
+# non-production installations (faedev and faetest) from the
+# production (faedata) installation. It is also used in
+# fae/context_processors.py to initialize the test_install
+# global context variable; its value should not be changed.
 TEST_INSTALL = PLATFORM != PRODUCTION
+
 ENABLE_DHTMLGET = True
-LOGGING = TEST_INSTALL
+# LOGGING = TEST_INSTALL
+LOGGING = True
 
 XML_PATH  = os.path.join(PROJECT_DIR, 'fae/xml')
 XSLT_PATH = os.path.join(PROJECT_DIR, 'fae/xslt')

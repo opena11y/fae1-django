@@ -37,6 +37,20 @@ Application-specific libraries
 
 3. Copy wget executable from src subdirectory to bin.
 
+* dhtmlget
+
+1. Get the dhtmlget tar file from Google Code repository
+
+2. Expand the tar file in the bin directory
+
+3. Edit the dhtmlget.sh file in the dhtmlget-x.x directory
+
+4. Create a symbolic link named dhtmlget.sh in the bin directory that links
+   to the actual version-specific dhtmlget.sh
+
+5. Make sure there is a dhtmlget subdirectory with proper permissions
+   in the logs directory.
+
 ---------
 Pathnames
 ---------
@@ -55,7 +69,8 @@ will also be installed in /services/<app-id>/lib/
 The entire structure for FAE will look like the following (using the
 staging installation (faetest) as an example):
 
-/services/faetest/bin       binaries such as wamt and wget
+/services/faetest/bin       binaries such as wamt, wget; subdirectory containing
+                            current version of dhtmlget; ln -s to dhtmlget.sh
 
 /services/faetest/html      document root for apache (static media files)
 

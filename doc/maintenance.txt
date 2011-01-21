@@ -1,7 +1,7 @@
 1. To delete inactive accounts (where users registered but did not
    confirm their registration AND are inactive) use this command:
 
-   $ python manage.py cleanupregistration
+   $ python manage.py cleanupregistration # NOTE: This is no longer supported!
 
 2. To cleanup expired sessions in the session table:
 
@@ -11,14 +11,16 @@
    depending on installation) for automating the collection of usage
    statistics and purging of reports:
 
-   PYTHONPATH=/services/faedata/lib
-   DJANGO_SETTINGS_MODULE=project.settings
-   10 3 * * * /usr/bin/python $PYTHONPATH/project/fae/scripts/collect_stats.py
-   20 3 * * * /usr/bin/python $PYTHONPATH/project/fae/scripts/purge_reports.py
+   SHELL=/bin/bash
+   MAILTO="nhoyt"
+   10 3 * * * /services/fae[dev|test|data]/lib/project/fae/scripts/fae_nightly_maintenance
 
    crontab commands:
-   $ crontab -l  # list
-   $ crontab -e  # edit
+   $ sudo crontab -u www-data -l  # list
+   $ sudo crontab -u www-data -e  # edit
+
+   ubuntu mail command:
+   $ mutt
 
 4. When the OS is upgraded, the following steps are needed:
 
@@ -37,3 +39,19 @@
      is owned by the apache user account.
 
    * Restart apache.
+
+5. Installing a new version of FAE 1.x
+
+   * stop Apache
+
+   * delete /services/faexxx/lib/project directory and its contents
+
+   * use getproject alias to export current fae-django revision
+
+   * use getwamt alias to copy the current faetest version of wamt
+
+   * create subdirectory logs/dhtmlget with proper permissions
+
+   * run the script: project/fae/scripts/copy_files
+
+   * start Apache

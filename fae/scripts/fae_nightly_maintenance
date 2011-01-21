@@ -16,6 +16,12 @@ else
     exit 1
 fi
 
+# get usage statistics and purge old and/or unarchived reports
 /usr/bin/python $PYTHONPATH/project/fae/scripts/collect_stats.py
 /usr/bin/python $PYTHONPATH/project/fae/scripts/purge_reports.py
+
+# remove sites subdirectories and their contents older than 30 days
+$PYTHONPATH/project/fae/scripts/cleanup_sites 30
+
+# clean out old data (currently expired sessions only) from the database
 /usr/bin/django-admin cleanup

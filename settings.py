@@ -47,11 +47,13 @@ WGET = os.path.join(FAE_PATH, 'bin/wget')
 WAMT = os.path.join(FAE_PATH, 'bin/wamt')
 XSLTPROC = '/usr/bin/xsltproc'
 
-logging.basicConfig(
-    level    = logging.DEBUG,
-    format   = '%(asctime)s %(levelname)s %(message)s',
-    filename = os.path.join(DOC_ROOT, 'logs', 'timing.log')
-)
+DATE_FMT = '%a %d %b %Y %H:%M:%S'
+
+MAINTENANCE_LOG = os.path.join(LOGS_DIR, 'maintenance.log')
+MAINTENANCE_FMT = logging.Formatter('%(asctime)s %(name)s %(levelname)-8s %(message)s', DATE_FMT)
+
+TIMING_LOG =  os.path.join(DOC_ROOT, 'logs', 'timing.log')
+TIMING_FMT = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
 MAX_AGE = 24*60*60*14 # 14 days for cookies
 STATS_DAYS_OFFSET = 2 # minimum of 2 days
@@ -60,7 +62,7 @@ DEFAULT_QUOTA = 5
 ACCT_TYPE_QUOTA = {
     1 : DEFAULT_QUOTA,
     2 : 20,
-    3 : 100,
+    3 : 50,
     4 : 200,
     5 : 500
     }
@@ -70,8 +72,8 @@ ACCT_TYPE_BUFFER = {
     1 : DEFAULT_BUFFER,
     2 : DEFAULT_BUFFER,
     3 : 10,
-    4 : 10,
-    5 : 20
+    4 : 20,
+    5 : 50
     }
 
 AUDIO_VIDEO_TYPES = u'.aac,.ac3,.avi,.mov,.mp2,.mp3,.mpeg,.mpg,.qt,.wav,.wma'

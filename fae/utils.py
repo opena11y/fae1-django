@@ -1,5 +1,25 @@
-from django.http import HttpResponse
+import logging
 import platform
+from django.conf import settings
+from django.http import HttpResponse
+
+def init_logger(name):
+    global logger
+
+    # create logger
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
+
+    # create file handler
+    fh = logging.FileHandler(settings.TIMING_LOG)
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(settings.TIMING_FMT)
+
+    # add fh to logger
+    logger.addHandler(fh)
+
+def get_logger():
+    return logger
 
 def sysinfo(request):
     version = platform.python_version()

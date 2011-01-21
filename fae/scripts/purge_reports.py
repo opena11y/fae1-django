@@ -23,13 +23,13 @@ field is not set (3) the report is not one of the latest N reports, where
 N is the setting for user account type buffer.
 """
 import datetime
-import logging
-import os
 from django.core.exceptions import ObjectDoesNotExist
 
 from project.settings import ACCT_TYPE_BUFFER, DEFAULT_BUFFER
 from project.fae.models import User, UserReport, GuestReport, UsageStats
 from project.fae.scripts import utils
+
+logger = utils.get_logger('PURGE_REPORTS')
 
 #------------------------------------------------
 def purge_user_reports(cutoff_time):
@@ -49,7 +49,7 @@ def purge_user_reports(cutoff_time):
                 report.delete()
                 user_count += 1
         if user_count:
-            logging.info("Deleted %2d UserReports created by %s", user_count, user.username)
+            logger.info("Deleted %2d UserReports created by %s", user_count, user.username)
             count += user_count
     return count
 
@@ -65,23 +65,22 @@ def purge_guest_reports(cutoff_time):
 
 #------------------------------------------------
 def main():
-    utils.init_logging('purge_reports.log')
     end_date = utils.get_latest_date(UsageStats, 'date')
     cutoff_time = end_date + datetime.timedelta(days=1)
 
     ### GuestReports ###
-    logging.info('----------------------------------------------------')
-    logging.info("Purging GuestReports created on or before %s", end_date)
+    logger.info('----------------------------------------------------')
+    logger.info("Purging GuestReports created on or before %s", end_date)
 
     count = purge_guest_reports(cutoff_time)
-    logging.info("Purged %d GuestReports total", count)
+    logger.info("Purged %d GuestReports total", count)
 
     ### UserReports ###
-    logging.info('---------------------------------------------------')
-    logging.info("Purging UserReports created on or before %s", end_date)
+    logger.info('---------------------------------------------------')
+    logger.info("Purging UserReports created on or before %s", end_date)
 
     count = purge_user_reports(cutoff_time)
-    logging.info("Purged %d UserReports total", count)
+    logger.info("Purged %d UserReports total", count)
 
 if __name__ == "__main__":
     main()

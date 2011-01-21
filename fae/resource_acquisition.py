@@ -1,6 +1,5 @@
 import os
 import subprocess
-import logging
 
 from urlparse import urlparse
 
@@ -11,6 +10,9 @@ if settings.RESOURCES_DEBUG:
     call = subprocess.check_call
 else:
     call = subprocess.call
+
+from utils import get_logger
+logger = get_logger()
 
 #----------------------------------------------------------------
 def get_next_level_domain(url):
@@ -49,7 +51,7 @@ def call_wget(params, is_logged_in, uid, test=False):
     """
     site_dir = os.path.join(settings.SITES_DIR, uid)
     url = params['url']
-    depth = params.get('depth', '')
+    depth = params.get('depth', '0')
     span = params.get('span', '')
 
     # construct command
@@ -74,7 +76,8 @@ def call_wget(params, is_logged_in, uid, test=False):
         kwargs = {}
 
     if settings.LOGGING:
-        logging.debug("Calling WGET for %s: %s", params['username'], ' '.join(wget))
+        logger.info('----------------------------------------------------------')
+        logger.info("Calling WGET ... %s %s d=%s %s", uid, params['username'], depth, url)
 
     if test: return ' '.join(wget)
     return call(wget, **kwargs)
@@ -102,7 +105,7 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
     """
     site_dir = os.path.join(settings.SITES_DIR, uid)
     url = params['url']
-    depth = params.get('depth', '')
+    depth = params.get('depth', '0')
     span = params.get('span', '')
 
     # construct command
@@ -120,7 +123,8 @@ def call_dhtmlget(params, is_logged_in, uid, test=False):
     dhtmlget.append(url)
 
     if settings.LOGGING:
-        logging.debug("Calling DHTMLGET for %s: %s", params['username'], ' '.join(dhtmlget))
+        logger.info('----------------------------------------------------------')
+        logger.info("Calling DHTMLGET %s %s d=%s %s", uid, params['username'], depth, url)
 
     if test: return ' '.join(dhtmlget)
     return call(dhtmlget)

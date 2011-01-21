@@ -15,3 +15,6 @@ def delete_report_notification(sender, **kwargs):
 
 signals.pre_delete.connect(delete_report_notification, sender=UserReport)
 signals.pre_delete.connect(delete_report_notification, sender=GuestReport)
+
+import utils
+utils.init_logger('TIMING')

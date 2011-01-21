@@ -2,21 +2,28 @@ import datetime
 import logging
 import os
 
-from project.settings import LOGS_DIR
+from project.settings import MAINTENANCE_LOG, MAINTENANCE_FMT
 
 #------------------------------------------------
-def init_logging(filename):
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s %(levelname)-8s %(message)s',
-        datefmt='%a %d %b %Y %H:%M:%S',
-        filename=os.path.join(LOGS_DIR, filename),
-        filemode='a')
+def get_logger(name):
+    # create logger
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
 
-    console = logging.StreamHandler()
-    formatter = logging.Formatter('%(levelname)-8s %(message)s')
-    console.setFormatter(formatter)
-    logging.getLogger('').addHandler(console)
+    # create file handler
+    fh = logging.FileHandler(MAINTENANCE_LOG)
+    fh.setLevel(logging.INFO)
+    fh.setFormatter(MAINTENANCE_FMT)
+
+    # create console handler
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(MAINTENANCE_FMT)
+
+    #add handlers to logger
+    logger.addHandler(fh)
+    logger.addHandler(ch)
+    return logger
 
 #------------------------------------------------
 def get_latest_date(model, fieldname):

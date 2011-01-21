@@ -1,6 +1,5 @@
 import os
 import subprocess
-import logging
 
 from datetime import datetime
 from urllib import unquote
@@ -23,6 +22,9 @@ class XMLValidationError(Exception):
     def __str__(self):
         return repr(self.value)
 
+from utils import get_logger
+logger = get_logger()
+
 #----------------------------------------------------------------
 def evaluate(params, is_logged_in, timestamp):
     uid = generate()
@@ -38,14 +40,14 @@ def evaluate(params, is_logged_in, timestamp):
     end_time = datetime.now()
 
     if settings.LOGGING:
-        logging.debug("Elapsed time for %s download: %s", uid, end_time - start_time)
+        logger.info("Elapsed time for %s download: %s", uid, end_time - start_time)
 
     start_time = datetime.now()
     pgcount = analyze_resources(params, is_logged_in, uid, timestamp)
     end_time = datetime.now()
 
     if settings.LOGGING:
-        logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
+        logger.info("Elapsed time for %s analysis: %s", uid, end_time - start_time)
 
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
@@ -71,7 +73,7 @@ def multi_evaluate(params, is_logged_in, timestamp):
     end_time = datetime.now()
 
     if settings.LOGGING:
-        logging.debug("Elapsed time for %s downloads: %s", uid, end_time - start_time)
+        logger.info("Elapsed time for %s downloads: %s", uid, end_time - start_time)
 
     # Cleanup the params dictionary
     del params['url']
@@ -81,7 +83,7 @@ def multi_evaluate(params, is_logged_in, timestamp):
     end_time = datetime.now()
 
     if settings.LOGGING:
-        logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
+        logger.info("Elapsed time for %s analysis: %s", uid, end_time - start_time)
 
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)
@@ -97,7 +99,7 @@ def evaluate_dhtml(params, is_logged_in, timestamp):
     end_time = datetime.now()
 
     if settings.LOGGING:
-        logging.debug("Elapsed time for %s analysis: %s", uid, end_time - start_time)
+        logger.info("Elapsed time for %s analysis: %s", uid, end_time - start_time)
 
     if not settings.RESOURCES_DEBUG: remove_resources(uid)
     return (pgcount, uid)

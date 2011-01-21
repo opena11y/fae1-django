@@ -1,0 +1,4 @@
+export DJANGO_SETTINGS_MODULE=project.settings
+export PYTHONPATH=/services/faedev/lib
+export PYTHONPATH=/services/faetest/lib
+export PYTHONPATH=/services/faedata/lib

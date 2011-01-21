@@ -1,0 +1,35 @@
+settings.py
+* added log file names and formatters
+* removed call to logging.basicConfig
+* updated ACCT_TYPE_QUOTA and ACCT_TYPE_BUFFER values
+
+fae/__init__.py
+* added call to utils.init_logger()
+
+fae/utils.py
+* added fns. init_logger() and get_logger()
+
+fae/evaluate.py
+* added call to utils.get_logger()
+* replaced calls to logging fns. with calls to specific logger instance
+
+fae/resource_acquisition.py
+* added call to utils.get_logger()
+* replaced calls to logging fns. with calls to specific logger instance
+
+fae/scripts/utils.py
+* added new get_logger() fn.
+* removed init_logging() fn.
+
+fae/scripts/collect_stats.py
+* replaced call to init_logging() with instantiation of logger object
+  via call to utils.get_logger()
+* replaced calls to logging fns. with calls to specific logger instance
+
+fae/scripts/purge_reports.py
+* replaced call to init_logging() with instantiation of logger object
+  via call to utils.get_logger()
+* replaced calls to logging fns. with calls to specific logger instance
+
+fae/scripts/environment_variables
+* convenience listing of commonly used variables for running scripts
